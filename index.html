@@ -1,11 +1,121 @@
+
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <h1> This is a h1 test</h1>
-    
-  <p>This is just a test</p>
-  </body>
+<html>
+	<head>
+		<meta charset="UTF-8" content='wnameth=device-wnameth, initial-scale=1' name='viewport'></meta>
+		<link href='styleSudoku.css' rel='stylesheet'></link>
+		<title>Sudoku Resolver (beta)</title>
+	</head>
+	<body>
+		<div class='content'>
+			<div class="sudokuPosition">
+				<form method="post" action="test.php">
+					<p class='formulaire'>
+						<input name="sudoku1" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku2" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku3" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku4" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku5" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku6" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku7" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku8" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku9" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+						<input name="sudoku10" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku11" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku12" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku13" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku14" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku15" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku16" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku17" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku18" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+						<input name="sudoku19" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku20" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku21" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku22" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku23" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku24" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku25" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku26" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku27" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+					<br>
+						<input name="sudoku28" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku29" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku30" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku31" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku32" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku33" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku34" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku35" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku36" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+
+						<input name="sudoku37" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku38" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku39" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku40" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku41" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku42" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku43" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku44" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku45" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+						<input name="sudoku46" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku47" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku48" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku49" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku50" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku51" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku52" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku53" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku54" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+					<br>
+						<input name="sudoku55" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku56" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku57" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku58" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku59" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku60" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku61" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku62" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku63" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+						<input name="sudoku64" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku65" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku66" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku67" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku68" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku69" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku70" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku71" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku72" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+						<input name="sudoku73" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku74" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku75" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku76" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku77" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku78" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku79" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku80" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+						<input name="sudoku81" type="text" class="sudoku" pattern="[0-9]{1}" title="Veuillez saisir un seul chiffre"/>
+					<br>
+					<br>
+					<br>
+					<input name="bouton" id="bouton" type="submit" value="Resoudre"/>
+					</p>
+				</form>
+				</div>
+
+		</div>
+		<div class='footer'>
+			<div class='lien'>
+				<h4>Copyright © 2019 All right reserved</h4>
+			</div>
+		</div>
+    </body>
 </html>
