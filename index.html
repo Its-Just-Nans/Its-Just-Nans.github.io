@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <a href="http://isis.unice.fr/~wn906559/ext/"a><h1>My website</h1></a>
-  <p>This is just a test of github pages</p>
+    <svg id="image-fill"  xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="50%" x="400" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<defs>
+<pattern id="image-bg" x="0" y="0" height="400" width="400" patternUnits="userSpaceOnUse">
+<image width="400" height="400" xlink:href="https://picsum.photos/400/400?random=1"></image>
+</pattern>
+<pattern id="image-bg2" x="600" y="0" height="400" width="400" patternUnits="userSpaceOnUse">
+<image width="400" height="400" xlink:href="https://picsum.photos/400/400?random=2"></image>
+</pattern>
+<pattern id="image-bg3" x="300" y="100" height="400" width="400" patternUnits="userSpaceOnUse">
+<image width="400" height="400" xlink:href="https://picsum.photos/400/400?random=3"></image>
+</pattern>
+</defs>
+<a href="tolerie.php"><polygon class="hexa" stroke-width="1"  stroke="#000" stroke-width="1" points="300,320 100,320 0,160 100,0 300,0 400,160" fill="url('#image-bg')"></polygon></a>
+
+<polygon class="hexa" stroke-width="1"  stroke="#000" stroke-width="1" points="900,320 700,320 600,160 700,0 900,0 1000,160" fill="url('#image-bg2')"></polygon>
+
+<polygon class="hexa" stroke-width="1"  stroke="#000" stroke-width="1" points="600,480 400,480 300,320 400,160 600,160 700,320" fill="url('#image-bg3')">
+
+</svg>
   </body>
 </html>
