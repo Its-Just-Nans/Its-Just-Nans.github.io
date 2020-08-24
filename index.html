@@ -48,5 +48,23 @@
 
 	</p>Work in progress..................................................................................<p>
 	<address>Copyright © n4n5 / Its-Just-Nans - All rights reserved</address>
+	  <script>function change(){
+    console.log('changement');
+    let nombre = this.id.split('-')[1];
+    let parent = document.getElementById('lien-'+nombre);
+
+    let nouveau = document.createElementNS("http://www.w3.org/2000/svg", 'a');
+    nouveau.innerHTML = parent.innerHTML;
+    nouveau.href = parent.getAttribute('href');
+    nouveau.setAttribute('id', parent.id);
+    document.getElementById(parent.id).parentNode.removeChild(document.getElementById(parent.id));
+    this.removeEventListener('mouseenter', change, false);
+    document.getElementById('image-fill').appendChild(nouveau);
+    nouveau.children[0].addEventListener('mouseenter', change, false);
+}
+    let hexagon = document.getElementsByClassName('lienHexa');
+    for(let element of hexagon){
+        element.addEventListener('mouseenter', change, false);
+    }</script>
   </body>
 </html>
