@@ -1,0 +1,34 @@
+  .projectsClass{
+    position:relative;
+    width: 150px;
+    height: 150px;
+    margin : 40px;
+    padding: 10px;
+    background-color: GHOSTWHITE;
+    border-radius: 25px;
+    text-align:center;
+    border: 2px solid GAINSBORO;
+    font: 1.2em "Fira Sans", sans-serif;
+    vertical-align: bottom;
+  }
+  .projectsClass:hover{
+    box-shadow: 10px 5px 5px GAINSBORO;
+    transition: 0.5s;
+  }
+  #projects{
+    display: inline;
+    
+  }
+  .full{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top:0px;
+    left:0px;
+  }
+  .black{
+    color:black;
+  }
+  .nothing{
+    text-decoration:none;
+  }
