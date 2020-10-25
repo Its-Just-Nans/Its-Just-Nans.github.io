@@ -14,23 +14,26 @@ var HttpClient = function() {
 var obj = [];
 var client = new HttpClient();
 client.get('https://api.github.com/users/Its-Just-Nans/repos', function(response) {
-     obj = JSON.parse(response);
-     for(element of obj){
-       let part = document.createElement('div');
-          part.className = 'projectsClass';
-          let title = document.createElement('h4');
-          let link = document.createElement('a');
-          link.href = '/'+element['name'];
-          link.className = 'full';
-          link.className += ' black';
-          link.className += ' nothing';
-          title.className = 'projectsClassTitle';
-          title.innerHTML = element['name'];
-          part.appendChild(link);
-          link.appendChild(title);
-          document.getElementById('projects').appendChild(part);
-          
-     }
-     
+    obj = JSON.parse(response);
+    Object.keys(obj).forEach(function(key){
+        if(obj[key].name === 'Its-Just-Nans.github.io'){
+            delete obj[key];
+        }
+    });
+    for(element of obj){
+        let part = document.createElement('div');
+        part.className = 'projectsClass';
+        let title = document.createElement('h4');
+        let link = document.createElement('a');
+        link.href = '/'+element['name'];
+        link.className = 'full';
+        link.className += ' black';
+        link.className += ' nothing';
+        title.className = 'projectsClassTitle';
+        title.innerHTML = element['name'];
+        part.appendChild(link);
+        link.appendChild(title);
+        document.getElementById('projects').appendChild(part);
+    }
 });
 
