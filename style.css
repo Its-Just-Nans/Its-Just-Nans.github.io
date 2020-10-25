@@ -1,4 +1,4 @@
-  .projectsClass{
+.projectsClass{
 	position:relative;
 	width: 150px;
     height: 150px;
@@ -11,15 +11,14 @@
 	font: 1.2em "Fira Sans", sans-serif;
 	vertical-align: bottom;
 	transition: box-shadow 0.6s;
-  }
-  .projectsClass:hover{
+}
+.projectsClass:hover{
     box-shadow: 10px 5px 5px GAINSBORO;
     
-  }
-  #projects{
+}
+#projects{
     display: inline;
-    
-  }
+}
 .full{
     position:absolute;
     width: 100%;
@@ -32,4 +31,18 @@
 }
 .nothing{
 	text-decoration:none;
+}
+header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: 10vh;
+    background-color: GAINSBORO;
+    text-align: center;
+    border-bottom: 1px solid black;
+    font-family: system-ui;	
+}
+main{
+	position: fixed;
+	top: 10vh;	
 }
