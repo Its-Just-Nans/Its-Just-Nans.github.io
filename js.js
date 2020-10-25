@@ -15,11 +15,13 @@ var obj = [];
 var client = new HttpClient();
 client.get('https://api.github.com/users/Its-Just-Nans/repos', function(response) {
     obj = JSON.parse(response);
-    Object.keys(obj).forEach(function(key){
-        if(obj[key].name === 'Its-Just-Nans.github.io'){
-            delete obj[key];
+    let toDelete;
+    Object.keys(obj).forEach(function(key) {
+        if(obj[key].name == 'Its-Just-Nans.github.io'){
+            toDelete = key;
         }
     });
+    obj.splice(toDelete, 1);
     for(element of obj){
         let part = document.createElement('div');
         part.className = 'projectsClass';
