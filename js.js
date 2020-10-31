@@ -1,28 +1,52 @@
 var HttpClient = function() {
-    this.get = function(aUrl, aCallback) {
+    this.get = function(aUrl, aCallBack, aErrorCallBack) {
         var anHttpRequest = new XMLHttpRequest();
         anHttpRequest.onreadystatechange = function() { 
-            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                aCallback(anHttpRequest.responseText);
-        }
-
-        anHttpRequest.open( "GET", aUrl, true );            
-        anHttpRequest.send( null );
+            if (anHttpRequest.readyState == 4){
+                if(anHttpRequest.status == 200){
+                    aCallBack(anHttpRequest.responseText);
+                }else if(anHttpRequest.status == 403){
+                    aErrorCallBack(anHttpRequest.statusText);
+                }
+            }
+        };
+        anHttpRequest.onerror = function(e){
+            aErrorCallBack(e);
+        };
+        anHttpRequest.open("GET", aUrl, true);     
+        anHttpRequest.send(null);
     }
 }
 
-var obj = [];
-var client = new HttpClient();
-client.get('https://api.github.com/users/Its-Just-Nans/repos', function(response) {
-    obj = JSON.parse(response);
+var projects;
+let client = new HttpClient();
+client.get('https://its-just-nans.github.io/projects.json', function(response) {
+    //console.log(response)
+    projects = JSON.parse(response);
+    var actualProjectsJSON = undefined;
+
+    let client2 = new HttpClient();
+    client2.get('https://api.github.com/users/Its-Just-Nans/repos', function(responseAPI) {
+        actualProjectsJSON = JSON.parse(responseAPI);
+    }, function(error){
+        console.log('log: '+ error.toString());
+    });
+    if(actualProjectsJSON){
+        if(actualProjectsJSON != projects){
+            alert('curl.exe -o projects.json https://api.github.com/users/Its-Just-Nans/repos');
+            projects = actualProjectsJSON;
+        }
+    }
+    
+    //utilisation du json
     let toDelete;
-    Object.keys(obj).forEach(function(key) {
-        if(obj[key].name == 'Its-Just-Nans.github.io'){
+    Object.keys(projects).forEach(function(key) {
+        if(projects[key].name == 'Its-Just-Nans.github.io'){
             toDelete = key;
         }
     });
-    obj.splice(toDelete, 1);
-    for(element of obj){
+    projects.splice(toDelete, 1);
+    for(element of projects){
         let part = document.createElement('div');
         part.className = 'projectsClass';
         let title = document.createElement('h4');
@@ -37,5 +61,9 @@ client.get('https://api.github.com/users/Its-Just-Nans/repos', function(response
         link.appendChild(title);
         document.getElementById('projects').appendChild(part);
     }
+}, function (error){
+    console.log('log: '+ error.toString());
 });
+
+
 
