@@ -18,26 +18,7 @@ var HttpClient = function() {
     }
 }
 
-var projects;
-let client = new HttpClient();
-client.get('https://its-just-nans.github.io/projects.json', function(response) {
-    //console.log(response)
-    projects = JSON.parse(response);
-    var actualProjectsJSON = undefined;
-
-    let client2 = new HttpClient();
-    client2.get('https://api.github.com/users/Its-Just-Nans/repos', function(responseAPI) {
-        actualProjectsJSON = JSON.parse(responseAPI);
-    }, function(error){
-        console.log('log: '+ error.toString());
-    });
-    if(actualProjectsJSON){
-        if(actualProjectsJSON != projects){
-            alert('curl.exe -o projects.json https://api.github.com/users/Its-Just-Nans/repos');
-            projects = actualProjectsJSON;
-        }
-    }
-    
+function render(projects){
     //utilisation du json
     let toDelete;
     Object.keys(projects).forEach(function(key) {
@@ -61,6 +42,26 @@ client.get('https://its-just-nans.github.io/projects.json', function(response) {
         link.appendChild(title);
         document.getElementById('projects').appendChild(part);
     }
+}
+
+
+var projects = [];
+let client = new HttpClient();
+client.get('https://its-just-nans.github.io/projects.json', function(response) {
+    //console.log(response)
+    projects = JSON.parse(response);
+    let actualProjectsJSON = [];
+    let client2 = new HttpClient();
+    client2.get('https://api.github.com/users/Its-Just-Nans/repos', function(responseAPI) {
+        actualProjectsJSON = JSON.parse(responseAPI);
+        if(actualProjectsJSON != projects){
+            alert('curl.exe -o projects.json https://api.github.com/users/Its-Just-Nans/repos');
+            projects = actualProjectsJSON;
+            render(projects);
+        }
+    }, function(error){
+        console.log('log: '+ error.toString());
+    });
 }, function (error){
     console.log('log: '+ error.toString());
 });
