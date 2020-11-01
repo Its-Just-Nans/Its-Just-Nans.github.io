@@ -19,7 +19,8 @@ body{
     border: 2px solid GAINSBORO;
 	font: 1.2em "Fira Sans", sans-serif;
 	vertical-align: bottom;
-	transition: box-shadow 0.6s;
+    transition: box-shadow 0.6s;
+    box-sizing: border-box;
 }
 .projectsClass:hover{
     box-shadow: 10px 5px 5px GAINSBORO;
@@ -49,9 +50,24 @@ header{
     background-color: GAINSBORO;
     text-align: center;
     border-bottom: 1px solid black;
-    font-family: system-ui;	
+    font-family: system-ui;
+    box-sizing: border-box;
 }
 main{
 	position: fixed;
-	top: 10vh;	
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+    
+}
+article{
+	position: fixed;
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+    padding-left: 25vw;
+    padding-right: 25vw;
+    overflow: auto;
+    right:0px;
+    box-sizing: border-box;
 }

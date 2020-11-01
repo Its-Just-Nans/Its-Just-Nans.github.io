@@ -1,3 +1,4 @@
+
 var HttpClient = function() {
     this.get = function(aUrl, aCallBack, aErrorCallBack) {
         var anHttpRequest = new XMLHttpRequest();
@@ -18,7 +19,21 @@ var HttpClient = function() {
     }
 }
 
+function copy(param){
+    let copieur = document.createElement('textarea');
+    copieur.value = param;
+    copieur.innerHTML = param;
+    copieur.style.width = '1px';
+    copieur.style.height = '1px';
+    document.body.appendChild(copieur);
+    copieur.focus();
+    copieur.select();
+    document.execCommand('copy');
+    try{window.getSelection().removeAllRanges();}catch(e){}
+}
+
 function render(projects){
+    document.getElementById('projects').innerHTML = '';
     //utilisation du json
     let toDelete;
     Object.keys(projects).forEach(function(key) {
@@ -26,7 +41,9 @@ function render(projects){
             toDelete = key;
         }
     });
-    projects.splice(toDelete, 1);
+    if(toDelete){
+        projects.splice(toDelete, 1);
+    }
     for(element of projects){
         let part = document.createElement('div');
         part.className = 'projectsClass';
@@ -44,27 +61,33 @@ function render(projects){
     }
 }
 
-
-var projects = [];
+var goodData;
 let client = new HttpClient();
 client.get('https://its-just-nans.github.io/projects.json', function(response) {
-    //console.log(response)
-    projects = JSON.parse(response);
-    let actualProjectsJSON = [];
+    const backUpJSON = JSON.parse(response);
+    setTimeout( ()=>{
+        if(document.getElementById('projects').innerHTML === ''){
+            let tab = backUpJSON.slice();
+            render(tab);
+        }
+    }, 200);
     let client2 = new HttpClient();
     client2.get('https://api.github.com/users/Its-Just-Nans/repos', function(responseAPI) {
-        actualProjectsJSON = JSON.parse(responseAPI);
-        if(actualProjectsJSON != projects){
-            alert('curl.exe -o projects.json https://api.github.com/users/Its-Just-Nans/repos');
-            projects = actualProjectsJSON;
-            render(projects);
+        console.log('✔️:responseAPI');
+        const apiJSON = JSON.parse(responseAPI);
+        if(apiJSON.length != backUpJSON.length){
+            smollPopUp({title : 'Message to admin', content : 'curl.exe -o projects.json https://api.github.com/users/Its-Just-Nans/repos'}, 'ko', function Copier(rep){copy(rep.content)})
+            goodData = apiJSON;
+            let renderer = goodData;
+            render(renderer);
+            console.log('✔️:render with API data');
         }
     }, function(error){
-        console.log('log: '+ error.toString());
+        console.log('❌:responseAPI');
+        console.log(error);
     });
 }, function (error){
     console.log('log: '+ error.toString());
 });
 
-
-
+//use goodData as JSON
