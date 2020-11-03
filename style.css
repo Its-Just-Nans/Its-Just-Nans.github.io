@@ -27,7 +27,9 @@ body{
     
 }
 #projects{
-    display: inline;
+    width: 100%;
+    padding-top: 10%;
+    box-sizing: border-box;
 }
 .full{
     position:absolute;
