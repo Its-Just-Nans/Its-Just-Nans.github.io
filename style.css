@@ -8,10 +8,12 @@ body{
 	margin: 0px;
 }
 .projectsClass{
-	position:relative;
+    position:relative;
+    display: inline-block;
 	width: 150px;
     height: 150px;
-    margin : 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
     padding: 10px;
     background-color: GHOSTWHITE;
     border-radius: 25px;
