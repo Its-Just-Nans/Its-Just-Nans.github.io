@@ -33,43 +33,16 @@
     color: #267CB9;
     text-decoration: none
 }
-body {
-    background-color: #fff;
-    padding-top: 10%;
-    box-sizing: border-box;
-    font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #727272;
-    font-weight: 400
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+h1,h2,h3,h4,h5,h6 {
     color: #222;
+}
+
+p,ul,ol,table,pre,dl {
     margin: 0 0 20px
 }
 
-p,
-ul,
-ol,
-table,
-pre,
-dl {
-    margin: 0 0 20px
-}
-
-h1,
-h2,
-h3 {
-    line-height: 1.1
-}
-
-h1 {
-    font-size: 28px
-}
 
 h2 {
     color: #393939
@@ -91,7 +64,8 @@ blockquote {
 
 code,
 pre {
-    font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+    font-family: monospace;
+    font-size: 1.15em;
     color: #333
 }
 

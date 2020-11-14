@@ -17,7 +17,7 @@ function render(projects){
         part.className = 'projectsClass';
         let title = document.createElement('h4');
         let link = document.createElement('a');
-        link.href = './'+element['name'];
+        link.href = './projects.html?name='+element['name'];
         link.className = 'full';
         link.className += ' black';
         link.className += ' nothing';
@@ -28,6 +28,8 @@ function render(projects){
         document.getElementById('projects').appendChild(part);
     }
 }
+
+document.getElementById('frontTitle').innerHTML = document.title;
 
 var goodData;
 let client = new HttpClient();

@@ -34,7 +34,6 @@ body{
 }
 #projects{
     width: 100%;
-    padding-top: 10%;
     box-sizing: border-box;
 }
 .full{
@@ -73,21 +72,36 @@ article{
     top: 10vh;
     width: 100vw;
     height: 90vh;
-    padding-left: 25vw;
-    padding-right: 25vw;
+    padding-left: 20vw;
+    padding-right: 20vw;
     overflow: auto;
     right:0px;
     box-sizing: border-box;
 }
 
+@media (min-width: 1024px) {
+    article{
+        padding-left: 25vw;
+        padding-right: 25vw;
+    }
+}
+
 #center{
-    text-align: center;
     font-family: 'PT Sans', sans-serif;
 }
 
+.centerClass{
+    text-align: center;
+}
 .part{
     width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     box-sizing: border-box;
+}
+
+a{
+    color: inherit;
+    cursor: pointer;
+    text-decoration: inherit;
 }
