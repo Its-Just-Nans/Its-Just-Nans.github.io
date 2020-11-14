@@ -1,4 +1,6 @@
-
+if(window.location == 'https://its-just-nans.github.io/Its-just-nans.github.io'){
+    window.location = 'https://its-just-nans.github.io/';
+}
 
 function render(projects){
     document.getElementById('projects').innerHTML = '';
