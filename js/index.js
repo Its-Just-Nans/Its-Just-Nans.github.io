@@ -1,4 +1,4 @@
-if(window.location == 'https://its-just-nans.github.io/Its-just-nans.github.io'){
+if(window.location == 'https://its-just-nans.github.io/Its-Just-Nans.github.io/'){
     window.location = 'https://its-just-nans.github.io/';
 }
 
