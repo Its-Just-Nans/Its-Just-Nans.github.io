@@ -2,6 +2,7 @@
 var goodData;
 
 let files = window.location.search.split('=');
+document.getElementById('linkToGitHub').href = 'https://github.com/Its-Just-Nans/' + files[1];
 
 try{
     let client = new HttpClient();
@@ -11,7 +12,6 @@ try{
         let html = converter.makeHtml(response);
         document.getElementById('projects').innerHTML = html;
         document.getElementById('frontTitle').innerHTML = files[1];
-        document.getElementById('linkToGitHub').href = 'https://github.com/Its-Just-Nans/' + files[1];
         let client2 = new HttpClient();
         client2.get("https://api.github.com/repos/Its-Just-Nans/" + files[1], function(responseAPI){
             const apiJSON = JSON.parse(responseAPI);
@@ -25,7 +25,8 @@ try{
         });        
     }, function (error){
         smollPopUp({title : 'Page not found', content : 'You are going to be redirected in 5 sec'}, 'ko');
-        document.getElementById('titleProject').innerHTML = 'Its look like there are no readMe : (';
+        document.getElementById('titleProject').innerHTML = 'It looks like there are no readMe :(';
+        document.getElementById('linkToHTML').remove();
         setTimeout(function(){window.location = 'https://its-just-nans.github.io/'}, 5000);
     });
 }catch(error){

@@ -79,12 +79,6 @@ article{
     box-sizing: border-box;
 }
 
-@media (min-width: 1024px) {
-    article{
-        padding-left: 25vw;
-        padding-right: 25vw;
-    }
-}
 
 header{
     font-family: 'PT Sans', sans-serif;
@@ -108,4 +102,32 @@ a{
     color: inherit;
     cursor: pointer;
     text-decoration: inherit;
+}
+
+@media (min-width: 1024px) {
+
+}
+
+
+@media screen and (min-width: 1050px) and (max-width: 1500px){
+    article{
+        padding-left: 25vw;
+        padding-right: 25vw;
+    }
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 1050px){
+    article{
+        padding-left: 25vw;
+        padding-right: 25vw;
+    }
+}
+
+
+@media (max-device-width:768px){
+    article{
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
 }
