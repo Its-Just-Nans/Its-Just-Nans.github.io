@@ -1,3 +1,7 @@
 # Its-Just-Nans.github.io
 
-<p>This is just a test</p>
+Website on github !
+
+
+ - [x] This task is done
+ - [ ] This is still pending
