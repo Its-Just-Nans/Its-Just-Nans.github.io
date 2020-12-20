@@ -34,5 +34,10 @@ function copy(param){
     copieur.focus();
     copieur.select();
     document.execCommand('copy');
-    try{window.getSelection().removeAllRanges();}catch(e){}
+    try{
+        window.getSelection().removeAllRanges();
+    }catch(e){
+        console.log('Copy fail')
+    }
+    copieur.remove();
 }
