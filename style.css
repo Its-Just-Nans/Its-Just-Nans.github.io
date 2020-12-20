@@ -25,13 +25,13 @@ body{
     border: 2px solid GAINSBORO;
 	font: 1.2em "Fira Sans", sans-serif;
 	vertical-align: bottom;
-    transition: box-shadow 0.6s;
+    transition: box-shadow 1.25s;
     box-sizing: border-box;
 }
 .projectsClass:hover{
-    box-shadow: 10px 5px 5px GAINSBORO;
-    
+    box-shadow: 0px 0px 200px black;
 }
+
 #projects{
     width: 100%;
     box-sizing: border-box;
@@ -50,13 +50,14 @@ body{
 	text-decoration:none;
 }
 header{
+    --nameColor: white;
     position: fixed;
     top: 0px;
     width: 100vw;
     height: 10vh;
-    background-color: GAINSBORO;
+    background-color: var(--nameColor);
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--nameColor);
     font-family: system-ui;
     box-sizing: border-box;
 }
