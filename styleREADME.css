@@ -68,6 +68,12 @@ pre {
     color: #333
 }
 
+p > code{
+    background: #DEDEDE;
+    padding: 4px 4px;
+    border-radius: 2px;
+}
+
 pre {
     padding: 8px 15px;
     background: #f8f8f8;
