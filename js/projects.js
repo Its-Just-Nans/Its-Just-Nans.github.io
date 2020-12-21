@@ -21,7 +21,9 @@ try{
                 document.getElementById('linkToHTML').remove();
             }
         }, function(error){
-            document.getElementById('linkToHTML').remove();
+            if(error != "rate limit exceeded"){
+                document.getElementById('linkToHTML').remove();
+            }
         });        
     }, function (error){
         smollPopUp({title : 'Page not found', content : 'You are going to be redirected in 5 sec'}, 'ko');
