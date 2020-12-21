@@ -42,11 +42,11 @@ client.get('https://its-just-nans.github.io/projects.json', function(response) {
             render(tab);
         }
     let client2 = new HttpClient();
-    client2.get('https://api.github.com/users/Its-Just-Nans/repos?type=owner', function(responseAPI) {
+    client2.get('https://api.github.com/users/Its-Just-Nans/repos', function(responseAPI) {
         console.log('✔️:responseAPI');
         const apiJSON = JSON.parse(responseAPI);
         if(apiJSON.length != backUpJSON.length){
-            smollPopUp({title : 'Message to admin', content : 'curl.exe -o projects.json https://api.github.com/users/Its-Just-Nans/repos?type=owner'}, 'ko', function Copier(rep){copy(rep.content)})
+            smollPopUp({title : 'Message to admin', content : 'curl.exe -o projects.json https://api.github.com/users/Its-Just-Nans/repos'}, 'ko', function Copier(rep){copy(rep.content)})
             goodData = apiJSON;
             let renderer = goodData;
             render(renderer);
