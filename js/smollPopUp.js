@@ -3,17 +3,17 @@ function smollPopUp(message, type, callBack) {
         let infoDisp;
         let msg;
         if(message.title.length > longMsg){
-                infoDisp = message.title.substring(0, longMsg);
-                infoDisp += '...';
+            infoDisp = message.title.substring(0, longMsg);
+            infoDisp += '...';
         }else{
-                infoDisp = message.title;
+            infoDisp = message.title;
         }
         const longTitle = 40;
         if(message.content.length > longTitle){
-                msg = message.content.substring(0, longTitle);
-                msg += '...';
+            msg = message.content.substring(0, longTitle);
+            msg += '...';
         }else{
-                msg = message.content;
+            msg = message.content;
         }
         let popUp = document.createElement('div');
         popUp.className = 'smollPopUp';
@@ -32,9 +32,9 @@ function smollPopUp(message, type, callBack) {
         popUp.style.width = '300px';
         popUp.style.boxSizing = 'border-box';
         if(type === 'ok'){
-                popUp.style.backgroundColor = 'LIGHTGREEN';
+            popUp.style.backgroundColor = 'LIGHTGREEN';
         }else if(type === 'ko'){
-                popUp.style.backgroundColor = 'LIGHTSALMON';
+            popUp.style.backgroundColor = 'LIGHTSALMON';
         }
         //popUp.style.height = '100px';
         popUp.style.borderRadius = '10px';
@@ -47,12 +47,12 @@ function smollPopUp(message, type, callBack) {
         popUp.style.animationTimingFunction = 'ease-out';
         document.body.appendChild(popUp);
         if(callBack){
-                let button = document.createElement('button');
-                button.innerHTML = callBack.name;
-                button.addEventListener('click', function(){callBack(message);}, false)
-                popUp.appendChild(button);
+            let button = document.createElement('button');
+            button.innerHTML = callBack.name;
+            button.addEventListener('click', function(){callBack(message);}, false)
+            popUp.appendChild(button);
         }
         setTimeout(()=>{
-                popUp.parentNode.removeChild(popUp);
+            popUp.parentNode.removeChild(popUp);
         }, 5000);
 }
