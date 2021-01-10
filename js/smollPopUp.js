@@ -1,7 +1,7 @@
 function smollPopUp(message, type, callBack) {
         const longMsg = 75;
-        let infoDisp;
-        let msg;
+        let infoDisp = '';
+        let msg = '';
         if(message.title){
             if(message.title.length > longMsg){
                 infoDisp = message.title.substring(0, longMsg);
