@@ -2,18 +2,22 @@ function smollPopUp(message, type, callBack) {
         const longMsg = 75;
         let infoDisp;
         let msg;
-        if(message.title.length > longMsg){
-            infoDisp = message.title.substring(0, longMsg);
-            infoDisp += '...';
-        }else{
-            infoDisp = message.title;
+        if(message.title){
+            if(message.title.length > longMsg){
+                infoDisp = message.title.substring(0, longMsg);
+                infoDisp += '...';
+            }else{
+                infoDisp = message.title;
+            }
         }
         const longTitle = 40;
-        if(message.content.length > longTitle){
-            msg = message.content.substring(0, longTitle);
-            msg += '...';
-        }else{
-            msg = message.content;
+        if(message.content){
+            if(message.content.length > longTitle){
+                msg = message.content.substring(0, longTitle);
+                msg += '...';
+            }else{
+                msg = message.content;
+            }
         }
         let popUp = document.createElement('div');
         popUp.className = 'smollPopUp';
