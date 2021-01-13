@@ -122,3 +122,10 @@ img {
     padding: 0px !important;
     background: none !important;
 }
+
+
+@media screen and (min-width: 0px) and (max-width: 1050px){
+    ul {
+        padding-inline-start: 20px;
+    }
+}
