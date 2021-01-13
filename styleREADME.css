@@ -56,10 +56,12 @@ h6 {
 }
 
 blockquote {
-    border-left: 1px solid #e5e5e5;
+    border-left: 4px solid lightslategray;
+    border-radius: 0px 10px 10px 0px;
     margin: 0;
-    padding: 0 0 0 20px;
-    font-style: italic
+    background: whitesmoke;
+    padding: 2px 0 2px 20px;
+    font-style: italic;
 }
 
 code,
