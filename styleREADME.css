@@ -128,4 +128,10 @@ img {
     ul {
         padding-inline-start: 20px;
     }
+    p, ul, ol, table, pre, dl {
+        margin: 0 0 5px;
+    }
+    blockquote {
+        margin-bottom: 20px;
+    }
 }
