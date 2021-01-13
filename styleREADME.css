@@ -125,9 +125,6 @@ img {
 
 
 @media screen and (min-width: 0px) and (max-width: 1050px){
-    ul {
-        padding-inline-start: 20px;
-    }
     p, ul, ol, table, pre, dl {
         margin: 0 0 5px;
     }
