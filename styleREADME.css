@@ -112,3 +112,10 @@ th {
 img {
     max-width: 100%
 }
+
+.hljs{
+    display: block !important;
+    overflow-x: unset !important;
+    padding: 0px !important;
+    background: none !important;
+}
