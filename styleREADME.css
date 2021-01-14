@@ -119,6 +119,10 @@ img {
     margin-right: auto;
 }
 
+p{
+    margin: 5px 0 10px 0;
+}
+
 .hljs{
     display: block !important;
     overflow-x: unset !important;
