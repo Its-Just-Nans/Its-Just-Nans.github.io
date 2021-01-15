@@ -39,7 +39,7 @@ h1,h2,h3,h4,h5,h6 {
     color: #222;
 }
 
-p,ul,ol,table,pre,dl {
+p,ul,ol,table,dl {
     margin: 0 0 20px
 }
 
@@ -89,10 +89,11 @@ pre {
     border-radius: 5px;
     border: 1px solid #e5e5e5;
     overflow-x: auto;
+    margin: 0px 0px 10px 0px;
 }
 
 table {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
 }
 
@@ -100,7 +101,7 @@ th,
 td {
     text-align: left;
     padding: 5px 10px;
-    border-bottom: 1px solid #e5e5e5;
+    border: 1px solid #D3D3D3;;
 }
 
 dt {
