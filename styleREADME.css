@@ -83,6 +83,12 @@ li > code{
     border-radius: 5px;
 }
 
+table > code{
+    background: #DEDEDE;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
 pre {
     padding: 8px 15px;
     background: #DEDEDE;
