@@ -36,7 +36,7 @@
 
 
 h1,h2,h3,h4,h5,h6 {
-    color: #222;
+    color: #111111;
 }
 
 p,ul,ol,table,dl {
@@ -45,14 +45,14 @@ p,ul,ol,table,dl {
 
 
 h2 {
-    color: #393939
+    color: #222222
 }
 
 h3,
 h4,
 h5,
 h6 {
-    color: #494949
+    color: #333333
 }
 
 blockquote {
@@ -90,7 +90,7 @@ pre {
     border-radius: 5px;
     border: 1px solid #e5e5e5;
     overflow-x: auto;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 5px 0px;
 }
 
 table {
