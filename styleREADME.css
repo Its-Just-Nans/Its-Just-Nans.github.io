@@ -78,7 +78,7 @@ h5 > code,
 h6 > code,
 p > code,
 li > code,
-table > code{
+td > code{
     background: #DEDEDE;
     padding: 2px 4px;
     border-radius: 5px;
