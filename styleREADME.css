@@ -77,7 +77,7 @@ h4 > code,
 h5 > code,
 h6 > code,
 p > code,
-li > code
+li > code,
 table > code{
     background: #DEDEDE;
     padding: 2px 4px;
