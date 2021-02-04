@@ -94,8 +94,8 @@ pre {
 }
 
 table {
-    width: auto;
     border-collapse: collapse;
+    width:100%;
 }
 
 th,
