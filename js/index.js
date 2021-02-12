@@ -5,18 +5,10 @@ if(window.location == 'https://its-just-nans.github.io/Its-Just-Nans.github.io/'
 function render(projects){
     document.getElementById('projects').innerHTML = '';
     //utilisation du json
-    /*let toDelete;
-    Object.keys(projects).forEach(function(key) {
-        if(projects[key].name == 'Its-Just-Nans.github.io'){
-            toDelete = key;
-        }
-    });
-    if(toDelete){
-        projects.splice(toDelete, 1);
-    }*/
+    let noDisplay = ['Its-Just-Nans'];
     for(let element of projects){
-        //we don't render fork
-        if(element.fork == false){
+        //we don't render fork and some project in noDisplay
+        if(element.fork == false && !noDisplay.includes(element.name)){
             let part = document.createElement('div');
             part.className = 'projectsClass';
             let title = document.createElement('h4');
