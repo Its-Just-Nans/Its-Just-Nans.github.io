@@ -86,6 +86,7 @@ article{
 .projectDesc{
     font-size: 0.75em;
     margin: 1em;
+    word-break: break-word;
 }
 header{
     font-family: 'PT Sans', sans-serif;
