@@ -20,6 +20,7 @@ function render(projects){
             let part = document.createElement('div');
             part.className = 'projectsClass';
             let title = document.createElement('h4');
+            let desc = document.createElement('p');
             let link = document.createElement('a');
             link.href = './projects.html?name='+element['name'];
             link.className = 'full';
@@ -27,8 +28,11 @@ function render(projects){
             link.className += ' nothing';
             title.className = 'projectsClassTitle';
             title.innerHTML = element['name'];
+            desc.innerHTML = element.description == null ? '' : element.description;
+            desc.className = 'projectDesc';
             part.appendChild(link);
             link.appendChild(title);
+            link.appendChild(desc);
             document.getElementById('projects').appendChild(part);
         }
     }

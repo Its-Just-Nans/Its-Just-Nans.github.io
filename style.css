@@ -83,6 +83,10 @@ article{
     margin-right: 10px;
     margin-left: 10px;
 }
+.projectDesc{
+    font-size: 0.75em;
+    margin: 1em;
+}
 header{
     font-family: 'PT Sans', sans-serif;
 }
