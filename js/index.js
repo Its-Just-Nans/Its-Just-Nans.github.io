@@ -14,20 +14,23 @@ function render(projects){
     if(toDelete){
         projects.splice(toDelete, 1);
     }*/
-    for(element of projects){
-        let part = document.createElement('div');
-        part.className = 'projectsClass';
-        let title = document.createElement('h4');
-        let link = document.createElement('a');
-        link.href = './projects.html?name='+element['name'];
-        link.className = 'full';
-        link.className += ' black';
-        link.className += ' nothing';
-        title.className = 'projectsClassTitle';
-        title.innerHTML = element['name'];
-        part.appendChild(link);
-        link.appendChild(title);
-        document.getElementById('projects').appendChild(part);
+    for(let element of projects){
+        //we don't render fork
+        if(element.fork == false){
+            let part = document.createElement('div');
+            part.className = 'projectsClass';
+            let title = document.createElement('h4');
+            let link = document.createElement('a');
+            link.href = './projects.html?name='+element['name'];
+            link.className = 'full';
+            link.className += ' black';
+            link.className += ' nothing';
+            title.className = 'projectsClassTitle';
+            title.innerHTML = element['name'];
+            part.appendChild(link);
+            link.appendChild(title);
+            document.getElementById('projects').appendChild(part);
+        }
     }
 }
 
