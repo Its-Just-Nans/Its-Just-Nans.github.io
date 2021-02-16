@@ -54,8 +54,7 @@ header{
     position: fixed;
     top: 0px;
     width: 100vw;
-    height: 10vh;
-    min-height: 80px;
+    height: 85px;
     z-index: 10;
     background-color: GAINSBORO;
     text-align: center;
@@ -72,9 +71,9 @@ main{
 }
 article{
 	position: fixed;
-    top: 10vh;
+    top: 85px;
     width: 100vw;
-    height: 90vh;
+    height: calc( 100vh - 85px );
     padding-left: 20vw;
     padding-right: 20vw;
     overflow: auto;
