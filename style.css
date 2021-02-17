@@ -2,19 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
 html{
-	width: 100vw;
-	height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 body{
-	width: 100vw;
-	height: 100vh;
-	margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
 }
 .projectsClass{
-    --nameColor: white;
+    --nameColor: #f1f1f1;
     position:relative;
     display: inline-block;
-	width: 150px;
+    width: 150px;
     height: 150px;
     margin-left: 40px;
     margin-right: 40px;
@@ -23,9 +23,10 @@ body{
     background-color: var(--nameColor);
     border-radius: 25px;
     text-align:center;
-    border: 2px solid var(--nameColor);
-	font: 1.2em "Fira Sans", sans-serif;
-	vertical-align: bottom;
+    /*border: 2px solid var(--nameColor);*/
+    border: 1px solid #555;
+    font: 1.2em "Fira Sans", sans-serif;
+    vertical-align: bottom;
     transition: box-shadow 1.25s;
     box-sizing: border-box;
 }
@@ -48,7 +49,7 @@ body{
     color:black;
 }
 .nothing{
-	text-decoration:none;
+    text-decoration:none;
 }
 header{
     position: fixed;
@@ -63,14 +64,13 @@ header{
     box-sizing: border-box;
 }
 main{
-	position: fixed;
+    position: fixed;
     top: 10vh;
     width: 100vw;
-    height: 90vh;
-    
+    height: calc( 100vh - 85px );   
 }
 article{
-	position: fixed;
+    position: fixed;
     top: 85px;
     width: 100vw;
     height: calc( 100vh - 85px );
@@ -83,6 +83,7 @@ article{
 .projectsClassTitle{
     margin-right: 10px;
     margin-left: 10px;
+    margin-bottom: 8px;
 }
 .projectDesc{
     font-size: 0.75em;
@@ -118,7 +119,7 @@ a{
 }
 
 
-@media screen and (min-width: 1050px) and (max-width: 1500px){
+@media screen and (min-width: 1051px) and (max-width: 1500px){
     article{
         padding-left: 25vw;
         padding-right: 25vw;
@@ -126,10 +127,10 @@ a{
 }
 
 
-@media screen and (min-width: 0px) and (max-width: 1050px){
+@media screen and (min-width: 513px) and (max-width: 1050px){
     article{
-        padding-left: 25vw;
-        padding-right: 25vw;
+        padding-left: 17.5vw;
+        padding-right: 17.5vw;
     }
 }
 
@@ -139,4 +140,58 @@ a{
         padding-left: 1vw;
         padding-right: 1vw;
     }
+}
+
+@media screen and (min-width: 257px) and (max-width: 512px){
+    article{
+        padding-left: 0vw;
+        padding-right: 0vw;
+    }
+    .projectsClass{
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 256px){
+    article{
+        padding-left: 0vw;
+        padding-right: 0vw;
+    }
+    .projectsClass{
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    header{
+        height: 160px;
+    }
+    main{
+        top: 160px;
+        height: calc( 100vh - 160px );   
+    }
+    article{
+        top: 160px;
+        height: calc( 100vh - 160px );
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
