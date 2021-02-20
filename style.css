@@ -65,13 +65,13 @@ header{
 }
 main{
     position: fixed;
-    top: 10vh;
+    bottom: 0px;
     width: 100vw;
     height: calc( 100vh - 85px );   
 }
 article{
     position: fixed;
-    top: 85px;
+    bottom: 0px;
     width: 100vw;
     height: calc( 100vh - 85px );
     padding-left: 20vw;
@@ -121,43 +121,70 @@ a{
 
 @media screen and (min-width: 1051px) and (max-width: 1500px){
     article{
-        padding-left: 25vw;
-        padding-right: 25vw;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+    .projectsClass:hover{
+        box-shadow: 0px 0px 100px black;
     }
 }
 
-
-@media screen and (min-width: 513px) and (max-width: 1050px){
+@media screen and (min-width: 751px) and (max-width: 1050px){
     article{
-        padding-left: 17.5vw;
-        padding-right: 17.5vw;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+    .projectsClass:hover{
+        box-shadow: 0px 0px 50px black;
+    }
+    .projectsClass{
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
     }
 }
 
 
-@media (max-device-width:768px){
+@media screen and (min-width: 513px) and (max-width: 750px){
+    article{
+        padding-left: 8vw;
+        padding-right: 8vw;
+    }
+    .projectsClass:hover{
+        box-shadow: 0px 0px 50px black;
+    }
+    .projectsClass{
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 15px;
+    }
+}
+
+
+/* @media (max-device-width:768px){
     article{
         padding-left: 1vw;
         padding-right: 1vw;
     }
 }
+*/
 
 @media screen and (min-width: 257px) and (max-width: 512px){
     article{
-        padding-left: 0vw;
-        padding-right: 0vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
     .projectsClass{
         margin-left: 5px;
         margin-right: 5px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 }
 
 @media screen and (min-width: 0px) and (max-width: 256px){
     article{
-        padding-left: 0vw;
-        padding-right: 0vw;
+        padding-left: 5px;
+        padding-right: 5px;
     }
     .projectsClass{
         margin-left: 0px;
@@ -168,30 +195,31 @@ a{
         height: 160px;
     }
     main{
-        top: 160px;
-        height: calc( 100vh - 160px );   
+        height: calc( 100vh - 161px );   
     }
     article{
-        top: 160px;
-        height: calc( 100vh - 160px );
+        height: calc( 100vh - 161px );
     }
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
+@media screen and (min-width: 513px){
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888; 
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
 }
