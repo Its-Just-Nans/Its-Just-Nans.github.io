@@ -1,0 +1,61 @@
+table{
+    border: 1px solid grey;
+    color: blue;
+    border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+}
+thead{
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+}
+td{
+    padding: 5px 10px;
+}
+tbody > tr:hover{
+    color: black;
+}
+tr{
+    border: 1px solid grey;
+}
+tbody > tr{
+    cursor: pointer;
+}
+.iconSmall{
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+}
+#bodyLinks{
+    font-size: 1.05em;
+}
+.copyIcon{
+    fill:black;
+}
+.copyIcon:hover{
+    fill:blue;
+}
+
+.wordBreak{
+    word-break: break-word;
+}
+
+@media screen and (min-width: 0px) and (max-width: 512px){
+    #bodyLinks{
+        font-size: 1em;
+    }
+    /*
+    .iconSmall{
+        height: 16px;
+        width: 16px;
+    }
+
+    .copyIcon{
+        height: 20px;
+        width: 20px;
+    }
+    td{
+        padding: 2px 5px;
+    }
+    */
+}
