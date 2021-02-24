@@ -19,4 +19,9 @@ var links = [
         name: "SoloLearn",
         link: "https://www.sololearn.com/profile/7347864"
     },
+    {
+        ico: "https://cdn.arduino.cc/header-footer/prod/assets/favicon-arduino/favicon-32x32.png",
+        name: "Arduino Forums",
+        link: "https://forum.arduino.cc/index.php?action=profile;u=1420654"
+    }
 ];
