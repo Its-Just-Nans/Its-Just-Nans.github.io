@@ -35,21 +35,59 @@ tbody > tr{
 .copyIcon:hover{
     fill: #228B22;
 }
-
+.iconLang{
+    height: 64px;
+    width: 64px;
+    vertical-align: middle;
+}
+.inline{
+    display: inline;
+}
 .wordBreak{
     word-break: break-word;
+}
+.otherProjectsDiv{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.otherProjectsDivDetails{
+    transition: height 2s ease 0s;
+    height: auto;
+}
+.titleOtherProjects{
+    display: inline;
+}
+.iconShowMore{
+    float: right;
+}
+.otherProjectsDiv:hover{
+    cursor: pointer;
 }
 
 @media screen and (min-width: 0px) and (max-width: 512px){
     #bodyLinks{
         font-size: 1em;
     }
+    .otherProjectsDiv{
+        width: 80%;
+    }
+    .iconLang{
+        margin-top: 10px;
+    }
+    .iconLang{
+        height: 48px;
+        width: 48px;
+        vertical-align: middle;
+    }
     /*
     .iconSmall{
         height: 16px;
         width: 16px;
     }
-
     .copyIcon{
         height: 20px;
         width: 20px;

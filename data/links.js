@@ -15,6 +15,11 @@ var links = [
         link: "https://twitter.com/Its_Just_Nans"
     },
     {
+        ico: "https://discord.com/assets/07dca80a102d4149e9736d4b162cff6f.ico",
+        name: "Discord",
+        link: "https://discord.gg/XsmsWvbdqv"
+    },
+    {
         ico: "https://www.sololearn.com/Images/favicon.ico",
         name: "SoloLearn",
         link: "https://www.sololearn.com/profile/7347864"
