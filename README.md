@@ -1,6 +1,6 @@
 # Its-Just-Nans.github.io
 
-Website on github !
+Website on GitHub !
 
 
  - [x] This task is done
