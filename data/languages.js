@@ -3,7 +3,7 @@ var languages = [
     {
         ico: "./imgs/langs/javascript.png",
         name: "JavaScript",
-        link: "https://twitter.com/Its_Just_Nanshttps://fr.wikipedia.org/wiki/JavaScript"
+        link: "https://fr.wikipedia.org/wiki/JavaScript"
     },
     {
         ico: "./imgs/langs/angularjs.png",
@@ -38,7 +38,7 @@ var languages = [
     {
         ico: "./imgs/langs/bash.png",
         name: "Bash",
-        link: "https://twitter.com/Its_Just_Nans"
+        link: "https://en.wikipedia.org/wiki/Bash_(Unix_shell)"
     },
     {
         ico: "./imgs/langs/php.png",

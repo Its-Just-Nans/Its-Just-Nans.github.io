@@ -89,7 +89,7 @@ if(links){
     for(let oneElement of links){
         let row = document.createElement('tr');
         let ico = renderColum(row, oneElement.link, `<img src="${oneElement.ico}" class="iconSmall">`);
-        addToolTip(ico.childNodes[0], oneElement.name); 
+        //addToolTip(ico.childNodes[0], oneElement.name); 
         renderColum(row, oneElement.link, oneElement.name, null);
         renderColum(row, oneElement.link, oneElement.link, "wordBreak");
         //this ico is from BitBucket
@@ -196,7 +196,7 @@ if(languages){
         row.className = "inline";
         let link = generateElement(row, "a", {href: element.link});
         generateElement(link, "img", {className: "iconLang", alt: element.name, src: element.ico}, null);   
-        addToolTip(link, element.name); 
+        //addToolTip(link, element.name); 
     };
     for(let oneElement of languages){
         let row = document.createElement('div');
