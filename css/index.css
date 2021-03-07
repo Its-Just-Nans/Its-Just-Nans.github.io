@@ -12,9 +12,6 @@ thead{
 td{
     padding: 5px 10px;
 }
-tbody > tr:hover{
-    color: blue;
-}
 tr{
     border: 1px solid grey;
 }
@@ -66,6 +63,9 @@ tbody > tr{
 }
 .otherProjectsDiv:hover{
     cursor: pointer;
+}
+.hoverBlue:hover{
+    color:blue;
 }
 
 @media screen and (min-width: 0px) and (max-width: 512px){

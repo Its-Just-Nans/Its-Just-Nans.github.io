@@ -89,9 +89,9 @@ if(links){
     for(let oneElement of links){
         let row = document.createElement('tr');
         let ico = renderColum(row, oneElement.link, `<img src="${oneElement.ico}" class="iconSmall">`);
-        //addToolTip(ico.childNodes[0], oneElement.name); 
-        renderColum(row, oneElement.link, oneElement.name, null);
-        renderColum(row, oneElement.link, oneElement.link, "wordBreak");
+        ico.setAttribute("data-tooltip", oneElement.name);
+        //renderColum(row, oneElement.link, oneElement.name);
+        renderColum(row, oneElement.link, oneElement.link, "wordBreak hoverBlue");
         //this ico is from BitBucket
         let copySVG = `<span><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="copyIcon"><g><path d="M10 19h8V8h-8v11zM8 7.992C8 6.892 8.902 6 10.009 6h7.982C19.101 6 20 6.893 20 7.992v11.016c0 1.1-.902 1.992-2.009 1.992H10.01A2.001 2.001 0 0 1 8 19.008V7.992z"></path><path d="M5 16V4.992C5 3.892 5.902 3 7.009 3H15v13H5zm2 0h8V5H7v11z"></path></g></svg></span>`;
         let copyColumn = renderColum(row, null, copySVG);
@@ -171,32 +171,14 @@ function generateElement(where = null, type, attr = null, style = null){
     return element;
 }
 
-function addToolTip(item, content){
-    item.addEventListener("mouseover", function(event){
-        generateElement(document.body, "div", {id: "tooltip", innerHTML: content}, {
-            top: event.target.y-30 + "px",
-            left: event.target.x+event.target.width/2 + "px",
-            zIndex: 100,
-            backgroundColor: "DarkSlateGray",
-            color: "white",
-            padding: "4px",
-            display: "inline-block",
-            position: "absolute",
-            fontFamily: "'PT Sans', sans-serif"
-        });
-    }, false);
-    item.addEventListener("mouseout", function(event){
-        document.getElementById('tooltip').remove();
-    }, false);
-}
 
 if(languages){
     let root = document.getElementById('languages');
     let addlang = function(row, element){
         row.className = "inline";
+        row.setAttribute("data-tooltip", element.name);
         let link = generateElement(row, "a", {href: element.link});
-        generateElement(link, "img", {className: "iconLang", alt: element.name, src: element.ico}, null);   
-        //addToolTip(link, element.name); 
+        generateElement(link, "img", {className: "iconLang", alt: element.name, src: element.ico}, null);
     };
     for(let oneElement of languages){
         let row = document.createElement('div');
