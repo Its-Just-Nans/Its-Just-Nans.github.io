@@ -1,94 +1,99 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Its-Just-Nans's Page</title>
-    <meta name="description" content="Its-Just-Nans's Page" />
-    <link rel="icon" href="./favicon.ico" />
-    <meta name="google-site-verification" content="8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4" />
-    <meta property="og:image" content="https://its-just-nans.github.io/imgs/cover.png" />
-    <!--- CSS and JS files --->
-    <link href="./css/style.css?v1=0.0.1" rel="stylesheet" />
-    <link href="./css/index.css?v1=0.0.2" rel="stylesheet" />
-    <link href="//its-just-nans.github.io/cdn/tooltip.css" rel="stylesheet" />
-    <script src="//its-just-nans.github.io/cdn/tooltip.min.js"></script>
-    <script src="./js/useful.js"></script>
-    <script src="./js/smollPopUp.js"></script>
-  </head>
-  <body>
-    <header>
-        <h1 id="frontTitle"></h1>
-    </header>
-    <main>
-        <article class="centerClass" id="center">
-            <div id="top">
-                <a href="#whoAmI">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Its-Just-Nans's Page</title>
+        <meta name="description" content="Its-Just-Nans's Page" />
+        <link rel="icon" href="./favicon.ico" />
+        <meta name="google-site-verification" content="8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4" />
+        <meta property="og:image" content="https://its-just-nans.github.io/imgs/cover.png" />
+        <!--- CSS and JS files --->
+        <link href="./css/style.css?v1=0.0.1" rel="stylesheet" />
+        <link href="./css/index.css?v1=0.0.2" rel="stylesheet" />
+        <script src="//its-just-nans.github.io/cdn/smollPopUp.js"></script>
+        <link href="//its-just-nans.github.io/cdn/tooltip.css" rel="stylesheet" />
+        <script src="//its-just-nans.github.io/cdn/tooltip.min.js"></script>
+        <script src="./js/useful.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 id="frontTitle"></h1>
+        </header>
+        <main>
+            <article class="centerClass" id="center">
+                <div id="top">
+                    <a href="#whoAmI">
+                        <div class="titlePart part">
+                            <h2 style="margin: 10px 0px">Its-Just-Nans</h2>
+                        </div>
+                        <div class="part">
+                            <img style="height: 100px" src="https://raw.githubusercontent.com/Its-Just-Nans/Its-Just-Nans/main/n4n5.png" />
+                            <noscript>Please Activate JavaScript for more fun :)</noscript>
+                        </div>
+                    </a>
+                </div>
+                <hr />
+                <div id="projectsList">
                     <div class="titlePart part">
-                        <h2 style="margin:10px 0px;">Its-Just-Nans</h2>
+                        <h2>Projects (generated from GitHub)</h2>
+                    </div>
+                    <div class="part" id="projects"></div>
+                </div>
+                <hr />
+                <div id="languagesPart">
+                    <div class="titlePart part">
+                        <h2>Languages</h2>
+                    </div>
+                    <div class="part" id="languages"></div>
+                </div>
+                <hr />
+                <div id="activityPart">
+                    <div class="titlePart part">
+                        <h2>Activities</h2>
+                    </div>
+                    <div class="part" id="othersProjects"></div>
+                </div>
+                <hr />
+                <div id="whoAmI">
+                    <div class="titlePart part">
+                        <h2>Who am I ?</h2>
                     </div>
                     <div class="part">
-                        <img style="height:100px" src="https://raw.githubusercontent.com/Its-Just-Nans/Its-Just-Nans/main/n4n5.png">
-                        <noscript>Please Activate JavaScript for more fun :)</noscript>
+                        <h3 style="cursor: pointer" onclick="this.style.color = 'me' == 'me' ? 'green' : 'red'" data-tooltip="onclick">this.style.color = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';</h3>
+                        <a href="./golb">
+                            <h4 style="color: blue">Link to golb</h4>
+                        </a>
+                        <a href="./rt">
+                            <h4 style="color: blue">Link to R&T website</h4>
+                        </a>
+                        <p>Soon...</p>
                     </div>
-                </a>
-            </div>
-            <hr>
-            <div id="projectsList">
-                <div class="titlePart part">
-                    <h2>Projects (generated from GitHub)</h2>
                 </div>
-                <div class="part" id="projects"></div>
-            </div>
-            <hr>
-            <div id="languagesPart">
-                <div class="titlePart part">
-                    <h2>Languages</h2>
+                <hr />
+                <div id="links">
+                    <div class="titlePart part">
+                        <h2>Links</h2>
+                    </div>
+                    <div class="part">
+                        <table>
+                            <tbody id="bodyLinks"></tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="part" id="languages"></div>
-            </div>
-            <hr>
-            <div id="activityPart">
-                <div class="titlePart part">
-                    <h2>Activities</h2>
+                <hr />
+                <div id="thanks">
+                    <div class="titlePart part">
+                        <h2>Thanks for watching</h2>
+                    </div>
                 </div>
-                <div class="part" id="othersProjects"></div>
-            </div>
-            <hr>
-            <div id="whoAmI">
-                <div class="titlePart part">
-                    <h2>Who am I ?</h2>
-                </div>
-                <div class="part">
-                    <h3 style="cursor:pointer;" onclick="this.style.color = 'me' == 'me' ? 'green' : 'red'" data-tooltip="onclick">this.style.color = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';</h3>
-                    <a href="./golb"><h4 style="color:blue;">Link to golb</h4></a>
-                    <a href="./rt"><h4 style="color:blue;">Link to R&T website</h4></a>
-                    <p>Soon...</p>
-                </div>
-            </div>
-            <hr>
-            <div id="links">
-                <div class="titlePart part">
-                    <h2>Links</h2>
-                </div>
-                <div class="part">
-                    <table>
-                        <tbody id="bodyLinks"></tbody>
-                    </table>
-                </div>
-            </div>
-            <hr>
-            <div id="thanks">
-                <div class="titlePart part">
-                    <h2>Thanks for watching</h2>
-                </div>
-            </div>
-        </article>
-    </main>
-    <div class="tooltip-container no-display"></div>
-    <script src="./data/links.js"></script>
-    <script src="./data/languages.js"></script>
-    <script src="./data/otherProjects.js"></script>
-    <script src="./js/index.js"></script>
-  </body>
+            </article>
+        </main>
+        <div class="tooltip-container no-display"></div>
+        <script src="./data/links.js"></script>
+        <script src="./data/languages.js"></script>
+        <script src="./data/otherProjects.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
 </html>

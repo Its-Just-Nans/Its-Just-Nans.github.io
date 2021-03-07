@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Its-Just-Nans's Page</title>
-    <link rel="icon" href="favicon.ico" />
-    <link href="./css/style.css" rel="stylesheet" />
-    <link href="./styleREADME.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header>
-        <h1 id="frontTitle"></h1>
-    </header>
-    <main>
-        <article id="center">
-            <div class="part"><!-- Just a little space here :) ---></div>
-            <div class="part">
-                <div class="part centerClass">
-                    <h1 id="titleProject">Like this project ?</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Its-Just-Nans's Page</title>
+        <link rel="icon" href="favicon.ico" />
+        <link href="./css/style.css" rel="stylesheet" />
+        <link href="./styleREADME.css" rel="stylesheet" />
+        <script src="//its-just-nans.github.io/cdn/smollPopUp.js"></script>
+        <script src="./js/useful.js"></script>
+        <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 id="frontTitle"></h1>
+        </header>
+        <main>
+            <article id="center">
+                <div class="part">
+                    <!-- Just a little space here :) --->
                 </div>
                 <div class="part">
-                    <a id="linkToGitHub" href="">View the repository on GitHub<img loading="lazy" height="25px" style="display:initial;vertical-align:middle;margin-left:5px;"src="https://github.githubassets.com/pinned-octocat.svg"></a><br>
-                    <a id="linkToHTML" href="">View the project<img height="20px" style="display:initial;vertical-align:middle;margin-left:5px;" src="./imgs/file.png"></a><br>
-                    <a id="other" href=""></a><br>
+                    <div class="part centerClass">
+                        <h1 id="titleProject">Like this project ?</h1>
+                    </div>
+                    <div class="part">
+                        <a id="linkToGitHub" href="">View the repository on GitHub<img loading="lazy" height="25px" style="display: initial; vertical-align: middle; margin-left: 5px" src="https://github.githubassets.com/pinned-octocat.svg" /></a><br />
+                        <a id="linkToHTML" href="">View the project<img height="20px" style="display: initial; vertical-align: middle; margin-left: 5px" src="./imgs/file.png" /></a><br />
+                        <a id="other" href=""></a><br />
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <div>
-                <div class="part">
-                    <h1><pre class="centerClass">README.md</pre></h1>
+                <hr />
+                <div>
+                    <div class="part">
+                        <h1>
+                            <pre class="centerClass">README.md</pre>
+                        </h1>
+                    </div>
+                    <div id="projects" class="part"></div>
                 </div>
-                <div id="projects" class="part"></div>
-            </div>
-        </article>
-    </main>
-    <script src="./js/useful.js"></script>
-    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
-    <script src="./js/smollPopUp.js"></script>
-    <script src="./js/projects.js"></script>
-  </body>
+            </article>
+        </main>
+        <script src="./js/projects.js"></script>
+    </body>
 </html>
