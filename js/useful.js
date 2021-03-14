@@ -1,4 +1,4 @@
-async function renderSpecialObject(params = { url, parse: true }, callback, errorCallBack = null) {
+async function renderSpecialObject(params = { url: null, parse: true }, callback, errorCallBack = null) {
     /*
         name: name of the file, ex :FILE.json
         callback: callBack to render with data
