@@ -128,6 +128,9 @@ p {
     margin: auto;
     margin-bottom: 20px;
 }
+.otherProjectsDivDetails a {
+    color: blue;
+}
 .otherProjectsDivDetails {
     transition: height 2s ease 0s;
     height: auto;
