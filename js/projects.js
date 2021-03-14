@@ -16,8 +16,7 @@ if (urlParams.has("name")) {
     });
 
     renderSpecialObject({ url: `https://api.github.com/repos/Its-Just-Nans/${nameOfProject}`, parse: false }, function (data) {
-        const apiJSON = JSON.parse(data);
-        if (!apiJSON["has_pages"]) {
+        if (!data["has_pages"]) {
             document.getElementById("linkToHTML").remove();
         }
     });
