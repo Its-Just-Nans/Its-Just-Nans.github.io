@@ -186,3 +186,19 @@ if(languages){
         root.appendChild(row);
     };
 }
+if(videos){
+    let root = document.getElementById('videos');
+    let addVideo = function(row, element){
+        let link = generateElement(row, "a", {href: `https://youtu.be/${element.id}`, className: "full"});
+        let figure = generateElement(link, "figure");
+        generateElement(figure, "img", {alt: element.title, src: `https://img.youtube.com/vi/${element.id}/maxresdefault.jpg`});
+        let figcaption = generateElement(figure, "figcaption");
+        generateElement(figcaption, "h4", {innerHTML: element.title});
+        generateElement(figcaption, "p", {innerHTML: element.desc || ""});
+    };
+    for(let oneElement of videos){
+        let row = generateElement(null, "div", {className: "videosClass"});;
+        addVideo(row, oneElement);
+        root.appendChild(row);
+    };
+}
