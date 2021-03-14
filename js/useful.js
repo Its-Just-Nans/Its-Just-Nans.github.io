@@ -1,31 +1,32 @@
-async function renderSpecialObject(name, callback, parse = true) {
+async function renderSpecialObject(params = { url, parse: true }, callback, errorCallBack) {
     /*
         name: name of the file, ex :FILE.json
         callback: callBack to render with data
         parse: if we parse the response
         pathToData: (optional) set link to data in global variable
     */
-
-    let url;
-    if (name.endsWith(".json") && pathToData) {
-        url = `${pathToData}${name}`;
+    const { url, parse } = params;
+    let link;
+    if (url.endsWith(".json") && pathToData) {
+        link = `${pathToData}${url}`;
     } else {
-        url = name;
+        link = url;
     }
-    makeRequest("GET", url)
+    makeRequest("GET", link)
         .then(function (response) {
-            console.log(`✔️${name}`);
+            console.log(`✔️${url}`);
             let data;
             if (parse) {
                 data = JSON.parse(response);
             } else {
-                data = response
+                data = response;
             }
             callback(data);
-            console.log(`⚙️${name}`);
+            console.log(`⚙️${url}`);
         })
         .catch(function (error) {
-            console.error(`❌${name}`);
+            console.error(`❌${url}`);
             console.error(error);
+            errorCallBack(error);
         });
 }

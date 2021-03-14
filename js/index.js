@@ -23,7 +23,7 @@ function render(projects) {
     }
 }
 
-renderSpecialObject("projects.json", function (data) {
+renderSpecialObject({ url: "projects.json" }, function (data) {
     /*
         We first request the backup Json
         After, we use the GitHub API to check is there are any new projects (and re-render the projects part if so)
@@ -31,7 +31,7 @@ renderSpecialObject("projects.json", function (data) {
     if (document.getElementById("projects").innerHTML === "") {
         render(data);
     }
-    renderSpecialObject("https://api.github.com/users/Its-Just-Nans/repos", function (dataFromAPI) {
+    renderSpecialObject({ url: "https://api.github.com/users/Its-Just-Nans/repos" }, function (dataFromAPI) {
         if (dataFromAPI.length != data.length) {
             smollPopUp({ title: "Message to admin", content: "curl.exe -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos" }, "ko", function Copier(rep) {
                 copy(rep.content);
@@ -41,7 +41,7 @@ renderSpecialObject("projects.json", function (data) {
     });
 });
 
-renderSpecialObject("links.json", function (data) {
+renderSpecialObject({ url: "links.json" }, function (data) {
     let tbody = document.getElementById("bodyLinks");
     let renderColum = function (row, link, content, className) {
         let column = document.createElement("td");
@@ -80,7 +80,7 @@ renderSpecialObject("links.json", function (data) {
     TOOLTIPload();
 });
 
-renderSpecialObject("activity.json", function (data) {
+renderSpecialObject({ url: "activity.json" }, function (data) {
     let root = document.getElementById("othersProjects");
     let createProjectCard = function (row, element) {
         row.className = "otherProjectsDiv";
@@ -121,7 +121,7 @@ renderSpecialObject("activity.json", function (data) {
     }
 });
 
-renderSpecialObject("languages.json", function (data) {
+renderSpecialObject({ url: "languages.json" }, function (data) {
     let root = document.getElementById("languages");
     let addlang = function (row, element) {
         row.className = "inline";
@@ -137,7 +137,7 @@ renderSpecialObject("languages.json", function (data) {
     TOOLTIPload();
 });
 
-renderSpecialObject("videos.json", function (data) {
+renderSpecialObject({ url: "videos.json" }, function (data) {
     let root = document.getElementById("videos");
     let addVideo = function (row, element) {
         let link = generateElement(row, "a", { href: `https://youtu.be/${element.id}`, className: "full" });
