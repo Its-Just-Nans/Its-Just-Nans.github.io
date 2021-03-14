@@ -169,12 +169,6 @@ p {
     .videosClass {
         min-height: 80px;
     }
-    .videosClass figcaption > h4 {
-        margin: 10px 0px 10px 0px;
-    }
-    .videosClass figcaption > p {
-        display: none;
-    }
     /*
     .iconSmall{
         height: 16px;
@@ -189,7 +183,14 @@ p {
     }
     */
 }
-
+@media screen and (min-width: 0px) and (max-width: 1050px) {
+    .videosClass figcaption > h4 {
+        margin: 10px 0px 10px 0px;
+    }
+    .videosClass figcaption > p {
+        display: none;
+    }
+}
 @media screen and (min-width: 1051px) and (max-width: 1500px) {
     .projectsClass:hover {
         box-shadow: 0px 0px 100px black;
