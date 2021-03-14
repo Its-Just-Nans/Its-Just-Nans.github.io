@@ -77,9 +77,10 @@ renderSpecialObject("links.json", function (data) {
         row.appendChild(copyColumn);
         tbody.appendChild(row);
     }
+    TOOLTIPload();
 });
 
-renderSpecialObject("otherProjects.json", function (data) {
+renderSpecialObject("activity.json", function (data) {
     let root = document.getElementById("othersProjects");
     let createProjectCard = function (row, element) {
         row.className = "otherProjectsDiv";
@@ -133,6 +134,7 @@ renderSpecialObject("languages.json", function (data) {
         addlang(row, oneElement);
         root.appendChild(row);
     }
+    TOOLTIPload();
 });
 
 renderSpecialObject("videos.json", function (data) {
