@@ -15,7 +15,7 @@ if (urlParams.has("name")) {
         });
     });
 
-    renderSpecialObject({ url: `https://api.github.com/repos/Its-Just-Nans/${nameOfProject}`, parse: false }, function (data) {
+    renderSpecialObject({ url: `https://api.github.com/repos/Its-Just-Nans/${nameOfProject}` }, function (data) {
         if (!data["has_pages"]) {
             document.getElementById("linkToHTML").remove();
         }
