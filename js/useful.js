@@ -1,4 +1,4 @@
-async function renderSpecialObject(params = { url, parse: true }, callback, errorCallBack) {
+async function renderSpecialObject(params = { url, parse: true }, callback, errorCallBack = null) {
     /*
         name: name of the file, ex :FILE.json
         callback: callBack to render with data
@@ -27,6 +27,8 @@ async function renderSpecialObject(params = { url, parse: true }, callback, erro
         .catch(function (error) {
             console.error(`❌${url}`);
             console.error(error);
-            errorCallBack(error);
+            if (errorCallBack) {
+                errorCallBack(error);
+            }
         });
 }
