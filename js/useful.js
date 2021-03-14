@@ -16,7 +16,7 @@ async function renderSpecialObject(params = { url: url, parse: true }, callback,
         .then(function (response) {
             console.log(`✔️${url}`);
             let data;
-            if (!parse) {
+            if (typeof parse === "undefined" || (typeof parse !== "undefined" && parse == true)) {
                 data = JSON.parse(response);
             } else {
                 data = response;
