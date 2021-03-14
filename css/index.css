@@ -163,6 +163,18 @@ p {
         width: 48px;
         vertical-align: middle;
     }
+    .projectsClass {
+        width: 150px;
+    }
+    .videosClass {
+        min-height: 80px;
+    }
+    .videosClass figcaption > h4 {
+        margin: 10px 0px 10px 0px;
+    }
+    .videosClass figcaption > p {
+        display: none;
+    }
     /*
     .iconSmall{
         height: 16px;
@@ -176,4 +188,51 @@ p {
         padding: 2px 5px;
     }
     */
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1500px) {
+    .projectsClass:hover {
+        box-shadow: 0px 0px 100px black;
+    }
+}
+
+@media screen and (min-width: 751px) and (max-width: 1050px) {
+    .projectsClass:hover {
+        box-shadow: 0px 0px 50px black;
+    }
+    .projectsClass {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 513px) and (max-width: 750px) {
+    .projectsClass:hover {
+        box-shadow: 0px 0px 50px black;
+    }
+    .projectsClass {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 256px) {
+    .projectsClass {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 257px) and (max-width: 512px) {
+    .projectsClass {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 15px;
+    }
+    .projectsClass:hover {
+        box-shadow: 0px 0px 25px black;
+    }
 }

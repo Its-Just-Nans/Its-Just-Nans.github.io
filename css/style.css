@@ -88,23 +88,12 @@ a {
         padding-left: 10vw;
         padding-right: 10vw;
     }
-    .projectsClass:hover {
-        box-shadow: 0px 0px 100px black;
-    }
 }
 
 @media screen and (min-width: 751px) and (max-width: 1050px) {
     article {
         padding-left: 10vw;
         padding-right: 10vw;
-    }
-    .projectsClass:hover {
-        box-shadow: 0px 0px 50px black;
-    }
-    .projectsClass {
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 20px;
     }
 }
 
@@ -113,23 +102,7 @@ a {
         padding-left: 8vw;
         padding-right: 8vw;
     }
-    .projectsClass:hover {
-        box-shadow: 0px 0px 50px black;
-    }
-    .projectsClass {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 15px;
-    }
 }
-
-/* @media (max-device-width:768px){
-    article{
-        padding-left: 1vw;
-        padding-right: 1vw;
-    }
-}
-*/
 
 @media screen and (min-width: 165px) and (max-width: 270px) {
     header {
@@ -147,11 +120,6 @@ a {
     article {
         padding-left: 5px;
         padding-right: 5px;
-    }
-    .projectsClass {
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-bottom: 20px;
     }
 }
 
@@ -171,14 +139,6 @@ a {
     article {
         padding-left: 5vw;
         padding-right: 5vw;
-    }
-    .projectsClass {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 15px;
-    }
-    .projectsClass:hover {
-        box-shadow: 0px 0px 25px black;
     }
 }
 
