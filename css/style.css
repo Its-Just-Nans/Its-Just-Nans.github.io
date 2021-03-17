@@ -70,6 +70,10 @@ header {
 .part {
     width: 100%;
     padding-top: 10px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+.titlePart {
     padding-bottom: 10px;
     box-sizing: border-box;
 }

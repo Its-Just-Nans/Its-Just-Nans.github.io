@@ -7,8 +7,14 @@ if(window.location.hash !== ""){
         const hash = window.location.hash;
         window.location.hash = "";
         window.location.hash = hash;
-        debugger
-    }, 1500)
+        const elementID = hash.substring(1);
+        if(document.getElementById(elementID)){
+            document.getElementById(elementID).className = "wink";
+            setTimeout(() =>{
+                document.getElementById(elementID).className = "";
+            }, 3000);
+        }
+    }, 1500);
 }
 
 document.getElementById("frontTitle").innerHTML = document.title;
@@ -18,7 +24,7 @@ const pathToData = `${window.location.origin}/data/`;
 const noRender = ["Its-Just-Nans"];
 
 function render(projects) {
-    let projectTag = document.getElementById("projects");
+    let projectTag = document.getElementById("projectsList");
     projectTag.innerHTML = "";
     //use of json
     for (let element of projects) {
@@ -131,7 +137,7 @@ renderSpecialObject({ url: "activity.json" }, function (data) {
 });
 
 renderSpecialObject({ url: "languages.json" }, function (data) {
-    let root = document.getElementById("languages");
+    let root = document.getElementById("languagesPart");
     let addlang = function (row, element) {
         row.className = "inline";
         row.setAttribute("data-tooltip", element.name);
@@ -147,7 +153,7 @@ renderSpecialObject({ url: "languages.json" }, function (data) {
 });
 
 renderSpecialObject({ url: "videos.json" }, function (data) {
-    let root = document.getElementById("videos");
+    let root = document.getElementById("videosPart");
     let addVideo = function (row, element) {
         let link = generateElement(row, "a", { href: `https://youtu.be/${element.id}`, className: "full" });
         let figure = generateElement(link, "figure");
