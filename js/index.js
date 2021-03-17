@@ -2,6 +2,15 @@ if (window.location == "https://its-just-nans.github.io/Its-Just-Nans.github.io/
     window.location = "https://its-just-nans.github.io/";
 }
 
+if(window.location.hash !== ""){
+    setTimeout(() =>{
+        const hash = window.location.hash;
+        window.location.hash = "";
+        window.location.hash = hash;
+        debugger
+    }, 1500)
+}
+
 document.getElementById("frontTitle").innerHTML = document.title;
 
 const pathToData = `${window.location.origin}/data/`;
