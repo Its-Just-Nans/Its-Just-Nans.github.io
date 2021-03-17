@@ -149,14 +149,14 @@ p {
 }
 @keyframes wink {
     100% {
-        outline-color: transparent;
+        outline-color: blue;
     }
 }
 .wink {
-    outline: blue auto 4px;
+    outline: transparent auto 4px;
     animation: wink 1s linear infinite;
 }
-hr{
+hr {
     margin: 0px;
 }
 @media screen and (min-width: 0px) and (max-width: 512px) {
