@@ -149,11 +149,11 @@ p {
 }
 @keyframes wink {
     100% {
-        outline-color: blue;
+        outline-color: transparent;
     }
 }
 .wink {
-    outline: transparent auto 4px;
+    outline: blue auto 4px;
     animation: wink 1s linear infinite;
 }
 hr {
