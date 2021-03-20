@@ -49,7 +49,7 @@ renderSpecialObject({ url: "projects.json" }, function (data) {
     renderSpecialObject({ url: "https://api.github.com/users/Its-Just-Nans/repos" }, function (dataFromAPI) {
         if (dataFromAPI.length != data.length) {
             smollPopUp({ title: "Message to admin", msg: "curl.exe -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos" }, { type: "ko" }, function Copier(rep) {
-                copy(rep.content);
+                copy(rep.msg);
             });
             render(dataFromAPI);
         }
