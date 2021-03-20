@@ -48,7 +48,7 @@ renderSpecialObject({ url: "projects.json" }, function (data) {
     }
     renderSpecialObject({ url: "https://api.github.com/users/Its-Just-Nans/repos" }, function (dataFromAPI) {
         if (dataFromAPI.length != data.length) {
-            smollPopUp({ title: "Message to admin", content: "curl.exe -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos" }, { type: "ko" }, function Copier(rep) {
+            smollPopUp({ title: "Message to admin", msg: "curl.exe -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos" }, { type: "ko" }, function Copier(rep) {
                 copy(rep.content);
             });
             render(dataFromAPI);
@@ -87,7 +87,7 @@ renderSpecialObject({ url: "links.json" }, function (data) {
         copyColumn.onclick = function () {
             let link = this.parentNode.children[0].children[0].href;
             copy(link);
-            smollPopUp({ title: "Copied", content: "" }, { type: "ok" });
+            smollPopUp({ title: "Copied", msg: "" }, { type: "ok" });
         };
         row.appendChild(copyColumn);
         tbody.appendChild(row);
