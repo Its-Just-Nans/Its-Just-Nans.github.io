@@ -25,6 +25,11 @@
         "link": "https://www.sololearn.com/profile/7347864"
     },
     {
+        "ico": "./imgs/logos/crowdin.png",
+        "name": "Crowdin",
+        "link": "https://crowdin.com/profile/n4n5"
+    },
+    {
         "ico": "./imgs/logos/arduino.png",
         "name": "Arduino Forums",
         "link": "https://forum.arduino.cc/index.php?action=profile;u=1420654"
