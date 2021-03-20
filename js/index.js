@@ -2,15 +2,15 @@ if (window.location == "https://its-just-nans.github.io/Its-Just-Nans.github.io/
     window.location = "https://its-just-nans.github.io/";
 }
 
-if(window.location.hash !== ""){
-    setTimeout(() =>{
+if (window.location.hash !== "") {
+    setTimeout(() => {
         const hash = window.location.hash;
         window.location.hash = "";
         window.location.hash = hash;
         const elementID = hash.substring(1);
-        if(document.getElementById(elementID)){
+        if (document.getElementById(elementID)) {
             document.getElementById(elementID).className = "wink";
-            setTimeout(() =>{
+            setTimeout(() => {
                 document.getElementById(elementID).className = "";
             }, 3000);
         }
@@ -48,7 +48,7 @@ renderSpecialObject({ url: "projects.json" }, function (data) {
     }
     renderSpecialObject({ url: "https://api.github.com/users/Its-Just-Nans/repos" }, function (dataFromAPI) {
         if (dataFromAPI.length != data.length) {
-            smollPopUp({ title: "Message to admin", content: "curl.exe -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos" }, "ko", function Copier(rep) {
+            smollPopUp({ title: "Message to admin", content: "curl.exe -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos" }, { type: "ko" }, function Copier(rep) {
                 copy(rep.content);
             });
             render(dataFromAPI);
@@ -87,7 +87,7 @@ renderSpecialObject({ url: "links.json" }, function (data) {
         copyColumn.onclick = function () {
             let link = this.parentNode.children[0].children[0].href;
             copy(link);
-            smollPopUp({ title: "Copied", content: "" }, "ok");
+            smollPopUp({ title: "Copied", content: "" }, { type: "ok" });
         };
         row.appendChild(copyColumn);
         tbody.appendChild(row);
