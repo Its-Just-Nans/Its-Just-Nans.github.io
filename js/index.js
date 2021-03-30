@@ -108,7 +108,6 @@ renderSpecialObject({ url: "activity.json" }, function (data) {
             src: "https://image.flaticon.com/icons/png/128/4200/4200419.png",
         });
         let div = generateElement(row, "div", { className: "otherProjectsDivDetails" });
-        div.style.display = "none";
         generateElement(div, "p", { innerHTML: element.description });
         for (let oneUrl of element.urls) {
             generateElement(div, "a", { innerHTML: oneUrl, href: oneUrl, className: "wordBreak" });
@@ -122,12 +121,12 @@ renderSpecialObject({ url: "activity.json" }, function (data) {
         row.onclick = function () {
             let ico = this.childNodes[2];
             let detail = this.childNodes[3];
-            if (detail.style.display == "none") {
-                detail.style.display = "block";
+            if (detail.className == "otherProjectsDivDetails") {
+                detail.className = "otherProjectsDivDetails otherProjectsDivDetailsOpen";
                 //icon frow material ui
                 ico.innerHTML = '<svg focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13H5v-2h14v2z"></path></svg>';
             } else {
-                detail.style.display = "none";
+                detail.className = "otherProjectsDivDetails";
                 //icon frow material ui
                 ico.innerHTML = '<svg focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>';
             }

@@ -132,8 +132,13 @@ p {
     color: blue;
 }
 .otherProjectsDivDetails {
-    transition: height 2s ease 0s;
-    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.25s 0s;
+}
+.otherProjectsDivDetailsOpen {
+    max-height: 500px;
+    transition: all 1s;
 }
 .titleOtherProjects {
     display: inline;
