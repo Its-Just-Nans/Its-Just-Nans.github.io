@@ -164,6 +164,9 @@ p {
 hr {
     margin: 0px;
 }
+.svgGithubStat {
+    width: 400px;
+}
 @media screen and (min-width: 0px) and (max-width: 512px) {
     #bodyLinks {
         font-size: 1em;
@@ -184,6 +187,9 @@ hr {
     }
     .videosClass {
         min-height: 80px;
+    }
+    .svgGithubStat {
+        width: 250px;
     }
     /*
     .iconSmall{
