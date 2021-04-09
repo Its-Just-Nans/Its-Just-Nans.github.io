@@ -23,6 +23,7 @@ if (urlParams.has("name")) {
 } else {
     document.getElementById("titleProject").innerHTML = "It looks like there are no readMe :(";
     document.getElementById("linkToHTML").remove();
+    smollPopUp({ title: "Page not found", msg: "You are going to be redirected in 5 sec" }, { type: "ko" });
     setTimeout(function () {
         window.location = "https://its-just-nans.github.io/";
     }, 5000);

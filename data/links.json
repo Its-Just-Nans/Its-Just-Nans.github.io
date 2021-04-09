@@ -33,5 +33,10 @@
         "ico": "./imgs/logos/arduino.png",
         "name": "Arduino Forums",
         "link": "https://forum.arduino.cc/index.php?action=profile;u=1420654"
+    },
+    {
+        "ico": "https://natto.dev/assets/icon.8b26d4cd.png",
+        "name": "Natto",
+        "link": "https://natto.dev/@n4n5/35b98223170f46e39b4667e13c751502"
     }
 ]

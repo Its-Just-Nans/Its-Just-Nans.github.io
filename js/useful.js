@@ -7,8 +7,13 @@ async function renderSpecialObject(params = { url: url, parse: true }, callback,
     */
     const { url, parse } = params;
     let link;
-    if (url.endsWith(".json") && pathToData) {
-        link = `${pathToData}${url}`;
+    if (url.endsWith(".json")) {
+        if (typeof pathToData !== "undefined") {
+            link = `${pathToData}${url}`;
+        } else {
+            const pathToData = `${window.location.origin}/data/`;
+            link = `${pathToData}${url}`;
+        }
     } else {
         link = url;
     }
@@ -29,6 +34,8 @@ async function renderSpecialObject(params = { url: url, parse: true }, callback,
             console.error(error);
             if (errorCallBack) {
                 errorCallBack(error);
+            } else {
+                throw new Error("Error render");
             }
         });
 }
