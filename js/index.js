@@ -17,7 +17,7 @@ if (window.location.hash !== "") {
     }, 1500);
 }
 
-document.getElementById("frontTitle").innerHTML = document.title.split('-')[0];
+document.getElementById("frontTitle").innerHTML = document.title.split(" - ")[0];
 
 import("./renders.js").then(function (module) {
     const rendering = module.renders;
