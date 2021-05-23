@@ -60,6 +60,36 @@ tbody > tr {
 .projectsClass:hover {
     box-shadow: 0px 0px 200px black;
 }
+.projectsClass2 {
+    position: relative;
+    display: inline-block;
+    margin: 10px 10px 0px 10px;
+    text-align: center;
+    border-radius: 5px;
+    vertical-align: bottom;
+    transition: box-shadow 0.25s;
+    box-sizing: border-box;
+}
+.projectsClass2:hover {
+    box-shadow: 0px 0px 0px 5px blue;
+}
+.specialHover:hover {
+    box-shadow: 0px 0px 0px 5px blue;
+}
+#turtle:hover {
+    transform: scale(2, 2);
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    height: 27px;
+    width: 50px;
+    background-color: var(--color-tertiary-background);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 2px solid var(--color-primary-text);
+}
 .projectsClassTitle {
     margin-right: 10px;
     margin-left: 10px;
@@ -167,95 +197,68 @@ hr {
 .svgGithubStat {
     width: 400px;
 }
-@media screen and (min-width: 0px) and (max-width: 512px) {
-    #bodyLinks {
-        font-size: 1em;
-    }
-    .otherProjectsDiv {
-        width: 80%;
-    }
-    .iconLang {
-        margin-top: 10px;
-    }
-    .iconLang {
-        height: 48px;
-        width: 48px;
-        vertical-align: middle;
-    }
-    .projectsClass {
-        width: 150px;
-    }
-    .videosClass {
-        min-height: 80px;
-    }
-    .svgGithubStat {
-        width: 90%;
-    }
-    /*
-    .iconSmall{
-        height: 16px;
-        width: 16px;
-    }
-    .copyIcon{
-        height: 20px;
-        width: 20px;
-    }
-    td{
-        padding: 2px 5px;
-    }
-    */
-}
-@media screen and (min-width: 0px) and (max-width: 1050px) {
-    .videosClass figcaption > h4 {
-        margin: 10px 0px 10px 0px;
-    }
-    .videosClass figcaption > p {
-        display: none;
-    }
-}
-@media screen and (min-width: 1051px) and (max-width: 1500px) {
-    .projectsClass:hover {
-        box-shadow: 0px 0px 100px black;
-    }
+/* From w3schools*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
-@media screen and (min-width: 751px) and (max-width: 1050px) {
-    .projectsClass:hover {
-        box-shadow: 0px 0px 50px black;
-    }
-    .projectsClass {
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 20px;
-    }
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-@media screen and (min-width: 513px) and (max-width: 750px) {
-    .projectsClass:hover {
-        box-shadow: 0px 0px 50px black;
-    }
-    .projectsClass {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 15px;
-    }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
 }
 
-@media screen and (min-width: 0px) and (max-width: 256px) {
-    .projectsClass {
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-bottom: 20px;
-    }
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
 }
 
-@media screen and (min-width: 257px) and (max-width: 512px) {
-    .projectsClass {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 15px;
-    }
-    .projectsClass:hover {
-        box-shadow: 0px 0px 25px black;
-    }
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+* {
+    --border-color: black;
+    --border-color2: rgb(171, 171, 171);
 }

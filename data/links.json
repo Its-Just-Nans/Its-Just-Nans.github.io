@@ -5,19 +5,9 @@
         "link": "https://github.com/Its-Just-Nans"
     },
     {
-        "ico": "./imgs/logos/linkedin.png",
-        "name": "LinkedIn",
-        "link": "https://www.linkedin.com/in/nans-webert/"
-    },
-    {
         "ico": "./imgs/logos/twitter.png",
         "name": "Twitter",
         "link": "https://twitter.com/Its_Just_Nans"
-    },
-    {
-        "ico": "./imgs/logos/discord.png",
-        "name": "Discord",
-        "link": "https://discord.gg/XsmsWvbdqv"
     },
     {
         "ico": "./imgs/logos/sololearn.png",

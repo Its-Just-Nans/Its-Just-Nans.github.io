@@ -1,0 +1,41 @@
+[
+    {
+        "title": "Sudoku Solver",
+        "desc": "sdgjlskdjgksgd",
+        "date1": "2019-16-18",
+        "ico": "./imgs/delta_industries.png"
+    },
+    {
+        "title": "Greener",
+        "desc": "sdgjlskdjgksgd",
+        "date1": "2019-16-18",
+        "ico": "./imgs/delta_industries.png"
+    },
+    {
+        "title": "Trombinouc",
+        "desc": "sdgjlskdjgksgd",
+        "date1": "2019-16-18"
+    },
+    {
+        "ico": "./imgs/aquila.png",
+        "title": "AquilaCMS",
+        "desc": "<p class=\"line\" data-line=\"0\">AquilaCMS Development (e-commerce CMS):</p>\n<ul>\n<li>An open-source e-commerce web application</li>\n<li>A 100% JavaScript solution with MERN Stack</li>\n<li>A mutli-themes website : Front-end can be used with any JS technology (ReactJS, VueJS, Angular, etc)</li>\n<li>A complete back office to manage everything in your website</li>\n</ul>\n<p class=\"line\" data-line=\"7\">Worked with :</p>\n<ul>\n<li>AngularJS</li>\n<li>NodeJs</li>\n<li>ReactJS</li>\n<li>MongoDB</li>\n<li>Cypress (bash script with automatic front-end tests)</li>\n<li>Mocha (API test)</li>\n<li>Creation of documentation for plugin integration in Aquila</li>\n<li>Creation of some Aquila plugins</li>\n</ul>\n<p class=\"line\" style=\"text-align:center;\"data-line=\"17\"><a href=\"https://github.com/AquilaCMS/AquilaCMS\"><img src=\"https://github-readme-stats.vercel.app/api/pin/?username=aquilacms&amp;repo=aquilacms\" alt=\"Aquila\"></p>\n",
+        "date1": "2019-16-18"
+    },
+    {
+        "title": "Delta-Industries",
+        "desc": "Creation of a website (not available) using PHP, SQL and JavaScript",
+        "date1": "2019-16-18"
+    },
+    {
+        "title": "Vidéo : Découverte du DUT R&T",
+        "desc": "<p class=\"line\" data-line=\"0\"><a target=\"_blank\" href=\"https://www.youtube.com/watch?v=HZTxtsy6G-s\">https://www.youtube.com/watch?v=HZTxtsy6G-s</a></p>\n",
+        "date1": "Avril 2020"
+    },
+    {
+        "date1": "2019-16-18",
+        "date2": "2019-16-18",
+        "title": "Projet Tuteuré avec Thalès",
+        "desc": "Videos created for my project of DUT"
+    }
+]
