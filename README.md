@@ -13,3 +13,7 @@ Client side render (from `json` files) :
 Use of a library for tooltips :
 
 - [js-css-tooltip](https://www.cssscript.com/demo/tiny-smart-tooltips-pure-javascript-css3/)
+
+---
+
+`master` branch is the old website in VanillaJS !
