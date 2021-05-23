@@ -1,4 +1,4 @@
-const projects = function () {
+const projects = async function () {
     renderSpecialObject({ url: "projects.json" }, function (data) {
         /*
             We first request the backup Json
@@ -8,14 +8,15 @@ const projects = function () {
         const render = function (projects) {
             let projectTag = document.getElementById("projectsPart");
             projectTag.innerHTML = "";
+            let projectPart2 = generateElement(projectTag, "div");
             //use of json
             for (let element of projects) {
                 //we don't render fork and some project in noDisplay
                 if (element.fork == false && !noRender.includes(element.name)) {
-                    let part = generateElement(projectTag, "div", { className: "projectsClass" });
-                    let link = generateElement(part, "a", { href: `./projects.html?name=${element.name}`, className: "full black nothing" });
-                    generateElement(link, "h4", { className: "projectsClassTitle", innerHTML: element.name });
-                    generateElement(link, "p", { className: "projectDesc", innerHTML: element.description || "" });
+                    const linkToImg = `https://github-readme-stats.vercel.app/api/pin/?username=its-just-nans&repo=${element.name}`;
+                    let part2 = generateElement(projectPart2, "div", { className: "projectsClass2" });
+                    let link2 = generateElement(part2, "a", { href: `https://github.com/Its-Just-Nans/${element.name}` });
+                    generateElement(link2, "img", { src: linkToImg, className: "block" });
                 }
             }
         };
@@ -33,7 +34,7 @@ const projects = function () {
     });
 };
 
-const links = function () {
+const links = async function () {
     renderSpecialObject({ url: "links.json" }, function (data) {
         const table = generateElement(document.getElementById("linksPart"), "table");
         const tbody = generateElement(table, "tbody");
@@ -74,9 +75,9 @@ const links = function () {
         TOOLTIPload();
     });
 };
-const activity = function () {
+const activity = async function () {
     renderSpecialObject({ url: "activity.json" }, function (data) {
-        let root = document.getElementById("activitiesPart");
+        let root = document.getElementById("activityPart");
         let createProjectCard = function (row, element) {
             row.className = "otherProjectsDiv";
             generateElement(row, "img", { className: "iconSmall", src: element.ico });
@@ -85,7 +86,6 @@ const activity = function () {
             let ico = generateElement(row, "div", {
                 innerHTML: '<svg class="MuiSvgIcon-root jss172" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>',
                 className: "iconSmall iconShowMore",
-                src: "https://image.flaticon.com/icons/png/128/4200/4200419.png",
             });
             let div = generateElement(row, "div", { className: "otherProjectsDivDetails" });
             generateElement(div, "p", { innerHTML: element.description });
@@ -115,7 +115,7 @@ const activity = function () {
         }
     });
 };
-const languages = function () {
+const languages = async function () {
     renderSpecialObject({ url: "languages.json" }, function (data) {
         let root = document.getElementById("languagesPart");
         let addlang = function (row, element) {
@@ -133,7 +133,7 @@ const languages = function () {
     });
 };
 
-const videos = function () {
+const videos = async function () {
     renderSpecialObject({ url: "videos.json" }, function (data) {
         let root = document.getElementById("videosPart");
         let addVideo = function (row, element) {
@@ -151,5 +151,42 @@ const videos = function () {
         }
     });
 };
-const renders = { projects, languages, links, activity, videos };
+
+const history = async function () {
+    const name = "history";
+    renderSpecialObject({ url: `${name}.json` }, function (data) {
+        let root = document.getElementById(`${name}Part`);
+        const viewBox = "-4 2 32 32";
+        let addHistory = function (parent, element) {
+            const onClickFunction = function () {
+                let line = this.parentNode;
+                let ico = this.childNodes[3];
+                if (line.className == "historyLine") {
+                    line.className = "historyLine historyLineOpen";
+                    //icon frow material ui
+                    ico.innerHTML = `<svg focusable="false" viewBox="${viewBox}" aria-hidden="true"><path d="M19 13H5v-2h14v2z"></path></svg>`;
+                } else {
+                    line.className = "historyLine";
+                    //icon frow material ui
+                    ico.innerHTML = `<svg focusable="false" viewBox="${viewBox}" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>`;
+                }
+            };
+            let line = generateElement(parent, "div", { onclick: onClickFunction });
+            generateElement(line, "p", { innerHTML: element.date || "?" });
+            generateElement(line, "img", { className: "iconSmall", src: element.ico || "" });
+            generateElement(line, "p", { innerHTML: element.title || "" });
+            let ico = generateElement(line, "div", {
+                innerHTML: `<svg focusable="false" viewBox="${viewBox}" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>`,
+                className: "iconSmall iconShowMore",
+            });
+            let details = generateElement(parent, "div");
+            generateElement(details, "div", { className: "historyDetail", innerHTML: element.desc || "" });
+        };
+        for (let oneElement of data) {
+            let parent = generateElement(root, "div", { className: "historyLine" });
+            addHistory(parent, oneElement);
+        }
+    });
+};
+const renders = { projects, languages, links, activity, videos, history };
 export { renders };
