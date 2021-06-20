@@ -78,7 +78,7 @@
                         xmlns="http://www.w3.org/2000/svg"
                         class="block cursorPointer"
                         width="400"
-                        height="120"
+                        height="110"
                         viewBox="0 0 400 120"
                         fill="black"
                     >
@@ -131,7 +131,7 @@
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="400"
-                        height="120"
+                        height="110"
                         viewBox="0 0 400 120"
                         fill="black"
                     >
@@ -257,6 +257,20 @@
     article {
         padding-left: 10vw !important;
         padding-right: 10vw !important;
+    }
+    @media screen and (max-width: 1024px) {
+        article {
+            padding-top: 50px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+    }
+    .projectsDiv > img {
+        width: 100%;
+    }
+    .projectsDiv > svg {
+        display: block;
+        width: 100%;
     }
     .projectHelp a:hover text {
         color: blue;

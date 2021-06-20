@@ -43,13 +43,13 @@ main {
     position: fixed;
     bottom: 0px;
     width: 100vw;
-    height: calc(100vh - 85px);
+    height: calc(100vh - var(--header));
 }
 article {
     position: fixed;
     bottom: 0px;
     width: 100vw;
-    height: calc(100vh - 85px);
+    height: calc(100vh - var(--header));
     padding-left: 20vw;
     padding-right: 20vw;
     overflow: auto;

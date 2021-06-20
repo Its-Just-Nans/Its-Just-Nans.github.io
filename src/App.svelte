@@ -91,6 +91,7 @@
     }
     @media screen and (max-width: 1024px) {
         :global(article) {
+            padding-top: 50px !important;
             padding-left: 10px !important;
             padding-right: 10px !important;
         }
