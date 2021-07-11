@@ -1,6 +1,4 @@
 <script>
-    import { identity } from "svelte/internal";
-
     export let title;
     export let nav = [];
     export let actualNav;
@@ -8,6 +6,7 @@
     function returnBase() {
         actualNav(0);
     }
+    let menuIsOpen = false;
 </script>
 
 <header style="--globalColor: {globalColor}">
@@ -34,19 +33,10 @@
         </div>
     </div>
     <div class="space">
-        <span class="smallMenu">
+        <span class="smallMenu" class:smallMenuOpen={menuIsOpen}>
             <h2
-                on:click={function (event) {
-                    const element = event.target.parentElement;
-                    const value = element.className;
-                    if (value.includes(" smallMenuOpen")) {
-                        element.className = element.className.replace(
-                            " smallMenuOpen",
-                            ""
-                        );
-                    } else {
-                        element.className += " smallMenuOpen";
-                    }
+                on:click={function () {
+                    menuIsOpen = !menuIsOpen;
                 }}
                 class="smallMenuTitle"
             >
@@ -58,6 +48,7 @@
                         class="menuLinks"
                         on:click={() => {
                             actualNav(index);
+                            menuIsOpen = false;
                         }}
                     >
                         {name}

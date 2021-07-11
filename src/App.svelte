@@ -57,27 +57,33 @@
         actualNav = nav[index];
         const hash = nav[index].route;
         window.location.hash = hash;
-        if (nav[index].data) {
-            loadData(`./data/${nav[index].data}`);
+        if (
+            nav[index].data &&
+            (typeof data[actualNav.route] === "undefined" ||
+                data[actualNav.route].length === 0)
+        ) {
+            fetch(`./data/${nav[index].data}`).then((resp) => {
+                resp.json().then((json) => {
+                    data[actualNav.route] = json;
+                });
+            });
         } else {
-            data = [];
+            if (typeof data[actualNav.route] === "undefined") {
+                data[actualNav.route] = [];
+            }
         }
     }
-    let data = [];
-    function loadData(linkToJson) {
-        fetch(linkToJson).then((resp) => {
-            resp.json().then((json) => {
-                data = json;
-            });
-        });
-    }
+    let data = {};
     changeNav(-1);
 </script>
 
 <Header globalColor={color} title="Its-Just-Nans" actualNav={changeNav} {nav} />
 <main style="--globalColor: {color}">
     {#key actualNav}
-        <svelte:component this={actualNav.component} {data} />
+        <svelte:component
+            this={actualNav.component}
+            bind:data={data[actualNav.route]}
+        />
     {/key}
 </main>
 
@@ -95,23 +101,26 @@
             padding-left: 10px !important;
             padding-right: 10px !important;
         }
-    }
-    /* width */
-    :global(article::-webkit-scrollbar) {
-        width: 10px;
+        /* width */
     }
 
-    /* Track */
-    :global(article::-webkit-scrollbar-track) {
-        background: #f1f1f1;
-    }
+    @media screen and (min-width: 512px) {
+        :global(article::-webkit-scrollbar) {
+            width: 10px;
+        }
 
-    /* Handle */
-    :global(::-webkit-scrollbar-thumb) {
-        background: #888;
-    }
-    /* Handle on hover */
-    :global(::-webkit-scrollbar-thumb:hover) {
-        background: #555;
+        /* Track */
+        :global(article::-webkit-scrollbar-track) {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        :global(::-webkit-scrollbar-thumb) {
+            background: #888;
+        }
+        /* Handle on hover */
+        :global(::-webkit-scrollbar-thumb:hover) {
+            background: #555;
+        }
     }
 </style>

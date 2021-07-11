@@ -1,33 +1,66 @@
 <script>
-    import About from "./About.svelte";
-
     export let data = [];
     const name = "projects.json";
     const noRender = ["Its-Just-Nans"];
-    fetch("https://api.github.com/users/Its-Just-Nans/repos")
-        .then((newResponse) => {
-            newResponse.json().then((newJson) => {
-                if (Array.isArray(newJson)) {
-                    if (newJson.length != data.length) {
-                        data = newJson;
-                        smollPopUp(
-                            {
-                                title: "Message to admin",
-                                msg: "curl -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos",
-                            },
-                            { type: "ko" },
-                            function Copier(rep) {
-                                copy(rep.msg);
-                            }
-                        );
+    const getDataFromAPIs = async () => {
+        fetch("https://api.github.com/users/Its-Just-Nans/repos")
+            .then((newResponse) => {
+                newResponse.json().then((newJson) => {
+                    if (Array.isArray(newJson)) {
+                        if (newJson.length != data.length) {
+                            data = newJson;
+                            smollPopUp(
+                                {
+                                    title: "Message to admin",
+                                    msg: "curl -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos",
+                                },
+                                { type: "ko" },
+                                function Copier(rep) {
+                                    copy(rep.msg);
+                                }
+                            );
+                        }
                     }
-                }
+                    getGists();
+                });
+            })
+            .catch(() => {
                 getGists();
             });
-        })
-        .catch(() => {
-            getGists();
-        });
+    };
+    const start = () => {
+        if (window && window.sessionStorage) {
+            const localString = window.sessionStorage.getItem("projects") || {};
+            let local;
+            try {
+                local = JSON.parse(localString) || {};
+            } catch (e) {
+                local = {};
+            }
+            if (local !== null) {
+                if (
+                    typeof local.dataLoaded !== "undefined" ||
+                    local.dataLoaded === true
+                ) {
+                    const areGistPresent = data.find((element) =>
+                        element.url.startsWith("https://api.github.com/gists/")
+                    );
+                    if (areGistPresent) {
+                        return;
+                    }
+                }
+            }
+            getDataFromAPIs();
+            window.sessionStorage.setItem(
+                "projects",
+                JSON.stringify({
+                    ...local,
+                    dataLoaded: true,
+                })
+            );
+        }
+    };
+    start();
     function getGists() {
         fetch("https://api.github.com/users/its-just-nans/gists").then(
             (newResponse) => {
@@ -78,7 +111,7 @@
                         xmlns="http://www.w3.org/2000/svg"
                         class="block cursorPointer"
                         width="400"
-                        height="110"
+                        height="120"
                         viewBox="0 0 400 120"
                         fill="black"
                     >
@@ -131,7 +164,7 @@
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="400"
-                        height="110"
+                        height="120"
                         viewBox="0 0 400 120"
                         fill="black"
                     >
@@ -270,6 +303,7 @@
     }
     .projectsDiv > svg {
         display: block;
+        height: 100% !important;
         width: 100%;
     }
     .projectHelp a:hover text {
