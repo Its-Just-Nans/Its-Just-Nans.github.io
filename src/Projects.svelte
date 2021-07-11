@@ -8,11 +8,12 @@
                 newResponse.json().then((newJson) => {
                     if (Array.isArray(newJson)) {
                         if (newJson.length != data.length) {
-                            data = newJson;
+                            addToData(newJson);
                             smollPopUp(
                                 {
                                     title: "Message to admin",
                                     msg: "curl -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos",
+                                    button: "Copier",
                                 },
                                 { type: "ko" },
                                 function Copier(rep) {
@@ -66,12 +67,22 @@
             (newResponse) => {
                 newResponse.json().then((newJson) => {
                     if (Array.isArray(newJson)) {
-                        data = [...data, ...newJson];
+                        addToData(newJson);
                     }
                 });
             }
         );
     }
+    const addToData = (array) => {
+        for (const oneElement of array) {
+            const isInArray = data.findIndex((element) => {
+                return element.url === oneElement.url;
+            });
+            if (isInArray) {
+                data = [...data, oneElement];
+            }
+        }
+    };
     let clicked = -20;
 </script>
 
