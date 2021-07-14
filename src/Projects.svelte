@@ -78,7 +78,7 @@
             const isInArray = data.findIndex((element) => {
                 return element.url === oneElement.url;
             });
-            if (isInArray) {
+            if (isInArray == -1) {
                 data = [...data, oneElement];
             }
         }
