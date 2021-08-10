@@ -2,7 +2,12 @@
     {
         "ico": "./imgs/langs/javascript.png",
         "name": "JavaScript",
-        "link": "https://fr.wikipedia.org/wiki/JavaScript"
+        "link": "https://en.wikipedia.org/wiki/JavaScript"
+    },
+    {
+        "ico": "./imgs/langs/svelte.png",
+        "name": "Svelte",
+        "link": "https://svelte.dev/"
     },
     {
         "ico": "./imgs/langs/angularjs.png",

@@ -1,11 +1,9 @@
 <script>
     export let data = [];
-    let languages = [];
-    fetch("./data/languages.json").then((resp) => {
-        resp.json().then((json) => {
-            languages = json;
-        });
-    });
+    let links;
+    let languages;
+    $: links = data[0] || [];
+    $: languages = data[1] || [];
 </script>
 
 <article>
@@ -74,7 +72,7 @@
         <div class="overflowTable">
             <table>
                 <tbody>
-                    {#each data as oneLink, index}
+                    {#each links as oneLink, index}
                         <tr>
                             <td>
                                 <a href={oneLink.link} target="_blank">

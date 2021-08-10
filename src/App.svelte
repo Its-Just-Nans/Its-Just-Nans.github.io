@@ -12,41 +12,52 @@
         }
         return color;
     };
+    window.onhashchange = () => {
+        if (window.location.hash.substring(1) !== actualNav.route) {
+            changeNav();
+        }
+    };
     let color = getRandomColor();
     setInterval(() => {
         color = getRandomColor();
     }, 5000);
+    const jsonFetch = async (url) => {
+        try {
+            const resp = await fetch(url);
+            return resp.json();
+        } catch (e) {}
+    };
     let nav = [
-        { name: "About", route: "about", component: About, data: "links.json" },
+        {
+            name: "About",
+            route: "about",
+            component: About,
+            getData: async () =>
+                Promise.all([
+                    await jsonFetch(`./data/links.json`),
+                    await jsonFetch(`./data/languages.json`),
+                ]),
+        },
         {
             name: "Projects",
             route: "projects",
             component: Projects,
-            data: "projects.json",
+            getData: async () => jsonFetch(`./data/projects.json`),
         },
         {
             name: "History",
             route: "history",
             component: History,
-            data: "history.json",
+            getData: async () => jsonFetch(`./data/history.json`),
         },
     ];
     let actualNav = {};
-    function changeNav(index) {
+    async function changeNav(index = -1) {
         if (index == -1) {
             let hash = window.location.hash;
-            hash = hash.substring(1, hash.length);
-            let count = 0;
-            for (const oneNav of nav) {
-                if (hash == oneNav.route) {
-                    index = count;
-                    break;
-                }
-                count++;
-            }
-            if (index == -1) {
-                index = 0;
-            }
+            hash = hash.substring(1);
+            const newIndex = nav.findIndex((element) => element.route === hash);
+            index = newIndex === -1 ? 0 : newIndex;
         } else {
             if (nav[index].route == actualNav.route) {
                 // prevent from re-clicking
@@ -57,24 +68,14 @@
         actualNav = nav[index];
         const hash = nav[index].route;
         window.location.hash = hash;
-        if (
-            nav[index].data &&
-            (typeof data[actualNav.route] === "undefined" ||
-                data[actualNav.route].length === 0)
-        ) {
-            fetch(`./data/${nav[index].data}`).then((resp) => {
-                resp.json().then((json) => {
-                    data[actualNav.route] = json;
-                });
-            });
-        } else {
-            if (typeof data[actualNav.route] === "undefined") {
-                data[actualNav.route] = [];
-            }
+        if (typeof data[actualNav.route] === "undefined") {
+            // we load data
+            const newData = await nav[index].getData();
+            data[actualNav.route] = newData;
         }
     }
     let data = {};
-    changeNav(-1);
+    changeNav();
 </script>
 
 <Header globalColor={color} title="Its-Just-Nans" actualNav={changeNav} {nav} />
