@@ -1,8 +1,6 @@
 <script>
-    import History from "./History.svelte";
     import Header from "./Header.svelte";
-    import Projects from "./Projects.svelte";
-    import About from "./About.svelte";
+    import nav from "./pages.js";
 
     const getRandomColor = function () {
         var letters = "9ABCDEF";
@@ -21,36 +19,6 @@
     setInterval(() => {
         color = getRandomColor();
     }, 5000);
-    const jsonFetch = async (url) => {
-        try {
-            const resp = await fetch(url);
-            return resp.json();
-        } catch (e) {}
-    };
-    let nav = [
-        {
-            name: "About",
-            route: "about",
-            component: About,
-            getData: async () =>
-                Promise.all([
-                    await jsonFetch(`./data/links.json`),
-                    await jsonFetch(`./data/languages.json`),
-                ]),
-        },
-        {
-            name: "Projects",
-            route: "projects",
-            component: Projects,
-            getData: async () => jsonFetch(`./data/projects.json`),
-        },
-        {
-            name: "History",
-            route: "history",
-            component: History,
-            getData: async () => jsonFetch(`./data/history.json`),
-        },
-    ];
     let actualNav = {};
     async function changeNav(index = -1) {
         if (index == -1) {

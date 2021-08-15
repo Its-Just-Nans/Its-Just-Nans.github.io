@@ -129,8 +129,18 @@
     .navLinks {
         display: flex;
         flex: 0.35;
+        overflow-x: auto;
         padding: 10px 0px;
         border-left: 1px solid black;
+    }
+    .navLinks::-webkit-scrollbar {
+        height: 10px;
+    }
+    .navLinks::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    .navLinks::-webkit-scrollbar-thumb {
+        background: #888;
     }
     .navLinks > h2:first-child {
         margin-left: 10px;

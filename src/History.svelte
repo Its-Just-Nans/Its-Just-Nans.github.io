@@ -1,6 +1,6 @@
 <script>
-    import Article from "./Article.svelte";
     export let data = [];
+    import Article from "./Article.svelte";
     let type = "";
     function changeType(newtype) {
         if (type.includes(newtype)) {

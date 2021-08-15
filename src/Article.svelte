@@ -23,21 +23,23 @@
             open = !open;
         }}
     >
-        <p>{content.date1 || "?"}{content.date2 || ""}</p>
+        <p>
+            {content.date1 || "?"}
+            <br />
+            {content.date2 || ""}
+        </p>
         <div class="titleContainer">
             <img class="iconSmall" src={content.ico || ""} alt="" />
             <p class="title">{content.title || ""}</p>
         </div>
         <div class="plusOrMinus iconShowMore">
-            {#if open}
-                <svg focusable="false" {viewBox} aria-hidden="true"
-                    ><path d={svg1} /></svg
-                >
-            {:else}
-                <svg focusable="false" {viewBox} aria-hidden="true"
-                    ><path d={svg2} /></svg
-                >
-            {/if}
+            <svg focusable="false" {viewBox} aria-hidden="true">
+                {#if open}
+                    <path d={svg1} />
+                {:else}
+                    <path d={svg2} />
+                {/if}
+            </svg>
         </div>
     </div>
     <div class="secondDiv">
@@ -53,13 +55,14 @@
         margin-bottom: 20px;
         border-radius: 5px 5px 5px 5px;
         transition: box-shadow 0.1s;
-        min-width: 260px;
+        /*min-width: 260px;*/
     }
     .firstDiv > p {
         border-right: 1px solid var(--border-color);
         flex: 25;
         text-align: center;
         vertical-align: middle;
+        line-height: initial;
     }
     .titleContainer {
         border-right: 1px solid var(--border-color);
@@ -101,17 +104,51 @@
     .plusOrMinus {
         margin: auto;
         flex: 5;
-        height: 40px;
+        height: var(--heightSVG);
         text-align: center;
     }
     .plusOrMinus > svg {
-        height: 40px;
+        height: var(--heightSVG);
+    }
+    * {
+        --heightSVG: 40px;
+        --long: 50%;
+    }
+    @media screen and (max-width: 512px) {
+        * {
+            font-size: 0.95em;
+            --long: 33%;
+            --heightSVG: 30px;
+            --icoWidthHeight: 25px;
+        }
+        .firstDiv > p {
+            display: none;
+        }
+        .historyLineOpen > .firstDiv > p {
+            display: block;
+        }
+        .plusOrMinus {
+            margin: auto;
+            flex: 5;
+            height: var(--heightSVG);
+            text-align: center;
+        }
+        .plusOrMinus > svg {
+            height: var(--heightSVG);
+        }
+        .titleContainer > img {
+            height: var(--icoWidthHeight);
+            width: var(--icoWidthHeight);
+        }
+        .historyLine p {
+            padding: 5px 0px 5px 0px;
+        }
     }
     .toRight {
-        margin-left: 50%;
+        margin-left: var(--long);
     }
     .toLeft {
-        margin-right: 50%;
+        margin-right: var(--long);
     }
     .secondDiv {
         flex: 5;
@@ -152,10 +189,6 @@
 
     .historyLine .iconSmall {
         margin: auto;
-    }
-    .historyLine p {
-        padding: 10px 0px 10px 0px;
-        margin: 0px;
     }
     .historyLine > div:nth-child(1) {
         display: flex;

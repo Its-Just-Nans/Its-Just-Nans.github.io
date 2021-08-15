@@ -52,7 +52,7 @@ article {
     height: calc(100vh - var(--header));
     padding-left: 20vw;
     padding-right: 20vw;
-    overflow: auto;
+    overflow-y: scroll;
     right: 0px;
     box-sizing: border-box;
 }
