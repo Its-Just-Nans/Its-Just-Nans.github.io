@@ -5,10 +5,6 @@ table {
     margin: auto;
     text-align: center;
 }
-thead {
-    font-weight: bold;
-    border-bottom: 1px solid grey;
-}
 td {
     padding: 5px 10px;
 }
@@ -23,9 +19,6 @@ tbody > tr {
     width: 32px;
     vertical-align: middle;
 }
-#bodyLinks {
-    font-size: 1.05em;
-}
 .copyIcon {
     fill: black;
 }
@@ -37,143 +30,22 @@ tbody > tr {
     width: 64px;
     vertical-align: middle;
 }
-.projectsClass {
-    --nameColor: #f1f1f1;
-    position: relative;
-    display: inline-block;
-    width: 170px;
-    height: 170px;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-bottom: 40px;
-    padding: 10px;
-    background-color: var(--nameColor);
-    border-radius: 25px;
-    text-align: center;
-    /*border: 2px solid var(--nameColor);*/
-    border: 1px solid #555;
-    font: 1.2em "Fira Sans", sans-serif;
-    vertical-align: bottom;
-    transition: box-shadow 1.25s;
-    box-sizing: border-box;
-}
-.projectsClass:hover {
-    box-shadow: 0px 0px 200px black;
-}
-.projectsClassTitle {
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 8px;
-}
-.projectDesc {
-    font-size: 0.75em;
-    margin: 1em;
-    word-break: break-word;
-}
-.videosClass {
-    --nameColor: #f1f1f1;
-    position: relative;
-    display: inline-block;
-    width: 45%;
-    height: 25%;
-    min-height: 100px;
-    margin: 0px 1% 1% 1%;
-    overflow: hidden;
-    background-color: var(--nameColor);
-    border-radius: 10px;
-    text-align: center;
-    /*border: 2px solid var(--nameColor);*/
-    border: 2px solid #555;
-    font: 1.2em "Fira Sans", sans-serif;
-    vertical-align: bottom;
-    transition: box-shadow 1.25s;
-    box-sizing: border-box;
-}
-.videosClass figcaption {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    width: 100%;
-    z-index: 5;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.9);
-    -webkit-transition: 0.3s;
-    transition: all 0.3s ease-in-out;
-    color: white;
-}
-.videosClass figcaption > h4,
-p {
-    margin: 15px 0px 10px 0px;
-}
-.videosClass:hover figcaption {
-    opacity: 1;
-}
-.videosClass img {
-    width: 100%;
-}
-.videosClass figure {
-    margin: 0px;
-}
 .inline {
     display: inline;
 }
 .wordBreak {
     word-break: break-word;
 }
-.otherProjectsDiv {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 50%;
-    padding: 10px;
-    margin: auto;
-    margin-bottom: 20px;
-}
-.otherProjectsDivDetails a {
-    color: blue;
-}
-.otherProjectsDivDetails {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.25s 0s;
-}
-.otherProjectsDivDetailsOpen {
-    max-height: 500px;
-    transition: all 1s;
-}
-.titleOtherProjects {
-    display: inline;
-}
 .iconShowMore {
     float: right;
 }
-.otherProjectsDiv:hover {
-    cursor: pointer;
-}
 .hoverBlue:hover {
     color: blue;
-}
-@keyframes wink {
-    100% {
-        outline-color: transparent;
-    }
-}
-.wink {
-    outline: blue auto 4px;
-    animation: wink 1s linear infinite;
-}
-hr {
-    margin: 0px;
 }
 .svgGithubStat {
     width: 400px;
 }
 @media screen and (min-width: 0px) and (max-width: 512px) {
-    #bodyLinks {
-        font-size: 1em;
-    }
-    .otherProjectsDiv {
-        width: 80%;
-    }
     .iconLang {
         margin-top: 10px;
     }
@@ -182,81 +54,8 @@ hr {
         width: 48px;
         vertical-align: middle;
     }
-    .projectsClass {
-        width: 150px;
-    }
-    .videosClass {
-        min-height: 80px;
-    }
     .svgGithubStat {
         width: 90%;
-    }
-    /*
-    .iconSmall{
-        height: 16px;
-        width: 16px;
-    }
-    .copyIcon{
-        height: 20px;
-        width: 20px;
-    }
-    td{
-        padding: 2px 5px;
-    }
-    */
-}
-@media screen and (min-width: 0px) and (max-width: 1050px) {
-    .videosClass figcaption > h4 {
-        margin: 10px 0px 10px 0px;
-    }
-    .videosClass figcaption > p {
-        display: none;
-    }
-}
-@media screen and (min-width: 1051px) and (max-width: 1500px) {
-    .projectsClass:hover {
-        box-shadow: 0px 0px 100px black;
-    }
-}
-
-@media screen and (min-width: 751px) and (max-width: 1050px) {
-    .projectsClass:hover {
-        box-shadow: 0px 0px 50px black;
-    }
-    .projectsClass {
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 20px;
-    }
-}
-
-@media screen and (min-width: 513px) and (max-width: 750px) {
-    .projectsClass:hover {
-        box-shadow: 0px 0px 50px black;
-    }
-    .projectsClass {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 15px;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 256px) {
-    .projectsClass {
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-bottom: 20px;
-    }
-}
-
-@media screen and (min-width: 257px) and (max-width: 512px) {
-    .projectsClass {
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-bottom: 15px;
-    }
-    .projectsClass:hover {
-        box-shadow: 0px 0px 25px black;
     }
 }
 * {
