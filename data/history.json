@@ -1,41 +1,64 @@
 [
     {
-        "title": "Sudoku Solver",
-        "desc": "sdgjlskdjgksgd",
-        "date1": "2019-16-18",
-        "ico": "./imgs/delta_industries.png"
+        "title": "Continuous integration of my curriculum vitae",
+        "desc": "<p>As my CV is in latex, I used multiple some GitHub Action to automatically generate a CV from the latex files<p/>",
+        "date1": "2022-01",
+        "ico": "https://i.imgur.com/f9E4UDK.png"
     },
     {
-        "title": "Greener",
-        "desc": "sdgjlskdjgksgd",
-        "date1": "2019-16-18",
-        "ico": "./imgs/delta_industries.png"
+        "title": "Creation of the club \"Bel Art\"",
+        "desc": "<p>Bel Art is <a target=\"_blank\" href=\"https://rezel.net\">Rezel</a>'s development club !<br /> More informations soon !<p/>",
+        "date1": "2022-01-25",
+        "ico": "https://i.imgur.com/RmzIn1g.png"
     },
     {
-        "title": "Trombinouc",
-        "desc": "sdgjlskdjgksgd",
-        "date1": "2019-16-18"
+        "ico": "https://i.imgur.com/37YGnSy.png",
+        "title": "TOCS 2021",
+        "desc": "<p>TOCS is the \"Trophée des objets connectés\" (Trophy of connected objects).<br /> I finished the TOCS by winning the Jury Prize with the presentation of my CyberDeck (in plexiglass).<br/> See more at : <li><a target=\"_blank\" href=\"https://twitter.com/TelecomValley/status/1410309659802705921\">Twitter post</a></li><li><a target=\"_blank\" href=\"https://www.linkedin.com/posts/telecom-valley_tocs2021-activity-6816055164638646272-rOeo\">LinkedIn post</a></li></p>\n",
+        "date1": "2021-06-30"
     },
     {
-        "ico": "./imgs/aquila.png",
-        "title": "AquilaCMS",
-        "desc": "<p class=\"line\" data-line=\"0\">AquilaCMS Development (e-commerce CMS):</p>\n<ul>\n<li>An open-source e-commerce web application</li>\n<li>A 100% JavaScript solution with MERN Stack</li>\n<li>A mutli-themes website : Front-end can be used with any JS technology (ReactJS, VueJS, Angular, etc)</li>\n<li>A complete back office to manage everything in your website</li>\n</ul>\n<p class=\"line\" data-line=\"7\">Worked with :</p>\n<ul>\n<li>AngularJS</li>\n<li>NodeJs</li>\n<li>ReactJS</li>\n<li>MongoDB</li>\n<li>Cypress (bash script with automatic front-end tests)</li>\n<li>Mocha (API test)</li>\n<li>Creation of documentation for plugin integration in Aquila</li>\n<li>Creation of some Aquila plugins</li>\n</ul>\n<p class=\"line\" style=\"text-align:center;\"data-line=\"17\"><a href=\"https://github.com/AquilaCMS/AquilaCMS\"><img src=\"https://github-readme-stats.vercel.app/api/pin/?username=aquilacms&amp;repo=aquilacms\" alt=\"Aquila\"></p>\n",
-        "date1": "2019-16-18"
+        "ico": "https://i.imgur.com/3eO5n0c.png",
+        "title": "Apprenticeship at AquilaCMS",
+        "desc": "<p>AquilaCMS Development (e-commerce CMS):</p>\n<ul>\n<li>An open-source e-commerce web application</li>\n<li>A 100% JavaScript solution with MERN Stack</li>\n<li>A mutli-themes website : Front-end can be used with any JS technology (ReactJS, VueJS, Angular, etc)</li>\n<li>A complete back office to manage everything in your website</li>\n</ul>\n<p class=\"line\" data-line=\"7\">Worked with :</p>\n<ul>\n<li>AngularJS</li>\n<li>NodeJs</li>\n<li>ReactJS</li>\n<li>MongoDB</li>\n<li>Cypress (bash script with automatic front-end tests)</li>\n<li>Mocha (API test)</li>\n<li>Creation of documentation for plugin integration in Aquila</li>\n<li>Creation of some Aquila plugins</li>\n</ul>\n<p class=\"line\" style=\"text-align:center;\"data-line=\"17\"><a href=\"https://github.com/AquilaCMS/AquilaCMS\"><img src=\"https://github-readme-stats.vercel.app/api/pin/?username=aquilacms&amp;repo=aquilacms\" alt=\"Aquila\"></p>\n",
+        "date1": "2020-10-05",
+        "date2": "2021-09-06"
+    },
+    {
+        "title": "Video : Discovery of the DUT R&T",
+        "desc": "<p>A movie created for my DUT (in Network and computer science) for the competition \"Je filme ma formation\" (I film my school education).<br/> Available here : <a target=\"_blank\" href=\"https://www.youtube.com/watch?v=HZTxtsy6G-s\">https://www.youtube.com/watch?v=HZTxtsy6G-s</a></p>\n",
+        "date1": "2021-04",
+        "ico": "https://i.imgur.com/A99Irww.png"
+    },
+    {
+        "title": "Tutored Project with Thales Alenia Space",
+        "desc": "<p>The project (made in group of 6) was to update a moving robot and adapt a spacial Camera (ToF - Time Of Flight) to it.<br/>A video which present the project is available here : <a target=\"_blank\" href=\"https://youtu.be/Xz0L6iHNSwA\">https://youtu.be/Xz0L6iHNSwA</a></p>",
+        "date1": "2020-04",
+        "date2": "2021-06",
+        "ico": "https://i.imgur.com/7mTsoKX.png"
     },
     {
         "title": "Delta-Industries",
-        "desc": "Creation of a website (not available) using PHP, SQL and JavaScript",
-        "date1": "2019-16-18"
-    },
-    {
-        "title": "Vidéo : Découverte du DUT R&T",
-        "desc": "<p class=\"line\" data-line=\"0\"><a target=\"_blank\" href=\"https://www.youtube.com/watch?v=HZTxtsy6G-s\">https://www.youtube.com/watch?v=HZTxtsy6G-s</a></p>\n",
-        "date1": "Avril 2020"
-    },
-    {
+        "desc": "<p>Creation of a website (not available) using PHP, SQL and JavaScript <a target=\"_blank\" href=\"https://threejs.org/\">Three.js</a><p/>",
         "date1": "2019-16-18",
-        "date2": "2019-16-18",
-        "title": "Projet Tuteuré avec Thalès",
-        "desc": "Videos created for my project of DUT"
+        "ico": "https://i.imgur.com/6EQvbbd.png"
+    },
+    {
+        "title": "Greener",
+        "desc": "<p>Creation of a website about ecology for a school project<p/>",
+        "date1": "2020-01",
+        "ico": "https://i.imgur.com/DQlmdG8.png"
+    },
+    {
+        "title": "Trombinouc",
+        "desc": "<p>Creation of a Facebook like social network (with a personal pages and posts).<br />The project is currently in a private repo on my GitHub<p/>",
+        "date1": "2020-06",
+        "ico": "https://i.imgur.com/htgsaHZ.png"
+    },
+    {
+        "title": "Sudoku Solver",
+        "desc": "<p> Created a sudoku solver in C.<br />Available here <a target=\"_blank\" href=\"https://github.com/Its-Just-Nans/sudoku-solver\">https://github.com/Its-Just-Nans/sudoku-solver</a><br /> V2 is coming !<p/>",
+        "date1": "2019-11",
+        "ico": "https://i.imgur.com/t7KVm25.png"
     }
 ]

@@ -15,25 +15,25 @@ const nav = [
         name: "About",
         route: "about",
         component: About,
-        getData: async () => jsonFetch(`./data/languages.json`)
+        getData: async () => jsonFetch(`https://n4n5.dev/data/?file=languages.json`)
     },
     {
         name: "Projects",
         route: "projects",
         component: Projects,
-        getData: async () => jsonFetch(`./data/projects.json`),
+        getData: async () => jsonFetch(`https://n4n5.dev/data/?file=projects.json`),
     },
     {
         name: "History",
         route: "history",
         component: History,
-        getData: async () => jsonFetch(`./data/history.json`),
+        getData: async () => jsonFetch(`https://n4n5.dev/data/?file=history.json`),
     },
     {
         name: "Links",
         route: "links",
         component: Links,
-        getData: async () => jsonFetch(`./data/links.json`),
+        getData: async () => jsonFetch(`https://n4n5.dev/data/?file=links.json`),
     }
 ];
 

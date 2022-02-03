@@ -59,7 +59,7 @@
     }
     .firstDiv > p {
         border-right: 1px solid var(--border-color);
-        flex: 25;
+        flex: 16;
         text-align: center;
         vertical-align: middle;
         line-height: initial;

@@ -45,6 +45,7 @@
                 </div>
             {/each}
         </div>
+        <br />
         <div class="center" style="margin-top:20px">
             <h3>GitHub stats</h3>
             <div class="inline">
