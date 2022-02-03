@@ -1,7 +1,6 @@
 <script>
     import Header from "./Header.svelte";
     import nav from "./pages.js";
-
     const getRandomColor = function () {
         var letters = "9ABCDEF";
         var color = "#";
@@ -38,25 +37,90 @@
         window.location.hash = hash;
         if (typeof data[actualNav.route] === "undefined") {
             // we load data
+            data[actualNav.route] = [];
             const newData = await nav[index].getData();
             data[actualNav.route] = newData;
         }
     }
     let data = {};
     changeNav();
+    setTimeout(() => {
+        preloadData();
+    }, 1500);
+    const preloadData = async () => {
+        for (const oneMenu of nav) {
+            data[oneMenu.route] = await oneMenu.getData();
+        }
+    };
 </script>
 
 <Header globalColor={color} title="Its-Just-Nans" actualNav={changeNav} {nav} />
 <main style="--globalColor: {color}">
     {#key actualNav}
-        <svelte:component
-            this={actualNav.component}
-            bind:data={data[actualNav.route]}
-        />
+        {#if data && data[actualNav.route] && data[actualNav.route].length > 0}
+            <svelte:component
+                this={actualNav.component}
+                bind:data={data[actualNav.route]}
+            />
+        {:else}
+            <div class="center">
+                <div class="center loader" />
+                <p class="text">Nothing to see here :/</p>
+            </div>
+        {/if}
     {/key}
 </main>
 
 <style>
+    .center {
+        text-align: center;
+    }
+    @keyframes show {
+        0% {
+            opacity: 0;
+            display: none;
+        }
+        99% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes hide {
+        0% {
+            opacity: 1;
+        }
+        99% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    .loader {
+        border: 8px solid #f3f3f3; /* Light grey */
+        border-top: 8px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite, hide 2s forwards;
+        margin: 20px auto;
+    }
+    .text {
+        animation: show 2s forwards;
+        margin: 20px auto;
+    }
     :global(article) {
         padding-top: 10px;
         padding-left: 25vw;

@@ -922,7 +922,7 @@ var app = (function () {
     const file$5 = "src/Article.svelte";
 
     // (39:16) {:else}
-    function create_else_block(ctx) {
+    function create_else_block$1(ctx) {
     	let path;
 
     	const block = {
@@ -943,7 +943,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block.name,
+    		id: create_else_block$1.name,
     		type: "else",
     		source: "(39:16) {:else}",
     		ctx
@@ -953,7 +953,7 @@ var app = (function () {
     }
 
     // (37:16) {#if open}
-    function create_if_block$1(ctx) {
+    function create_if_block$2(ctx) {
     	let path;
 
     	const block = {
@@ -974,7 +974,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block$2.name,
     		type: "if",
     		source: "(37:16) {#if open}",
     		ctx
@@ -1013,8 +1013,8 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*open*/ ctx[2]) return create_if_block$1;
-    		return create_else_block;
+    		if (/*open*/ ctx[2]) return create_if_block$2;
+    		return create_else_block$1;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -1383,13 +1383,13 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(button0, "class", "style-4 svelte-pe112a");
-    			add_location(button0, file$4, 16, 8, 385);
-    			attr_dev(button1, "class", "style-4 svelte-pe112a");
-    			add_location(button1, file$4, 24, 8, 561);
-    			set_style(div, "text-align", "center");
+    			attr_dev(button0, "class", "style-4 svelte-yrvhi8");
+    			add_location(button0, file$4, 16, 8, 372);
+    			attr_dev(button1, "class", "style-4 svelte-yrvhi8");
+    			add_location(button1, file$4, 24, 8, 548);
+    			attr_dev(div, "class", "center svelte-yrvhi8");
     			add_location(div, file$4, 15, 4, 343);
-    			add_location(br, file$4, 33, 4, 742);
+    			add_location(br, file$4, 33, 4, 729);
     			add_location(article, file$4, 14, 0, 329);
     		},
     		l: function claim(nodes) {
@@ -1562,12 +1562,12 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[9] = list[i];
-    	child_ctx[11] = i;
+    	child_ctx[5] = list[i];
+    	child_ctx[7] = i;
     	return child_ctx;
     }
 
-    // (92:12) {#if oneData.fork == false && !noRender.includes(oneData.name)}
+    // (10:12) {#if oneData.fork == false && !noRender.includes(oneData.name)}
     function create_if_block_3(ctx) {
     	let div;
     	let img;
@@ -1576,7 +1576,7 @@ var app = (function () {
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[3](/*index*/ ctx[11]);
+    		return /*click_handler*/ ctx[3](/*index*/ ctx[7]);
     	}
 
     	const block = {
@@ -1584,11 +1584,11 @@ var app = (function () {
     			div = element("div");
     			img = element("img");
     			attr_dev(img, "class", "block cursorPointer svelte-1fydu6m");
-    			if (!src_url_equal(img.src, img_src_value = `https://github-readme-stats.vercel.app/api/pin/?username=its-just-nans&repo=${/*oneData*/ ctx[9].name}`)) attr_dev(img, "src", img_src_value);
+    			if (!src_url_equal(img.src, img_src_value = `https://github-readme-stats.vercel.app/api/pin/?username=its-just-nans&repo=${/*oneData*/ ctx[5].name}`)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$3, 102, 20, 3504);
+    			add_location(img, file$3, 20, 20, 616);
     			attr_dev(div, "class", "projectsDiv svelte-1fydu6m");
-    			add_location(div, file$3, 92, 16, 3165);
+    			add_location(div, file$3, 10, 16, 277);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1602,7 +1602,7 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty & /*data*/ 1 && !src_url_equal(img.src, img_src_value = `https://github-readme-stats.vercel.app/api/pin/?username=its-just-nans&repo=${/*oneData*/ ctx[9].name}`)) {
+    			if (dirty & /*data*/ 1 && !src_url_equal(img.src, img_src_value = `https://github-readme-stats.vercel.app/api/pin/?username=its-just-nans&repo=${/*oneData*/ ctx[5].name}`)) {
     				attr_dev(img, "src", img_src_value);
     			}
     		},
@@ -1617,14 +1617,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(92:12) {#if oneData.fork == false && !noRender.includes(oneData.name)}",
+    		source: "(10:12) {#if oneData.fork == false && !noRender.includes(oneData.name)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (110:12) {#if oneData.url && oneData.url.startsWith("https://api.github.com/gists")}
+    // (28:12) {#if oneData.url && oneData.url.startsWith("https://api.github.com/gists")}
     function create_if_block_2(ctx) {
     	let div;
     	let svg1;
@@ -1636,13 +1636,13 @@ var app = (function () {
     	let g1;
     	let text_1;
     	let t0;
-    	let t1_value = /*oneData*/ ctx[9].description.substring(0, 24).trim().concat(/*oneData*/ ctx[9].description.length > 24 ? "..." : "") + "";
+    	let t1_value = /*oneData*/ ctx[5].description.substring(0, 24).trim().concat(/*oneData*/ ctx[5].description.length > 24 ? "..." : "") + "";
     	let t1;
     	let mounted;
     	let dispose;
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[4](/*index*/ ctx[11]);
+    		return /*click_handler_1*/ ctx[4](/*index*/ ctx[7]);
     	}
 
     	const block = {
@@ -1666,10 +1666,10 @@ var app = (function () {
     			attr_dev(rect, "width", "399");
     			attr_dev(rect, "fill", "#fffefe");
     			attr_dev(rect, "stroke-opacity", "1");
-    			add_location(rect, file$3, 128, 24, 4541);
+    			add_location(rect, file$3, 46, 24, 1653);
     			attr_dev(path, "fill-rule", "evenodd");
     			attr_dev(path, "d", "M1.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25H1.75zM0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0114.25 16H1.75A1.75 1.75 0 010 14.25V1.75zm9.22 3.72a.75.75 0 000 1.06L10.69 8 9.22 9.47a.75.75 0 101.06 1.06l2-2a.75.75 0 000-1.06l-2-2a.75.75 0 00-1.06 0zM6.78 6.53a.75.75 0 00-1.06-1.06l-2 2a.75.75 0 000 1.06l2 2a.75.75 0 101.06-1.06L5.31 8l1.47-1.47z");
-    			add_location(path, file$3, 149, 36, 5460);
+    			add_location(path, file$3, 67, 36, 2572);
     			attr_dev(svg0, "class", "icon");
     			attr_dev(svg0, "x", "0");
     			attr_dev(svg0, "y", "-13");
@@ -1677,25 +1677,25 @@ var app = (function () {
     			attr_dev(svg0, "version", "1.1");
     			attr_dev(svg0, "width", "24");
     			attr_dev(svg0, "height", "24");
-    			add_location(svg0, file$3, 140, 32, 5049);
+    			add_location(svg0, file$3, 58, 32, 2161);
     			attr_dev(g0, "transform", "translate(0, 0)");
-    			add_location(g0, file$3, 139, 28, 4985);
+    			add_location(g0, file$3, 57, 28, 2097);
     			attr_dev(text_1, "x", "0");
     			attr_dev(text_1, "y", "0");
-    			add_location(text_1, file$3, 156, 32, 6213);
+    			add_location(text_1, file$3, 74, 32, 3325);
     			attr_dev(g1, "transform", "translate(25, 0)");
-    			add_location(g1, file$3, 155, 28, 6148);
+    			add_location(g1, file$3, 73, 28, 3260);
     			attr_dev(g2, "transform", "translate(25, 35)");
-    			add_location(g2, file$3, 138, 24, 4923);
+    			add_location(g2, file$3, 56, 24, 2035);
     			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg1, "class", "block cursorPointer svelte-1fydu6m");
     			attr_dev(svg1, "width", "400");
     			attr_dev(svg1, "height", "120");
     			attr_dev(svg1, "viewBox", "0 0 400 120");
     			attr_dev(svg1, "fill", "black");
-    			add_location(svg1, file$3, 120, 20, 4223);
+    			add_location(svg1, file$3, 38, 20, 1335);
     			attr_dev(div, "class", "projectsDiv svelte-1fydu6m");
-    			add_location(div, file$3, 110, 16, 3884);
+    			add_location(div, file$3, 28, 16, 996);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1717,7 +1717,7 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*data*/ 1 && t1_value !== (t1_value = /*oneData*/ ctx[9].description.substring(0, 24).trim().concat(/*oneData*/ ctx[9].description.length > 24 ? "..." : "") + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*data*/ 1 && t1_value !== (t1_value = /*oneData*/ ctx[5].description.substring(0, 24).trim().concat(/*oneData*/ ctx[5].description.length > 24 ? "..." : "") + "")) set_data_dev(t1, t1_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
@@ -1730,15 +1730,15 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(110:12) {#if oneData.url && oneData.url.startsWith(\\\"https://api.github.com/gists\\\")}",
+    		source: "(28:12) {#if oneData.url && oneData.url.startsWith(\\\"https://api.github.com/gists\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (172:12) {#if index == clicked}
-    function create_if_block(ctx) {
+    // (90:12) {#if index == clicked}
+    function create_if_block$1(ctx) {
     	let br0;
     	let t0;
     	let div;
@@ -1748,9 +1748,9 @@ var app = (function () {
     	let g0;
     	let text0;
 
-    	let t1_value = (/*oneData*/ ctx[9].url.startsWith("https://api.github.com/gists")
-    	? /*oneData*/ ctx[9].description.substring(0, 24).trim().concat(/*oneData*/ ctx[9].description.length > 24 ? "..." : "")
-    	: /*oneData*/ ctx[9].name) + "";
+    	let t1_value = (/*oneData*/ ctx[5].url.startsWith("https://api.github.com/gists")
+    	? /*oneData*/ ctx[5].description.substring(0, 24).trim().concat(/*oneData*/ ctx[5].description.length > 24 ? "..." : "")
+    	: /*oneData*/ ctx[5].name) + "";
 
     	let t1;
     	let a;
@@ -1761,7 +1761,7 @@ var app = (function () {
     	let g3;
     	let text1;
 
-    	let t2_value = (/*oneData*/ ctx[9].url.startsWith("https://api.github.com/gists")
+    	let t2_value = (/*oneData*/ ctx[5].url.startsWith("https://api.github.com/gists")
     	? "View the Gist on GitHub"
     	: "View the repository on GitHub") + "";
 
@@ -1769,7 +1769,7 @@ var app = (function () {
     	let a_href_value;
     	let t3;
     	let br1;
-    	let if_block = /*oneData*/ ctx[9].homepage && create_if_block_1(ctx);
+    	let if_block = /*oneData*/ ctx[5].homepage && create_if_block_1(ctx);
 
     	const block = {
     		c: function create() {
@@ -1793,7 +1793,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			t3 = space();
     			br1 = element("br");
-    			add_location(br0, file$3, 172, 16, 6900);
+    			add_location(br0, file$3, 90, 16, 4012);
     			attr_dev(rect, "x", "0.5");
     			attr_dev(rect, "y", "0.5");
     			attr_dev(rect, "rx", "4.5");
@@ -1803,18 +1803,18 @@ var app = (function () {
     			attr_dev(rect, "fill", "#fffefe");
     			attr_dev(rect, "stroke-opacity", "1");
     			attr_dev(rect, "class", "svelte-1fydu6m");
-    			add_location(rect, file$3, 181, 24, 7247);
+    			add_location(rect, file$3, 99, 24, 4359);
     			attr_dev(text0, "x", "0");
     			attr_dev(text0, "y", "0");
     			attr_dev(text0, "class", "svelte-1fydu6m");
-    			add_location(text0, file$3, 193, 32, 7756);
+    			add_location(text0, file$3, 111, 32, 4868);
     			attr_dev(g0, "transform", "translate(25, 0)");
-    			add_location(g0, file$3, 192, 28, 7691);
+    			add_location(g0, file$3, 110, 28, 4803);
     			attr_dev(g1, "transform", "translate(25, 35)");
-    			add_location(g1, file$3, 191, 24, 7629);
+    			add_location(g1, file$3, 109, 24, 4741);
     			attr_dev(path, "fill-rule", "evenodd");
     			attr_dev(path, "d", "M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5\n                                        c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1\n                                        c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4\n                                        c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7\n                                        c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5\n                                        c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z");
-    			add_location(path, file$3, 226, 40, 9451);
+    			add_location(path, file$3, 144, 40, 6563);
     			attr_dev(svg0, "class", "icon");
     			attr_dev(svg0, "x", "0");
     			attr_dev(svg0, "y", "-13");
@@ -1822,31 +1822,31 @@ var app = (function () {
     			attr_dev(svg0, "version", "1.1");
     			attr_dev(svg0, "width", "16");
     			attr_dev(svg0, "height", "16");
-    			add_location(svg0, file$3, 217, 36, 9004);
+    			add_location(svg0, file$3, 135, 36, 6116);
     			attr_dev(g2, "transform", "translate(0, 0)");
-    			add_location(g2, file$3, 216, 32, 8936);
+    			add_location(g2, file$3, 134, 32, 6048);
     			attr_dev(text1, "x", "0");
     			attr_dev(text1, "y", "0");
     			attr_dev(text1, "class", "svelte-1fydu6m");
-    			add_location(text1, file$3, 238, 36, 10574);
+    			add_location(text1, file$3, 156, 36, 7686);
     			attr_dev(g3, "transform", "translate(25, 0)");
-    			add_location(g3, file$3, 237, 32, 10505);
+    			add_location(g3, file$3, 155, 32, 7617);
     			attr_dev(g4, "transform", "translate(25, 75)");
-    			add_location(g4, file$3, 215, 28, 8870);
-    			attr_dev(a, "href", a_href_value = /*oneData*/ ctx[9].html_url);
+    			add_location(g4, file$3, 133, 28, 5982);
+    			attr_dev(a, "href", a_href_value = /*oneData*/ ctx[5].html_url);
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "class", "cursorPointer svelte-1fydu6m");
-    			add_location(a, file$3, 210, 24, 8667);
+    			add_location(a, file$3, 128, 24, 5779);
     			attr_dev(svg1, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg1, "width", "400");
     			attr_dev(svg1, "height", "120");
     			attr_dev(svg1, "viewBox", "0 0 400 120");
     			attr_dev(svg1, "fill", "black");
     			attr_dev(svg1, "class", "svelte-1fydu6m");
-    			add_location(svg1, file$3, 174, 20, 6981);
+    			add_location(svg1, file$3, 92, 20, 4093);
     			attr_dev(div, "class", "projectsDiv projectHelp svelte-1fydu6m");
-    			add_location(div, file$3, 173, 16, 6923);
-    			add_location(br1, file$3, 280, 16, 13013);
+    			add_location(div, file$3, 91, 16, 4035);
+    			add_location(br1, file$3, 198, 16, 10125);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br0, anchor);
@@ -1871,19 +1871,19 @@ var app = (function () {
     			insert_dev(target, br1, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data*/ 1 && t1_value !== (t1_value = (/*oneData*/ ctx[9].url.startsWith("https://api.github.com/gists")
-    			? /*oneData*/ ctx[9].description.substring(0, 24).trim().concat(/*oneData*/ ctx[9].description.length > 24 ? "..." : "")
-    			: /*oneData*/ ctx[9].name) + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*data*/ 1 && t1_value !== (t1_value = (/*oneData*/ ctx[5].url.startsWith("https://api.github.com/gists")
+    			? /*oneData*/ ctx[5].description.substring(0, 24).trim().concat(/*oneData*/ ctx[5].description.length > 24 ? "..." : "")
+    			: /*oneData*/ ctx[5].name) + "")) set_data_dev(t1, t1_value);
 
-    			if (dirty & /*data*/ 1 && t2_value !== (t2_value = (/*oneData*/ ctx[9].url.startsWith("https://api.github.com/gists")
+    			if (dirty & /*data*/ 1 && t2_value !== (t2_value = (/*oneData*/ ctx[5].url.startsWith("https://api.github.com/gists")
     			? "View the Gist on GitHub"
     			: "View the repository on GitHub") + "")) set_data_dev(t2, t2_value);
 
-    			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = /*oneData*/ ctx[9].html_url)) {
+    			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = /*oneData*/ ctx[5].html_url)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if (/*oneData*/ ctx[9].homepage) {
+    			if (/*oneData*/ ctx[5].homepage) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -1908,16 +1908,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block.name,
+    		id: create_if_block$1.name,
     		type: "if",
-    		source: "(172:12) {#if index == clicked}",
+    		source: "(90:12) {#if index == clicked}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (249:24) {#if oneData.homepage}
+    // (167:24) {#if oneData.homepage}
     function create_if_block_1(ctx) {
     	let a;
     	let g2;
@@ -1941,7 +1941,7 @@ var app = (function () {
     			t = text("View the project");
     			attr_dev(path, "fill-rule", "evenodd");
     			attr_dev(path, "d", "M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z");
-    			add_location(path, file$3, 265, 44, 11993);
+    			add_location(path, file$3, 183, 44, 9105);
     			attr_dev(svg, "class", "icon");
     			attr_dev(svg, "x", "0");
     			attr_dev(svg, "y", "-13");
@@ -1949,21 +1949,21 @@ var app = (function () {
     			attr_dev(svg, "version", "1.1");
     			attr_dev(svg, "width", "16");
     			attr_dev(svg, "height", "16");
-    			add_location(svg, file$3, 256, 40, 11510);
+    			add_location(svg, file$3, 174, 40, 8622);
     			attr_dev(g0, "transform", "translate(0, 0)");
-    			add_location(g0, file$3, 255, 36, 11438);
+    			add_location(g0, file$3, 173, 36, 8550);
     			attr_dev(text_1, "x", "0");
     			attr_dev(text_1, "y", "0");
     			attr_dev(text_1, "class", "svelte-1fydu6m");
-    			add_location(text_1, file$3, 272, 40, 12723);
+    			add_location(text_1, file$3, 190, 40, 9835);
     			attr_dev(g1, "transform", "translate(25, 0)");
-    			add_location(g1, file$3, 271, 36, 12650);
+    			add_location(g1, file$3, 189, 36, 9762);
     			attr_dev(g2, "transform", "translate(25, 100)");
-    			add_location(g2, file$3, 254, 32, 11367);
-    			attr_dev(a, "href", a_href_value = /*oneData*/ ctx[9].homepage);
+    			add_location(g2, file$3, 172, 32, 8479);
+    			attr_dev(a, "href", a_href_value = /*oneData*/ ctx[5].homepage);
     			attr_dev(a, "target", "_blank");
     			attr_dev(a, "class", "cursorPointer svelte-1fydu6m");
-    			add_location(a, file$3, 249, 28, 11144);
+    			add_location(a, file$3, 167, 28, 8256);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -1976,7 +1976,7 @@ var app = (function () {
     			append_dev(text_1, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = /*oneData*/ ctx[9].homepage)) {
+    			if (dirty & /*data*/ 1 && a_href_value !== (a_href_value = /*oneData*/ ctx[5].homepage)) {
     				attr_dev(a, "href", a_href_value);
     			}
     		},
@@ -1989,23 +1989,23 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(249:24) {#if oneData.homepage}",
+    		source: "(167:24) {#if oneData.homepage}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:8) {#each data as oneData, index}
+    // (9:8) {#each data as oneData, index}
     function create_each_block$2(ctx) {
-    	let show_if_1 = /*oneData*/ ctx[9].fork == false && !/*noRender*/ ctx[2].includes(/*oneData*/ ctx[9].name);
+    	let show_if_1 = /*oneData*/ ctx[5].fork == false && !/*noRender*/ ctx[2].includes(/*oneData*/ ctx[5].name);
     	let t0;
-    	let show_if = /*oneData*/ ctx[9].url && /*oneData*/ ctx[9].url.startsWith("https://api.github.com/gists");
+    	let show_if = /*oneData*/ ctx[5].url && /*oneData*/ ctx[5].url.startsWith("https://api.github.com/gists");
     	let t1;
     	let if_block2_anchor;
     	let if_block0 = show_if_1 && create_if_block_3(ctx);
     	let if_block1 = show_if && create_if_block_2(ctx);
-    	let if_block2 = /*index*/ ctx[11] == /*clicked*/ ctx[1] && create_if_block(ctx);
+    	let if_block2 = /*index*/ ctx[7] == /*clicked*/ ctx[1] && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -2025,7 +2025,7 @@ var app = (function () {
     			insert_dev(target, if_block2_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data*/ 1) show_if_1 = /*oneData*/ ctx[9].fork == false && !/*noRender*/ ctx[2].includes(/*oneData*/ ctx[9].name);
+    			if (dirty & /*data*/ 1) show_if_1 = /*oneData*/ ctx[5].fork == false && !/*noRender*/ ctx[2].includes(/*oneData*/ ctx[5].name);
 
     			if (show_if_1) {
     				if (if_block0) {
@@ -2040,7 +2040,7 @@ var app = (function () {
     				if_block0 = null;
     			}
 
-    			if (dirty & /*data*/ 1) show_if = /*oneData*/ ctx[9].url && /*oneData*/ ctx[9].url.startsWith("https://api.github.com/gists");
+    			if (dirty & /*data*/ 1) show_if = /*oneData*/ ctx[5].url && /*oneData*/ ctx[5].url.startsWith("https://api.github.com/gists");
 
     			if (show_if) {
     				if (if_block1) {
@@ -2055,11 +2055,11 @@ var app = (function () {
     				if_block1 = null;
     			}
 
-    			if (/*index*/ ctx[11] == /*clicked*/ ctx[1]) {
+    			if (/*index*/ ctx[7] == /*clicked*/ ctx[1]) {
     				if (if_block2) {
     					if_block2.p(ctx, dirty);
     				} else {
-    					if_block2 = create_if_block(ctx);
+    					if_block2 = create_if_block$1(ctx);
     					if_block2.c();
     					if_block2.m(if_block2_anchor.parentNode, if_block2_anchor);
     				}
@@ -2082,7 +2082,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(91:8) {#each data as oneData, index}",
+    		source: "(9:8) {#each data as oneData, index}",
     		ctx
     	});
 
@@ -2110,9 +2110,9 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "projects svelte-1fydu6m");
-    			add_location(div, file$3, 89, 4, 3011);
+    			add_location(div, file$3, 7, 4, 123);
     			attr_dev(article, "class", "svelte-1fydu6m");
-    			add_location(article, file$3, 88, 0, 2997);
+    			add_location(article, file$3, 6, 0, 109);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2169,92 +2169,11 @@ var app = (function () {
     	return block;
     }
 
-    const name = "projects.json";
-
     function instance$3($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Projects', slots, []);
     	let { data = [] } = $$props;
     	const noRender = ["Its-Just-Nans"];
-
-    	const getDataFromAPIs = async () => {
-    		fetch("https://api.github.com/users/Its-Just-Nans/repos").then(newResponse => {
-    			newResponse.json().then(newJson => {
-    				if (Array.isArray(newJson)) {
-    					if (newJson.length != data.length) {
-    						addToData(newJson);
-
-    						smollPopUp(
-    							{
-    								title: "Message to admin",
-    								msg: "curl -o data/projects.json https://api.github.com/users/Its-Just-Nans/repos",
-    								button: "Copier"
-    							},
-    							{ type: "ko" },
-    							function Copier(rep) {
-    								copy(rep.msg);
-    							}
-    						);
-    					}
-    				}
-
-    				getGists();
-    			});
-    		}).catch(() => {
-    			getGists();
-    		});
-    	};
-
-    	const start = () => {
-    		if (window && window.sessionStorage) {
-    			const localString = window.sessionStorage.getItem("projects") || {};
-    			let local;
-
-    			try {
-    				local = JSON.parse(localString) || {};
-    			} catch(e) {
-    				local = {};
-    			}
-
-    			if (local !== null) {
-    				if (typeof local.dataLoaded !== "undefined" || local.dataLoaded === true) {
-    					const areGistPresent = data.find(element => element.url.startsWith("https://api.github.com/gists/"));
-
-    					if (areGistPresent) {
-    						return;
-    					}
-    				}
-    			}
-
-    			getDataFromAPIs();
-    			window.sessionStorage.setItem("projects", JSON.stringify({ ...local, dataLoaded: true }));
-    		}
-    	};
-
-    	start();
-
-    	function getGists() {
-    		fetch("https://api.github.com/users/its-just-nans/gists").then(newResponse => {
-    			newResponse.json().then(newJson => {
-    				if (Array.isArray(newJson)) {
-    					addToData(newJson);
-    				}
-    			});
-    		});
-    	}
-
-    	const addToData = array => {
-    		for (const oneElement of array) {
-    			const isInArray = data.findIndex(element => {
-    				return element.url === oneElement.url;
-    			});
-
-    			if (isInArray == -1) {
-    				$$invalidate(0, data = [...data, oneElement]);
-    			}
-    		}
-    	};
-
     	let clicked = -20;
     	const writable_props = ['data'];
 
@@ -2282,16 +2201,7 @@ var app = (function () {
     		if ('data' in $$props) $$invalidate(0, data = $$props.data);
     	};
 
-    	$$self.$capture_state = () => ({
-    		data,
-    		name,
-    		noRender,
-    		getDataFromAPIs,
-    		start,
-    		getGists,
-    		addToData,
-    		clicked
-    	});
+    	$$self.$capture_state = () => ({ data, noRender, clicked });
 
     	$$self.$inject_state = $$props => {
     		if ('data' in $$props) $$invalidate(0, data = $$props.data);
@@ -3077,7 +2987,9 @@ var app = (function () {
 
     const jsonFetch = async (url) => {
         try {
-            const resp = await fetch(url);
+            const resp = await fetch(url, {
+                cache: "no-store"
+            });
             return resp.json();
         } catch (e) { }
     };
@@ -3112,8 +3024,54 @@ var app = (function () {
     /* src/App.svelte generated by Svelte v3.45.0 */
     const file = "src/App.svelte";
 
-    // (51:4) {#key actualNav}
-    function create_key_block(ctx) {
+    // (65:8) {:else}
+    function create_else_block(ctx) {
+    	let div1;
+    	let div0;
+    	let t0;
+    	let p;
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			div0 = element("div");
+    			t0 = space();
+    			p = element("p");
+    			p.textContent = "Nothing to see here :/";
+    			attr_dev(div0, "class", "center loader svelte-1evswdr");
+    			add_location(div0, file, 66, 16, 2165);
+    			attr_dev(p, "class", "text svelte-1evswdr");
+    			add_location(p, file, 67, 16, 2211);
+    			attr_dev(div1, "class", "center svelte-1evswdr");
+    			add_location(div1, file, 65, 12, 2128);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div1, t0);
+    			append_dev(div1, p);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(65:8) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (60:8) {#if data && data[actualNav.route] && data[actualNav.route].length > 0}
+    function create_if_block(ctx) {
     	let switch_instance;
     	let updating_data;
     	let switch_instance_anchor;
@@ -3207,9 +3165,89 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(60:8) {#if data && data[actualNav.route] && data[actualNav.route].length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (59:4) {#key actualNav}
+    function create_key_block(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block, create_else_block];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*data*/ ctx[2] && /*data*/ ctx[2][/*actualNav*/ ctx[1].route] && /*data*/ ctx[2][/*actualNav*/ ctx[1].route].length > 0) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(51:4) {#key actualNav}",
+    		source: "(59:4) {#key actualNav}",
     		ctx
     	});
 
@@ -3242,7 +3280,7 @@ var app = (function () {
     			main = element("main");
     			key_block.c();
     			set_style(main, "--globalColor", /*color*/ ctx[0]);
-    			add_location(main, file, 49, 0, 1573);
+    			add_location(main, file, 57, 0, 1823);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3357,14 +3395,29 @@ var app = (function () {
 
     		if (typeof data[actualNav.route] === "undefined") {
     			// we load data
-    			const newData = await nav[index].getData();
+    			$$invalidate(2, data[actualNav.route] = [], data);
 
+    			const newData = await nav[index].getData();
     			$$invalidate(2, data[actualNav.route] = newData, data);
     		}
     	}
 
     	let data = {};
     	changeNav();
+
+    	setTimeout(
+    		() => {
+    			preloadData();
+    		},
+    		1500
+    	);
+
+    	const preloadData = async () => {
+    		for (const oneMenu of nav) {
+    			$$invalidate(2, data[oneMenu.route] = await oneMenu.getData(), data);
+    		}
+    	};
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -3385,7 +3438,8 @@ var app = (function () {
     		color,
     		actualNav,
     		changeNav,
-    		data
+    		data,
+    		preloadData
     	});
 
     	$$self.$inject_state = $$props => {

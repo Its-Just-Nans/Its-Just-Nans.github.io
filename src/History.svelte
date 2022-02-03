@@ -13,7 +13,7 @@
 </script>
 
 <article>
-    <div style="text-align: center;">
+    <div class="center">
         <button
             class="style-4"
             on:click={() => {
@@ -38,6 +38,9 @@
 </article>
 
 <style>
+    .center {
+        text-align: center;
+    }
     button {
         font-weight: 600;
         border: solid 2px black;

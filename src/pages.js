@@ -5,7 +5,9 @@ import Links from "./Links.svelte";
 
 const jsonFetch = async (url) => {
     try {
-        const resp = await fetch(url);
+        const resp = await fetch(url, {
+            cache: "no-store"
+        });
         return resp.json();
     } catch (e) { }
 };
