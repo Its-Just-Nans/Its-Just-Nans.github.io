@@ -1,4 +1,5 @@
 <script>
+    import SVGrepo from "./SVGRepo.svelte";
     export let data = [];
     const noRender = ["Its-Just-Nans"];
     let clicked = -20;
@@ -7,7 +8,7 @@
 <article>
     <div class="projects">
         {#each data as oneData, index}
-            {#if oneData.fork == false && !noRender.includes(oneData.name)}
+            {#if oneData.url && oneData.url.startsWith("https://api.github.com/repo")}
                 <div
                     class="projectsDiv"
                     on:click={() => {
@@ -18,14 +19,9 @@
                         }
                     }}
                 >
-                    <img
-                        class="block cursorPointer"
-                        src={`https://github-readme-stats.vercel.app/api/pin/?username=its-just-nans&repo=${oneData.name}`}
-                        alt=""
-                    />
+                    <SVGrepo svgData={oneData} />
                 </div>
-            {/if}
-            {#if oneData.url && oneData.url.startsWith("https://api.github.com/gists")}
+            {:else if oneData.url && oneData.url.startsWith("https://api.github.com/gists")}
                 <div
                     class="projectsDiv"
                     on:click={() => {
@@ -36,55 +32,7 @@
                         }
                     }}
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="block cursorPointer"
-                        width="400"
-                        height="120"
-                        viewBox="0 0 400 120"
-                        fill="black"
-                    >
-                        <rect
-                            x="0.5"
-                            y="0.5"
-                            rx="4.5"
-                            height="99%"
-                            stroke="#e4e2e2"
-                            width="399"
-                            fill="#fffefe"
-                            stroke-opacity="1"
-                        />
-                        <g transform="translate(25, 35)">
-                            <g transform="translate(0, 0)">
-                                <svg
-                                    class="icon"
-                                    x="0"
-                                    y="-13"
-                                    viewBox="0 0 24 24"
-                                    version="1.1"
-                                    width="24"
-                                    height="24"
-                                >
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M1.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25H1.75zM0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0114.25 16H1.75A1.75 1.75 0 010 14.25V1.75zm9.22 3.72a.75.75 0 000 1.06L10.69 8 9.22 9.47a.75.75 0 101.06 1.06l2-2a.75.75 0 000-1.06l-2-2a.75.75 0 00-1.06 0zM6.78 6.53a.75.75 0 00-1.06-1.06l-2 2a.75.75 0 000 1.06l2 2a.75.75 0 101.06-1.06L5.31 8l1.47-1.47z"
-                                    />
-                                </svg>
-                            </g>
-                            <g transform="translate(25, 0)">
-                                <text x="0" y="0"
-                                    >Gist - {oneData.description
-                                        .substring(0, 24)
-                                        .trim()
-                                        .concat(
-                                            oneData.description.length > 24
-                                                ? "..."
-                                                : ""
-                                        )}</text
-                                >
-                            </g>
-                        </g>
-                    </svg>
+                    <SVGrepo svgData={oneData} />
                 </div>
             {/if}
             {#if index == clicked}
@@ -203,9 +151,6 @@
 </article>
 
 <style>
-    .block {
-        display: block;
-    }
     .projects {
         width: 100%;
         text-align: center;
@@ -226,9 +171,6 @@
             padding-left: 10px !important;
             padding-right: 10px !important;
         }
-    }
-    .projectsDiv > img {
-        width: 100%;
     }
     .projectsDiv > svg {
         display: block;
