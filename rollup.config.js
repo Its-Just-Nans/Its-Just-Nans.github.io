@@ -35,8 +35,6 @@ const getCSSandJS = () => {
     return output.styles || "";
 }
 
-import "./utils";
-
 export default {
     input: "src/main.js",
     output: {
