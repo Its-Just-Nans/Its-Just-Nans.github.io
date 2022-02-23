@@ -4,4 +4,4 @@ Website on GitHub !
 
 ---
 
-`master` branch is the old website in VanillaJS !
+`old` branch is the old website in VanillaJS !
