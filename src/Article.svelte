@@ -200,7 +200,10 @@
         border-radius: 5px;
         text-align: initial;
         height: 0px;
-        overflow: hidden;
+        display: none;
+    }
+    .historyLineOpen > div:nth-child(2) {
+        display: block;
     }
     .historyLineOpen > div:nth-child(2) {
         height: auto;
@@ -213,6 +216,8 @@
     }
     .historyDetail {
         overflow: auto;
+        width: 100%;
+        box-sizing: border-box;
     }
     :global(.historyDetail a) {
         font-weight: bold;

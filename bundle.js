@@ -929,7 +929,7 @@ var app = (function () {
     		c: function create() {
     			path = svg_element("path");
     			attr_dev(path, "d", svg2);
-    			attr_dev(path, "class", "svelte-16wo6iz");
+    			attr_dev(path, "class", "svelte-7u5eo2");
     			add_location(path, file$6, 39, 20, 1134);
     		},
     		m: function mount(target, anchor) {
@@ -960,7 +960,7 @@ var app = (function () {
     		c: function create() {
     			path = svg_element("path");
     			attr_dev(path, "d", svg1);
-    			attr_dev(path, "class", "svelte-16wo6iz");
+    			attr_dev(path, "class", "svelte-7u5eo2");
     			add_location(path, file$6, 37, 20, 1072);
     		},
     		m: function mount(target, anchor) {
@@ -1043,32 +1043,32 @@ var app = (function () {
     			t8 = space();
     			div4 = element("div");
     			div3 = element("div");
-    			attr_dev(br, "class", "svelte-16wo6iz");
+    			attr_dev(br, "class", "svelte-7u5eo2");
     			add_location(br, file$6, 27, 12, 683);
-    			attr_dev(p0, "class", "svelte-16wo6iz");
+    			attr_dev(p0, "class", "svelte-7u5eo2");
     			add_location(p0, file$6, 25, 8, 632);
-    			attr_dev(img, "class", "iconSmall svelte-16wo6iz");
+    			attr_dev(img, "class", "iconSmall svelte-7u5eo2");
     			if (!src_url_equal(img.src, img_src_value = /*content*/ ctx[0].ico || "")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
     			add_location(img, file$6, 31, 12, 786);
-    			attr_dev(p1, "class", "title svelte-16wo6iz");
+    			attr_dev(p1, "class", "title svelte-7u5eo2");
     			add_location(p1, file$6, 32, 12, 855);
-    			attr_dev(div0, "class", "titleContainer svelte-16wo6iz");
+    			attr_dev(div0, "class", "titleContainer svelte-7u5eo2");
     			add_location(div0, file$6, 30, 8, 745);
     			attr_dev(svg, "focusable", "false");
     			attr_dev(svg, "viewBox", viewBox);
     			attr_dev(svg, "aria-hidden", "true");
-    			attr_dev(svg, "class", "svelte-16wo6iz");
+    			attr_dev(svg, "class", "svelte-7u5eo2");
     			add_location(svg, file$6, 35, 12, 972);
-    			attr_dev(div1, "class", "plusOrMinus iconShowMore svelte-16wo6iz");
+    			attr_dev(div1, "class", "plusOrMinus iconShowMore svelte-7u5eo2");
     			add_location(div1, file$6, 34, 8, 921);
-    			attr_dev(div2, "class", "firstDiv svelte-16wo6iz");
+    			attr_dev(div2, "class", "firstDiv svelte-7u5eo2");
     			add_location(div2, file$6, 19, 4, 525);
-    			attr_dev(div3, "class", "historyDetail svelte-16wo6iz");
+    			attr_dev(div3, "class", "historyDetail svelte-7u5eo2");
     			add_location(div3, file$6, 45, 8, 1255);
-    			attr_dev(div4, "class", "secondDiv svelte-16wo6iz");
+    			attr_dev(div4, "class", "secondDiv svelte-7u5eo2");
     			add_location(div4, file$6, 44, 4, 1223);
-    			attr_dev(div5, "class", "historyLine svelte-16wo6iz");
+    			attr_dev(div5, "class", "historyLine svelte-7u5eo2");
     			toggle_class(div5, "toRight", /*change*/ ctx[3] && /*index*/ ctx[1] % 2 == 0);
     			toggle_class(div5, "toLeft", /*change*/ ctx[3] && /*index*/ ctx[1] % 2 == 1);
     			toggle_class(div5, "historyLineOpen", /*open*/ ctx[2]);
