@@ -82,6 +82,30 @@
 </article>
 
 <style>
+    h2:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    h2::before {
+        content: " ";
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        inset: 0 0 0 0;
+        background: var(--globalColor);
+        z-index: -1;
+        transition: transform 0.3s ease;
+    }
+    h2 {
+        width: max-content;
+        position: relative;
+    }
     .svgGithubStat {
         width: 90vw;
         min-width: 200px;
