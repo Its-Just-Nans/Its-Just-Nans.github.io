@@ -35,12 +35,8 @@
         <div class="center">
             {#each data as oneLang, index}
                 <div class="lang">
-                    <a href={oneLang.link} data-tooltip={oneLang.name}>
-                        <img
-                            class="iconLang"
-                            alt={oneLang.name}
-                            src={oneLang.ico}
-                        />
+                    <a href={oneLang.link} target="_blank" data-tooltip={oneLang.name}>
+                        <img class="iconLang" alt={oneLang.name} src={oneLang.ico} />
                     </a>
                 </div>
             {/each}
@@ -70,11 +66,7 @@
             <p class="inline">Made with</p>
             <a href="https://svelte.dev" target="_blank">
                 <p class="inline svelte-txt">Svelte</p>
-                <img
-                    class="inline svelte-logo"
-                    src="https://svelte.dev/favicon.png"
-                    alt=""
-                />
+                <img class="inline svelte-logo" src="https://svelte.dev/favicon.png" alt="" />
             </a>
             <p class="inline">!</p>
         </div>
