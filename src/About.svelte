@@ -4,13 +4,8 @@
 
 <article>
     <div class="part">
-        <h2>Who am I ?</h2>
-        <h3>- Two name</h3>
-        <p>I use two pseudonym :</p>
-        <ul>
-            <li>Its-Just-Nans</li>
-            <li>n4n5</li>
-        </ul>
+        <h2 id="who-am-i-">Who am I ?</h2>
+        <p>I use two pseudonym: Its-Just-Nans and n4n5</p>
         <h4
             style="cursor: pointer;width: fit-content;"
             onclick="this.style.color = 'me' == 'me' ? 'green' : 'red'"
@@ -18,8 +13,6 @@
         >
             this.style.color = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';
         </h4>
-        <h3>- Bio</h3>
-        <p>Bio soon...</p>
     </div>
     <div class="part">
         <h2>Quick links</h2>
