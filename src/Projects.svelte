@@ -11,6 +11,7 @@
             {#if oneData.url && oneData.url.startsWith("https://api.github.com/repo")}
                 <div
                     class="projectsDiv"
+                    class:clicked={clicked == index}
                     on:click={() => {
                         if (clicked == index) {
                             clicked = -20;
@@ -24,6 +25,7 @@
             {:else if oneData.url && oneData.url.startsWith("https://api.github.com/gists")}
                 <div
                     class="projectsDiv"
+                    class:clicked={clicked == index}
                     on:click={() => {
                         if (clicked == index) {
                             clicked = -20;
@@ -38,13 +40,7 @@
             {#if index == clicked}
                 <br />
                 <div class="projectsDiv projectHelp">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="400"
-                        height="120"
-                        viewBox="0 0 400 120"
-                        fill="black"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" viewBox="0 0 400 120" fill="black">
                         <rect
                             x="0.5"
                             y="0.5"
@@ -58,27 +54,16 @@
                         <g transform="translate(25, 35)">
                             <g transform="translate(25, 0)">
                                 <text x="0" y="0"
-                                    >{oneData.url.startsWith(
-                                        "https://api.github.com/gists"
-                                    )
+                                    >{oneData.url.startsWith("https://api.github.com/gists")
                                         ? oneData.description
                                               .substring(0, 24)
                                               .trim()
-                                              .concat(
-                                                  oneData.description.length >
-                                                      24
-                                                      ? "..."
-                                                      : ""
-                                              )
+                                              .concat(oneData.description.length > 24 ? "..." : "")
                                         : oneData.name}</text
                                 >
                             </g>
                         </g>
-                        <a
-                            href={oneData.html_url}
-                            target="_blank"
-                            class="cursorPointer"
-                        >
+                        <a href={oneData.html_url} target="_blank" class="cursorPointer">
                             <g transform="translate(25, 75)">
                                 <g transform="translate(0, 0)">
                                     <svg
@@ -103,9 +88,7 @@
                                 </g>
                                 <g transform="translate(25, 0)">
                                     <text x="0" y="0"
-                                        >{oneData.url.startsWith(
-                                            "https://api.github.com/gists"
-                                        )
+                                        >{oneData.url.startsWith("https://api.github.com/gists")
                                             ? "View the Gist on GitHub"
                                             : "View the repository on GitHub"}</text
                                     >
@@ -113,11 +96,7 @@
                             </g>
                         </a>
                         {#if oneData.homepage}
-                            <a
-                                href={oneData.homepage}
-                                target="_blank"
-                                class="cursorPointer"
-                            >
+                            <a href={oneData.homepage} target="_blank" class="cursorPointer">
                                 <g transform="translate(25, 100)">
                                     <g transform="translate(0, 0)">
                                         <svg
@@ -136,8 +115,7 @@
                                         </svg>
                                     </g>
                                     <g transform="translate(25, 0)">
-                                        <text x="0" y="0">View the project</text
-                                        >
+                                        <text x="0" y="0">View the project</text>
                                     </g>
                                 </g>
                             </a>
@@ -189,6 +167,11 @@
         transition: box-shadow 0.25s;
         box-sizing: border-box;
     }
+
+    .projectsDiv.clicked {
+        box-shadow: 0px 0px 0px 5px var(--globalColor);
+    }
+
     .projectsDiv:hover {
         box-shadow: 0px 0px 0px 5px var(--globalColor);
     }
