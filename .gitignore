@@ -3,3 +3,6 @@ package-lock.json
 *.map
 data
 .gitmodules
+
+bundle.css
+bundle.js
