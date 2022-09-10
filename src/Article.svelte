@@ -24,9 +24,11 @@
         }}
     >
         <p>
-            {content.date1 || "?"}
-            <br />
-            {content.date2 || ""}
+            <span class:specialLineHeight={!content.date2}>{content.date1 || "?"}</span>
+            {#if content.date2}
+                <br />
+                <span>{content.date2 || ""}</span>
+            {/if}
         </p>
         <div class="titleContainer">
             <img class="iconSmall" src={content.ico || ""} alt="" />
@@ -48,8 +50,14 @@
 </div>
 
 <style>
+    span {
+        line-height: 16px;
+    }
+    .specialLineHeight {
+        line-height: 32px;
+    }
     .historyLine {
-        white-space: nowrap;
+        white-space: normal;
         font-family: Roboto, "Segoe UI", Tahoma, sans-serif;
         border: 1px solid var(--border-color);
         margin-bottom: 20px;
@@ -123,6 +131,7 @@
         }
         .firstDiv > p {
             display: none;
+            font-size: 10px;
         }
         .historyLineOpen > .firstDiv > p {
             display: block;
@@ -142,6 +151,9 @@
         }
         .historyLine p {
             padding: 5px 0px 5px 0px;
+        }
+        :global(.historyDetail img) {
+            width: 100%;
         }
     }
     .toRight {
@@ -222,5 +234,9 @@
     :global(.historyDetail a) {
         font-weight: bold;
         color: blue;
+    }
+    :global(.historyDetail img) {
+        display: block;
+        margin: auto;
     }
 </style>
