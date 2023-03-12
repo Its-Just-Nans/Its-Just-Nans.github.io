@@ -108,6 +108,7 @@
     .imgContainer {
         flex: 0.2;
         height: 100%;
+        min-width: 0;
     }
     .imgContainer > img {
         height: 100%;
