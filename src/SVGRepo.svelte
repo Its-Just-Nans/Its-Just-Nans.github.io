@@ -1,7 +1,8 @@
 <script>
     export let svgData = {};
     const text = (str = "", index = 24) => {
-        return (str || "")
+        str = str || "";
+        return str
             .substring(0, index)
             .trim()
             .concat(str.length > index ? "..." : "");
