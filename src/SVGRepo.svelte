@@ -1,6 +1,6 @@
 <script>
     export let svgData = {};
-    const text = (str, index = 24) => {
+    const text = (str = "", index = 24) => {
         return str
             .substring(0, index)
             .trim()
