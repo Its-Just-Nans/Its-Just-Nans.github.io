@@ -159,6 +159,7 @@
         color: blue;
     }
     .projectsDiv {
+        width: calc(100% - 20px);
         display: inline-block;
         margin: 10px 10px 0px 10px;
         text-align: center;

@@ -115,7 +115,8 @@
     }
     @media only screen and (max-width: 600px) {
         .svg-github {
-            width: calc(100% - 10px);
+            width: 100%;
+            height: 100%;
         }
     }
     .block {
