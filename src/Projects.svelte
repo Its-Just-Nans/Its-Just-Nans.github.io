@@ -159,7 +159,6 @@
         color: blue;
     }
     .projectsDiv {
-        width: calc(100% - 20px);
         display: inline-block;
         margin: 10px 10px 0px 10px;
         text-align: center;
@@ -167,6 +166,11 @@
         vertical-align: bottom;
         transition: box-shadow 0.25s;
         box-sizing: border-box;
+    }
+    @media only screen and (max-width: 600px) {
+        .projectsDiv {
+            width: calc(100% - 20px);
+        }
     }
 
     .projectsDiv.clicked {
