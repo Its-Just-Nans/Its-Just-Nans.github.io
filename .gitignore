@@ -1,8 +1,1 @@
 node_modules
-*.map
-data
-.gitmodules
-
-bundle.css
-bundle.js
-index.html

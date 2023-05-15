@@ -1,0 +1,96 @@
+---
+import data from "../../data/json/projects.json";
+import SVGrepo from "../components/SVGRepo.astro";
+import ProjectHelper from "./ProjectHelper.astro";
+---
+
+<article>
+    <div class="projects">
+        {
+            data.map((oneData, index) => (
+                <div class="projectWrap">
+                    <div class="svgRepo">
+                        <SVGrepo svgData={oneData} />
+                    </div>
+                    <ProjectHelper oneData={oneData} index={index} />
+                </div>
+            ))
+        }
+    </div>
+    <script>
+        const elemts = [...document.getElementsByClassName("projectsClick")];
+        elemts.forEach((e) => {
+            e.onclick = (evt) => {
+                elemts.forEach((el) => {
+                    if (el !== e) {
+                        el.parentNode.classList.remove("clicked");
+                    }
+                });
+                e.parentNode.classList.toggle("clicked");
+            };
+        });
+    </script>
+</article>
+
+<style>
+    .projects {
+        width: 100%;
+        text-align: center;
+    }
+    .projectHelp rect {
+        fill: var(--globalColor);
+    }
+    .projectHelp > svg {
+        display: block;
+    }
+    article {
+        padding-left: 10vw !important;
+        padding-right: 10vw !important;
+    }
+    @media screen and (max-width: 1024px) {
+        article {
+            padding-top: 50px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+    }
+    .projectsDiv > svg {
+        display: block;
+        height: 100% !important;
+        width: 100%;
+    }
+    .projectHelp a:hover text {
+        color: blue;
+    }
+    .projectWrap:hover > :global(.projectsDiv) {
+        display: block;
+    }
+    .projectWrap:hover > :global(.svgRepo) {
+        display: none;
+    }
+    .projectWrap {
+        display: inline-block;
+        margin: 10px 10px 0px 10px;
+        text-align: center;
+        border-radius: 5px;
+        vertical-align: bottom;
+        transition: box-shadow 0.25s;
+        box-sizing: border-box;
+    }
+    @media only screen and (max-width: 600px) {
+        .projectsDiv {
+            width: calc(100% - 20px);
+        }
+    }
+
+    .clicked > div {
+        box-shadow: 0px 0px 0px 5px var(--globalColor);
+    }
+
+    .projectWrap:hover > div {
+        box-shadow: 0px 0px 0px 5px var(--globalColor);
+    }
+    .cursorPointer {
+        cursor: pointer;
+    }
+</style>

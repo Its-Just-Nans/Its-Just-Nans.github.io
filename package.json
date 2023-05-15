@@ -1,37 +1,35 @@
 {
-  "name": "its-just-nans.github.io",
-  "version": "1.0.0",
-  "description": "Website of n4n5",
-  "main": "bundle.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Its-Just-Nans/Its-Just-Nans.github.io.git"
-  },
-  "author": "n4n5",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Its-Just-Nans/Its-Just-Nans.github.io/issues"
-  },
-  "homepage": "https://github.com/Its-Just-Nans/Its-Just-Nans.github.io#readme",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv . --no-clear --dev"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "axios": "^0.25.0",
-    "clean-css": "^5.2.2",
-    "rollup": "^2.3.4",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "sirv-cli": "^1.0.0",
-    "svelte": "^3.0.0",
-    "svelte-preprocess": "^4.7.3",
-    "uglify-js": "^3.14.5"
-  }
+    "name": "its-just-nans.github.io",
+    "version": "1.0.0",
+    "description": "Website of n4n5",
+    "main": "bundle.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Its-Just-Nans/Its-Just-Nans.github.io.git"
+    },
+    "author": "n4n5",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Its-Just-Nans/Its-Just-Nans.github.io/issues"
+    },
+    "homepage": "https://github.com/Its-Just-Nans/Its-Just-Nans.github.io#readme",
+    "type": "module",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/mdx": "^0.19.1",
+        "@astrojs/rss": "^2.4.1",
+        "@astrojs/sitemap": "^1.3.0",
+        "astro": "^2.4.1"
+    },
+    "devDependencies": {
+        "showdown": "^2.1.0",
+        "showdown-highlight": "^3.1.0",
+        "showdown-katex": "^0.8.0"
+    }
 }

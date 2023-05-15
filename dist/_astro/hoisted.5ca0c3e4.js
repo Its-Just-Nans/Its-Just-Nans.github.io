@@ -1,0 +1,1 @@
+import"./BaseLayout.astro_astro_type_script_index_0_lang.154cd3b7.js";const t=[...document.getElementsByClassName("projectsClick")];t.forEach(e=>{e.onclick=s=>{t.forEach(c=>{c!==e&&c.parentNode.classList.remove("clicked")}),e.parentNode.classList.toggle("clicked")}});
