@@ -21,8 +21,9 @@ let menuIsOpen = false;
         </div>
     </div>
     <div class="space">
-        <span class="smallMenu" class:smallMenuOpen={menuIsOpen}>
-            <h2 class="smallMenuTitle">Menu</h2>
+        <span class="smallMenu">
+            <label for="checkboxMenu" class="smallMenuTitle">Menu</label>
+            <input type="checkbox" id="checkboxMenu" />
             <span class="underSmallMenu">
                 {
                     nav.map(({ route, name }, index) => (
@@ -102,6 +103,9 @@ let menuIsOpen = false;
     .underSmallMenu {
         display: none;
     }
+    #checkboxMenu {
+        display: none;
+    }
     .navLinks {
         display: flex;
         flex: 0.35;
@@ -126,6 +130,11 @@ let menuIsOpen = false;
         font-weight: 200;
         cursor: pointer;
     }
+    label {
+        font-size: 1.2em;
+        font-weight: 200;
+        cursor: pointer;
+    }
     .menuLinks:hover {
         text-decoration: underline;
     }
@@ -133,6 +142,7 @@ let menuIsOpen = false;
         margin-right: 10px;
     }
     .smallMenuTitle {
+        display: block;
         margin: 0px;
         padding-top: 20px;
     }
@@ -141,6 +151,9 @@ let menuIsOpen = false;
         text-decoration-style: dotted;
     }
     @media screen and (max-width: 1024px) {
+        .title {
+            border-right: none;
+        }
         .title {
             flex: 0.8;
         }
@@ -159,9 +172,10 @@ let menuIsOpen = false;
             min-height: 100%;
             background-color: var(--globalColor);
             border-bottom: 1px solid black;
+            border-left: 1px solid black;
         }
-        :global(.smallMenuOpen > .underSmallMenu) {
-            display: block !important;
+        #checkboxMenu:checked ~ .underSmallMenu {
+            display: block;
         }
     }
 </style>
