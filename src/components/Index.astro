@@ -13,21 +13,22 @@ const langs = data.map((e) => {
     <div class="part">
         <h2 id="who-am-i-">Who am I ?</h2>
         <p>I use two pseudonym: Its-Just-Nans and n4n5</p>
-        <h4
+        <p
+            class="js"
             style="cursor: pointer;width: fit-content;"
             onclick="this.style.color = 'me' == 'me' ? 'green' : 'red'"
             data-tooltip="Click to see the truth !"
         >
             this.style.color = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';
-        </h4>
+        </p>
     </div>
     <div class="part">
         <h2>Quick links</h2>
         <a href="https://its-just-nans.github.io/golb/">
-            <h4 style="color: blue">Link to golb</h4>
+            <p class="links-url" style="color: blue">Link to golb</p>
         </a>
         <a href="https://its-just-nans.github.io/rt/">
-            <h4 style="color: blue">Link to R&T website</h4>
+            <p class="links-url" style="color: blue">Link to R&T website</p>
         </a>
     </div>
     <div class="part">
@@ -76,6 +77,12 @@ const langs = data.map((e) => {
 </article>
 
 <style>
+    .js {
+        font-weight: bold;
+    }
+    .links-url {
+        font-weight: bold;
+    }
     h2:hover::before {
         transform: scaleX(1);
         transform-origin: bottom left;
@@ -106,7 +113,7 @@ const langs = data.map((e) => {
         max-width: 400px;
     }
     .lang-txt {
-        color: orange;
+        color: #943a00;
         font-weight: bolder;
     }
     .inline {
