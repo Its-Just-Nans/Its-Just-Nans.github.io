@@ -13,4 +13,9 @@ export default defineConfig({
             lastmod: new Date(),
         }),
     ],
+    vite: {
+        build: {
+            assetsInlineLimit: 0,
+        },
+    },
 });
