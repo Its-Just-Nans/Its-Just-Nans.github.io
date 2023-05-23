@@ -1,1 +1,0 @@
-import"./BaseLayout.astro_astro_type_script_index_0_lang.154cd3b7.js";[...document.getElementsByClassName("copyFn")].forEach(t=>{t.onclick=()=>{const i=t.getAttribute("data-link");i&&navigator.clipboard.writeText(i)}});

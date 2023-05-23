@@ -1,1 +1,0 @@
-const a=function(){for(var t="9ABCDEF",o="#",e=0;e<6;e++)o+=t[Math.floor(Math.random()*t.length)];return o},r=()=>{document.getElementsByTagName("body")[0].setAttribute("style",`--globalColor: ${a()}`)};r();setInterval(r,5e3);

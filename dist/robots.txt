@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://its-just-nans.github.io/sitemap.xml
