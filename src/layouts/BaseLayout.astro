@@ -17,6 +17,13 @@ import "../styles/tooltip.css";
         />
         <link rel="icon" href="/favicon.ico" />
         <meta name="google-site-verification" content="8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+            integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+            crossorigin="anonymous"
+        />
+
         <meta property="og:image" content={Cover} />
     </head>
 
@@ -38,6 +45,6 @@ import "../styles/tooltip.css";
             document.getElementsByTagName("body")[0].setAttribute("style", `--globalColor: ${getRandomColor()}`);
         };
         colorHeader();
-        setInterval(colorHeader, 5000);
+        // setInterval(colorHeader, 5000);
     </script>
 </html>
