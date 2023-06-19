@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticlesList from "../../components/ArticlesList.astro";
+
+export async function getStaticPaths({ paginate }) {
+    const allPosts = await Astro.glob("/data/articles/*.mdx");
+    const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
+    const sortedPosts = nonDraftPosts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+
+    const a = paginate(sortedPosts, {
+        pageSize: 10,
+    });
+    return a;
+}
+const { page } = Astro.props;
+---
+
+<BaseLayout>
+    <ArticlesList articles={page.data} />
+</BaseLayout>

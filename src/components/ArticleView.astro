@@ -1,0 +1,60 @@
+---
+const { title, date } = Astro.props;
+const realDate = new Date(date);
+const fmt = realDate.toLocaleDateString("fr-FR");
+---
+
+<article>
+    <div class="headArticle">
+        <h2 class="rainbow_text_animated">{title}</h2>
+        <time class="rainbow_text_animated" datetime={realDate.toISOString()}>{fmt}</time>
+    </div>
+    <div class="hr"></div>
+    <div class="markdown-body">
+        <slot />
+    </div>
+</article>
+
+<style>
+    .headArticle:hover .rainbow_text_animated {
+        animation: rainbow_animation 6s ease-in-out infinite;
+        background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 400% 100%;
+    }
+
+    @keyframes rainbow_animation {
+        0%,
+        100% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
+    }
+    .hr {
+        --border: 2px;
+        border: var(--border) solid var(--globalColor);
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    .headArticle {
+        --padding1: 10px;
+        --padding2: 20px;
+        display: block;
+        padding: var(--padding1) var(--padding2);
+    }
+    .headArticle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    @media only screen and (max-width: 600px) {
+        .headArticle {
+            --padding2: 0px;
+        }
+    }
+</style>

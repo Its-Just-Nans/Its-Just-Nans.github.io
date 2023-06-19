@@ -1,0 +1,66 @@
+---
+const { articles } = Astro.props;
+---
+
+<article>
+    {
+        articles.map((element) => {
+            const { date, description, title } = element.frontmatter;
+            const slug = element.url.split("/").pop().split(".").shift();
+            const realDate = new Date(date);
+            const fmt = realDate.toLocaleDateString("fr-FR", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+            });
+            return (
+                <a href={`/articles/${slug}`}>
+                    <div class="oneArticle">
+                        <div class="flexed">
+                            <p class="articleTitle">{title}</p>
+                            <p class="timestamp">
+                                <time datetime={realDate.toISOString()}>{fmt}</time>
+                            </p>
+                        </div>
+                        <p class="articleDesc">{description}</p>
+                    </div>
+                </a>
+            );
+        })
+    }
+</article>
+
+<style>
+    .flexed {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .flexed .timestamp {
+        text-align: end;
+    }
+    .articleDesc {
+        display: block;
+    }
+    .articleTitle {
+        font-weight: bold;
+        display: inline;
+    }
+    .oneArticle {
+        --padding1: 10px;
+        --padding2: 20px;
+        display: block;
+        margin-bottom: 20px;
+        padding: var(--padding1) var(--padding2);
+        --border: 2px;
+        border: var(--border) solid var(--globalColor);
+        border-radius: 5px;
+    }
+    .oneArticle:hover {
+        --border2: calc(var(--border) + var(--border));
+        --paddingHover1: calc(var(--padding1) - var(--border));
+        --paddingHover2: calc(var(--padding2) - var(--border));
+        padding: var(--paddingHover1) var(--paddingHover2);
+        border: var(--border2) solid var(--globalColor);
+    }
+</style>
