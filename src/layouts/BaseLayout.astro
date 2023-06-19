@@ -34,9 +34,9 @@ import "../styles/tooltip.css";
     </body>
     <script>
         const getRandomColor = function () {
-            var letters = "9ABCDEF";
-            var color = "#";
-            for (var i = 0; i < 6; i++) {
+            const letters = "9ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
                 color += letters[Math.floor(Math.random() * letters.length)];
             }
             return color;
