@@ -11,6 +11,14 @@ const nav = [
         name: "History",
         route: "/history",
     },
+    // {
+    //     name: "Articles",
+    //     route: "/articles",
+    // },
+    {
+        name: "Lab",
+        route: "/lab",
+    },
     {
         name: "Links",
         route: "/links",
