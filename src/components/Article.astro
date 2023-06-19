@@ -1,6 +1,6 @@
 ---
-import { convertMarkdown } from "../converter";
 const { content } = Astro.props;
+const { Content } = content;
 ---
 
 <div class="historyLine">
@@ -39,7 +39,9 @@ const { content } = Astro.props;
         });
     </script>
     <div class="secondDiv">
-        <div class="historyDetail" set:html={convertMarkdown(content.desc || "")} />
+        <div class="historyDetail">
+            {Content && <Content />}
+        </div>
     </div>
 </div>
 
