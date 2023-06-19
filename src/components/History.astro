@@ -1,20 +1,18 @@
 ---
-import fs from "node:fs";
 import data from "../../data/json/history.json";
 import Article from "./Article.astro";
 const a = await Astro.glob("/data/ico/history/*");
 const images = a.map((file) => file.default);
-const txts = await Astro.glob("/data/txt/*.md");
+const txts = await Astro.glob("/data/txt/*");
 const history = data.map((e) => {
-    const correctLink = txts.find((link) => link.file.split("/").pop() === e.desc)?.file;
-    let str = "";
+    const correctLink = txts.find(
+        (link) => link.file.split("/").pop().split(".").shift() === e.desc.split(".").shift()
+    );
+    const Content = correctLink?.Content;
     const correctIcoLink = images.find(
         (link) => link.split("/").pop().split(".").shift() === e.ico.split("/").pop().split(".").shift()
     );
-    if (correctLink) {
-        str = fs.readFileSync(correctLink).toString();
-    }
-    return { ...e, desc: str, ico: correctIcoLink };
+    return { ...e, Content, ico: correctIcoLink };
 });
 ---
 
