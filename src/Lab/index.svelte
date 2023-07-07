@@ -1,17 +1,16 @@
 <script>
     import { onMount } from "svelte";
     import ContextMenu from "./ContextMenu.svelte";
-
-    let showMenu = false;
+    import { showMenu } from "./menus.ts";
     let x = 0;
     let y = 0;
     const hideMenu = () => {
-        showMenu = false;
+        $showMenu = false;
     };
     const onRightClick = (e) => {
         e.preventDefault();
         window.addEventListener("click", hideMenu, false);
-        showMenu = true;
+        $showMenu = true;
         x = e.clientX;
         y = e.clientY;
     };
@@ -28,7 +27,8 @@
     <title>lab - n4n5 pages</title>
 </svelte:head>
 
-{#if showMenu}
+{#if $showMenu}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
         class="context"
         style={`position: absolute; top: ${y}px; left: ${x}px;`}

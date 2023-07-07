@@ -1,31 +1,5 @@
 <script>
-    import GithubIcon from "./GithubIcon.svelte";
-    const menus = [
-        [
-            {
-                ico: null,
-                link: null,
-                title: "Undo",
-                subtitle: "CTRL+Z",
-            },
-        ],
-        [
-            {
-                ico: null,
-                link: null,
-                title: "Cut",
-                subtitle: "CTRL+X",
-            },
-        ],
-        [
-            {
-                ico: GithubIcon,
-                link: "https://github.com/Its-Just-Nans",
-                title: "Its-Just-Nans",
-                subtitle: "",
-            },
-        ],
-    ];
+    import { menus, showMenu } from "./menus.ts";
 </script>
 
 <div class="menu">
@@ -33,7 +7,13 @@
         <ul class="menu-list">
             {#each oneMenu as oneEntry}
                 <li class="menu-item">
-                    <a href={oneEntry.link} target="_blank">
+                    <a
+                        href={oneEntry.link}
+                        on:click={() => {
+                            $showMenu = false;
+                        }}
+                        target="_blank"
+                    >
                         <button class="menu-button">
                             <div class="front-list">
                                 <svelte:component this={oneEntry.ico} size={20} />
