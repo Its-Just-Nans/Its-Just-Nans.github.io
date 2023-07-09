@@ -5,9 +5,9 @@ export const menus = [
     [
         {
             ico: null,
-            link: null,
-            title: "Undo",
-            subtitle: "CTRL+Z",
+            link: "https://its-just-nans.github.io/function-viewer/",
+            title: "Function viewer",
+            subtitle: null,
         },
     ],
     [
@@ -15,7 +15,7 @@ export const menus = [
             ico: null,
             link: "/lab/CssEditor",
             title: "CSS Editor",
-            subtitle: "",
+            subtitle: null,
         },
     ],
     [

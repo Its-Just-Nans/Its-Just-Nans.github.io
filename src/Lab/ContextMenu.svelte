@@ -18,8 +18,8 @@
                             <div class="front-list">
                                 <svelte:component this={oneEntry.ico} size={20} />
                             </div>
-                            <span>{oneEntry.title}</span>
-                            <span>{oneEntry.subtitle}</span>
+                            <span>{oneEntry.title || ""}</span>
+                            <span>{oneEntry.subtitle || ""}</span>
                         </button>
                     </a>
                 </li>
