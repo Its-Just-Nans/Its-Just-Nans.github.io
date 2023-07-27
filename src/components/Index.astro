@@ -16,7 +16,9 @@ const langs = data.map((e) => {
         <p
             class="js"
             style="cursor: pointer;width: fit-content;"
-            onclick="this.style.color = 'me' == 'me' ? 'green' : 'red'"
+            onclick="
+            this.style.color = 'me' == 'me' ? 'green' : 'red'
+            "
             data-tooltip="Click to see the truth !"
         >
             this.style.color = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';
@@ -63,7 +65,7 @@ const langs = data.map((e) => {
             </div>
             <div class="inline">
                 <img
-                    class="svgGithubStat"
+                    class="svgGithubStat bigger"
                     alt="github-profile-trophy of Its-Just-Nans"
                     src="https://github-profile-trophy.vercel.app/?username=Its-Just-Nans"
                 />
@@ -118,6 +120,9 @@ const langs = data.map((e) => {
         width: 90vw;
         min-width: 200px;
         max-width: 400px;
+    }
+    .bigger {
+        max-width: 600px;
     }
     .lang-txt {
         color: #943a00;

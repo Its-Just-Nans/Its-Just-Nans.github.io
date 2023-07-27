@@ -2,6 +2,22 @@ import { writable } from "svelte/store";
 import GithubIcon from "./GithubIcon.svelte";
 
 export const menus = [
+    // [
+    //     {
+    //         ico: null,
+    //         link: "/lab/Waldo",
+    //         title: "Waldo",
+    //         subtitle: null,
+    //     },
+    // ],
+    [
+        {
+            ico: null,
+            link: "/lab/stats",
+            title: "Stats",
+            subtitle: null,
+        },
+    ],
     [
         {
             ico: null,
