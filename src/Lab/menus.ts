@@ -2,6 +2,14 @@ import { writable } from "svelte/store";
 import GithubIcon from "./GithubIcon.svelte";
 
 export const menus = [
+    [
+        {
+            ico: null,
+            link: "/lab/css-editor",
+            title: "CSS Editor",
+            subtitle: null,
+        },
+    ],
     // [
     //     {
     //         ico: null,
@@ -17,20 +25,18 @@ export const menus = [
             title: "Stats",
             subtitle: null,
         },
-    ],
-    [
         {
             ico: null,
-            link: "https://its-just-nans.github.io/function-viewer/",
-            title: "Function viewer",
+            link: "/lab/packages",
+            title: "Packages",
             subtitle: null,
         },
     ],
     [
         {
             ico: null,
-            link: "/lab/CssEditor",
-            title: "CSS Editor",
+            link: "https://its-just-nans.github.io/function-viewer/",
+            title: "Function viewer",
             subtitle: null,
         },
     ],
