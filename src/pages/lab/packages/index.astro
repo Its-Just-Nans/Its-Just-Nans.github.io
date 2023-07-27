@@ -1,0 +1,24 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { packages } from "../../../../data/packages";
+---
+
+<Base>
+    <h1>Packages</h1>
+    {
+        packages.map((el) => (
+            <>
+                <h2>
+                    <a target="_blank" href={el.profile}>
+                        {el.name} - {el.profile}
+                    </a>
+                </h2>
+                {el.list.map((onePackage) => (
+                    <p>
+                        <a target="_blank" href={`${el.url}${onePackage}`}>{`${el.url}${onePackage}`}</a>
+                    </p>
+                ))}
+            </>
+        ))
+    }
+</Base>
