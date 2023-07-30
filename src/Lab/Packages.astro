@@ -3,19 +3,43 @@ import { packages } from "../../data/packages";
 ---
 
 <h1>Packages</h1>
+<button id="button-open">Open all</button>
+<script>
+    const btn = document.getElementById("button-open");
+    if (btn) {
+        btn.onclick = () => {
+            [...document.getElementsByClassName("opennable")].forEach((el) => {
+                window.open(el.href, "_blank");
+            });
+        };
+    }
+</script>
 {
     packages.map((el) => (
         <>
             <h2>
-                <a target="_blank" href={el.profile}>
+                <a target="_blank" class="opennable" href={el.profile}>
                     {el.name} - {el.profile}
                 </a>
             </h2>
             {el.list.map((onePackage) => (
                 <p>
-                    <a target="_blank" href={`${el.url}${onePackage}`}>{`${el.url}${onePackage}`}</a>
+                    <a target="_blank" class="opennable" href={`${el.url}${onePackage}`}>{`${el.url}${onePackage}`}</a>
+                    {el.stats && (
+                        <>
+                            <a target="_blank" class="opennable" href={`${el.stats}${onePackage}`}>
+                                {`${el.stats}${onePackage}`}
+                            </a>
+                        </>
+                    )}
                 </p>
             ))}
         </>
     ))
 }
+
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
