@@ -9,6 +9,12 @@ export const menus = [
             title: "CSS Editor",
             subtitle: null,
         },
+        {
+            ico: null,
+            link: "/lab/time-based-animation",
+            title: "Time based animation",
+            subtitle: null,
+        },
     ],
     // [
     //     {
