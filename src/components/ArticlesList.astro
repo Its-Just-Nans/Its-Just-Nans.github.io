@@ -5,7 +5,7 @@ const { articles } = Astro.props;
 <article>
     {
         articles.map((element) => {
-            const { date, description, title } = element.frontmatter;
+            const { date, description, title, draft } = element.frontmatter;
             const slug = element.url.split("/").pop().split(".").shift();
             const realDate = new Date(date);
             const fmt = realDate.toLocaleDateString("fr-FR", {
@@ -17,7 +17,10 @@ const { articles } = Astro.props;
                 <a href={`/articles/${slug}`}>
                     <div class="oneArticle">
                         <div class="flexed">
-                            <p class="articleTitle">{title}</p>
+                            <p class="articleTitle">
+                                <span>{title}</span>
+                                {draft && <span class="draft-span">(draft)</span>}
+                            </p>
                             <p class="timestamp">
                                 <time datetime={realDate.toISOString()}>{fmt}</time>
                             </p>
@@ -31,6 +34,10 @@ const { articles } = Astro.props;
 </article>
 
 <style>
+    .draft-span {
+        color: red;
+        font-size: 20px;
+    }
     .flexed {
         display: flex;
         justify-content: space-between;
