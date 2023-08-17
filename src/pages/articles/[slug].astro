@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 ---
 
 <BaseLayout>
-    <ArticleView title={post.frontmatter.title} date={post.frontmatter.date}>
+    <ArticleView title={post.frontmatter.title} date={post.frontmatter.date} draft={post.frontmatter.draft}>
         <Content />
     </ArticleView>
 </BaseLayout>

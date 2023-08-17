@@ -1,12 +1,15 @@
 ---
-const { title, date } = Astro.props;
+const { title, date, draft } = Astro.props;
 const realDate = new Date(date);
 const fmt = realDate.toLocaleDateString("fr-FR");
 ---
 
 <article>
     <div class="headArticle">
-        <h2 class="rainbow_text_animated">{title}</h2>
+        <h2 class="rainbow_text_animated">
+            {title}
+            {draft && <span class="draft-span">(draft)</span>}
+        </h2>
         <time class="rainbow_text_animated" datetime={realDate.toISOString()}>{fmt}</time>
     </div>
     <div class="hr"></div>
@@ -16,6 +19,10 @@ const fmt = realDate.toLocaleDateString("fr-FR");
 </article>
 
 <style>
+    .draft-span {
+        color: red;
+        font-size: 20px;
+    }
     .headArticle:hover .rainbow_text_animated {
         animation: rainbow_animation 6s ease-in-out infinite;
         background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
