@@ -4,13 +4,14 @@ import Cover from "../imgs/cover.png";
 import "../styles/index.css";
 import "../styles/style.css";
 import "../styles/tooltip.css";
+const { title } = Astro.props;
 ---
 
 <html lang="fr-FR">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Its-Just-Nans (aka n4n5) - web pages</title>
+        <title>{title ? `${title} - ` : ""}Its-Just-Nans (aka n4n5) - web pages</title>
         <meta
             name="description"
             content="The page of Its-Just-Nans aka n4n5. Here you can view my projects and get information about me !"

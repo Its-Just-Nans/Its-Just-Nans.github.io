@@ -1,7 +1,6 @@
 ---
 import ArticleView from "../../components/ArticleView.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
 import "../../styles/markdown.css";
 
 const { post } = Astro.props;
@@ -18,7 +17,7 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout>
+<BaseLayout title={post.frontmatter.title}>
     <ArticleView title={post.frontmatter.title} date={post.frontmatter.date} draft={post.frontmatter.draft}>
         <Content />
     </ArticleView>

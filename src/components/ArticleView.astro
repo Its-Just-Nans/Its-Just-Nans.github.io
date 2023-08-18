@@ -1,6 +1,6 @@
 ---
 const { title, date, draft } = Astro.props;
-const realDate = new Date(date);
+const realDate = date ? new Date(date) : new Date();
 const fmt = realDate.toLocaleDateString("fr-FR");
 ---
 
