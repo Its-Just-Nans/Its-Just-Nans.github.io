@@ -1,0 +1,18 @@
+export const data = [
+    "Sweater",
+    "T-shirt",
+    "Boxers",
+    "Jeans",
+    "Shorts",
+    "Belt",
+    "Towel",
+    "Glove",
+    "Toiletry bag (toothbrush, comb)",
+    "Product",
+    "Swimsuit",
+    "Bath towel",
+    "Money/wallet",
+    "Deodorant",
+    "Charger",
+    "Glasses",
+];

@@ -11,6 +11,12 @@ export const menus = [
         },
         {
             ico: null,
+            link: "/lab/pack-your-bag",
+            title: "Pack your bag",
+            subtitle: null,
+        },
+        {
+            ico: null,
             link: "/lab/time-based-animation",
             title: "Time based animation",
             subtitle: null,
