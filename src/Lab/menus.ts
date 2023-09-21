@@ -12,7 +12,7 @@ export const menus = [
         {
             ico: null,
             link: "/lab/pack-your-bag",
-            title: "Pack your bag",
+            title: "Pack your bag 🎒",
             subtitle: null,
         },
         {
