@@ -7,7 +7,7 @@ const { articles } = Astro.props;
         articles.map((element) => {
             const { date, description, title, draft, hidden } = element.frontmatter;
             const slug = element.url.split("/").pop().split(".").shift();
-            const realDate = new Date(date || 0);
+            const realDate = new Date(date || new Date());
             const fmt = realDate.toLocaleDateString("fr-FR", {
                 year: "numeric",
                 month: "numeric",

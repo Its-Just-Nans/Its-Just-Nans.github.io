@@ -7,7 +7,10 @@ export async function getStaticPaths({ paginate }) {
     const allPosts = await Astro.glob("/data/articles/*.mdx");
     const nonDraftPosts = import.meta.env.DEV ? allPosts : allPosts.filter((post) => !post.frontmatter.draft);
     const nonHidden = nonDraftPosts.filter((post) => !post.frontmatter.hidden);
-    const sortedPosts = nonHidden.sort((a, b) => new Date(b.frontmatter.date || 0) - new Date(a.frontmatter.date || 0));
+    const sortedPosts = nonHidden.sort(
+        (a, b) =>
+            new Date(b.frontmatter.date || new Date()).getTime() - new Date(a.frontmatter.date || new Date()).getTime()
+    );
 
     const a = paginate(sortedPosts, {
         pageSize: 10,

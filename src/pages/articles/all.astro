@@ -7,7 +7,9 @@ export async function getData() {
     const allPosts = await Astro.glob("/data/articles/*.mdx");
     const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
     const sortedPosts = nonDraftPosts.sort(
-        (a, b) => new Date(b.frontmatter?.date || 0) - new Date(a.frontmatter?.date || 0)
+        (a, b) =>
+            new Date(b.frontmatter?.date || new Date()).getTime() -
+            new Date(a.frontmatter?.date || new Date()).getTime()
     );
     return sortedPosts;
 }
