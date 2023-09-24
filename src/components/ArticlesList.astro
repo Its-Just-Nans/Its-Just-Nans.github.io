@@ -5,9 +5,9 @@ const { articles } = Astro.props;
 <article>
     {
         articles.map((element) => {
-            const { date, description, title, draft } = element.frontmatter;
+            const { date, description, title, draft, hidden } = element.frontmatter;
             const slug = element.url.split("/").pop().split(".").shift();
-            const realDate = new Date(date);
+            const realDate = new Date(date || 0);
             const fmt = realDate.toLocaleDateString("fr-FR", {
                 year: "numeric",
                 month: "numeric",
@@ -16,10 +16,11 @@ const { articles } = Astro.props;
             return (
                 <a href={`/articles/${slug}`}>
                     <div class="oneArticle">
-                        <div class="flexed">
+                        <div class:list={["flexed", { "hidden-class": hidden }]} class="">
                             <p class="articleTitle">
                                 <span>{title}</span>
                                 {draft && <span class="draft-span">(draft)</span>}
+                                {hidden && <span class="hidden-span">(hidden)</span>}
                             </p>
                             <p class="timestamp">
                                 <time datetime={realDate.toISOString()}>{fmt}</time>
@@ -34,6 +35,24 @@ const { articles } = Astro.props;
 </article>
 
 <style>
+    @keyframes rainbow_animation {
+        0%,
+        100% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
+    }
+    .hidden-class {
+        animation: rainbow_animation 6s ease-in-out infinite;
+        background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 400% 100%;
+    }
     .draft-span {
         color: red;
         font-size: 20px;
