@@ -1,13 +1,15 @@
 ---
-const { title, date, draft } = Astro.props;
+const { data } = Astro.props;
+const { title, date, draft, hidden } = data;
 const realDate = date ? new Date(date) : new Date();
 const fmt = realDate.toLocaleDateString("fr-FR");
 ---
 
 <article>
-    <div class="headArticle">
+    <div class:list={["headArticle", { animated: hidden }]}>
         <h2 class="rainbow_text_animated">
             {title}
+            {hidden && <span class="hidden-span">(hidden)</span>}
             {draft && <span class="draft-span">(draft)</span>}
         </h2>
         <time class="rainbow_text_animated" datetime={realDate.toISOString()}>{fmt}</time>
@@ -19,6 +21,14 @@ const fmt = realDate.toLocaleDateString("fr-FR");
 </article>
 
 <style>
+    .animated {
+        animation: rainbow_animation 6s ease-in-out infinite;
+        background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 400% 100%;
+    }
     .draft-span {
         color: red;
         font-size: 20px;
