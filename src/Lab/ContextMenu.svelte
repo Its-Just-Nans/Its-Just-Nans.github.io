@@ -16,7 +16,11 @@
                     >
                         <button class="menu-button">
                             <div class="front-list">
-                                <svelte:component this={oneEntry.ico} size={20} />
+                                {#if typeof oneEntry.ico === "string"}
+                                    <span>{oneEntry.ico}</span>
+                                {:else}
+                                    <svelte:component this={oneEntry.ico} size={20} />
+                                {/if}
                             </div>
                             <span>{oneEntry.title || ""}</span>
                             <span>{oneEntry.subtitle || ""}</span>
@@ -45,7 +49,7 @@
         box-shadow: 0 10px 20px rgba(64, 64, 64, 0.15);
         top: 10;
         left: 10;
-        width: 208px;
+        width: 250px;
     }
 
     .menu-list {
