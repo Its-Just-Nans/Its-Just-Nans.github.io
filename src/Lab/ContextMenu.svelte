@@ -33,6 +33,9 @@
 </div>
 
 <style>
+    .menu-button {
+        cursor: pointer;
+    }
     .menu-item:hover {
         background-color: lightgray;
     }
