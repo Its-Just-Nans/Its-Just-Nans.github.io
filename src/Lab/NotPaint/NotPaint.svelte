@@ -23,7 +23,7 @@
 
     let color = "#000000";
     const download = () => {
-        type = "png" || "jpeg" || "webp" || "bmp";
+        const type = "png" || "jpeg" || "webp" || "bmp";
         const imgData = canvas.toDataURL(`image/${type}`);
         const downloadLink = document.createElement("a");
         downloadLink.href = imgData;
@@ -41,19 +41,32 @@
         draw = false;
     };
 
+    const resize = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight - 40;
+    };
+
     onMount(() => {
         ctx = canvas.getContext("2d");
-        ctx.imageSmoothingEnabled = false;
+        // ctx.imageSmoothingEnabled = false;
         ctx.strokeStyle = color;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight - 40;
         canvas.addEventListener("mousemove", move);
         document.addEventListener("mouseup", stopDraw);
         document.addEventListener("mousedown", setDraw);
+        document.addEventListener("touchmove", move);
+        document.addEventListener("touchstart", stopDraw);
+        document.addEventListener("touchend", stopDraw);
+        window.addEventListener("resize", resize);
         return () => {
             canvas.removeEventListener("mousemove", move);
             document.removeEventListener("mouseup", stopDraw);
             document.removeEventListener("mousedown", setDraw);
+            document.removeEventListener("touchmove", move);
+            document.removeEventListener("touchstart", stopDraw);
+            document.removeEventListener("touchend", setDraw);
+            window.removeEventListener("resize", resize);
         };
     });
 </script>
