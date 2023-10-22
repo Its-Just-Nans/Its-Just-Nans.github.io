@@ -4,8 +4,10 @@ const images = await Astro.glob("/data/ico/languages/*").then((files) => {
     return files.map((file) => file.default);
 });
 const langs = data.map((e) => {
-    const correctLink = images.find((link) => link.split("/").pop().split(".").shift() === e.ico.split(".").shift());
-    return { ...e, ico: correctLink };
+    const correctLink = images.find(
+        (link) => link.src.split("/").pop().split(".").shift() === e.ico.split(".").shift()
+    );
+    return { ...e, ico: correctLink.src };
 });
 ---
 
@@ -75,7 +77,7 @@ const langs = data.map((e) => {
     <div class="part center">
         <h2>Thanks for watching</h2>
         <div>
-            <p class="inline">Made with</p>
+            <p class="inline">Made with</p>{" "}
             <a href="https://astro.build" target="_blank">
                 <p class="inline lang-txt">Astro</p>
                 <img class="inline lang-logo" src={langs.find((e) => e.name === "Astro")?.ico} alt="logo-astro" />

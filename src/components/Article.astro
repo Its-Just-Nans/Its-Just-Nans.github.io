@@ -1,24 +1,25 @@
 ---
-const { content } = Astro.props;
-const { Content } = content;
+const { item } = Astro.props;
+const { Content, frontmatter, ico } = item;
+const { date1 = "", date2 = "", title = null } = frontmatter;
 ---
 
 <div class="historyLine">
     <div class="firstDiv">
         <p>
-            <span class={!content.date2 ? "specialLineHeight" : ""}>{content.date1 || "?"}</span>
+            <span class={!date2 ? "specialLineHeight" : ""}>{date1.split("T")[0] || "?"}</span>
             {
-                content.date2 && (
+                date2 && (
                     <>
                         <br />
-                        <span>{content.date2 || ""}</span>
+                        <span>{date2.split("T")[0] || ""}</span>
                     </>
                 )
             }
         </p>
         <div class="titleContainer">
-            <img class="iconSmall" src={content.ico || ""} alt="" />
-            <p class="title">{content.title || ""}</p>
+            <img class="iconSmall" src={ico || ""} alt="" />
+            <p class="title">{title || ""}</p>
         </div>
         <div class="minusIco iconShowMore">
             <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
@@ -31,13 +32,6 @@ const { Content } = content;
             </svg>
         </div>
     </div>
-    <script>
-        [...document.getElementsByClassName("firstDiv")].forEach((e) => {
-            e.onclick = () => {
-                e.parentNode?.classList.toggle("historyLineOpen");
-            };
-        });
-    </script>
     <div class="secondDiv">
         <div class="historyDetail">
             {Content && <Content />}

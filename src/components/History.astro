@@ -1,19 +1,30 @@
 ---
-import data from "../../data/json/history.json";
 import Article from "./Article.astro";
 const a = await Astro.glob("/data/ico/history/*");
 const images = a.map((file) => file.default);
 const txts = await Astro.glob("/data/txt/*");
-const history = data.map((e) => {
-    const correctLink = txts.find(
-        (link) => link.file.split("/").pop().split(".").shift() === e.desc.split(".").shift()
-    );
-    const Content = correctLink?.Content;
-    const correctIcoLink = images.find(
-        (link) => link.split("/").pop().split(".").shift() === e.ico.split("/").pop().split(".").shift()
-    );
-    return { ...e, Content, ico: correctIcoLink };
-});
+const history = txts
+    .map((oneText) => {
+        let correctIcoLink = "";
+        const ico = oneText.frontmatter.ico;
+        if (ico) {
+            correctIcoLink = images.find(
+                (oneImg) => oneImg.src.split("/").pop().split(".").shift() === ico.split("/").pop().split(".").shift()
+            );
+        }
+        return { frontmatter: oneText.frontmatter, Content: oneText.Content, ico: correctIcoLink.src };
+    })
+    .sort((a, b) => {
+        const d1 = a.frontmatter.date2 ? new Date(a.frontmatter.date2) : new Date(a.frontmatter.date1);
+        const d2 = b.frontmatter.date2 ? new Date(b.frontmatter.date2) : new Date(b.frontmatter.date1);
+        if (d1 > d2) {
+            return -1;
+        }
+        if (d1 < d2) {
+            return 1;
+        }
+        return 0;
+    });
 ---
 
 <article id="articles">
@@ -40,7 +51,14 @@ const history = data.map((e) => {
             };
         </script>
     </div>
-    {history.map((oneData, index) => <Article content={oneData} {index} />)}
+    {history.map((oneData, index) => <Article item={oneData} {index} />)}
+    <script is:inline>
+    [...document.getElementsByClassName("firstDiv")].forEach((e) => {
+        e.onclick = () => {
+            e.parentNode?.classList.toggle("historyLineOpen");
+        };
+    });
+    </script>
 </article>
 
 <style>

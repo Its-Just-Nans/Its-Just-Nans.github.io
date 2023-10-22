@@ -32,7 +32,7 @@ const cubeSize = 0.3;
 const createCube = () => {
     const geometry = new BoxGeometry(cubeSize, cubeSize, cubeSize);
     const loader = new TextureLoader();
-    const dvd = loader.load(Logo);
+    const dvd = loader.load(Logo.src);
     dvdMesh = new MeshStandardMaterial({
         map: dvd,
         transparent: true,

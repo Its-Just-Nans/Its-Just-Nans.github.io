@@ -3,7 +3,9 @@ import data from "../../data/json/links.json";
 const a = await Astro.glob("/data/ico/links/*");
 const images = a.map((file) => file.default);
 const links = data.map((e) => {
-    const correctLink = images.find((link) => link.split("/").pop().split(".").shift() === e.ico.split(".").shift());
+    const correctLink = images.find(
+        (link) => link.src.split("/").pop().split(".").shift() === e.ico.split(".").shift()
+    );
     return { ...e, ico: correctLink };
 });
 ---
@@ -19,7 +21,7 @@ const links = data.map((e) => {
                             <tr>
                                 <td>
                                     <a href={oneLink.link} target="_blank">
-                                        <img src={oneLink.ico} class="iconSmall" alt="" />
+                                        <img src={oneLink.ico.src} class="iconSmall" alt="" />
                                     </a>
                                 </td>
                                 <td class="wordBreak hoverBlue">

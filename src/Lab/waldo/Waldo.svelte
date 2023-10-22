@@ -83,7 +83,7 @@
         {/if}
         <img
             bind:this={imgElement}
-            src={img}
+            src={img.src}
             alt=""
             on:load={() => {
                 imgElement = imgElement;
