@@ -19,14 +19,16 @@ const { articles } = Astro.props;
                         <div class:list={["flexed", { "hidden-class": hidden }]} class="">
                             <p class="articleTitle">
                                 <span>{title}</span>
-                                {draft && <span class="draft-span">(draft)</span>}
                                 {hidden && <span class="hidden-span">(hidden)</span>}
                             </p>
                             <p class="timestamp">
                                 <time datetime={realDate.toISOString()}>{fmt}</time>
                             </p>
                         </div>
-                        <p class="articleDesc">{description}</p>
+                        <div class="flexed">
+                            <p class="articleDesc">{description}</p>
+                            <p>{draft && <span class="draft-span">(draft)</span>}</p>
+                        </div>
                     </div>
                 </a>
             );
@@ -55,7 +57,6 @@ const { articles } = Astro.props;
     }
     .draft-span {
         color: red;
-        font-size: 20px;
     }
     .flexed {
         display: flex;

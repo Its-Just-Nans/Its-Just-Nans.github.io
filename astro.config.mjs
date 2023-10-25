@@ -2,9 +2,10 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import rehypeKatex from "rehype-katex";
+import rehypeExternalLinks from "rehype-external-links";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
-import svelte from '@astrojs/svelte';
+import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
         svelte(),
         mdx({
             remarkPlugins: [remarkMath, remarkToc],
-            rehypePlugins: [rehypeKatex],
+            rehypePlugins: [rehypeKatex, [rehypeExternalLinks, { target: "_blank" }]],
             shikiConfig: {
                 theme: "github-dark",
                 // // Enable word wrap to prevent horizontal scrolling

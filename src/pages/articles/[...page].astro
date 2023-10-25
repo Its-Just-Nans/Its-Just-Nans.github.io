@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlesList from "../../components/ArticlesList.astro";
 
@@ -13,7 +12,7 @@ export async function getStaticPaths({ paginate }) {
     );
 
     const a = paginate(sortedPosts, {
-        pageSize: 10,
+        pageSize: Infinity,
     });
     return a;
 }
