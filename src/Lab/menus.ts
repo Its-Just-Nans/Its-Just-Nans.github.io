@@ -27,6 +27,12 @@ export const menus = [
             title: "Time based animation",
             subtitle: null,
         },
+        {
+            ico: "👀",
+            link: "/lab/threlte",
+            title: "Threlte",
+            subtitle: null,
+        },
         //     {
         //         ico: null,
         //         link: "/lab/Waldo",
