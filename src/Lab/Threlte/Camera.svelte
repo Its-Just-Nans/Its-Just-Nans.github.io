@@ -1,6 +1,6 @@
 <script>
     import { T, extend, useThrelte, useFrame } from "@threlte/core";
-    import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+    import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
     import { Vector3 } from "three";
     import { interactivity } from "@threlte/extras";
     import { rigthClicked } from "./store";
