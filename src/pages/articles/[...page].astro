@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlesList from "../../components/ArticlesList.astro";
 
 export async function getStaticPaths({ paginate }) {
-    const allPosts = await Astro.glob("/data/articles/*.mdx");
+    const allPosts = await Astro.glob("/data/articles/**/*.mdx");
     const nonDraftPosts = import.meta.env.DEV ? allPosts : allPosts.filter((post) => !post.frontmatter.draft);
     const nonHidden = import.meta.env.DEV ? nonDraftPosts : nonDraftPosts.filter((post) => !post.frontmatter.hidden);
     const sortedPosts = nonHidden.sort(

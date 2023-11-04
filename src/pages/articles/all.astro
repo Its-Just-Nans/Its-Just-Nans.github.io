@@ -4,7 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlesList from "../../components/ArticlesList.astro";
 
 export async function getData() {
-    const allPosts = await Astro.glob("/data/articles/*.mdx");
+    const allPosts = await Astro.glob("/data/articles/**/*.mdx");
     const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
     const sortedPosts = nonDraftPosts.sort(
         (a, b) =>

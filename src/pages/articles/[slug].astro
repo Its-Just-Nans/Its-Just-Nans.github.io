@@ -7,7 +7,7 @@ const { post } = Astro.props;
 const { Content } = post;
 
 export async function getStaticPaths() {
-    const posts = await Astro.glob("/data/articles/*.mdx");
+    const posts = await Astro.glob("/data/articles/**/*.mdx");
     const nonDraftPosts = import.meta.env.DEV ? posts : posts.filter((post) => !post.frontmatter.draft);
     const params = nonDraftPosts.map((onePost) => ({
         params: { slug: onePost.url?.split("/")?.pop()?.split(".").shift() },
