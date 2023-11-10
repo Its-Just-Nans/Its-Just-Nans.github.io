@@ -59,11 +59,7 @@ import { text } from "./utils";
                 </g>
                 <g transform="translate(25, 0)">
                     <text class="hoverSvg" x="0" y="0">
-                        {
-                            oneData.url.startsWith("https://api.github.com/gists")
-                                ? "View the Gist on GitHub"
-                                : "View the repository on GitHub"
-                        }
+                        {oneData.type === "gist" ? "View the Gist on GitHub" : "View the repository on GitHub"}
                     </text>
                 </g>
             </g>
@@ -104,7 +100,10 @@ import { text } from "./utils";
         font-weight: bold;
     }
     .header {
-        font: 600 18px "Segoe UI", Ubuntu, Sans-Serif;
+        font:
+            600 18px "Segoe UI",
+            Ubuntu,
+            Sans-Serif;
         fill: #2f80ed;
     }
     @supports (-moz-appearance: auto) {
