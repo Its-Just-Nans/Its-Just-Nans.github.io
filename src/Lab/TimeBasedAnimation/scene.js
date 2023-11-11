@@ -10,7 +10,7 @@ import {
     PerspectiveCamera,
     LineBasicMaterial,
 } from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import Logo from "./DVD_logo.png";
 
 const scene = new Scene();

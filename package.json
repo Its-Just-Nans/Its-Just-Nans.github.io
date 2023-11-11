@@ -23,14 +23,14 @@
         "make": "cd data && make"
     },
     "dependencies": {
-        "@astrojs/mdx": "^1.1.2",
+        "@astrojs/mdx": "^1.1.4",
         "@astrojs/rss": "^3.0.0",
-        "@astrojs/sitemap": "^3.0.2",
+        "@astrojs/sitemap": "^3.0.3",
         "@astrojs/svelte": "^4.0.3",
         "@threlte/core": "^6.1.0",
-        "@threlte/extras": "^7.5.0",
-        "astro": "^3.3.2",
-        "three": "^0.157.0"
+        "@threlte/extras": "^7.5.1",
+        "astro": "^3.5.2",
+        "three": "^0.158.0"
     },
     "devDependencies": {
         "rehype-external-links": "^3.0.0",

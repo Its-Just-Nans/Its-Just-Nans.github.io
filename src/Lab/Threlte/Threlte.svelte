@@ -24,7 +24,6 @@
 
     const handleRightClick = (e) => {
         e.preventDefault();
-        console.log("right click");
         $rigthClicked = !$rigthClicked;
     };
 

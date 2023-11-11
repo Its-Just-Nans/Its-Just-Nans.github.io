@@ -1,13 +1,8 @@
 <script>
-    import { T, extend, useThrelte, useFrame } from "@threlte/core";
-    import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+    import { T, useThrelte, useFrame } from "@threlte/core";
     import { Vector3 } from "three";
-    import { interactivity } from "@threlte/extras";
+    import { OrbitControls, interactivity } from "@threlte/extras";
     import { rigthClicked } from "./store";
-
-    extend({
-        OrbitControls,
-    });
 
     const { pointer } = interactivity();
     const { invalidate } = useThrelte();
@@ -32,10 +27,9 @@
     position={[0, 0, 10]}
     on:create={({ ref }) => {
         ref.lookAt(0, 0, 0);
-        r = ref;
     }}
     makeDefault
-    let:ref
+    bind:ref={r}
 >
-    <T.OrbitControls on:change={invalidate} {enableZoom} args={[ref, el]} />
+    <OrbitControls on:change={invalidate} {enableZoom} args={[r, el]} />
 </T.PerspectiveCamera>
