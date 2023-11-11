@@ -10,11 +10,11 @@ export async function getData() {
             new Date(b.frontmatter?.date || new Date()).getTime() -
             new Date(a.frontmatter?.date || new Date()).getTime()
     );
-    return sortedPosts;
+    return { sortedPosts, nbDraft: allPosts.length - nonDraftPosts.length };
 }
-const data = await getData();
+const { sortedPosts: data, nbDraft } = await getData();
 ---
 
 <BaseLayout>
-    <ArticlesList articles={data} />
+    <ArticlesList articles={data} nbDraft={nbDraft} />
 </BaseLayout>

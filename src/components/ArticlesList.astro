@@ -1,8 +1,22 @@
 ---
-const { articles } = Astro.props;
+const { articles, nbDraft = 0 } = Astro.props;
 ---
 
 <article>
+    {
+        nbDraft > 0 && (
+            <>
+                <div class="draft">
+                    <div>
+                        <span>
+                            {nbDraft} draft{nbDraft > 1 && "s"} !
+                        </span>
+                    </div>
+                </div>
+                <br />
+            </>
+        )
+    }
     {
         articles.map((element) => {
             const { date, description, title, draft, hidden } = element.frontmatter;
@@ -16,10 +30,9 @@ const { articles } = Astro.props;
             return (
                 <a href={`/articles/${slug}`}>
                     <div class="oneArticle">
-                        <div class:list={["flexed", { "hidden-class": hidden }]} class="">
+                        <div class:list={["flexed", { "hidden-class": hidden }]}>
                             <p class="articleTitle">
                                 <span>{title}</span>
-                                {hidden && <span class="hidden-span">(hidden)</span>}
                             </p>
                             <p class="timestamp">
                                 <time datetime={realDate.toISOString()}>{fmt}</time>
@@ -27,7 +40,10 @@ const { articles } = Astro.props;
                         </div>
                         <div class="flexed">
                             <p class="articleDesc">{description}</p>
-                            <p>{draft && <span class="draft-span">(draft)</span>}</p>
+                            <p class:list={["flexed", { "hidden-class": hidden }]}>
+                                {hidden && <span class="hidden-span">(hidden)</span>}
+                                {draft && <span class="draft-span">(draft)</span>}
+                            </p>
                         </div>
                     </div>
                 </a>
@@ -37,6 +53,18 @@ const { articles } = Astro.props;
 </article>
 
 <style>
+    .draft {
+        display: flex;
+        justify-content: center;
+    }
+    .draft div {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        background-color: var(--globalColor);
+        width: 50%;
+    }
     @keyframes rainbow_animation {
         0%,
         100% {
