@@ -27,6 +27,7 @@ import { packages } from "../../data/packages";
                     <a target="_blank" class="opennable" href={`${el.url}${onePackage}`}>{`${el.url}${onePackage}`}</a>
                     {el.stats && (
                         <>
+                            <br />
                             <a target="_blank" class="opennable" href={`${el.stats}${onePackage}`}>
                                 {`${el.stats}${onePackage}`}
                             </a>
@@ -39,6 +40,9 @@ import { packages } from "../../data/packages";
 }
 
 <style>
+    a {
+        color: blue;
+    }
     .hidden {
         display: none;
     }

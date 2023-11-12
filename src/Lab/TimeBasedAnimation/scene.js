@@ -65,17 +65,32 @@ const animateCube = () => {
     const minBorder = -max + cubeSize / 2;
     const maxBorder = max - cubeSize / 2;
     let change = false;
-    if (cube.position.x <= minBorder || cube.position.x >= maxBorder) {
+    if (cube.position.x <= minBorder) {
         square.dx = -square.dx;
         change = true;
+        cube.position.x = minBorder;
+    } else if (cube.position.x >= maxBorder) {
+        square.dx = -square.dx;
+        change = true;
+        cube.position.x = maxBorder;
     }
-    if (cube.position.y <= minBorder || cube.position.y >= maxBorder) {
+    if (cube.position.y <= minBorder) {
         square.dy = -square.dy;
         change = true;
+        cube.position.y = minBorder;
+    } else if (cube.position.y >= maxBorder) {
+        square.dy = -square.dy;
+        change = true;
+        cube.position.y = maxBorder;
     }
-    if (cube.position.z <= minBorder || cube.position.z >= maxBorder) {
+    if (cube.position.z <= minBorder) {
         square.dz = -square.dz;
         change = true;
+        cube.position.z = minBorder;
+    } else if (cube.position.z >= maxBorder) {
+        square.dz = -square.dz;
+        change = true;
+        cube.position.z = maxBorder;
     }
     if (change) {
         changeColor();
