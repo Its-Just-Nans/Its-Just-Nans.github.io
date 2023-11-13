@@ -39,7 +39,7 @@
 </script>
 
 <div class="threlte">
-    <Canvas>
+    <Canvas rendererParameters={{ powerPreference: "default" }}>
         <Camera />
         <T.DirectionalLight position={[0, 0, 1]} />
         {#each Array.from({ length: 7 }) as o, i}
