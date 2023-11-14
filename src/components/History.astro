@@ -29,6 +29,7 @@ const history = txts
 
 <article id="articles">
     <input id="toggle" type="checkbox" />
+    <input id="work" type="checkbox" checked />
     <div class="center">
         <div class="button-change" class="style-4">
             <label for="toggle" class="label-open">
@@ -44,14 +45,46 @@ const history = txts
                     </path>
                 </svg>
             </label>
+            <label for="work">
+                <div class="work-emoji" title="Work">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </div>
+            </label>
         </div>
     </div>
     {history.map((oneData, index) => <Article item={oneData} {index} />)}
 </article>
 
 <style>
+    #work {
+        display: none;
+    }
     #toggle {
         display: none;
+    }
+    .work-emoji {
+        padding: 10px;
+        border: 1px solid white;
+        border-radius: 50px;
+    }
+    .work-emoji svg {
+        display: block;
+    }
+    #work:checked ~ .center .work-emoji {
+        border: 1px solid black;
     }
     #toggle:checked ~ .center .label-open {
         display: block;
@@ -70,6 +103,11 @@ const history = txts
     }
     .label-close {
         cursor: pointer;
+    }
+    .button-change {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .button-change :global(.svgIco) {
         height: 26px;
