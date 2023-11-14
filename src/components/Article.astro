@@ -1,37 +1,50 @@
 ---
-const { item } = Astro.props;
+const { item, index } = Astro.props;
 const { Content, frontmatter, ico } = item;
 const { date1 = "", date2 = "", title = null } = frontmatter;
 ---
 
 <div class="historyLine">
-    <div class="firstDiv">
-        <p>
-            <span class={!date2 ? "specialLineHeight" : ""}>{date1.split("T")[0] || "?"}</span>
-            {
-                date2 && (
-                    <>
-                        <br />
-                        <span>{date2.split("T")[0] || ""}</span>
-                    </>
-                )
-            }
-        </p>
-        <div class="titleContainer">
-            <img class="iconSmall" src={ico || ""} alt="" />
-            <p class="title">{title || ""}</p>
+    <input type="checkbox" id={`id_${index}`} class="toggler" />
+
+    <style
+        set:html={`#id_${index}:checked ~ label .firstDiv {
+                    border-bottom: 1px solid var(--border-color);
+                }
+                #id_${index}:checked ~ .secondDiv {
+                    display: block;
+                    height: auto;
+                }`}
+    ></style>
+    <label for={`id_${index}`}>
+        <div class="firstDiv">
+            <p>
+                <span class={!date2 ? "specialLineHeight" : ""}>{date1.split("T")[0] || "?"}</span>
+                {
+                    date2 && (
+                        <>
+                            <br />
+                            <span>{date2.split("T")[0] || ""}</span>
+                        </>
+                    )
+                }
+            </p>
+            <div class="titleContainer">
+                <img class="iconSmall" src={ico || ""} alt="" />
+                <p class="title">{title || ""}</p>
+            </div>
+            <div class="minusIco iconShowMore">
+                <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 13H5v-2h14v2z"></path>
+                </svg>
+            </div>
+            <div class="plusIco iconShowMore">
+                <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                </svg>
+            </div>
         </div>
-        <div class="minusIco iconShowMore">
-            <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M19 13H5v-2h14v2z"></path>
-            </svg>
-        </div>
-        <div class="plusIco iconShowMore">
-            <svg focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-            </svg>
-        </div>
-    </div>
+    </label>
     <div class="secondDiv">
         <div class="historyDetail">
             {Content && <Content />}
@@ -40,6 +53,9 @@ const { date1 = "", date2 = "", title = null } = frontmatter;
 </div>
 
 <style>
+    .toggler {
+        display: none;
+    }
     span {
         line-height: 16px;
     }
@@ -172,58 +188,42 @@ const { date1 = "", date2 = "", title = null } = frontmatter;
         box-shadow: 0px 0px 0px 5px blue;
         border: 1px dashed var(--border-color);
     }
-    .historyLineOpen:hover {
+
+    :global(#toggle:checked) ~ .historyLine:hover {
         box-shadow: none;
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--border-color); /* default border */
     }
-    :is(:global(.historyOpen) .historyLine:hover, .historyLineOpen:hover) > .firstDiv > p {
-        border-right: 1px dashed var(--border-color);
-    }
-    /* :is(:global(.historyOpen) .historyLine:hover, .historyLineOpen:hover) > .firstDiv > .titleContainer {
-        border-right: 1px dashed var(--border-color);
-    } */
-    :is(:global(.historyOpen) .historyLine:hover, .historyLineOpen:hover) > .firstDiv > p {
-        border-right: 1px solid var(--border-color) !important;
-    }
-    /* :is(:global(.historyOpen) .historyLine:hover, .historyLineOpen:hover) > .firstDiv > .titleContainer {
-        border-right: 1px solid var(--border-color) !important;
-    } */
 
     .historyLine .iconSmall {
         margin: auto;
     }
-    .historyLine > div:nth-child(1) {
+    .historyLine .firstDiv {
         display: flex;
         cursor: pointer;
         line-height: 32px;
     }
-    .historyLine > div:nth-child(2) {
+    .historyLine .secondDiv {
         background-color: whitesmoke;
         border-radius: 5px;
         text-align: initial;
         height: 0px;
         display: none;
     }
-    .historyLineOpen > div:nth-child(2) {
-        display: block;
-    }
-    :global(.historyOpen) .historyLine > div:nth-child(2) {
-        display: block;
-    }
-    .historyLineOpen > div:nth-child(2) {
-        height: auto;
-    }
-
-    :global(.historyOpen) .historyLine > div:nth-child(2) {
-        height: auto;
-    }
-    .historyLine > div:nth-child(2) > div {
-        padding: 10px;
-    }
-    .historyLineOpen > div:nth-child(1) {
+    :global(#toggle:checked) ~ .historyLine .firstDiv {
         border-bottom: 1px solid var(--border-color);
     }
-    :global(.historyOpen) .historyLine > div:nth-child(1) {
+    :global(#toggle:checked) ~ .historyLine .secondDiv {
+        display: block;
+        height: auto;
+    }
+    :global(.historyOpen) .historyLine .secondDiv {
+        display: block;
+        height: auto;
+    }
+    .historyLine .secondDiv > div {
+        padding: 10px;
+    }
+    :global(.historyOpen) .historyLine .firstDiv {
         border-bottom: 1px solid var(--border-color);
     }
     .historyDetail {
