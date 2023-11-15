@@ -13,11 +13,4 @@ Website on [GitHub pages](https://its-just-nans.github.io) !
 ```sh
 # clone data repo
 git submodule update --recursive --init
-# install pre-commit
-python -m pip install -u pre-commit
-# install pre-commit hook
-python -m pre_commit install
-
-# useful command
-python -m pre_commit run --all-files
 ```
