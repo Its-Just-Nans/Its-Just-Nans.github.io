@@ -30,6 +30,8 @@
 {#if $showMenu}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
+        role="menu"
+        tabindex="0"
         class="context"
         style={`position: absolute; top: ${y}px; left: ${x}px;`}
         on:click={(e) => {

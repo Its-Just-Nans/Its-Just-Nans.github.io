@@ -5,7 +5,7 @@ const images = a.map((file) => file.default);
 const txts = await Astro.glob("/data/txt/*");
 const history = txts
     .map((oneText) => {
-        let correctIcoLink = "";
+        let correctIcoLink;
         const ico = oneText.frontmatter.ico;
         if (ico) {
             correctIcoLink = images.find(
