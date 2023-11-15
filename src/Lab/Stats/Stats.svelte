@@ -1,24 +1,23 @@
 <script lang="ts">
     import { onMount } from "svelte";
     let username = "Its-Just-Nans";
+    const updateParam = () => {
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set("username", username);
+        window.history.replaceState("", "", newUrl);
+    };
     onMount(() => {
         const newUsername = new URLSearchParams(window.location.search).get("username");
         if (newUsername) {
             username = newUsername;
+        } else {
+            updateParam();
         }
     });
 </script>
 
 <h1 class="input">
-    Username: <input
-        type="text"
-        bind:value={username}
-        on:input={() => {
-            const newUrl = new URL(window.location.href);
-            newUrl.searchParams.set("username", username);
-            window.history.replaceState("", "", newUrl);
-        }}
-    />
+    Username: <input type="text" bind:value={username} on:input={updateParam} />
 </h1>
 <br />
 {#key username}
