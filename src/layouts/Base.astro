@@ -1,23 +1,17 @@
 ---
-import Cover from "../imgs/cover.png";
 import "../styles/index.css";
 import "../styles/style.css";
 import "../styles/tooltip.css";
+import Header from "./Header.astro";
+const title = "Its-Just-Nans (aka n4n5) - lab";
 ---
 
 <html lang="fr-FR">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Its-Just-Nans (aka n4n5) - lab</title>
-        <meta
-            name="description"
-            content="The page of Its-Just-Nans aka n4n5. Here you can view my projects and get information about me !"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="google-site-verification" content="8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4" />
-
-        <meta property="og:image" content={Cover.src} />
+        <title>{title}</title>
+        <Header title={title} />
     </head>
 
     <body>
