@@ -36,7 +36,7 @@ export const menus = [
         {
             ico: "⚙️",
             link: "/lab/coupling",
-            title: "Schmidt offset coupling",
+            title: "Schmidt coupling",
             subtitle: null,
         },
         //     {
