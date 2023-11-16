@@ -33,6 +33,12 @@ export const menus = [
             title: "Threlte",
             subtitle: null,
         },
+        {
+            ico: "⚙️",
+            link: "/lab/coupling",
+            title: "Schmidt offset coupling",
+            subtitle: null,
+        },
         //     {
         //         ico: null,
         //         link: "/lab/Waldo",
