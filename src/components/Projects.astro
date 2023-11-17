@@ -17,19 +17,6 @@ import ProjectHelper from "./ProjectHelper.astro";
             ))
         }
     </div>
-    <script>
-        const elemts = [...document.getElementsByClassName("projectsClick")];
-        elemts.forEach((e) => {
-            e.onclick = (evt) => {
-                elemts.forEach((el) => {
-                    if (el !== e) {
-                        el.parentNode.classList.remove("clicked");
-                    }
-                });
-                e.parentNode.classList.toggle("clicked");
-            };
-        });
-    </script>
 </article>
 
 <style>

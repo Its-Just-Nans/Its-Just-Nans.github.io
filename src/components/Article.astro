@@ -1,19 +1,13 @@
 ---
 const { item, index } = Astro.props;
 const { Content, frontmatter, ico } = item;
-const { date1 = "", date2 = "", title = null, isWork = false } = frontmatter;
+const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false } = frontmatter;
 ---
 
-<div class="historyLine" class:list={[{ work: isWork }]}>
+<div class="historyLine" class:list={[{ work: isWork }, { school: isSchool }]}>
     <input type="checkbox" id={`id_${index}`} class="toggler" />
     <style
-        set:html={`#id_${index}:checked ~ label .firstDiv {
-                    border-bottom: 1px solid var(--border-color);
-                }
-                #id_${index}:checked ~ .secondDiv {
-                    display: block;
-                    height: auto;
-                }`}
+        set:html={`#id_${index}:checked ~ label .firstDiv {border-bottom: 1px solid var(--border-color);}#id_${index}:checked ~ .secondDiv {display: block;height: auto;}`}
     ></style>
     <label for={`id_${index}`}>
         <div class="firstDiv">
@@ -56,6 +50,12 @@ const { date1 = "", date2 = "", title = null, isWork = false } = frontmatter;
         display: none;
     }
     :global(#work:checked) ~ .work {
+        display: block;
+    }
+    :global(#school:checked) ~ .historyLine {
+        display: none;
+    }
+    :global(#school:checked) ~ .school {
         display: block;
     }
     .toggler {

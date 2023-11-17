@@ -53,7 +53,7 @@ const links = data.map((e) => {
                 </tbody>
             </table>
         </div>
-        <script>
+        <script is:inline>
             [...document.getElementsByClassName("copyFn")].forEach((e) => {
                 e.onclick = () => {
                     const link = e.getAttribute("data-link");

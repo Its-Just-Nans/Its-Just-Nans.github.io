@@ -18,7 +18,7 @@ export const radius = writable(1.5);
 export const rotation = writable(0);
 export const diskHeight = writable(0.5);
 export const speed = writable(0.1);
-export const movement = writable(0.05);
+export const movement = writable(0.1);
 export const control = writable(true);
 
 export const circleIntersection = (x1: number, y1: number, r1: number, x2: number, y2: number, r2: number) => {

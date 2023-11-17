@@ -6,12 +6,15 @@
     import Disc from "./Disc.svelte";
     import { setPosition, rotation, radius, diskHeight, speed, control, movement, circleIntersection } from "./store";
     import type { ChangedType } from "./store";
-    import { number } from "astro/zod";
     let x2 = $radius;
     let z2 = 0;
     let x3 = $radius * 2;
     let z3 = 0;
     const setPos = () => {
+        x2 = $radius;
+        z2 = 0;
+        x3 = $radius * 2;
+        z3 = 0;
         setPosition(1, { x: 0, z: 0 });
         setPosition(2, { x: x2, z: z2 });
         setPosition(3, { x: x3, z: z3 });

@@ -1,5 +1,10 @@
 ---
 import Article from "./Article.astro";
+import CloseSvg from "./history/CloseSvg.astro";
+import ListSvg from "./history/ListSvg.astro";
+import OpenSvg from "./history/OpenSvg.astro";
+import SchoolHatSvg from "./history/SchoolHatSvg.astro";
+import WorkSvg from "./history/WorkSvg.astro";
 const a = await Astro.glob("/data/ico/history/*");
 const images = a.map((file) => file.default);
 const txts = await Astro.glob("/data/txt/*");
@@ -29,38 +34,34 @@ const history = txts
 
 <article id="articles">
     <input id="toggle" type="checkbox" />
-    <input id="work" type="checkbox" />
+    <input id="all" name="selector" type="radio" value="all" checked />
+    <input id="work" name="selector" type="radio" value="work" />
+    <input id="school" name="selector" type="radio" value="school" />
     <div class="center">
         <div class="button-change" class="style-4">
-            <label for="toggle" class="label-open">
-                <svg class="svgIco" aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="M21 11V3h-8l3.29 3.29-10 10L3 13v8h8l-3.29-3.29 10-10z"></path>
-                </svg>
-            </label>
-            <label for="toggle" class="label-close">
-                <svg class="svgIco" aria-hidden="true" viewBox="0 0 24 24">
-                    <path
-                        d="M22 3.41 16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2 22 3.41zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59 3.41 22z"
-                    >
-                    </path>
-                </svg>
+            <label for="all">
+                <div class="emoji all-emoji" title="All">
+                    <ListSvg />
+                </div>
             </label>
             <label for="work">
-                <div class="work-emoji" title="Work">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
+                <div class="emoji work-emoji" title="Work">
+                    <WorkSvg />
+                </div>
+            </label>
+            <label for="school">
+                <div class="emoji school-emoji" title="School">
+                    <SchoolHatSvg />
+                </div>
+            </label>
+            <label for="toggle" class="label-open">
+                <div class="emoji" title="Expand details">
+                    <OpenSvg />
+                </div>
+            </label>
+            <label for="toggle" class="label-close">
+                <div class="emoji" title="Compress details">
+                    <CloseSvg />
                 </div>
             </label>
         </div>
@@ -69,22 +70,31 @@ const history = txts
 </article>
 
 <style>
-    #work {
+    input {
         display: none;
     }
-    #toggle {
-        display: none;
-    }
-    .work-emoji {
-        padding: 10px;
-        border: 1px solid white;
+    .emoji {
+        padding: 11px;
         border-radius: 50px;
     }
-    .work-emoji svg {
+    .emoji :global(svg) {
         display: block;
         cursor: pointer;
     }
+    #toggle:checked ~ .center .toggle-emoji {
+        padding: 10px;
+        border: 1px solid black;
+    }
     #work:checked ~ .center .work-emoji {
+        padding: 10px;
+        border: 1px solid black;
+    }
+    #school:checked ~ .center .school-emoji {
+        padding: 10px;
+        border: 1px solid black;
+    }
+    #all:checked ~ .center .all-emoji {
+        padding: 10px;
         border: 1px solid black;
     }
     #toggle:checked ~ .center .label-open {

@@ -32,18 +32,29 @@
     <div>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <h2>
-            Pack your bag 🎒!<span
+            <span> Pack your bag 🎒! </span>
+            <span
+                role="button"
+                tabindex="0"
                 on:click={() => {
                     data = {};
                     writeToLocalStorage();
-                }}>(reset)</span
+                }}
             >
+                (reset)
+            </span>
         </h2>
     </div>
     <div class="item-list">
         {#each Object.keys(items) as oneItem}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <div class="item" on:click={() => checkItem(oneItem)} class:selected={data[oneItem]}>
+            <div
+                role="button"
+                tabindex="0"
+                class="item"
+                on:click={() => checkItem(oneItem)}
+                class:selected={data[oneItem]}
+            >
                 <p>{oneItem}</p>
             </div>
         {/each}
