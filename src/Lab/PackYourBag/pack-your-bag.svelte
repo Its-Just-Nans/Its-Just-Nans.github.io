@@ -30,20 +30,18 @@
 
 <div class="container">
     <div>
+        <h2>Pack your bag 🎒!</h2>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <h2>
-            <span> Pack your bag 🎒! </span>
-            <span
-                role="button"
-                tabindex="0"
-                on:click={() => {
-                    data = {};
-                    writeToLocalStorage();
-                }}
-            >
-                (reset)
-            </span>
-        </h2>
+        <span
+            role="button"
+            tabindex="0"
+            on:click={() => {
+                data = {};
+                writeToLocalStorage();
+            }}
+        >
+            (reset)
+        </span>
     </div>
     <div class="item-list">
         {#each Object.keys(items) as oneItem}
@@ -78,7 +76,7 @@
         font-family: Arial, sans-serif;
         width: 50%;
     }
-    h2 span {
+    div span {
         font-size: 10px;
         cursor: pointer;
     }
