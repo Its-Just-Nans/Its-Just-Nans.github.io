@@ -5,7 +5,6 @@
     import { radius, diskHeight } from "./store";
 
     let disc;
-    let g;
     $: g = new CylinderGeometry($radius, $radius, $diskHeight, 80);
     useFrame(() => {
         if (disc) {
