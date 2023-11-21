@@ -1,6 +1,6 @@
 ---
 const { data } = Astro.props;
-const { title, date, draft, hidden } = data;
+const { title, date, draft, hidden, description } = data;
 const realDate = date ? new Date(date) : new Date();
 const fmt = realDate.toLocaleDateString("fr-FR");
 ---
@@ -14,6 +14,7 @@ const fmt = realDate.toLocaleDateString("fr-FR");
         </h2>
         <time class="rainbow_text_animated" datetime={realDate.toISOString()}>{fmt}</time>
     </div>
+    <div class="headArticleDesc">{description}</div>
     <div class="hr"></div>
     <div class="markdown-body">
         <slot />
@@ -21,6 +22,13 @@ const fmt = realDate.toLocaleDateString("fr-FR");
 </article>
 
 <style>
+    .headArticleDesc {
+        text-align: center;
+        --padding1: 10px;
+        --padding2: 10px;
+        display: block;
+        padding: 0px var(--padding2) var(--padding1) var(--padding2);
+    }
     .animated {
         animation: rainbow_animation 6s ease-in-out infinite;
         background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
@@ -62,9 +70,7 @@ const fmt = realDate.toLocaleDateString("fr-FR");
         --padding1: 10px;
         --padding2: 20px;
         display: block;
-        padding: var(--padding1) var(--padding2);
-    }
-    .headArticle {
+        padding: var(--padding1) var(--padding2) 0px var(--padding2);
         display: flex;
         justify-content: space-between;
         align-items: center;
