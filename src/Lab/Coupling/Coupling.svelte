@@ -2,6 +2,7 @@
     import { Canvas } from "@threlte/core";
     import Scene from "./Scene.svelte";
     import { radius, diskHeight, speed, movement } from "./store";
+    import Arrows from "./Arrows.svelte";
 </script>
 
 <div class="threlte">
@@ -24,6 +25,7 @@
         <label for="movement">Movement</label>
         <input id="movement" bind:value={$movement} type="range" min="0.01" max="0.5" step="0.01" />
     </div>
+    <Arrows />
 </div>
 
 <style>
