@@ -3,25 +3,28 @@
     export let name = "";
     let timer;
     const time = 50;
-</script>
-
-<span
-    role="button"
-    tabindex="0"
-    on:mousedown={() => {
+    const clear = () => {
+        clearInterval(timer);
+    };
+    const click = () => {
         timer = setInterval(() => {
             onKeyDown(
                 { key: name, radius: $radius, movement: $movement },
                 { x2: $coords.x2, z2: $coords.z2, x3: $coords.x3, z3: $coords.z3 }
             );
         }, time);
-    }}
-    on:mouseleave={() => {
-        clearInterval(timer);
-    }}
-    on:mouseup={() => {
-        clearInterval(timer);
-    }}
+    };
+</script>
+
+<span
+    role="button"
+    tabindex="0"
+    on:mousedown={click}
+    on:mouseleave={clear}
+    on:mouseup={clear}
+    on:touchstart={click}
+    on:touchcancel={clear}
+    on:touchend={clear}
 >
     {#if name === "ArrowLeft"}
         <svg
