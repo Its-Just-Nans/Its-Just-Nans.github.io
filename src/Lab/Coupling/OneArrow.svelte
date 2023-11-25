@@ -6,14 +6,19 @@
     const clear = () => {
         clearInterval(timer);
     };
+    const keyDown = () => {
+        onKeyDown(
+            { key: name, radius: $radius, movement: $movement },
+            { x2: $coords.x2, z2: $coords.z2, x3: $coords.x3, z3: $coords.z3 }
+        );
+    };
     const click = () => {
         timer = setInterval(() => {
-            onKeyDown(
-                { key: name, radius: $radius, movement: $movement },
-                { x2: $coords.x2, z2: $coords.z2, x3: $coords.x3, z3: $coords.z3 }
-            );
+            keyDown();
         }, time);
+        keyDown();
     };
+    const size = 48;
 </script>
 
 <span
@@ -29,8 +34,8 @@
     {#if name === "ArrowLeft"}
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width={size}
+            height={size}
             viewBox="0 0 24 24"
             fill="none"
             stroke="black"
@@ -45,8 +50,8 @@
     {:else if name === "ArrowRight"}
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width={size}
+            height={size}
             viewBox="0 0 24 24"
             fill="none"
             stroke="black"
@@ -61,8 +66,8 @@
     {:else if name === "ArrowUp"}
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width={size}
+            height={size}
             viewBox="0 0 24 24"
             fill="none"
             stroke="black"
@@ -77,8 +82,8 @@
     {:else if name === "ArrowDown"}
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width={size}
+            height={size}
             viewBox="0 0 24 24"
             fill="none"
             stroke="black"
@@ -92,3 +97,18 @@
         </svg>
     {/if}
 </span>
+
+<style>
+    span {
+        display: inline-block;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: snow;
+    }
+    span:hover {
+        cursor: pointer;
+    }
+    span svg {
+        display: block;
+    }
+</style>
