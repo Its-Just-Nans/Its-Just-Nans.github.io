@@ -36,43 +36,46 @@ const langs = data.map((e) => {
         </a>
     </div>
     <div class="part">
-        <h2>Languages</h2>
-        <div class="center">
-            {
-                langs.map((oneLang, index) => (
-                    <div class="lang">
-                        <a href={oneLang.link} target="_blank" data-tooltip={oneLang.name}>
-                            <img class="iconLang" alt={oneLang.name} src={oneLang.ico} />
-                        </a>
-                    </div>
-                ))
-            }
-        </div>
-        <br />
-        <div class="center" style="margin-top:20px">
-            <h3>GitHub stats</h3>
-            <div class="inline">
-                <img
-                    class="svgGithubStat"
-                    alt="github-readme-stats of Its-Just-Nans"
-                    src="https://github-readme-stats.vercel.app/api?username=its-just-nans&hide_border=true&show_icons=true"
-                />
+        <details>
+            <summary>Details</summary>
+            <h2>Languages</h2>
+            <div class="center">
+                {
+                    langs.map((oneLang, index) => (
+                        <div class="lang">
+                            <a href={oneLang.link} target="_blank" data-tooltip={oneLang.name}>
+                                <img class="iconLang" alt={oneLang.name} src={oneLang.ico} />
+                            </a>
+                        </div>
+                    ))
+                }
             </div>
-            <div class="inline">
-                <img
-                    class="svgGithubStat"
-                    alt="github-readme-stats and top-langs of Its-Just-Nans"
-                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=its-just-nans&layout=compact&hide_border=true&show_icons=true"
-                />
+            <br />
+            <div class="center" style="margin-top:20px">
+                <h3>GitHub stats</h3>
+                <div class="inline">
+                    <img
+                        class="svgGithubStat"
+                        alt="github-readme-stats of Its-Just-Nans"
+                        src="https://github-readme-stats.vercel.app/api?username=its-just-nans&hide_border=true&show_icons=true"
+                    />
+                </div>
+                <div class="inline">
+                    <img
+                        class="svgGithubStat"
+                        alt="github-readme-stats and top-langs of Its-Just-Nans"
+                        src="https://github-readme-stats.vercel.app/api/top-langs/?username=its-just-nans&layout=compact&hide_border=true&show_icons=true"
+                    />
+                </div>
+                <div class="inline">
+                    <img
+                        class="svgGithubStat bigger"
+                        alt="github-profile-trophy of Its-Just-Nans"
+                        src="https://github-profile-trophy.vercel.app/?username=Its-Just-Nans"
+                    />
+                </div>
             </div>
-            <div class="inline">
-                <img
-                    class="svgGithubStat bigger"
-                    alt="github-profile-trophy of Its-Just-Nans"
-                    src="https://github-profile-trophy.vercel.app/?username=Its-Just-Nans"
-                />
-            </div>
-        </div>
+        </details>
     </div>
     <div class="part center">
         <h2>Thanks for watching</h2>
@@ -99,6 +102,9 @@ const langs = data.map((e) => {
         transform-origin: bottom left;
     }
 
+    details[open] summary {
+        display: none;
+    }
     h2::before {
         content: " ";
         transform: scaleX(0);
