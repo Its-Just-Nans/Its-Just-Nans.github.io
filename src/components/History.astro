@@ -20,8 +20,19 @@ const history = txts
         return { frontmatter: oneText.frontmatter, Content: oneText.Content, ico: correctIcoLink?.src || "" };
     })
     .sort((a, b) => {
-        const d1 = a.frontmatter.date2 ? new Date(a.frontmatter.date2) : new Date(a.frontmatter.date1);
-        const d2 = b.frontmatter.date2 ? new Date(b.frontmatter.date2) : new Date(b.frontmatter.date1);
+        const d1a = new Date(a.frontmatter.date1);
+        const d1b = new Date(a.frontmatter.date2);
+        const d2a = new Date(b.frontmatter.date1);
+        const d2b = new Date(b.frontmatter.date2);
+        // little checkup
+        if (d1a > d1b) {
+            throw new Error(`${a.frontmatter.title}: date1 is bigger than date2`);
+        }
+        if (d2a > d2b) {
+            throw new Error(`${b.frontmatter.title}: date1 is bigger than date2`);
+        }
+        const d1 = a.frontmatter.date2 ? d1b : d1a;
+        const d2 = b.frontmatter.date2 ? d2b : d2a;
         if (d1 > d2) {
             return -1;
         }
