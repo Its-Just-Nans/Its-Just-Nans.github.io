@@ -17,7 +17,7 @@ const history = txts
                 (oneImg) => oneImg.src.split("/").pop().split(".").shift() === ico.split("/").pop().split(".").shift()
             );
         }
-        return { frontmatter: oneText.frontmatter, Content: oneText.Content, ico: correctIcoLink.src };
+        return { frontmatter: oneText.frontmatter, Content: oneText.Content, ico: correctIcoLink?.src || "" };
     })
     .sort((a, b) => {
         const d1 = a.frontmatter.date2 ? new Date(a.frontmatter.date2) : new Date(a.frontmatter.date1);
