@@ -56,7 +56,7 @@
         document.addEventListener("mouseup", stopDraw);
         document.addEventListener("mousedown", setDraw);
         document.addEventListener("touchmove", move);
-        document.addEventListener("touchstart", stopDraw);
+        document.addEventListener("touchstart", setDraw);
         document.addEventListener("touchend", stopDraw);
         window.addEventListener("resize", resize);
         return () => {
@@ -64,8 +64,8 @@
             document.removeEventListener("mouseup", stopDraw);
             document.removeEventListener("mousedown", setDraw);
             document.removeEventListener("touchmove", move);
-            document.removeEventListener("touchstart", stopDraw);
-            document.removeEventListener("touchend", setDraw);
+            document.removeEventListener("touchstart", setDraw);
+            document.removeEventListener("touchend", stopDraw);
             window.removeEventListener("resize", resize);
         };
     });
