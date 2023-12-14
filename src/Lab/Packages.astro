@@ -33,6 +33,11 @@ import { packages } from "../../data/packages";
                             </a>
                         </>
                     )}
+                    {el.shields.map((oneShieldUrl) => (
+                        <>
+                            <img src={`${oneShieldUrl}${onePackage}`} />
+                        </>
+                    ))}
                 </p>
             ))}
         </>
