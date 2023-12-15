@@ -59,32 +59,4 @@ import Header from "./Header.astro";
         animation: show 2s forwards;
         margin: 20px auto;
     }
-    @media screen and (max-width: 1024px) {
-        :global(article) {
-            padding-top: 5px !important;
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-        }
-        /* width */
-    }
-
-    @media screen and (min-width: 512px) {
-        :global(article::-webkit-scrollbar) {
-            width: 10px;
-        }
-
-        /* Track */
-        :global(article::-webkit-scrollbar-track) {
-            background: #f1f1f1;
-        }
-
-        /* Handle */
-        :global(::-webkit-scrollbar-thumb) {
-            background: #888;
-        }
-        /* Handle on hover */
-        :global(::-webkit-scrollbar-thumb:hover) {
-            background: #555;
-        }
-    }
 </style>
