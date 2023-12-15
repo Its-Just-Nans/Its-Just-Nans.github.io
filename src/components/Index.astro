@@ -104,7 +104,9 @@ const langs = data.map((e) => {
         transform: scaleX(1);
         transform-origin: bottom left;
     }
-
+    details summary {
+        cursor: pointer;
+    }
     details[open] summary {
         display: none;
     }
