@@ -3,14 +3,14 @@ import "../styles/index.css";
 import "../styles/style.css";
 import "../styles/tooltip.css";
 import Header from "./Header.astro";
-const title = "Its-Just-Nans (aka n4n5) - lab";
+const { title } = Astro.props;
+const correctTitle = title ? `${title} - ` : "";
+const currentTitle = `${correctTitle}lab | Its-Just-Nans (aka n4n5)`;
 ---
 
 <html lang="fr-FR">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <Header title={title} />
+        <Header title={currentTitle} />
     </head>
 
     <body>

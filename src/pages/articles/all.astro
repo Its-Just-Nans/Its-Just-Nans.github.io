@@ -15,6 +15,6 @@ export async function getData() {
 const { sortedPosts: data, nbDraft } = await getData();
 ---
 
-<BaseLayout>
+<BaseLayout title="All articles">
     <ArticlesList articles={data} nbDraft={nbDraft} />
 </BaseLayout>
