@@ -8,10 +8,15 @@ import { packages } from "../../data/packages";
         packages.map((el) => (
             <>
                 <h2>
-                    <span>{el.name} - </span>
-                    <a target="_blank" class="opennable" href={el.profile}>
-                        {el.profile}
-                    </a>
+                    <span>{el.name}</span>
+                    {el.profile && (
+                        <>
+                            <span> - </span>
+                            <a target="_blank" class="opennable" href={el.profile}>
+                                {el.profile}
+                            </a>
+                        </>
+                    )}
                 </h2>
                 {el.list.map((onePackage) => (
                     <p>
