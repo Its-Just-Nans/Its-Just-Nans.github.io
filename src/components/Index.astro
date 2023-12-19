@@ -1,5 +1,6 @@
 ---
 import data from "../../data/json/languages.json";
+import { links } from "./Index/links";
 const images = await Astro.glob("/data/ico/languages/*").then((files) => {
     return files.map((file) => file.default);
 });
@@ -12,28 +13,32 @@ const langs = data.map((e) => {
 ---
 
 <article>
+    <input type="radio" id="me" />
     <div class="part">
-        <h2 id="who-am-i-">Who am I ?</h2>
-        <p>I use two pseudonym: Its-Just-Nans and n4n5</p>
-        <p
-            class="js"
-            style="cursor: pointer;width: fit-content;"
-            onclick="
-            this.style.color = 'me' == 'me' ? 'green' : 'red'
-            "
-            data-tooltip="Click to see the truth !"
-        >
-            this.style.color = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';
-        </p>
+        <h2 id="who-am-i">Who am I ?</h2>
+        <details>
+            <summary>I use two pseudonym: Its-Just-Nans and n4n5</summary>
+            <label for="me" id="label-me" data-tooltip="Click to see the truth !">
+                <span id="colored">this.style.color</span> = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';
+            </label>
+        </details>
     </div>
+
     <div class="part">
         <h2>Quick links</h2>
-        <a href="https://its-just-nans.github.io/golb/" target="_blank">
-            <p class="links-url" style="color: blue">Link to golb</p>
-        </a>
-        <a href="https://its-just-nans.github.io/rt/" target="_blank">
-            <p class="links-url" style="color: blue">Link to R&T website</p>
-        </a>
+        <ul>
+            {
+                links.map((oneLink) => (
+                    <li>
+                        <a href={oneLink.url} target="_blank" title={oneLink.url}>
+                            <p class="links-url" style="color: blue">
+                                {oneLink.title}
+                            </p>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
     </div>
     <div class="part">
         <details>
@@ -94,8 +99,15 @@ const langs = data.map((e) => {
 </article>
 
 <style>
-    .js {
+    #me:checked ~ div #colored {
+        color: green;
+    }
+    #label-me {
+        cursor: pointer;
         font-weight: bold;
+    }
+    #me {
+        display: none;
     }
     .links-url {
         font-weight: bold;
