@@ -1,5 +1,6 @@
 ---
 import { packages } from "../../data/packages";
+const user = "Its-Just-Nans";
 ---
 
 <div class="packages">
@@ -18,41 +19,56 @@ import { packages } from "../../data/packages";
                         </>
                     )}
                 </h2>
-                {el.list.map((onePackage) => (
-                    <p>
-                        <a
-                            target="_blank"
-                            class="opennable"
-                            href={`${el.url}${onePackage}`}
-                        >{`${el.url}${onePackage}`}</a>
-
-                        {el.stats && (
-                            <>
-                                <span> - </span>
-                                <a target="_blank" class="opennable" href={`${el.stats}${onePackage}`}>
-                                    {`${el.stats}${onePackage}`}
-                                </a>
-                            </>
-                        )}
-                        {el.shields && (
-                            <>
-                                <span> - </span>
-                                {el.shields.map((oneShieldUrl) => (
+                <table>
+                    <tbody>
+                        {el.list.map((onePackage) => (
+                            <tr>
+                                <td class="border-right">
+                                    <a
+                                        target="_blank"
+                                        class="opennable"
+                                        href={`${el.url}${onePackage}`}
+                                    >{`${el.url}${onePackage}`}</a>
+                                </td>
+                                {el.stats && (
+                                    <td class="border-right">
+                                        <a target="_blank" class="opennable" href={`${el.stats}${onePackage}`}>
+                                            {`${el.stats}${onePackage}`}
+                                        </a>
+                                    </td>
+                                )}
+                                {el.shields && (
                                     <>
-                                        <img src={`${oneShieldUrl}${onePackage}`} />
-                                        <span>&nbsp;</span>
+                                        {el.shields.map((oneShieldUrl) => (
+                                            <td class="border-right">
+                                                <img
+                                                    src={`${oneShieldUrl
+                                                        .replace(":user", user)
+                                                        .replace(":package", onePackage)}`}
+                                                />
+                                                <span>&nbsp;</span>
+                                            </td>
+                                        ))}
                                     </>
-                                ))}
-                            </>
-                        )}
-                    </p>
-                ))}
+                                )}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </>
         ))
     }
 </div>
 
 <style>
+    .border-right {
+        border-right: 1px solid black;
+    }
+    table {
+        border-collapse: collapse;
+        margin: 0px;
+        text-align: left;
+    }
     img {
         vertical-align: middle;
     }
