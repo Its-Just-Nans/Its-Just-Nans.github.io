@@ -1,10 +1,13 @@
 ---
 const { item, index } = Astro.props;
 const { Content, frontmatter, ico = "" } = item;
-const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false } = frontmatter;
+const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false, isProject = false } = frontmatter;
+if (!isWork && !isSchool && !isProject) {
+    console.error("isWork, isSchool, isProject is false", title);
+}
 ---
 
-<div class="historyLine" class:list={[{ work: isWork }, { school: isSchool }]}>
+<div class="historyLine" class:list={[{ work: isWork }, { school: isSchool }, { projects: isProject }]}>
     <input type="checkbox" id={`id_${index}`} class="toggler" />
     <style
         set:html={`#id_${index}:checked ~ label .firstDiv {border-bottom: 1px solid var(--border-color);}#id_${index}:checked ~ .secondDiv {display: block;height: auto;}`}
@@ -46,6 +49,11 @@ const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false }
 </div>
 
 <style>
+    :global(.secondDiv code) {
+        background-color: var(--globalColor);
+        padding: 2px 3px;
+        border-radius: 2px;
+    }
     :global(#work:checked) ~ .historyLine {
         display: none;
     }
@@ -56,6 +64,12 @@ const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false }
         display: none;
     }
     :global(#school:checked) ~ .school {
+        display: block;
+    }
+    :global(#projects:checked) ~ .historyLine {
+        display: none;
+    }
+    :global(#projects:checked) ~ .projects {
         display: block;
     }
     .toggler {

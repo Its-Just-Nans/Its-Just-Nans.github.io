@@ -3,6 +3,7 @@ import Article from "./Article.astro";
 import CloseSvg from "./history/CloseSvg.astro";
 import ListSvg from "./history/ListSvg.astro";
 import OpenSvg from "./history/OpenSvg.astro";
+import ProjectsSvg from "./history/ProjectsSvg.astro";
 import SchoolHatSvg from "./history/SchoolHatSvg.astro";
 import WorkSvg from "./history/WorkSvg.astro";
 const a = await Astro.glob("/data/ico/history/*");
@@ -48,6 +49,7 @@ const history = txts
     <input id="all" name="selector" type="radio" value="all" checked />
     <input id="work" name="selector" type="radio" value="work" />
     <input id="school" name="selector" type="radio" value="school" />
+    <input id="projects" name="selector" type="radio" value="projects" />
     <div class="center">
         <div class="button-change" class="style-4">
             <label for="all">
@@ -63,6 +65,11 @@ const history = txts
             <label for="school">
                 <div class="emoji school-emoji" title="School">
                     <SchoolHatSvg />
+                </div>
+            </label>
+            <label for="projects">
+                <div class="emoji projects-emoji" title="Projects">
+                    <ProjectsSvg />
                 </div>
             </label>
             <label for="toggle" class="label-open">
@@ -101,6 +108,10 @@ const history = txts
         border: 1px solid black;
     }
     #school:checked ~ .center .school-emoji {
+        padding: 10px;
+        border: 1px solid black;
+    }
+    #projects:checked ~ .center .projects-emoji {
         padding: 10px;
         border: 1px solid black;
     }
