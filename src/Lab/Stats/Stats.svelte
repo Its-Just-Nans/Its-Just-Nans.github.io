@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { getUrls } from "./urls";
     let username = "Its-Just-Nans";
     const updateParam = () => {
         const newUrl = new URL(window.location.href);
@@ -14,6 +15,7 @@
             updateParam();
         }
     });
+    const slicer = 150;
 </script>
 
 <h1 class="input">
@@ -21,31 +23,16 @@
 </h1>
 <br />
 {#key username}
-    <img src={`https://github-profile-trophy.vercel.app/?username=${username}`} alt="stats" />
-    <br />
-    <img src={`https://github-readme-stats.vercel.app/api?username=${username}`} alt="stats" />
-    <br />
-    <img src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}`} alt="stats" />
-    <br />
-    <img
-        src={`https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${username}`}
-        alt="stats"
-    />
-    <br />
-    <img
-        src={`https://metrics.lecoq.io/${username}?template=classic&habits=1&followup=1&discussions=1&achievements=1&notable=1&code=1&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=false&base.hireable=false&base.skip=false&habits=false&habits.from=200&habits.days=14&habits.facts=true&habits.charts=false&habits.charts.type=classic&habits.trim=false&habits.languages.limit=8&habits.languages.threshold=0%25&followup=false&followup.sections=repositories&followup.indepth=false&followup.archived=true&discussions=false&discussions.categories=true&discussions.categories.limit=0&achievements=false&achievements.threshold=C&achievements.secrets=true&achievements.display=detailed&achievements.limit=0&notable=false&notable.from=organization&notable.repositories=false&notable.indepth=false&notable.types=commit&notable.self=false&code=false&code.lines=12&code.load=400&code.days=3&code.visibility=public&config.timezone=Europe%2FParis`}
-        alt="stats"
-    />
-    <br />
-    <img
-        src={`https://github-widgetbox.vercel.app/api/profile?username=${username}&data=followers,repositories,stars,commits`}
-        alt="stats"
-    />
-    <img src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}`} alt="stats" />
-    <img
-        src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage`}
-        alt="stats"
-    />
+    {#each getUrls(username) as oneUrl}
+        <div>
+            <br />
+            <span>{oneUrl.length > slicer ? oneUrl.slice(0, slicer) + "..." : oneUrl}</span>
+            <br />
+            <a href={oneUrl}>
+                <img src={oneUrl} alt="stats" />
+            </a>
+        </div>
+    {/each}
 {/key}
 
 <style>
