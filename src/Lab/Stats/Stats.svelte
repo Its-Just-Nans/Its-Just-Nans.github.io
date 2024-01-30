@@ -26,9 +26,9 @@
     {#each getUrls(username) as oneUrl}
         <div>
             <br />
-            <span>{oneUrl.length > slicer ? oneUrl.slice(0, slicer) + "..." : oneUrl}</span>
-            <br />
             <a href={oneUrl}>
+                <span>{oneUrl.length > slicer ? oneUrl.slice(0, slicer) + "..." : oneUrl}</span>
+                <br />
                 <img src={oneUrl} alt="stats" />
             </a>
         </div>
