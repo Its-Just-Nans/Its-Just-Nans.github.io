@@ -36,6 +36,14 @@
 {/key}
 
 <style>
+    @media screen and (max-width: 1024px) {
+        img {
+            width: 100%;
+        }
+    }
+    span {
+        overflow-wrap: break-word;
+    }
     .input {
         text-align: center;
         font-family: monospace;

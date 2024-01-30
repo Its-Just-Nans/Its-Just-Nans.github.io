@@ -4,7 +4,7 @@ const user = "Its-Just-Nans";
 ---
 
 <div class="packages">
-    <h1>Packages</h1>
+    <h1>Packages of {user}</h1>
     {
         packages.map((el) => (
             <>
@@ -19,48 +19,53 @@ const user = "Its-Just-Nans";
                         </>
                     )}
                 </h2>
-                <table>
-                    <tbody>
-                        {el.list.map((onePackage) => (
-                            <tr>
-                                <td class="border-right">
-                                    <a
-                                        target="_blank"
-                                        class="opennable"
-                                        href={`${el.url}${onePackage}`}
-                                    >{`${el.url}${onePackage}`}</a>
-                                </td>
-                                {el.stats && (
+                <div class="packages-list">
+                    <table>
+                        <tbody>
+                            {el.list.map((onePackage) => (
+                                <tr>
                                     <td class="border-right">
-                                        <a target="_blank" class="opennable" href={`${el.stats}${onePackage}`}>
-                                            {`${el.stats}${onePackage}`}
-                                        </a>
+                                        <a
+                                            target="_blank"
+                                            class="opennable"
+                                            href={`${el.url}${onePackage}`}
+                                        >{`${el.url}${onePackage}`}</a>
                                     </td>
-                                )}
-                                {el.shields && (
-                                    <>
-                                        {el.shields.map((oneShieldUrl) => (
-                                            <td class="border-right">
-                                                <img
-                                                    src={`${oneShieldUrl
-                                                        .replace(":user", user)
-                                                        .replace(":package", onePackage)}`}
-                                                />
-                                                <span>&nbsp;</span>
-                                            </td>
-                                        ))}
-                                    </>
-                                )}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                                    {el.stats && (
+                                        <td class="border-right">
+                                            <a target="_blank" class="opennable" href={`${el.stats}${onePackage}`}>
+                                                {`${el.stats}${onePackage}`}
+                                            </a>
+                                        </td>
+                                    )}
+                                    {el.shields && (
+                                        <>
+                                            {el.shields.map((oneShieldUrl) => (
+                                                <td class="border-right">
+                                                    <img
+                                                        src={`${oneShieldUrl
+                                                            .replace(":user", user)
+                                                            .replace(":package", onePackage)}`}
+                                                    />
+                                                    <span>&nbsp;</span>
+                                                </td>
+                                            ))}
+                                        </>
+                                    )}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </>
         ))
     }
 </div>
 
 <style>
+    .packages-list{
+        overflow: auto;
+    }
     .border-right {
         border-right: 1px solid black;
     }
