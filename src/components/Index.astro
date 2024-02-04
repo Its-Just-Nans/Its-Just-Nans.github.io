@@ -1,7 +1,7 @@
 ---
-import data from "../../data/json/languages.json";
+import data from "../../data/languages/languages.json";
 import { links } from "./Index/links";
-const images = await Astro.glob("/data/ico/languages/*").then((files) => {
+const images = await Astro.glob("/data/languages/icons/*").then((files) => {
     return files.map((file) => file.default);
 });
 const langs = data.map((e) => {

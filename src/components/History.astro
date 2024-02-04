@@ -6,9 +6,9 @@ import OpenSvg from "./history/OpenSvg.astro";
 import ProjectsSvg from "./history/ProjectsSvg.astro";
 import SchoolHatSvg from "./history/SchoolHatSvg.astro";
 import WorkSvg from "./history/WorkSvg.astro";
-const a = await Astro.glob("/data/ico/history/*");
+const a = await Astro.glob("/data/history/icons/*");
 const images = a.map((file) => file.default);
-const txts = await Astro.glob("/data/txt/*");
+const txts = await Astro.glob("/data/history/txt/*");
 const history = txts
     .map((oneText) => {
         let correctIcoLink;
@@ -19,7 +19,7 @@ const history = txts
             );
         }
         return { frontmatter: oneText.frontmatter, Content: oneText.Content, ico: correctIcoLink?.src || "" };
-    })
+    }).filter(({frontmatter: {draft}})=>!draft)
     .sort((a, b) => {
         const d1a = new Date(a.frontmatter.date1);
         const d1b = new Date(a.frontmatter.date2);

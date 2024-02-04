@@ -1,6 +1,6 @@
 ---
-import data from "../../data/json/links.json";
-const a = await Astro.glob("/data/ico/links/*");
+import data from "../../data/links/links.json";
+const a = await Astro.glob("/data/links/icons/*");
 const images = a.map((file) => file.default);
 const links = data.map((e) => {
     const correctLink = images.find(
