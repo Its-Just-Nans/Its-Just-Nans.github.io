@@ -1,6 +1,6 @@
 ---
 const { oneData, index } = Astro.props;
-import { text } from "./utils";
+import { splitStringByLength } from "./utils";
 ---
 
 <div class="projectsDiv projectHelp">
@@ -36,8 +36,15 @@ import { text } from "./utils";
                     </g>
                     <g transform="translate(25, 0)">
                         <text x="0" y="0">
-                            Gist - {text(oneData.description)}{" "}
+                            Gist -
                         </text>
+                        {splitStringByLength(oneData.description, 34).map((oneChunk, i) => {
+                            return (
+                                <text x="54" y={i * 20}>
+                                    {oneChunk}
+                                </text>
+                            );
+                        })}
                     </g>
                 </g>
             )

@@ -4,7 +4,7 @@ import SVGrepo from "../components/SVGRepo.astro";
 import ProjectHelper from "./ProjectHelper.astro";
 
 const cleanLang = (l: string) => {
-    return l.replaceAll(" ", "-").replaceAll("+", "p");
+    return l.replaceAll(" ", "-").replaceAll("+", "p").replaceAll(".", "");
 };
 
 const langs = output.reduce((acc, { lang, lang_color }) => {

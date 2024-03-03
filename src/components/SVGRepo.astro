@@ -1,10 +1,15 @@
 ---
 const { svgData } = Astro.props;
-import { text } from "./utils";
+import { splitStringByLength } from "./utils";
+const isRepo = svgData.type == "repo";
+const maxLen = isRepo ? 56 : 34;
+svgData.description = svgData.description || "";
+svgData.description = svgData.description.slice(0, 115);
+const chunks = splitStringByLength(svgData.description, maxLen);
 ---
 
 {
-    svgData && svgData.type == "repo" ? (
+    isRepo ? (
         <svg xmlns="http://www.w3.org/2000/svg" class="svg-github" viewBox="0 0 400 120" fill="none">
             <rect
                 data-testid="card-bg"
@@ -35,11 +40,16 @@ import { text } from "./utils";
             </g>
 
             <g data-testid="main-card-body" transform="translate(0, 55)">
-                <text class="description" x="25" y="-5">
-                    <tspan dy="1.2em" x="25">
-                        {text(svgData.description, 55)}
-                    </tspan>
-                </text>
+                {chunks.map((oneChunk, i) => {
+                    const offset = chunks.length > 1 ? 5 : 20;
+                    return (
+                        <text class="description" x="25" y={(i - 1) * 20 + offset}>
+                            <tspan dy="1.2em" x="25">
+                                {oneChunk}
+                            </tspan>
+                        </text>
+                    );
+                })}
 
                 <g transform="translate(30, 45)">
                     {svgData.lang && (
@@ -100,8 +110,15 @@ import { text } from "./utils";
                 </g>
                 <g transform="translate(25, 0)">
                     <text x="0" y="0">
-                        Gist - {text(svgData.description)}{" "}
+                        Gist -
                     </text>
+                    {chunks.map((oneChunk, i) => {
+                        return (
+                            <text x="54" y={i * 20}>
+                                {oneChunk}
+                            </text>
+                        );
+                    })}
                 </g>
             </g>
         </svg>
@@ -113,7 +130,10 @@ import { text } from "./utils";
         display: block;
     }
     .header {
-        font: 600 18px "Segoe UI", Ubuntu, Sans-Serif;
+        font:
+            600 18px "Segoe UI",
+            Ubuntu,
+            Sans-Serif;
         fill: #2f80ed;
         animation: fadeInAnimation 0.8s ease-in-out forwards;
     }
@@ -137,11 +157,17 @@ import { text } from "./utils";
         display: block;
     }
     .description * {
-        font: 400 13px "Segoe UI", Ubuntu, Sans-Serif;
+        font:
+            400 13px "Segoe UI",
+            Ubuntu,
+            Sans-Serif;
         fill: #333;
     }
     .gray {
-        font: 400 12px "Segoe UI", Ubuntu, Sans-Serif;
+        font:
+            400 12px "Segoe UI",
+            Ubuntu,
+            Sans-Serif;
         fill: #333;
     }
     .icon {
