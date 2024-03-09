@@ -22,38 +22,42 @@ const user = "Its-Just-Nans";
                 <div class="packages-list">
                     <table>
                         <tbody>
-                            {el.list.map((onePackage) => (
-                                <tr>
-                                    <td class="border-right">
-                                        <a
-                                            target="_blank"
-                                            class="opennable"
-                                            href={`${el.url}${onePackage}`}
-                                        >{`${el.url}${onePackage}`}</a>
-                                    </td>
-                                    {el.stats && (
+                            {el.list.map((onePackage) => {
+                                const link = el.url.replaceAll(":package", onePackage);
+                                const stats = el.stats && el.stats.replaceAll(":package", onePackage);
+                                return (
+                                    <tr>
                                         <td class="border-right">
-                                            <a target="_blank" class="opennable" href={`${el.stats}${onePackage}`}>
-                                                {`${el.stats}${onePackage}`}
+                                            <a target="_blank" class="opennable" href={link}>
+                                                {link}
                                             </a>
                                         </td>
-                                    )}
-                                    {el.shields && (
-                                        <>
-                                            {el.shields.map((oneShieldUrl) => (
-                                                <td class="border-right">
-                                                    <img
-                                                        src={`${oneShieldUrl
-                                                            .replace(":user", user)
-                                                            .replace(":package", onePackage)}`}
-                                                    />
-                                                    <span>&nbsp;</span>
-                                                </td>
-                                            ))}
-                                        </>
-                                    )}
-                                </tr>
-                            ))}
+                                        {stats && (
+                                            <td class="border-right">
+                                                <a target="_blank" class="opennable" href={stats}>
+                                                    {stats}
+                                                </a>
+                                            </td>
+                                        )}
+                                        {el.shields && (
+                                            <>
+                                                {el.shields.map((oneShieldUrl) => (
+                                                    <td class="border-right">
+                                                        <a href={link} target="_blank" class="opennable">
+                                                            <img
+                                                                src={`${oneShieldUrl
+                                                                    .replaceAll(":user", user)
+                                                                    .replaceAll(":package", onePackage)}`}
+                                                            />
+                                                        </a>
+                                                        <span>&nbsp;</span>
+                                                    </td>
+                                                ))}
+                                            </>
+                                        )}
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                 </div>
@@ -63,7 +67,7 @@ const user = "Its-Just-Nans";
 </div>
 
 <style>
-    .packages-list{
+    .packages-list {
         overflow: auto;
     }
     .border-right {
