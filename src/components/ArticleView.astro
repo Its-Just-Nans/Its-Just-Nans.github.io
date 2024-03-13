@@ -3,6 +3,7 @@ const { data } = Astro.props;
 const { title, date, draft, hidden, description } = data;
 const realDate = date ? new Date(date) : new Date();
 const fmt = realDate.toLocaleDateString("fr-FR");
+import "../styles/article.css";
 ---
 
 <article>

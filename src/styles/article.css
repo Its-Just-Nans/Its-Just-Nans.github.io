@@ -1,0 +1,42 @@
+.details {
+    cursor: pointer;
+    color: black;
+    border-radius: 5px;
+    width: 100%;
+    font-family: monospace;
+    font-weight: bold;
+    line-height: 1;
+}
+.details pre {
+    margin: 0px;
+    white-space: pre-wrap;
+}
+.details span {
+    color: black;
+    letter-spacing: normal;
+    margin: 0px;
+    text-transform: none;
+}
+details {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.5em 0.5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+}
+
+details[open] {
+    padding: 0.5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5em;
+}
+details :last-child {
+    margin-bottom: 0px !important;
+}
