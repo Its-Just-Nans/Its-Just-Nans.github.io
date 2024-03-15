@@ -1,0 +1,30 @@
+---
+import ArticleView from "../../components/ArticleView.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/markdown.css";
+import { slugify, getAllHistory } from "../../components/utils";
+
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+
+export async function getStaticPaths() {
+    const icons = (await Astro.glob("/data/history/icons/*")).map((file) => file.default);
+    const txts = await Astro.glob("/data/history/txt/*");
+    const { history } = await getAllHistory({ icons, txts });
+    const params = history.map((onePost) => {
+        const slug = slugify(onePost.file);
+        return {
+            params: { slug },
+            props: { post: onePost },
+        };
+    });
+
+    return params;
+}
+---
+
+<BaseLayout title={frontmatter.title}>
+    <ArticleView data={frontmatter}>
+        <Content />
+    </ArticleView>
+</BaseLayout>

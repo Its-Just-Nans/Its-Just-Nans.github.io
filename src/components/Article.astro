@@ -3,7 +3,7 @@ const { item, index } = Astro.props;
 const { Content, frontmatter, ico = "" } = item;
 const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false, isProject = false } = frontmatter;
 if (!isWork && !isSchool && !isProject) {
-    console.error("isWork, isSchool, isProject is false", title);
+    // console.error("isWork, isSchool, isProject is false", title);
 }
 ---
 

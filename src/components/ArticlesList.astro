@@ -1,5 +1,13 @@
 ---
-const { articles, nbDraft = 0 } = Astro.props;
+import { slugify } from "../components/utils";
+
+const { articles = [], drafts = [] } = Astro.props;
+
+const allArticles = articles;
+const nbDraft = drafts.length;
+if (import.meta.env.DEV) {
+    Array.prototype.unshift.apply(allArticles, drafts);
+}
 ---
 
 <article>
@@ -18,9 +26,9 @@ const { articles, nbDraft = 0 } = Astro.props;
         )
     }
     {
-        articles.map((element) => {
+        allArticles.map((element) => {
             const { date, description, title, draft, hidden } = element.frontmatter;
-            const slug = element.url.split("/").pop().split(".").shift();
+            const slug = slugify(element.url);
             const realDate = new Date(date || new Date());
             const fmt = realDate.toLocaleDateString("fr-FR", {
                 year: "numeric",
@@ -29,7 +37,7 @@ const { articles, nbDraft = 0 } = Astro.props;
             });
             return (
                 <a href={`/articles/${slug}`}>
-                    <div class="oneArticle">
+                    <div class="oneArticle" class:list={[{ coloredArticle: draft }]}>
                         <div class:list={["flexed", { "hidden-class": hidden }]}>
                             <p class="articleTitle">
                                 <span>{title}</span>
@@ -110,6 +118,9 @@ const { articles, nbDraft = 0 } = Astro.props;
         --border: 2px;
         border: var(--border) solid var(--globalColor);
         border-radius: 5px;
+    }
+    .coloredArticle {
+        background-color: color-mix(in srgb, var(--globalColor), white 50%);
     }
     .oneArticle:hover {
         --border2: calc(var(--border) + var(--border));

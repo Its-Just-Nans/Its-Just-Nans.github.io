@@ -1,20 +1,16 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlesList from "../../components/ArticlesList.astro";
+import { getAllArticles } from "../../components/utils";
 
 export async function getData() {
     const allPosts = await Astro.glob("/data/articles/**/*.mdx");
-    const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
-    const sortedPosts = nonDraftPosts.sort(
-        (a, b) =>
-            new Date(b.frontmatter?.date || new Date()).getTime() -
-            new Date(a.frontmatter?.date || new Date()).getTime()
-    );
-    return { sortedPosts, nbDraft: allPosts.length - nonDraftPosts.length };
+    return getAllArticles(allPosts);
 }
-const { sortedPosts: data, nbDraft } = await getData();
+
+const { articles, articlesDrafts } = await getData();
 ---
 
 <BaseLayout title="All articles">
-    <ArticlesList articles={data} nbDraft={nbDraft} />
+    <ArticlesList articles={articles} drafts={articlesDrafts} />
 </BaseLayout>

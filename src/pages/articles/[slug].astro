@@ -1,24 +1,25 @@
 ---
 import ArticleView from "../../components/ArticleView.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllArticles, slugify } from "../../components/utils";
 import "../../styles/markdown.css";
 
 const { post } = Astro.props;
-const { Content } = post;
+const { Content, frontmatter } = post;
 
 export async function getStaticPaths() {
     const posts = await Astro.glob("/data/articles/**/*.mdx");
-    const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
-    const params = nonDraftPosts.map((onePost) => ({
-        params: { slug: onePost.url?.split("/")?.pop()?.split(".").shift() },
+    const { articles } = getAllArticles(posts);
+    const params = articles.map((onePost) => ({
+        params: { slug: slugify(onePost.url) },
         props: { post: onePost },
     }));
     return params;
 }
 ---
 
-<BaseLayout title={post.frontmatter.title}>
-    <ArticleView data={post.frontmatter}>
+<BaseLayout title={frontmatter.title}>
+    <ArticleView data={frontmatter}>
         <Content />
     </ArticleView>
 </BaseLayout>
