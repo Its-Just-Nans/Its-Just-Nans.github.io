@@ -1,14 +1,17 @@
 ---
-const { data } = Astro.props;
-const { title, date, draft, hidden, description } = data;
+import "../styles/article.css";
+
+const { data, type = "article" } = Astro.props;
+const { title, date, draft, hidden, description, ico = "" } = data;
 const realDate = date ? new Date(date) : new Date();
 const fmt = realDate.toLocaleDateString("fr-FR");
-import "../styles/article.css";
 ---
 
 <article>
     <div class:list={["headArticle", { animated: hidden }]}>
+        {type === "history" && ico && <img class="iconSmall" src={ico} alt={title} />}
         <h2 class="rainbow_text_animated">
+            {type === "history" && <span>History detail: </span>}
             {title}
             {hidden && <span class="hidden-span">(hidden)</span>}
             {draft && <span class="draft-span">(draft)</span>}

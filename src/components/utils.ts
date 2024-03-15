@@ -59,15 +59,20 @@ export const sortByDate = (a, b) => {
 export const getAllHistory = async ({ icons: images = [], txts = [] }) => {
     const historyAll = txts
         .map(({ frontmatter, Content, file, url }) => {
-            let correctIcoLink;
-            const ico = frontmatter.ico;
-            if (ico) {
-                correctIcoLink = images.find(
-                    (oneImg) =>
-                        oneImg.src.split("/").pop().split(".").shift() === ico.split("/").pop().split(".").shift()
-                );
-            }
-            return { frontmatter: frontmatter, Content: Content, ico: correctIcoLink?.src || "", file, url };
+            const ico = frontmatter.ico
+                ? images.find(
+                      (oneImg) =>
+                          oneImg.src.split("/").pop().split(".").shift() ===
+                          frontmatter.ico.split("/").pop().split(".").shift()
+                  )
+                : { src: "" };
+            return {
+                frontmatter: { ...frontmatter, ico: ico?.src },
+                Content: Content,
+                ico: ico?.src || "",
+                file,
+                url,
+            };
         })
         .sort(sortByDate);
     const historyDrafts = historyAll.filter(({ frontmatter: { draft } }) => draft);

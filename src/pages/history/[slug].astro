@@ -1,8 +1,10 @@
 ---
 import ArticleView from "../../components/ArticleView.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import "../../styles/markdown.css";
 import { slugify, getAllHistory } from "../../components/utils";
+
+import "../../styles/markdown.css";
+import "../../styles/history.css";
 
 const { post } = Astro.props;
 const { Content, frontmatter } = post;
@@ -24,7 +26,9 @@ export async function getStaticPaths() {
 ---
 
 <BaseLayout title={frontmatter.title}>
-    <ArticleView data={frontmatter}>
-        <Content />
+    <ArticleView data={frontmatter} type="history">
+        <div class="historyDetail">
+            <Content />
+        </div>
     </ArticleView>
 </BaseLayout>

@@ -1,10 +1,15 @@
 ---
+import "../styles/history.css";
+import { slugify } from "./utils";
+
 const { item, index } = Astro.props;
-const { Content, frontmatter, ico = "" } = item;
+const { Content, frontmatter, ico = "", file } = item;
 const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false, isProject = false } = frontmatter;
 if (!isWork && !isSchool && !isProject) {
     // console.error("isWork, isSchool, isProject is false", title);
 }
+
+const slug = slugify(file);
 ---
 
 <div class="historyLine" class:list={[{ work: isWork }, { school: isSchool }, { projects: isProject }]}>
@@ -26,7 +31,9 @@ if (!isWork && !isSchool && !isProject) {
                 }
             </p>
             <div class="titleContainer">
-                {ico ? <img class="iconSmall" src={ico} alt={title} /> : <div class="iconSmall" />}
+                <a href={`/history/${slug}`} class="link">
+                    {ico ? <img class="iconSmall" src={ico} alt={title} /> : <div class="iconSmall" />}
+                </a>
                 <p class="title">{title || ""}</p>
             </div>
             <div class="minusIco iconShowMore">
@@ -49,10 +56,8 @@ if (!isWork && !isSchool && !isProject) {
 </div>
 
 <style>
-    :global(.secondDiv code) {
-        background-color: var(--globalColor);
-        padding: 2px 3px;
-        border-radius: 2px;
+    .link {
+        display: contents;
     }
     :global(#work:checked) ~ .historyLine {
         display: none;
@@ -104,7 +109,7 @@ if (!isWork && !isSchool && !isProject) {
         overflow: auto;
         padding: 0px 5px;
     }
-    .titleContainer > .iconSmall {
+    .titleContainer .iconSmall {
         margin: auto;
     }
     .historyLine p {
@@ -124,7 +129,7 @@ if (!isWork && !isSchool && !isProject) {
     .titleContainer::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
-    .titleContainer > img {
+    .titleContainer img {
         height: 32px;
         width: 32px;
         vertical-align: middle;
@@ -170,15 +175,12 @@ if (!isWork && !isSchool && !isProject) {
         .plusOrMinus > svg {
             height: var(--heightSVG);
         }
-        .titleContainer > img {
+        .titleContainer img {
             height: var(--icoWidthHeight);
             width: var(--icoWidthHeight);
         }
         .historyLine p {
             padding: 5px 0px 5px 0px;
-        }
-        :global(.historyDetail img) {
-            width: 100%;
         }
     }
     .toRight {
@@ -190,19 +192,7 @@ if (!isWork && !isSchool && !isProject) {
     .secondDiv {
         flex: 5;
     }
-    .historyDetail::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-    }
-    .historyDetail::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-    .historyDetail::-webkit-scrollbar-thumb {
-        background: #888;
-    }
-    .historyDetail::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+
     .historyLine:hover {
         box-shadow: 0px 0px 0px 5px blue;
         border: 1px dashed var(--border-color);
@@ -244,18 +234,5 @@ if (!isWork && !isSchool && !isProject) {
     }
     :global(.historyOpen) .historyLine .firstDiv {
         border-bottom: 1px solid var(--border-color);
-    }
-    .historyDetail {
-        overflow: auto;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    :global(.historyDetail a) {
-        font-weight: bold;
-        color: blue;
-    }
-    :global(.historyDetail img) {
-        display: block;
-        margin: auto;
     }
 </style>

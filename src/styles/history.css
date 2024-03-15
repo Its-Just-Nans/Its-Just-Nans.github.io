@@ -1,0 +1,40 @@
+.historyDetail code {
+    background-color: var(--globalColor);
+    padding: 2px 3px;
+    border-radius: 2px;
+}
+
+.historyDetail a {
+    font-weight: bold;
+    color: blue;
+}
+.historyDetail img {
+    display: block;
+    margin: auto;
+}
+
+.historyDetail {
+    overflow: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.historyDetail::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.historyDetail::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.historyDetail::-webkit-scrollbar-thumb {
+    background: #888;
+}
+.historyDetail::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media screen and (max-width: 512px) {
+    .historyDetail img {
+        width: 100%;
+    }
+}
