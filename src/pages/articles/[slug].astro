@@ -9,11 +9,16 @@ const { Content, frontmatter } = post;
 
 export async function getStaticPaths() {
     const posts = await Astro.glob("/data/articles/**/*.mdx");
-    const { articles } = getAllArticles(posts);
-    const params = articles.map((onePost) => ({
-        params: { slug: slugify(onePost.url) },
-        props: { post: onePost },
-    }));
+    const { articles, articlesDrafts } = getAllArticles(posts);
+    const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles;
+    const params = correctArticles.map((onePost) => {
+        const slug = slugify(onePost.url);
+        return {
+            params: { slug: slug },
+            props: { post: onePost },
+        };
+    });
+
     return params;
 }
 ---
