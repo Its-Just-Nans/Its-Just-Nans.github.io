@@ -1,10 +1,22 @@
 ---
 import "../styles/history.css";
+import "../styles/markdown.css";
 import { slugify } from "./utils";
 
 const { item, index } = Astro.props;
 const { Content, frontmatter, ico = "", file } = item;
-const { date1 = "", date2 = "", title = null, isWork = false, isSchool = false, isProject = false } = frontmatter;
+const {
+    date1 = "",
+    date2 = "",
+    date_start = "",
+    date_end = "",
+    title = null,
+    isWork = false,
+    isSchool = false,
+    isProject = false,
+} = frontmatter;
+const dateStart = date1 || date_start;
+const dateEnd = date2 || date_end;
 if (!isWork && !isSchool && !isProject) {
     // console.error("isWork, isSchool, isProject is false", title);
 }
@@ -20,12 +32,12 @@ const slug = slugify(file);
     <label for={`id_${index}`}>
         <div class="firstDiv">
             <p>
-                <span class={!date2 ? "specialLineHeight" : ""}>{date1.split("T")[0] || "?"}</span>
+                <span class={!dateEnd ? "specialLineHeight" : ""}>{dateStart.split("T")[0] || "?"}</span>
                 {
-                    date2 && (
+                    dateEnd && (
                         <>
                             <br />
-                            <span>{date2.split("T")[0] || ""}</span>
+                            <span>{dateEnd.split("T")[0] || ""}</span>
                         </>
                     )
                 }
@@ -49,7 +61,7 @@ const slug = slugify(file);
         </div>
     </label>
     <div class="secondDiv">
-        <div class="historyDetail">
+        <div class="historyDetail markdown-body">
             {Content && <Content />}
         </div>
     </div>
@@ -152,6 +164,10 @@ const slug = slugify(file);
         --heightSVG: 40px;
         --long: 50%;
     }
+
+    .historyLine .secondDiv > div {
+        padding: 25px;
+    }
     @media screen and (max-width: 512px) {
         * {
             font-size: 0.95em;
@@ -181,6 +197,9 @@ const slug = slugify(file);
         }
         .historyLine p {
             padding: 5px 0px 5px 0px;
+        }
+        .historyLine .secondDiv > div {
+            padding: 10px;
         }
     }
     .toRight {
@@ -229,9 +248,7 @@ const slug = slugify(file);
         display: block;
         height: auto;
     }
-    .historyLine .secondDiv > div {
-        padding: 10px;
-    }
+
     :global(.historyOpen) .historyLine .firstDiv {
         border-bottom: 1px solid var(--border-color);
     }

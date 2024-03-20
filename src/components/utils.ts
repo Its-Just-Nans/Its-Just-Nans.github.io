@@ -34,23 +34,30 @@ export const slugify = (inputString = "") => {
 };
 
 export const sortByDate = (a, b) => {
-    const d1a = new Date(a.frontmatter.date1);
-    const d1b = new Date(a.frontmatter.date2);
-    const d2a = new Date(b.frontmatter.date1);
-    const d2b = new Date(b.frontmatter.date2);
+    const dateOneStart = new Date(a.frontmatter.date1 || a.frontmatter.date_start);
+    const dateOneEnd = new Date(a.frontmatter.date2 || a.frontmatter.date_end);
+    const dateTwoStart =
+        b.frontmatter.date1 || b.frontmatter.date_start
+            ? new Date(b.frontmatter.date1 || b.frontmatter.date_start)
+            : new Date();
+    const dateTwoEnd =
+        b.frontmatter.date2 || b.frontmatter.date_end
+            ? new Date(b.frontmatter.date2 || b.frontmatter.date_end)
+            : new Date();
     // little checkup
-    if (d1a > d1b) {
+    if (dateOneStart > dateOneEnd) {
         throw new Error(`${a.frontmatter.title}: date1 is bigger than date2`);
     }
-    if (d2a > d2b) {
+    if (dateTwoStart > dateTwoEnd) {
         throw new Error(`${b.frontmatter.title}: date1 is bigger than date2`);
     }
-    const d1 = a.frontmatter.date2 ? d1b : d1a;
-    const d2 = b.frontmatter.date2 ? d2b : d2a;
-    if (d1 > d2) {
+    if (dateOneEnd > dateTwoEnd) {
         return -1;
     }
-    if (d1 < d2) {
+    if (dateOneStart > dateTwoStart) {
+        return -1;
+    }
+    if (dateOneStart < dateTwoStart) {
         return 1;
     }
     return 0;
