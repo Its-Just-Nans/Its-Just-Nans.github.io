@@ -19,7 +19,7 @@ const fmt = realDate.toLocaleDateString("fr-FR");
         </h2>
         <time class="rainbow_text_animated" datetime={realDate.toISOString()}>{fmt}</time>
     </div>
-    <div class="headArticleDesc">{description}</div>
+    {!draft && <div class="headArticleDesc">{description}</div>}
     <div class="hr"></div>
     <div class="markdown-body">
         <slot />

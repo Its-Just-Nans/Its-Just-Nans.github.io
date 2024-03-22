@@ -1,5 +1,6 @@
 ---
 import ArticleView from "../../components/ArticleView.astro";
+import Draft from "../../components/Draft.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllArticles, slugify } from "../../components/utils";
 import "../../styles/markdown.css";
@@ -10,7 +11,7 @@ const { Content, frontmatter } = post;
 export async function getStaticPaths() {
     const posts = await Astro.glob("/data/articles/**/*.mdx");
     const { articles, articlesDrafts } = getAllArticles(posts);
-    const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles;
+    const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles; // TODO remove if
     const params = correctArticles.map((onePost) => {
         const slug = slugify(onePost.url);
         return {
@@ -21,10 +22,12 @@ export async function getStaticPaths() {
 
     return params;
 }
+
+const RealContent = import.meta.env.DEV ? Content : Draft;
 ---
 
 <BaseLayout title={frontmatter.title}>
     <ArticleView data={frontmatter}>
-        <Content />
+        <RealContent />
     </ArticleView>
 </BaseLayout>
