@@ -1,6 +1,6 @@
 ---
-import "../styles/history.css";
 import "../styles/markdown.css";
+import "../styles/history.css";
 import { slugify } from "./utils";
 
 const { item, index } = Astro.props;
@@ -32,15 +32,11 @@ const slug = slugify(file);
     <label for={`id_${index}`}>
         <div class="firstDiv">
             <p>
-                <span class={!dateEnd ? "specialLineHeight" : ""}>{dateStart.split("T")[0] || "?"}</span>
-                {
-                    dateEnd && (
-                        <>
-                            <br />
-                            <span>{dateEnd.split("T")[0] || ""}</span>
-                        </>
-                    )
-                }
+                {dateEnd && <span class="date-end">{dateEnd.split("T")[0] || ""}</span>}
+                {dateEnd && <br />}
+                <span class:list={[{ "date-start": dateEnd }, { specialLineHeight: !dateEnd }]}>
+                    {dateStart.split("T")[0] || "?"}
+                </span>
             </p>
             <div class="titleContainer">
                 <a href={`/history/${slug}`} class="link">
@@ -68,6 +64,9 @@ const slug = slugify(file);
 </div>
 
 <style>
+    .date-start {
+        color: rgb(84, 84, 84);
+    }
     .link {
         display: contents;
     }
