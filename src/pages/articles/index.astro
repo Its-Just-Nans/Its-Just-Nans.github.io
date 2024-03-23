@@ -6,9 +6,10 @@ import { getAllArticles } from "../../components/utils";
 const posts = await Astro.glob("/data/articles/**/*.mdx");
 const { articles, articlesDrafts } = getAllArticles(posts);
 
-const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles;
+const correctArticles = import.meta.env.DEV ? articlesDrafts.concat(articles) : articles;
+const nonHidden = correctArticles.filter(({ frontmatter: { hidden } }) => !hidden);
 ---
 
 <BaseLayout title="Articles">
-    <ArticlesList articles={correctArticles} />
+    <ArticlesList articles={nonHidden} />
 </BaseLayout>
