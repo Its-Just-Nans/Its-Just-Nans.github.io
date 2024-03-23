@@ -7,6 +7,7 @@ import "../../styles/markdown.css";
 
 const { post } = Astro.props;
 const { Content, frontmatter } = post;
+const { draft = false } = frontmatter;
 
 export async function getStaticPaths() {
     const posts = await Astro.glob("/data/articles/**/*.mdx");
@@ -23,7 +24,7 @@ export async function getStaticPaths() {
     return params;
 }
 
-const RealContent = import.meta.env.DEV ? Content : Draft;
+const RealContent = draft ? (import.meta.env.DEV ? Content : Draft) : Content;
 ---
 
 <BaseLayout title={frontmatter.title}>
