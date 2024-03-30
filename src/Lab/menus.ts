@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 import GithubIcon from "./GithubIcon.svelte";
+import CubeIcon from "./CubeIcon.svelte";
 
 export const menus = [
     [
@@ -38,6 +39,12 @@ export const menus = [
             link: "/lab/coupling",
             title: "Schmidt coupling",
             subtitle: null,
+        },
+        {
+            ico: CubeIcon,
+            link: "/lab/3d-rotation",
+            title: "3D rotation",
+            subtitle: "",
         },
         //     {
         //         ico: null,
