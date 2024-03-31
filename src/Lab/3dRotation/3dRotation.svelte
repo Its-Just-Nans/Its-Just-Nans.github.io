@@ -91,6 +91,7 @@
         pointer-events: none;
     }
     .select select {
+        appearance: none;
         padding: 7px 40px 7px 12px;
         width: 100%;
         border: 1px solid #e8eaed;
