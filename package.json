@@ -32,12 +32,13 @@
         "astro": "^3.5.2"
     },
     "devDependencies": {
+        "astro-barchart": "^1.0.1",
         "@types/three": "^0.158.2",
+        "leaflet": "^1.9.4",
         "rehype-external-links": "^3.0.0",
         "rehype-katex": "^7.0.0",
         "remark-math": "^6.0.0",
         "remark-toc": "^9.0.0",
-        "three": "^0.158.0",
-        "leaflet": "^1.9.4"
+        "three": "^0.158.0"
     }
 }
