@@ -33,12 +33,12 @@ export const initMap = () => {
     }).addTo(map);
 };
 
-export const initCityMarkers = (adresses) => {
-    adresses.features.forEach((element) => {
+export const initCityMarkers = (adresses: any[]) => {
+    adresses.forEach((element) => {
         const [long, lat] = element.geometry.coordinates;
         const icon = element.visited ? ICONS.green : ICONS.blue;
         const m = L.marker([lat, long], { icon }).addTo(map);
-        if (element.properties.location) {
+        if (!element.show) {
             const { address = "", country_code = "", name = "" } = element.properties.location;
             const { google_maps_url } = element.properties;
             m.bindPopup(

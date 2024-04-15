@@ -2,7 +2,8 @@
     import { onMount } from "svelte";
     import "leaflet/dist/leaflet.css";
     import { initMap, initCityMarkers } from "./map";
-    import { addresses } from "../../../data/maps/addresses";
+
+    export let addresses = [];
 
     onMount(async () => {
         initMap();
