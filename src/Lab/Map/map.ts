@@ -38,15 +38,12 @@ export const initCityMarkers = (adresses: any[]) => {
         const [long, lat] = element.geometry.coordinates;
         const icon = element.visited ? ICONS.green : ICONS.blue;
         const m = L.marker([lat, long], { icon }).addTo(map);
+        const { url } = element.properties;
         if (!element.show) {
             const { address = "", country_code = "", name = "" } = element.properties.location;
-            const { google_maps_url } = element.properties;
-            m.bindPopup(
-                `${name}<br>${address}<br>${country_code}<br><a href="${google_maps_url}" target="_blank">${google_maps_url}</a>`
-            );
+            m.bindPopup(`${name}<br>${address}<br>${country_code}<br><a href="${url}" target="_blank">${url}</a>`);
         } else {
-            const { google_maps_url } = element.properties;
-            m.bindPopup(`<a href="${google_maps_url}" target="_blank">${google_maps_url}</a>`);
+            m.bindPopup(`<a href="${url}" target="_blank">${url}</a>`);
             m.openPopup();
         }
     });
