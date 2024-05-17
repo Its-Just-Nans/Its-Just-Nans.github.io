@@ -1,0 +1,157 @@
+---
+import { output } from "../../data/projects/index";
+import SVGrepo from "../components/SVGRepo.astro";
+import ProjectHelper from "./ProjectHelper.astro";
+
+const cleanLang = (l: string) => {
+    return l.replaceAll(" ", "-").replaceAll("+", "p").replaceAll(".", "");
+};
+
+const langs = output.reduce((acc, { lang, lang_color }) => {
+    if (!lang) return acc;
+    return { [cleanLang(lang)]: lang_color, ...acc };
+}, {});
+
+const rawStylesCSS = Object.entries(langs)
+    .map(([lang, color]) => {
+        const l = cleanLang(lang.toLocaleLowerCase());
+        return `
+        #lang-${l}:checked ~ .lang-${l} {
+            display: inline-block;
+        }
+        #lang-${l}:checked ~ details label.lang-${l} {
+            border: 2px solid ${color};
+        }`;
+    })
+    .join("\n");
+---
+
+<div>
+    <style>
+        .projectWrap {
+            display: none;
+        }
+        #all-lang:checked ~ .projectWrap {
+            display: inline-block;
+        }
+        #all-lang:checked ~ details label.all-lang {
+            border: 2px solid black;
+        }
+        #no-lang:checked ~ .no-lang {
+            display: inline-block;
+        }
+        #no-lang:checked ~ details label.no-lang {
+            border: 2px solid black;
+        }
+    </style>
+    <input id={`all-lang`} class="filters" name="lang-selector" type="radio" value={"all"} checked />
+    {
+        Object.entries(langs).map(([lang, color]) => {
+            const l = lang.toLocaleLowerCase();
+            return <input class="filters" id={`lang-${l}`} name="lang-selector" type="radio" value={l} />;
+        })
+    }
+    <input id={`no-lang`} class="filters" name="lang-selector" type="radio" value={"no"} />
+    <style set:html={rawStylesCSS}></style>
+    <details>
+        <summary>Filters</summary>
+        <label class:list={["lang-select", `all-lang`]} for={`all-lang`}>All</label>
+        {
+            Object.entries(langs).map(([lang, color]) => {
+                return (
+                    <label
+                        class:list={["lang-select", `lang-${cleanLang(lang.toLocaleLowerCase())}`]}
+                        style={`color: ${color}`}
+                        for={`lang-${cleanLang(lang.toLocaleLowerCase())}`}
+                    >
+                        {lang}
+                    </label>
+                );
+            })
+        }
+        <label class:list={["lang-select", `no-lang`]} for={`no-lang`}>Others</label>
+    </details>
+    {
+        output.map((oneData, index) => (
+            <div
+                class:list={[
+                    "projectWrap",
+                    { [`lang-${cleanLang(oneData.lang.toLocaleLowerCase())}`]: oneData.lang !== "" },
+                    { "no-lang": oneData.lang === "" },
+                ]}
+            >
+                <div class="svgRepo">
+                    <SVGrepo svgData={oneData} />
+                </div>
+                <ProjectHelper oneData={oneData} index={index} />
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    details {
+        cursor: pointer;
+    }
+    .lang-select {
+        margin: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        padding: 2px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+    .filters {
+        display: none;
+    }
+
+    .projectHelp rect {
+        fill: var(--globalColor);
+    }
+    .projectHelp > svg {
+        display: block;
+    }
+    article {
+        padding-left: 10vw !important;
+        padding-right: 10vw !important;
+    }
+    .projectsDiv > svg {
+        display: block;
+        height: 100% !important;
+        width: 100%;
+    }
+    .projectHelp a:hover text {
+        color: blue;
+    }
+    .projectWrap:hover > :global(.projectsDiv) {
+        display: block;
+    }
+    .projectWrap:hover > :global(.svgRepo) {
+        display: none;
+    }
+    .projectWrap {
+        display: inline-block;
+        margin: 10px 10px 0px 10px;
+        text-align: center;
+        border-radius: 5px;
+        vertical-align: bottom;
+        transition: box-shadow 0.25s;
+        box-sizing: border-box;
+    }
+    @media only screen and (max-width: 600px) {
+        .projectsDiv {
+            width: calc(100% - 20px);
+        }
+    }
+
+    .clicked > div {
+        box-shadow: 0px 0px 0px 5px var(--globalColor);
+    }
+
+    .projectWrap:hover > div {
+        box-shadow: 0px 0px 0px 5px var(--globalColor);
+    }
+    .cursorPointer {
+        cursor: pointer;
+    }
+</style>

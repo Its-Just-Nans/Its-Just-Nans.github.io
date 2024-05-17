@@ -1,0 +1,82 @@
+---
+import OpenInNewTab from "./OpenInNewTab.astro";
+import { output as pulls } from "../../data/pull_requests/index";
+
+const CLEANER = [
+    "https://github.com/Its-Just-Nans",
+    "https://github.com/AquilaCMS",
+    "https://github.com/Bel-Art",
+    "https://github.com/tramex/tramex",
+];
+
+const repos = pulls.reduce((acc, { node }) => {
+    const { baseRepository, state } = node;
+    const { url, owner } = baseRepository;
+    const { login } = owner;
+    if (state !== "MERGED") {
+        return acc;
+    }
+    if (CLEANER.some((oneUrl) => url.startsWith(oneUrl))) {
+        return acc;
+    }
+    if (!acc[url]) {
+        acc[url] = [];
+    }
+    acc[url].push(node);
+    return acc;
+}, {});
+
+const totalCount = pulls.filter(({ node }) => node.state === "MERGED").length;
+const count = Object.values(repos).flat(1).length;
+---
+
+<div class="pulls">
+    <div class="stats">
+        <h2>PRs</h2>
+        <p>
+            Total: {totalCount} - showing {count}
+        </p>
+    </div>
+    {
+        Object.entries(repos).map(([url, pullsList]) => {
+            return (
+                <div>
+                    <details>
+                        <summary>
+                            <span>{url}</span>
+                            <a href={url} target="_blank">
+                                <OpenInNewTab width="12px" height="12px" />
+                            </a>
+                        </summary>
+
+                        <div>
+                            {pullsList.map(({ title, url }) => (
+                                <p class="pull">
+                                    <a href={url} target="_blank">
+                                        {title}
+                                    </a>
+                                </p>
+                            ))}
+                        </div>
+                    </details>
+                </div>
+            );
+        })
+    }
+</div>
+
+<style>
+    summary {
+        cursor: pointer;
+    }
+    .pulls {
+        text-align: left;
+    }
+    .pull {
+        margin: 1px 10px;
+        color: blue;
+    }
+    .stats {
+        text-align: center;
+    }
+</style>
