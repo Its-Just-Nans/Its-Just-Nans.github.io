@@ -2,12 +2,7 @@
 import OpenInNewTab from "./OpenInNewTab.astro";
 import { output as pulls } from "../../data/pull_requests/index";
 
-const CLEANER = [
-    "https://github.com/Its-Just-Nans",
-    "https://github.com/AquilaCMS",
-    "https://github.com/Bel-Art",
-    "https://github.com/tramex/tramex",
-];
+const CLEANER = ["https://github.com/Its-Just-Nans", "https://github.com/Bel-Art"];
 
 const repos = pulls.reduce((acc, { node }) => {
     const { baseRepository, state } = node;
@@ -26,15 +21,16 @@ const repos = pulls.reduce((acc, { node }) => {
     return acc;
 }, {});
 
-const totalCount = pulls.filter(({ node }) => node.state === "MERGED").length;
-const count = Object.values(repos).flat(1).length;
+// const allTotal = pulls.length;
+const totalMergedCount = pulls.filter(({ node }) => node.state === "MERGED").length; // note:this is the filtered count
+// const repoTotal = Object.values(repos).flat(1).length;
 ---
 
 <div class="pulls">
     <div class="stats">
         <h2>PRs</h2>
         <p>
-            Total: {totalCount} - showing {count}
+            Total: {totalMergedCount}
         </p>
     </div>
     {
@@ -50,10 +46,10 @@ const count = Object.values(repos).flat(1).length;
                         </summary>
 
                         <div>
-                            {pullsList.map(({ title, url }) => (
+                            {pullsList.map(({ title, url, createdAt }) => (
                                 <p class="pull">
                                     <a href={url} target="_blank">
-                                        {title}
+                                        {createdAt.slice(0, 10)} - {title}
                                     </a>
                                 </p>
                             ))}
@@ -71,6 +67,7 @@ const count = Object.values(repos).flat(1).length;
     }
     .pulls {
         text-align: left;
+        overflow-wrap: break-word;
     }
     .pull {
         margin: 1px 10px;
