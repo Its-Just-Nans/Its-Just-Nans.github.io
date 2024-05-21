@@ -12,7 +12,7 @@ const links = data.map((e) => {
 
 <article>
     <div class="part">
-        <h2>Links</h2>
+        <h2 title="happy stalking :)">Links</h2>
         <div class="overflowTable">
             <table>
                 <tbody>
@@ -20,17 +20,17 @@ const links = data.map((e) => {
                         links.map((oneLink) => (
                             <tr>
                                 <td>
-                                    <a href={oneLink.link} target="_blank">
-                                        <img src={oneLink.ico.src} class="iconSmall" alt="" />
+                                    <a href={oneLink.link} target="_blank" title={oneLink.name}>
+                                        <img src={oneLink.ico.src} class="iconSmall" alt={`icon ${oneLink.name}`} />
                                     </a>
                                 </td>
                                 <td class="wordBreak hoverBlue">
-                                    <a href={oneLink.link} target="_blank">
+                                    <a href={oneLink.link} target="_blank" title={oneLink.link}>
                                         {oneLink.link}
                                     </a>
                                 </td>
                                 <td class="copyFn" data-link={oneLink.link}>
-                                    <span>
+                                    <span title="Click to copy">
                                         <svg
                                             width="24"
                                             height="24"
