@@ -1,18 +1,18 @@
 export const links = [
     {
         title: "golb",
-        url: "https://its-just-nans.github.io/golb/",
+        url: "https://golb.n4n5.dev/",
     },
     {
         title: "R&T website",
-        url: "https://its-just-nans.github.io/rt/",
+        url: "https://rt.n4n5.dev/",
     },
     {
         title: "RIO website",
-        url: "https://its-just-nans.github.io/rio/",
+        url: "https://rio.n4n5.dev/",
     },
     {
         title: "Packages",
-        url: "https://its-just-nans.github.io/lab/packages",
+        url: "https://n4n5.dev/lab/packages",
     },
 ];
