@@ -9,7 +9,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://its-just-nans.github.io",
+    site: "https://n4n5.dev",
     integrations: [
         svelte(),
         mdx({
