@@ -29,7 +29,8 @@
         "@astrojs/svelte": "^4.0.3",
         "@threlte/core": "^7.2.1",
         "@threlte/extras": "^8.11.0",
-        "astro": "^3.5.2"
+        "astro": "^3.5.2",
+        "astro-index": "^1.0.3"
     },
     "devDependencies": {
         "@types/three": "^0.158.2",
