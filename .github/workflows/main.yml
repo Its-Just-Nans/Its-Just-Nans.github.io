@@ -37,6 +37,8 @@ jobs:
               uses: actions/configure-pages@v5
             - name: Use Node.js
               uses: actions/setup-node@v4
+              with:
+                  node-version: "latest"
             - name: npm install
               run: npm ci --force
             - name: building
