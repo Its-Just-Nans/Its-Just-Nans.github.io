@@ -92,7 +92,7 @@ export const getAllHistory = async ({ icons: images = [], txts = [] }: GetHistor
 };
 
 export const getAllArticles = (articlesGlob: MDXInstance<Record<string, any>>[] = []) => {
-    const sortedArticles = articlesGlob.toSorted(
+    const sortedArticles = articlesGlob.sort(
         (a, b) =>
             new Date(b.frontmatter?.date || new Date()).getTime() -
             new Date(a.frontmatter?.date || new Date()).getTime()
