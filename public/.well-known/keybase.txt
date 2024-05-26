@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/n4n5
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://n4n5.dev
+  * I am n4n5 (https://keybase.io/n4n5) on keybase.
+  * I have a public key ASBt3HDj39HaHegiJLZCC6q8lc34s3gmkqlxd97Ik_TyHgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120e9fb83eefe4cac8a1d8889cba8cba9dca499d2c3038930804ae20b1a31a593120a",
+      "host": "keybase.io",
+      "kid": "01206ddc70e3dfd1da1de82224b6420baabc95cdf8b3782692a97177dec893f4f21e0a",
+      "uid": "b20b3984f36aee39d592613ce364ff19",
+      "username": "n4n5"
+    },
+    "merkle_root": {
+      "ctime": 1684220328,
+      "hash": "d95be090e68df832470b166865bd37321037a7e0c7e8c4476964e6110ca5703a6658bccc1b996f4018d314badf2ad4e44e773c3ad611591d8f9f291c6ca87fdc",
+      "hash_meta": "c4e15b97f304cef8d9564a6d98386b0c1bcf9079f3c5914137284800af6d39e2",
+      "seqno": 24457599
+    },
+    "service": {
+      "entropy": "W7i4sB/NEc4fyuvPRd2Hkeyp",
+      "hostname": "n4n5.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.2"
+  },
+  "ctime": 1684220358,
+  "expire_in": 504576000,
+  "prev": "c47abe3b97500424b24eef661df144640036730d9f3f561ad25174a2575a0606",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgbdxw49/R2h3oIiS2QguqvJXN+LN4JpKpcXfeyJP08h4Kp3BheWxvYWTESpcCCsQgxHq+O5dQBCSyTu9mHfFEZAA2cw2fP1Ya0lF0oldaBgbEIIrqHUuAkU/mjIqgfa3V1tZxWIDw6d6MD4JtY3vbPuzVAgHCo3NpZ8RAkBJJ5E/pNXaVrYQrbQY0GMYeMan4T8LF8LcclvnE+MvOPdtXeNagQdTFsvCfAWtSiqh7LUWJm8kyBMaa8XNqB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIPWrthhElV2EvxMhfUQv3LArySdJnvpsb8iF8qtWsCf9o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/n4n5
+
+==================================================================
