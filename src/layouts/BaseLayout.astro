@@ -4,13 +4,19 @@ import Header from "./Header.astro";
 import "../styles/index.css";
 import "../styles/style.css";
 import "../styles/tooltip.css";
-const { title } = Astro.props;
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { title, description } = Astro.props;
 const goodTitle = `${title ? `${title} - ` : ""}Its-Just-Nans (aka n4n5) - web pages`;
 ---
 
-<html lang="fr-FR">
+<html lang="en-EN">
     <head>
-        <Header title={goodTitle} />
+        <Header title={goodTitle} description={description} />
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
@@ -26,17 +32,30 @@ const goodTitle = `${title ? `${title} - ` : ""}Its-Just-Nans (aka n4n5) - web p
         <script>
             const getRandomColor = function () {
                 const letters = "9ABCDEF";
-                let color = "#";
-                for (let i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * letters.length)];
-                }
-                return color;
+                return `#${Array.from({ length: 6 }, () => letters[Math.floor(Math.random() * letters.length)]).join("")}`;
             };
             const colorHeader = () => {
-                document.getElementsByTagName("body")[0].setAttribute("style", `--globalColor: ${getRandomColor()}`);
+                let color = getRandomColor();
+                const currentTime = Date.now();
+                try {
+                    const storageOldTime = window.localStorage.getItem("colorTime");
+                    const oldTime = storageOldTime ? parseInt(storageOldTime) : Infinity;
+                    const oldColor = window.localStorage.getItem("color") || color;
+                    // 5 minutes
+                    const timout = 5 * 60 * 1000;
+                    const isInTime = oldTime && currentTime - oldTime < timout;
+                    if (color && isInTime) {
+                        color = oldColor;
+                    }
+                } catch (e) {
+                    console.error(e);
+                } finally {
+                    window.localStorage.setItem("colorTime", Math.floor(currentTime).toString());
+                    window.localStorage.setItem("color", color);
+                }
+                document.body.setAttribute("style", `--globalColor: ${color}`);
             };
             colorHeader();
-            // setInterval(colorHeader, 5000);
         </script>
     </body>
 </html>

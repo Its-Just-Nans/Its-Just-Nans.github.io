@@ -15,6 +15,6 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 ---
 
-<BaseLayout title="History">
+<BaseLayout title="History" description="n4n5's history">
     <HistoryCompo events={page.data} />
 </BaseLayout>

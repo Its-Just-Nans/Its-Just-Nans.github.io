@@ -1,3 +1,5 @@
+import type { MDXInstance } from "astro";
+
 export const splitStringByLength = (inputString = "", chunkLength = 10) => {
     inputString = inputString || "";
     const words = inputString.split(" ");
@@ -33,7 +35,7 @@ export const slugify = (inputString = "") => {
     return filename?.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
 };
 
-export const sortByDate = (a, b) => {
+export const sortByDate = (a: MDXInstance<Record<string, any>>, b: MDXInstance<Record<string, any>>) => {
     const dateOneStart = new Date(a.frontmatter.date1 || a.frontmatter.date_start);
     const dateOneEnd =
         a.frontmatter.date2 || a.frontmatter.date_end
@@ -62,22 +64,25 @@ export const sortByDate = (a, b) => {
     return 0;
 };
 
-export const getAllHistory = async ({ icons: images = [], txts = [] }) => {
+type GetHistoryProps = {
+    txts: MDXInstance<Record<string, any>>[];
+    icons: Record<string, any>[];
+};
+
+export const getAllHistory = async ({ icons: images = [], txts = [] }: GetHistoryProps) => {
     const historyAll = txts
-        .map(({ frontmatter, Content, file, url }) => {
+        .map(({ frontmatter, ...rest }) => {
             const ico = frontmatter.ico
                 ? images.find(
                       (oneImg) =>
                           oneImg.src.split("/").pop().split(".").shift() ===
                           frontmatter.ico.split("/").pop().split(".").shift()
-                  )
+                  ) || { src: "" }
                 : { src: "" };
             return {
-                frontmatter: { ...frontmatter, ico: ico?.src },
-                Content: Content,
-                ico: ico?.src || "",
-                file,
-                url,
+                frontmatter: { ...frontmatter, ico: ico.src, draft: frontmatter.draft || false },
+                ico: ico.src || "",
+                ...rest,
             };
         })
         .sort(sortByDate);
@@ -86,8 +91,8 @@ export const getAllHistory = async ({ icons: images = [], txts = [] }) => {
     return { history, historyDrafts };
 };
 
-export const getAllArticles = (articlesGlob = []) => {
-    const sortedArticles = articlesGlob.sort(
+export const getAllArticles = (articlesGlob: MDXInstance<Record<string, any>>[] = []) => {
+    const sortedArticles = articlesGlob.toSorted(
         (a, b) =>
             new Date(b.frontmatter?.date || new Date()).getTime() -
             new Date(a.frontmatter?.date || new Date()).getTime()

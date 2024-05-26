@@ -25,9 +25,10 @@ export async function getStaticPaths() {
 }
 
 const RealContent = draft ? (import.meta.env.DEV ? Content : Draft) : Content;
+const title = `${frontmatter.title} - article on n4n5.dev`;
 ---
 
-<BaseLayout title={frontmatter.title}>
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
     <ArticleView data={frontmatter}>
         <RealContent />
     </ArticleView>

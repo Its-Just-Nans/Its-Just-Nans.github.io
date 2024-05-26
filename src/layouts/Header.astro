@@ -1,10 +1,17 @@
 ---
-const desc = "The page of Its-Just-Nans aka n4n5. Here you can view my projects and get informations about me !";
+// import { ViewTransitions } from "astro:transitions";
+
+const baseDesc = "The page of Its-Just-Nans aka n4n5. Here you can view my projects and get informations about me !";
+interface AstroProps {
+    title: string;
+    description?: string;
+}
+
+const { title, desc = baseDesc } = Astro.props;
 const img = "/cover.png";
 const domain = "n4n5.dev";
 const url = `https://${domain}`;
 const key = "8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4";
-const { title } = Astro.props;
 const canonical = `https://${domain}${Astro.url.pathname}`;
 ---
 
@@ -30,3 +37,4 @@ const canonical = `https://${domain}${Astro.url.pathname}`;
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={desc} />
 <meta name="twitter:image" content={img} />
+<!-- <ViewTransitions /> -->

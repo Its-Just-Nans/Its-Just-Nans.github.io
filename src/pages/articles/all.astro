@@ -11,6 +11,6 @@ export async function getData() {
 const { articles, articlesDrafts } = await getData();
 ---
 
-<BaseLayout title="All articles">
+<BaseLayout title="All articles" description="Read all articles by n4n5">
     <ArticlesList articles={articles} drafts={articlesDrafts} />
 </BaseLayout>

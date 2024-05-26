@@ -10,6 +10,6 @@ const correctArticles = import.meta.env.DEV ? articlesDrafts.concat(articles) : 
 const nonHidden = correctArticles.filter(({ frontmatter: { hidden } }) => !hidden);
 ---
 
-<BaseLayout title="Articles">
+<BaseLayout title="Articles" description="All articles by n4n5">
     <ArticlesList articles={nonHidden} />
 </BaseLayout>
