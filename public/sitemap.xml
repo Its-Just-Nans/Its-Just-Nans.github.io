@@ -1,1585 +1,598 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"  xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-        <loc>
-            https://its-just-nans.github.io/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/favicon.ico
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/favicon.ico</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/_slug_.3ae905cd.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/sitemap-index.xml</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/3d-rotation.2340c054.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/sitemap.xml</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/index.f998496d.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/_slug_.7e7d0cd0.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/projects
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/3d-rotation.2340c054.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/index.f998496d.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/projects</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/lab
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/links
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/lab</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/rt/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/links</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/rio/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/lab/packages</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/lab/packages
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/projects/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/projects.6c1b0ffa.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/projects.a976fc7e.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/astro-barchart/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/bad-font-viewer/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/_page_.89128cd4.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/bandwidth-calculator
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/_page_.949cab46.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/cards-game
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/_page_.41f30cf0.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/cdn
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/quandela</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/csv-to-custom-json-demo/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/notox</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/csv-to-custom-json-demo
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/athens-warsaw</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/discord-webhooks/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/telecom-paris-associations</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/domains/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/telecom-paris-student-associations</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/events-hook/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/bel-art-the-end</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/ffmpeg-cropper/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/telecom-etude-mission</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/fiber-calculator
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/journees-federez</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/function-viewer/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/rust-meetup</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/athens-prague</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/greener
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/versasense-summer-job</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/hexagon-background/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/datacenter-visit</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/movies-display/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/dojo-padok</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/obs-webview/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/pact</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/proj311-test/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/orness</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/readme-compiler
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/padok</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/rio203/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/ctf-devoteam</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/rio203-image-detection/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/bam</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/rt
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/codeweup</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/shared-qr-code
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/bel-art</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/string-explorer/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/web101</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/sudoku-solver/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/cv-integration</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/svelte-number-displayer-demo/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/telecom-paris</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/tests
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/aquila-cms</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/vanta-background/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/csv-to-custom-json</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/_page_.89128cd4.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/dut</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/_page_.949cab46.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/rt-website</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/_page_.41f30cf0.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/tocs</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/notox
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/discovery-r-t</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/lab/packages/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/thales-tutored</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/athens-warsaw
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/python-hangman-game</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/telecom-paris-associations
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/delta-industries</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/telecom-paris-student-associations
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/pcw</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/bel-art-the-end
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/trombinouc</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/telecom-etude-mission
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/greener</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/journees-federez
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/sudoku</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/rust-meetup
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/baccalaureate</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/athens-prague
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/versasense-summer-job
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/all.8f46d2c7.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/datacenter-visit
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/_slug_.dc4c7b6b.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/dojo-padok
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/movies</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/pact
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/fizzbuzzing</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/orness
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/delightful-english-expressions</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/padok
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/using-arduino-cli</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/ctf-devoteam
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/zig</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/bam
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/mirai-docker</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/codeweup
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/quizz-json-draft</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/bel-art
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/turtle-with-a-hat</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/web101
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/lab/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/cv-integration
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/index.96c777e5.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/aquila-cms
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/links/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/csv-to-custom-json
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/links.4fa8b46e.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/dut
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/lab/packages/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/telecom-paris
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/packages.ac59546f.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/telecom-paris-associations/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/quandela/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/rt-website
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/_slug_.c758053d.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/tocs
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/notox/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/discovery-r-t
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/athens-warsaw/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/thales-tutored
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/telecom-paris-associations/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/python-hangman-game
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/bel-art-the-end/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/delta-industries
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/telecom-etude-mission/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/pcw
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/journees-federez/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/trombinouc
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/rust-meetup/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/greener
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/athens-prague/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/greener/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/versasense-summer-job/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/sudoku
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/datacenter-visit/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/history/baccalaureate
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/dojo-padok/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/all.8f46d2c7.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/pact/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/_slug_.dc4c7b6b.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/orness/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/movies
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/padok/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/fizzbuzzing
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/ctf-devoteam/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/delightful-english-expressions
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/bam/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/using-arduino-cli
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/codeweup/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/zig
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/bel-art/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/mirai-docker
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/web101/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/articles/turtle-with-a-hat
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/cv-integration/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/index.96c777e5.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/telecom-paris/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/links.4fa8b46e.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/aquila-cms/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/style.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/csv-to-custom-json/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/index
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/dut/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/links
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/rt-website/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/computer_science
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/tocs/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/docker
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/discovery-r-t/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/ffmpeg
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/thales-tutored/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/git
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/python-hangman-game/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/make
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/delta-industries/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/mongodb
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/pcw/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/eco
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/trombinouc/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/electricity
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/greener/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/maths
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/sudoku/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/network
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/history/baccalaureate/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/optical
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/movies/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/others
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/_astro/_slug_.3d09a267.css</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/quantum_mechanics
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/fizzbuzzing/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/telecom
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/delightful-english-expressions/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/sql
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/using-arduino-cli/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/android
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/zig/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/c
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/mirai-docker/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/cpp
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/quizz-json-draft/</loc>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>
-            https://its-just-nans.github.io/golb/go
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
+        <loc>https://n4n5.dev/articles/turtle-with-a-hat/</loc>
         <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/html_css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/java
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/javascript
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/jupyter-notebook
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/latex
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/php
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/python
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/rust
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/commands
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/gpg
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/ip
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/nix
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/ssh
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/useful-commands
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/utils-debug
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/utils-linux
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/js
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/golb/knowledge
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rt/favicon.ico
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/cdn/readme-website.css?v=0.0.2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/cdn/custom.showdown.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/cdn/highlight.min.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/img/rio_rect.png
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/assets/css/styles.8d40ca97.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/packages.ac59546f.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/bad-font-viewer/assets/index-m1W45b1L.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/cdn/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/cdn/assets/css/style.css?v=f1dcbea0430f11ba7d764222527f9fc919e9e669
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/cdn/favicon.ico
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/domains/favicon.png
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/domains/assets/index-cd6f67cc.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/fiber-calculator/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/fiber-calculator/assets/css/style.css?v=a3fc1fffcc340db87a43ce2fd824f62e4988b22c
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/fiber-calculator/favicon.ico
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/function-viewer/assets/index.0a8c37ea.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/style.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/style-min1000px.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/page/favico.ico
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/page/agriculture/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/page/energie/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/page/economie/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/page/democratie/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/greener/a-propos
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/obs-webview/assets/index-cf6416d4.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/proj311-test/favicon-f402c8741ce815ec.ico
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/proj311-test/my_project-1c0da2c8e69a0bdb.js
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/proj311-test/my_project-1c0da2c8e69a0bdb_bg.wasm
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/readme-compiler/old/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio203/favicon.ico
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio203/assets/index-_pmPkg7x.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/shared-qr-code/favicon.png
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/shared-qr-code/assets/index-e8acc09d.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/string-explorer/assets/index-fJyAomiI.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/sudoku-solver/assets/css/style.css?v=ff4f3b71a968aa295c4a6243e90b34645f42cf00
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/vite.svg
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/svelte-number-displayer-demo/assets/index-3a88ba9f.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/_slug_.c758053d.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/_astro/_slug_.3d09a267.css
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO201/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO203/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO205/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO206/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO207/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO208/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/Utils/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO201/Projet/Enonce
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO201/TP/TP1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_acces/Exo1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_radio/Exo1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_mobilite/Exo1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO201/TP/utils
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO203/projet
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_mobilite/Exo2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/Cours/2G/Mise_a_jour_localisation
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/TD/Partie_1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/TP/tp1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO205/TP1/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO205/TP2/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO205/TP3/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO205/TP4/Partie_1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/TP/tp3
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO206/Acronyms
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO206/TD/TD1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO205/TP4/Partie_2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO207/TD/TD1
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO206/TD/TD6
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO201/Projet/MyProjet
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO201/TP/TP2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO201/TP/TP3
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_acces/Exo2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_acces/Exo3
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_radio/Exo2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO202/TD_radio/Exo3
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio203/about
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/Cours/2G/Acces_aleatoire
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/Cours/2G/Paging
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/Cours/4G/Identifiers
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/TD/Partie_2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/TD/Partie_3
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO204/TP/tp2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO206/TD/TD2
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO206/TD/TD4
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/docs/RIO206/TD/TD5/
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>
-            https://its-just-nans.github.io/rio/assets/files/38901-g10-channel-models-02941320c7855e2e99ad27d419838cfb.pdf
-        </loc>
-        <lastmod>2024-05-18T16:12:41Z</lastmod>
-        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
     </url>
 </urlset>
