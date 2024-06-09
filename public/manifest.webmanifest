@@ -47,7 +47,8 @@
     ],
     "related_applications": [
         {
-            "platform": "web"
+            "platform": "web",
+            "url": "https://n4n5.dev"
         }
     ]
 }
