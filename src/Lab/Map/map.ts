@@ -10,14 +10,14 @@ const ICONS = {
     green: L.icon({
         iconUrl: iconGreen.src,
         iconSize: [25, 41], // size of the icon
-        iconAnchor: [25, 41], // point of the icon which will correspond to marker's location
-        popupAnchor: [-25 / 2, -41], // point from which the popup should open relative to the iconAnchor
+        iconAnchor: [25 / 2, 41], // point of the icon which will correspond to marker's location
+        popupAnchor: [0, -41], // point from which the popup should open relative to the iconAnchor
     }),
     blue: L.icon({
         iconUrl: iconBlue.src,
         iconSize: [25, 41], // size of the icon
-        iconAnchor: [25, 41], // point of the icon which will correspond to marker's location
-        popupAnchor: [-25 / 2, -41], // point from which the popup should open relative to the iconAnchor
+        iconAnchor: [25 / 2, 41], // point of the icon which will correspond to marker's location
+        popupAnchor: [0, -41], // point from which the popup should open relative to the iconAnchor
     }),
 };
 
@@ -41,7 +41,8 @@ export const initCityMarkers = (adresses: any[]) => {
         const { url } = element.properties;
         if (!element.show) {
             const { address = "", country_code = "", name = "" } = element.properties.location;
-            m.bindPopup(`${name}<br>${address}<br>${country_code}<br><a href="${url}" target="_blank">${url}</a>`);
+            const url_content = url ? `<a href="${url}" target="_blank">${url}</a>` : "";
+            m.bindPopup(`${name}<br>${address}<br>${country_code}<br>${url_content}`);
         } else {
             m.bindPopup(`<a href="${url}" target="_blank">${url}</a>`);
             m.openPopup();
