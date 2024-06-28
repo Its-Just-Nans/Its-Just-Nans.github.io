@@ -58,7 +58,9 @@ const langs = data.map((e) => {
             </div>
             <br />
             <div class="center" style="margin-top:20px">
-                <h3>GitHub stats</h3>
+                <h3>
+                    GitHub stats <a href="https://n4n5.dev/lab/stats/" target="_blank" class="more-stats">(more)</a>
+                </h3>
                 <div class="inline">
                     <img
                         class="svgGithubStat"
@@ -100,6 +102,10 @@ const langs = data.map((e) => {
 </article>
 
 <style>
+    .more-stats {
+        color: blue;
+        font-size: 0.7em;
+    }
     #me:checked ~ div #colored {
         color: green;
     }

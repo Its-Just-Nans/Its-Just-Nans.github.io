@@ -1,6 +1,6 @@
 # Its-Just-Nans.github.io
 
-Website on [GitHub pages](https://its-just-nans.github.io) !
+Website on [GitHub pages](https://its-just-nans.github.io)!
 
 ## Branches
 
