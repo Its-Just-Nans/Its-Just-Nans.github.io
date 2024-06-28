@@ -40,9 +40,10 @@ const totalMergedCount = pulls.filter(({ node }) => node.state === "MERGED").len
                     <details>
                         <summary>
                             <span>{url}</span>
-                            <a href={url} target="_blank">
+                            <a href={`${url}/pulls?q=author%3AIts-Just-Nans`} target="_blank">
                                 <OpenInNewTab width="12px" height="12px" />
                             </a>
+                            <span>({pullsList.length})</span>
                         </summary>
 
                         <div>
