@@ -1,4 +1,4 @@
-const images = Object.values(import.meta.glob("./*.jpg", { eager: true, as: "url" }));
+const images = Object.values(import.meta.glob("./*.jpg", { eager: true, query: "?url", import: "default" }));
 
 import data from "./data.json";
 
