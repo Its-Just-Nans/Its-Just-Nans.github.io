@@ -1,0 +1,4 @@
+Contact: mailto:me@n4n5.dev
+Encryption: https://n4n5.dev/.well-known/public_n4n5.txt
+Preferred-Languages: en
+Canonical: /security.txt
