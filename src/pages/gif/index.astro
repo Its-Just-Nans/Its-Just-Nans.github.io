@@ -1,0 +1,9 @@
+---
+import path from "path";
+import AstroIndex from "astro-index";
+const folder = "gif";
+
+const toRender = path.join(process.cwd(), "public", folder);
+---
+
+<AstroIndex path={toRender} title={folder} />
