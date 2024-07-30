@@ -1,13 +1,15 @@
 ---
 import OpenInNewTab from "./OpenInNewTab.astro";
 import { output as pulls } from "../../data/pull_requests/index";
+import NotGithub from "../../data/pull_requests/not_github.json";
 
 const CLEANER = ["https://github.com/Its-Just-Nans", "https://github.com/Bel-Art"];
 
-const repos = pulls.reduce((acc, { node }) => {
+const allPulls = pulls.concat(NotGithub);
+
+const repos = allPulls.reduce((acc, { node }) => {
     const { baseRepository, state } = node;
-    const { url, owner } = baseRepository;
-    const { login } = owner;
+    const { url } = baseRepository;
     if (state !== "MERGED") {
         return acc;
     }
@@ -22,7 +24,7 @@ const repos = pulls.reduce((acc, { node }) => {
 }, {});
 
 // const allTotal = pulls.length;
-const totalMergedCount = pulls.filter(({ node }) => node.state === "MERGED").length; // note:this is the filtered count
+const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").length; // note:this is the filtered count
 // const repoTotal = Object.values(repos).flat(1).length;
 ---
 
