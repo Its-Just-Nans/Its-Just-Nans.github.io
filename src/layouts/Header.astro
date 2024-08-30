@@ -2,12 +2,12 @@
 // import { ViewTransitions } from "astro:transitions";
 
 const baseDesc = "The page of Its-Just-Nans aka n4n5. Here you can view my projects and get informations about me !";
-interface AstroProps {
+interface Props {
     title: string;
     description?: string;
 }
 
-const { title, desc = baseDesc } = Astro.props;
+const { title, description = baseDesc } = Astro.props;
 const img = "/cover.png";
 const domain = "n4n5.dev";
 const url = `https://${domain}`;
@@ -18,7 +18,7 @@ const canonical = `https://${domain}${Astro.url.pathname}`;
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
-<meta name="description" content={desc} />
+<meta name="description" content={description} />
 
 <!-- favicon -->
 <link rel="icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@ const canonical = `https://${domain}${Astro.url.pathname}`;
 <meta property="og:url" content={url} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={desc} />
+<meta property="og:description" content={description} />
 <meta property="og:image" content={img} />
 
 <meta name="twitter:card" content="summary_large_image" />
@@ -42,6 +42,6 @@ const canonical = `https://${domain}${Astro.url.pathname}`;
 <meta property="twitter:url" content={url} />
 
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={desc} />
+<meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={img} />
 <!-- <ViewTransitions /> -->
