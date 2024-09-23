@@ -31,7 +31,7 @@ const langs = data.map((e) => {
             {
                 links.map((oneLink) => (
                     <li>
-                        <a href={oneLink.url} target="_blank" title={oneLink.url}>
+                        <a class="onelink" href={oneLink.url} target="_blank" title={oneLink.url}>
                             <p class="links-url" style="color: blue">
                                 {oneLink.title}
                             </p>
@@ -102,6 +102,9 @@ const langs = data.map((e) => {
 </article>
 
 <style>
+    .onelink {
+        display: block;
+    }
     .more-stats {
         color: blue;
         font-size: 0.7em;
