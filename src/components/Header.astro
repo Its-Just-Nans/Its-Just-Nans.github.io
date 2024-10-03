@@ -1,6 +1,6 @@
 ---
-import nav from "../pages.js";
 import imgN4N5 from "../imgs/n4n5.png";
+import NavLinks from "./NavLinks.astro";
 ---
 
 <header>
@@ -21,24 +21,12 @@ import imgN4N5 from "../imgs/n4n5.png";
             <label for="checkboxMenu" class="smallMenuTitle">Menu</label>
             <input type="checkbox" id="checkboxMenu" />
             <span class="underSmallMenu">
-                {
-                    nav.map(({ route, name }, index) => (
-                        <a href={route}>
-                            <h2 class="menuLinks">{name}</h2>
-                        </a>
-                    ))
-                }
+                <NavLinks />
             </span>
         </span>
     </div>
     <div class="navLinks">
-        {
-            nav.map(({ route, name }, index) => (
-                <a href={route}>
-                    <h2 class="menuLinks">{name}</h2>
-                </a>
-            ))
-        }
+        <NavLinks />
     </div>
 </header>
 
@@ -122,20 +110,14 @@ import imgN4N5 from "../imgs/n4n5.png";
     :global(.navLinks a:first-child h2) {
         margin-left: 10px;
     }
-    h2 {
-        font-size: 1.2em;
-        font-weight: 200;
-        cursor: pointer;
-    }
+
     label {
         font-size: 1.2em;
         font-weight: 200;
         cursor: pointer;
     }
-    .menuLinks:hover {
-        text-decoration: underline;
-    }
-    .navLinks .menuLinks {
+
+    :global(.navLinks .menuLinks) {
         margin-right: 10px;
     }
     .smallMenuTitle {

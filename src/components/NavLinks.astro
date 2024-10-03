@@ -1,0 +1,27 @@
+---
+import nav from "../pages.js";
+
+const url = Astro.url;
+---
+
+{
+    nav.map(({ route, name, func }, index) => {
+        const link = func ? func(url, route) : route;
+        return (
+            <a href={link}>
+                <h2 class="menuLinks">{name}</h2>
+            </a>
+        );
+    })
+}
+
+<style>
+    .menuLinks:hover {
+        text-decoration: underline;
+    }
+    h2 {
+        font-size: 1.2em;
+        font-weight: 200;
+        cursor: pointer;
+    }
+</style>

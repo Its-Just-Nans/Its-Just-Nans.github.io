@@ -14,6 +14,12 @@ const nav = [
     {
         name: "Articles",
         route: "/articles",
+        func: (currentPath: URL, defaultRoute: string) => {
+            if (currentPath.pathname === defaultRoute) {
+                return "/articles/all";
+            }
+            return defaultRoute;
+        },
     },
     {
         name: "Lab",
