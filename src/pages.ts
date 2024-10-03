@@ -5,29 +5,29 @@ const nav = [
     },
     {
         name: "Projects",
-        route: "/projects",
+        route: "/projects/",
     },
     {
         name: "History",
-        route: "/history",
+        route: "/history/",
     },
     {
         name: "Articles",
-        route: "/articles",
+        route: "/articles/",
         func: (currentPath: URL, defaultRoute: string) => {
             if (currentPath.pathname === defaultRoute) {
-                return "/articles/all";
+                return "/articles/all/";
             }
             return defaultRoute;
         },
     },
     {
         name: "Lab",
-        route: "/lab",
+        route: "/lab/",
     },
     {
         name: "Links",
-        route: "/links",
+        route: "/links/",
     },
 ];
 
