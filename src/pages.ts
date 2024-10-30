@@ -8,10 +8,6 @@ const nav = [
         route: "/projects/",
     },
     {
-        name: "History",
-        route: "/history/",
-    },
-    {
         name: "Articles",
         route: "/articles/",
         func: (currentPath: URL, defaultRoute: string) => {
