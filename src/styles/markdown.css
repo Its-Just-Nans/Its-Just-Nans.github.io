@@ -1006,3 +1006,14 @@
 .markdown-body ::-webkit-calendar-picker-indicator {
     filter: invert(50%);
 }
+
+@media screen and (max-width: 768px) {
+    .markdown-body summary h1,
+    .markdown-body summary h2,
+    .markdown-body summary h3,
+    .markdown-body summary h4,
+    .markdown-body summary h5,
+    .markdown-body summary h6 {
+        display: inline;
+    }
+}
