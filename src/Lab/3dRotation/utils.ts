@@ -28,9 +28,8 @@ let decay = 0.98;
 
 const move = function (e: MouseEvent | TouchEvent) {
     e.preventDefault();
-
-    const mouseX = e.pageX;
-    const mouseY = e.pageY;
+    const mouseX = e.type === "mousemove" ? (e as MouseEvent).pageX : (e as TouchEvent).touches[0].pageX;
+    const mouseY = e.type === "mousemove" ? (e as MouseEvent).pageY : (e as TouchEvent).touches[0].pageY;
     const canvasX = canvas.offsetLeft;
     const canvasY = canvas.offsetTop;
     const canvasWidth = canvas.offsetWidth;

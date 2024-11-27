@@ -1,11 +1,44 @@
 ---
 import OpenInNewTab from "./OpenInNewTab.astro";
+//@ts-ignore
 import { output as pulls } from "../../data/pull_requests/index";
+//@ts-ignore
 import NotGithub from "../../data/pull_requests/not_github.json";
+
+interface PullRequest {
+    node: Node;
+}
+
+interface Node {
+    id: string;
+    number: number;
+    title: string;
+    url: string;
+    state: string;
+    createdAt: string;
+    baseRepository: {
+        url: string;
+        name: string;
+        description: string;
+        owner: {
+            login: string;
+        };
+        languages: {
+            nodes?:
+                | {
+                      name: string;
+                  }[]
+                | null;
+        };
+    };
+}
 
 const CLEANER = ["https://github.com/Its-Just-Nans", "https://github.com/Bel-Art"];
 
-const allPulls = pulls.concat(NotGithub);
+//@ts-ignore
+const allPulls = (pulls as PullRequest[]).concat(NotGithub as PullRequest[]);
+
+type RepoType = Record<string, Node[]>;
 
 const repos = allPulls.reduce((acc, { node }) => {
     const { baseRepository, state } = node;
@@ -21,7 +54,7 @@ const repos = allPulls.reduce((acc, { node }) => {
     }
     acc[url].push(node);
     return acc;
-}, {});
+}, {} as RepoType);
 
 // const allTotal = pulls.length;
 const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").length; // note:this is the filtered count

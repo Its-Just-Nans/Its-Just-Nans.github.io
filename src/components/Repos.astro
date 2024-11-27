@@ -1,16 +1,33 @@
 ---
+//@ts-ignore
 import { output } from "../../data/projects/index";
 import SVGrepo from "../components/SVGRepo.astro";
 import ProjectHelper from "./ProjectHelper.astro";
+
+type ProjectOutput = {
+    type: "repo";
+    name: "Its-Just-Nans";
+    html_url: "https://github.com/Its-Just-Nans/Its-Just-Nans";
+    description: "My description repository";
+    stargazers_count: 0;
+    homepage: "https://n4n5.dev/.well-known/";
+    lang: "";
+    lang_color: "";
+}[];
+
+type Langs = Record<string, string>;
+
+//@ts-ignore
+const typedOutput = output as ProjectOutput;
 
 const cleanLang = (l: string) => {
     return l.replaceAll(" ", "-").replaceAll("+", "p").replaceAll(".", "");
 };
 
-const langs = output.reduce((acc, { lang, lang_color }) => {
+const langs = typedOutput.reduce((acc, { lang, lang_color }) => {
     if (!lang) return acc;
     return { [cleanLang(lang)]: lang_color, ...acc };
-}, {});
+}, {} as Langs);
 
 const rawStylesCSS = Object.entries(langs)
     .map(([lang, color]) => {
@@ -72,7 +89,7 @@ const rawStylesCSS = Object.entries(langs)
         <label class:list={["lang-select", `no-lang`]} for={`no-lang`}>Others</label>
     </details>
     {
-        output.map((oneData, index) => (
+        typedOutput.map((oneData, index) => (
             <div
                 class:list={[
                     "projectWrap",

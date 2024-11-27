@@ -5,7 +5,7 @@ import iconBlue from "../../../data/maps/marker-icon-blue.png";
 const lat = 48.852969;
 const lon = 2.349903;
 
-let map;
+let map: L.Map;
 const ICONS = {
     green: L.icon({
         iconUrl: iconGreen.src,

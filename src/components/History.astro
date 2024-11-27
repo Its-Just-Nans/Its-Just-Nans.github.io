@@ -6,6 +6,16 @@ import OpenSvg from "./history/OpenSvg.astro";
 import SchoolHatSvg from "./history/SchoolHatSvg.astro";
 import WorkSvg from "./history/WorkSvg.astro";
 
+interface Props {
+    events: {
+        title: string;
+        date: string;
+        description: string;
+        emoji: string;
+        type: string;
+    }[];
+}
+
 const { events: history } = Astro.props;
 ---
 
