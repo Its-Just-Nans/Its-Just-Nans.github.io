@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import AstroIco from "./astro.png";
+---
+
+<div class="center">
+    <p class="inline">Made with</p>{" "}
+    <a href="https://astro.build" target="_blank">
+        <p class="inline lang-txt">Astro</p>
+        <Image class="inline lang-logo" src={AstroIco} alt="logo-astro" height={24} />
+    </a>
+    <p class="inline">!</p>
+</div>
+
+<style>
+    p {
+        font-family: system-ui;
+    }
+    .lang-txt {
+        color: #943a00;
+        font-weight: bolder;
+    }
+    .lang-logo {
+        vertical-align: middle;
+    }
+    .inline {
+        display: inline-block;
+    }
+    .center {
+        text-align: center;
+    }
+</style>

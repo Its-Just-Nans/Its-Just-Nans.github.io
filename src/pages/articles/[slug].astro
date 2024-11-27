@@ -5,10 +5,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllArticles, slugify } from "../../components/utils";
 import "../../styles/markdown.css";
 
-const { post } = Astro.props;
-const { Content, frontmatter } = post;
-const { draft = false } = frontmatter;
-
 export async function getStaticPaths() {
     const posts = await Astro.glob("/data/articles/**/*.mdx");
     const { articles, articlesDrafts } = getAllArticles(posts);
@@ -23,6 +19,10 @@ export async function getStaticPaths() {
 
     return params;
 }
+
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+const { draft = false } = frontmatter;
 
 const RealContent = draft ? (import.meta.env.DEV ? Content : Draft) : Content;
 const description = `${frontmatter.description} - article on n4n5.dev`;

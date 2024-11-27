@@ -1,0 +1,97 @@
+[
+    {
+        "ico": "javascript.png",
+        "name": "JavaScript",
+        "link": "https://en.wikipedia.org/wiki/JavaScript"
+    },
+    {
+        "ico": "svelte.png",
+        "name": "Svelte",
+        "link": "https://svelte.dev/"
+    },
+    {
+        "ico": "astro.png",
+        "name": "Astro",
+        "link": "https://astro.build/"
+    },
+    {
+        "ico": "angularjs.png",
+        "name": "AngularJS",
+        "link": "https://angularjs.org/"
+    },
+    {
+        "ico": "react.png",
+        "name": "ReactJS",
+        "link": "https://reactjs.org/"
+    },
+    {
+        "ico": "nodejs.png",
+        "name": "NodeJs",
+        "link": "https://nodejs.org/"
+    },
+    {
+        "ico": "mongodb.png",
+        "name": "MongoDB",
+        "link": "https://www.mongodb.com/"
+    },
+    {
+        "ico": "python.png",
+        "name": "Python",
+        "link": "https://www.python.org/"
+    },
+    {
+        "ico": "go.png",
+        "name": "Go",
+        "link": "https://go.dev/"
+    },
+    {
+        "ico": "kotlin.png",
+        "name": "Kotlin",
+        "link": "https://kotlinlang.org/"
+    },
+    {
+        "ico": "rust.png",
+        "name": "Rust",
+        "link": "https://www.rust-lang.org/"
+    },
+    {
+        "ico": "c.png",
+        "name": "C",
+        "link": "https://en.wikipedia.org/wiki/C_(programming_language)"
+    },
+    {
+        "ico": "cpp.png",
+        "name": "C++",
+        "link": "https://en.wikipedia.org/wiki/C%2B%2B"
+    },
+    {
+        "ico": "bash.png",
+        "name": "Bash",
+        "link": "https://en.wikipedia.org/wiki/Bash_(Unix_shell)"
+    },
+    {
+        "ico": "php.png",
+        "name": "PHP",
+        "link": "https://www.php.net/"
+    },
+    {
+        "ico": "sql.png",
+        "name": "SQL",
+        "link": "https://en.wikipedia.org/wiki/SQL"
+    },
+    {
+        "ico": "java.png",
+        "name": "Java",
+        "link": "https://www.java.com/"
+    },
+    {
+        "ico": "html.png",
+        "name": "HTML 5",
+        "link": "https://en.wikipedia.org/wiki/HTML"
+    },
+    {
+        "ico": "css.png",
+        "name": "CSS 3",
+        "link": "https://en.wikipedia.org/wiki/CSS"
+    }
+]

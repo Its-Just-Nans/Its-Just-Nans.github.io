@@ -7,7 +7,7 @@ interface Props {
     description?: string;
 }
 
-const { title, description = baseDesc } = Astro.props;
+const { title = "n4n5.dev", description = baseDesc } = Astro.props;
 const img = "/cover.png";
 const domain = "n4n5.dev";
 const url = `https://${domain}`;

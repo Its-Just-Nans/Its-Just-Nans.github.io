@@ -1,28 +1,27 @@
 ---
-import data from "../../data/languages/languages.json";
-import { links } from "./Index/links";
-const images = await Astro.glob("/data/languages/icons/*").then((files) => {
-    return files.map((file) => file.default);
-});
-const langs = data.map((e) => {
-    const correctLink = images.find(
-        (link) => link.src.split("/").pop().split(".").shift() === e.ico.split(".").shift()
-    );
-    return { ...e, ico: correctLink.src };
-});
+const links = [
+    {
+        title: "golb",
+        url: "https://golb.n4n5.dev/",
+    },
+    {
+        title: "R&T website",
+        url: "https://rt.n4n5.dev/",
+    },
+    {
+        title: "RIO website",
+        url: "https://rio.n4n5.dev/",
+    },
+    {
+        title: "Packages",
+        url: "https://n4n5.dev/lab/packages",
+    },
+];
 ---
 
 <article>
-    <input type="radio" id="me" />
     <div class="part">
-        <h2 id="who-am-i">About</h2>
-        <p>Hi!</p>
-        <details>
-            <summary>I use two pseudonym: Its-Just-Nans and n4n5</summary>
-            <label for="me" id="label-me" data-tooltip="Click to see the truth !">
-                <span id="colored">this.style.color</span> = 'Its-Just-Nans' == 'n4n5' ? 'green' : 'red';
-            </label>
-        </details>
+        <h2>Hi!</h2>
     </div>
 
     <div class="part">
@@ -41,63 +40,8 @@ const langs = data.map((e) => {
             }
         </ul>
     </div>
-    <div class="part">
-        <details>
-            <summary>Details</summary>
-            <h2>Languages</h2>
-            <div class="center">
-                {
-                    langs.map((oneLang, index) => (
-                        <div class="lang">
-                            <a href={oneLang.link} target="_blank" data-tooltip={oneLang.name}>
-                                <img class="iconLang" alt={oneLang.name} src={oneLang.ico} />
-                            </a>
-                        </div>
-                    ))
-                }
-            </div>
-            <br />
-            <div class="center" style="margin-top:20px">
-                <h3>
-                    GitHub stats <a href="https://n4n5.dev/lab/stats/" target="_blank" class="more-stats">(more)</a>
-                </h3>
-                <div class="inline">
-                    <img
-                        class="svgGithubStat"
-                        alt="github-readme-stats of Its-Just-Nans"
-                        src="https://github-readme-stats.vercel.app/api?username=its-just-nans&hide_border=true&show_icons=true"
-                        loading="lazy"
-                    />
-                </div>
-                <div class="inline">
-                    <img
-                        class="svgGithubStat"
-                        alt="github-readme-stats and top-langs of Its-Just-Nans"
-                        src="https://github-readme-stats.vercel.app/api/top-langs/?username=its-just-nans&layout=compact&hide_border=true&show_icons=true"
-                        loading="lazy"
-                    />
-                </div>
-                <div class="inline">
-                    <img
-                        class="svgGithubStat bigger"
-                        alt="github-profile-trophy of Its-Just-Nans"
-                        src="https://github-profile-trophy.vercel.app/?username=Its-Just-Nans"
-                        loading="lazy"
-                    />
-                </div>
-            </div>
-        </details>
-    </div>
     <div class="part center">
         <h2>Thanks for watching</h2>
-        <div>
-            <p class="inline">Made with</p>{" "}
-            <a href="https://astro.build" target="_blank">
-                <p class="inline lang-txt">Astro</p>
-                <img class="inline lang-logo" src={langs.find((e) => e.name === "Astro")?.ico} alt="logo-astro" />
-            </a>
-            <p class="inline">!</p>
-        </div>
     </div>
 </article>
 
@@ -105,20 +49,7 @@ const langs = data.map((e) => {
     .onelink {
         display: block;
     }
-    .more-stats {
-        color: blue;
-        font-size: 0.7em;
-    }
-    #me:checked ~ div #colored {
-        color: green;
-    }
-    #label-me {
-        cursor: pointer;
-        font-weight: bold;
-    }
-    #me {
-        display: none;
-    }
+
     .links-url {
         font-weight: bold;
     }
@@ -151,28 +82,7 @@ const langs = data.map((e) => {
         width: max-content;
         position: relative;
     }
-    .svgGithubStat {
-        width: 90vw;
-        min-width: 200px;
-        max-width: 400px;
-    }
-    .bigger {
-        max-width: 600px;
-    }
-    .lang-txt {
-        color: #943a00;
-        font-weight: bolder;
-    }
-    .inline {
-        display: inline-block;
-    }
-    .lang-logo {
-        height: 24px;
-        vertical-align: middle;
-    }
-    .lang {
-        display: inline-block;
-    }
+
     .center {
         text-align: center;
     }

@@ -5,7 +5,7 @@ const url = Astro.url;
 ---
 
 {
-    nav.map(({ route, name, func }, index) => {
+    nav.map(({ route, name, func }) => {
         const link = func ? func(url, route) : route;
         return (
             <a href={link}>

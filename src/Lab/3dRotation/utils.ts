@@ -3,7 +3,7 @@ import { reactiveMatrix, rotation } from "./rotation";
 
 export const reactive = writable<boolean>(true);
 
-export const multiplyMatrices = (a, b) => {
+export const multiplyMatrices = (a: number[], b: number[]) => {
     const result: number[] = [];
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {

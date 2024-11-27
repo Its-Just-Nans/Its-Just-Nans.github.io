@@ -46,7 +46,7 @@ const rawStylesCSS = Object.entries(langs)
     </style>
     <input id={`all-lang`} class="filters" name="lang-selector" type="radio" value={"all"} checked />
     {
-        Object.entries(langs).map(([lang, color]) => {
+        Object.entries(langs).map(([lang, _color]) => {
             const l = lang.toLocaleLowerCase();
             return <input class="filters" id={`lang-${l}`} name="lang-selector" type="radio" value={l} />;
         })

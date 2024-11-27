@@ -1,8 +1,8 @@
 ---
-import Base from "../../layouts/Base.astro";
+import BaseLab from "../../layouts/BaseLab.astro";
 import WaldoSvelte from "../../Lab/waldo/Waldo.svelte";
 ---
 
-<Base>
-    <WaldoSvelte client:load />
-</Base>
+<BaseLab>
+    <WaldoSvelte client:only="svelte" />
+</BaseLab>

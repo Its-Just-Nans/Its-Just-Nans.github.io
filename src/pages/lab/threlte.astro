@@ -1,8 +1,8 @@
 ---
-import Base from "../../layouts/Base.astro";
+import BaseLab from "../../layouts/BaseLab.astro";
 import ThrelteLab from "../../Lab/Threlte/Threlte.svelte";
 ---
 
-<Base>
-    <ThrelteLab client:only />
-</Base>
+<BaseLab>
+    <ThrelteLab client:only="svelte" />
+</BaseLab>

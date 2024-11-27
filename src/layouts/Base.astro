@@ -3,17 +3,24 @@ import "../styles/index.css";
 import "../styles/style.css";
 import "../styles/tooltip.css";
 import Header from "./Header.astro";
-const { title } = Astro.props;
-const correctTitle = title ? `${title} - ` : "";
-const currentTitle = `${correctTitle}lab | Its-Just-Nans (aka n4n5)`;
+
+interface Props {
+    title: string;
+    description?: string;
+    lang?: string;
+}
+
+const { title, description, lang = "en-EN" } = Astro.props;
 ---
 
-<html lang="fr-FR">
+<html lang={lang}>
     <head>
-        <Header title={currentTitle} />
+        <Header title={title} description={description} />
+        <slot name="head-slot" />
     </head>
 
     <body>
+        <slot name="body-slot" />
         <slot />
     </body>
 </html>

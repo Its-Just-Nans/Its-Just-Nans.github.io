@@ -1,8 +1,8 @@
 ---
-import Base from "../../layouts/Base.astro";
+import BaseLab from "../../layouts/BaseLab.astro";
 import StatsLab from "../../Lab/Stats/Stats.svelte";
 ---
 
-<Base title="Stats">
-    <StatsLab client:only />
-</Base>
+<BaseLab title="Stats">
+    <StatsLab client:only="svelte" />
+</BaseLab>

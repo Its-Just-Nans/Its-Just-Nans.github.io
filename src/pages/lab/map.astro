@@ -1,9 +1,9 @@
 ---
-import Base from "../../layouts/Base.astro";
+import BaseLab from "../../layouts/BaseLab.astro";
 import MapLab from "../../Lab/Map/Map.svelte";
 import { getAddresses } from "../../../data/maps/addresses";
 ---
 
-<Base title="map">
-    <MapLab client:only addresses={getAddresses()} />
-</Base>
+<BaseLab title="map">
+    <MapLab client:only="svelte" addresses={getAddresses()} />
+</BaseLab>

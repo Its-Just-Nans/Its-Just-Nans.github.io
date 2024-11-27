@@ -1,8 +1,8 @@
 ---
-import Base from "../../layouts/Base.astro";
+import BaseLab from "../../layouts/BaseLab.astro";
 import CouplingLab from "../../Lab/Coupling/Coupling.svelte";
 ---
 
-<Base title="Coupling">
-    <CouplingLab client:only />
-</Base>
+<BaseLab title="Coupling">
+    <CouplingLab client:only="svelte" />
+</BaseLab>

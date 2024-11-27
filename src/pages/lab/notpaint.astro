@@ -1,8 +1,8 @@
 ---
-import Base from "../../layouts/Base.astro";
+import BaseLab from "../../layouts/BaseLab.astro";
 import NotPaint from "../../Lab/NotPaint/NotPaint.svelte";
 ---
 
-<Base>
-    <NotPaint client:only />
-</Base>
+<BaseLab>
+    <NotPaint client:only="svelte" />
+</BaseLab>

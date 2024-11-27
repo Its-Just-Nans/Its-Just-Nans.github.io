@@ -25,11 +25,6 @@ tbody > tr {
 .copyIcon:hover {
     fill: #228b22;
 }
-.iconLang {
-    height: 64px;
-    width: 64px;
-    vertical-align: middle;
-}
 .inline {
     display: inline;
 }
@@ -41,22 +36,6 @@ tbody > tr {
 }
 .hoverBlue:hover {
     color: blue;
-}
-.svgGithubStat {
-    width: 400px;
-}
-@media screen and (min-width: 0px) and (max-width: 512px) {
-    .iconLang {
-        margin-top: 10px;
-    }
-    .iconLang {
-        height: 48px;
-        width: 48px;
-        vertical-align: middle;
-    }
-    .svgGithubStat {
-        width: 90%;
-    }
 }
 * {
     --border-color: black;

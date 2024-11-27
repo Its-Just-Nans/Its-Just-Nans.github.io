@@ -1,8 +1,8 @@
 ---
-import Base from "../../layouts/Base.astro";
+import BaseLab from "../../layouts/BaseLab.astro";
 import Rotation3d from "../../Lab/3dRotation/3dRotation.svelte";
 ---
 
-<Base title="3d rotation">
-    <Rotation3d client:only />
-</Base>
+<BaseLab title="3d rotation">
+    <Rotation3d client:only="svelte" />
+</BaseLab>

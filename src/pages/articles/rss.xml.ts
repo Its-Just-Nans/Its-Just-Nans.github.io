@@ -8,13 +8,17 @@ import { getAllArticles, slugify } from "../../components/utils";
 export async function GET(context: APIContext) {
     const mdxArticles: string[] = await ContentLoaderRuntime("data/articles/**/*.mdx");
     const articlesDecoded = await Promise.all(
-        mdxArticles.map((oneMdx) => {
+        mdxArticles.map(async (oneMdx) => {
             return readFile(oneMdx, "utf-8").then((fileContent) => {
                 const frontmatter = matter(fileContent);
                 return {
                     frontmatter: frontmatter.data,
                     file: oneMdx,
                     url: oneMdx,
+                    components: {},
+                    Content: () => new Response("Wrong component"),
+                    getHeadings: () => [],
+                    default: () => new Response("Wrong component"),
                 };
             });
         })

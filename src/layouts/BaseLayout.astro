@@ -1,6 +1,6 @@
 ---
+import Base from "./Base.astro";
 import App from "../components/App.astro";
-import Header from "./Header.astro";
 import "../styles/index.css";
 import "../styles/style.css";
 import "../styles/tooltip.css";
@@ -14,18 +14,16 @@ const { title, description } = Astro.props;
 const goodTitle = `${title ? `${title} - ` : ""} n4n5.dev`;
 ---
 
-<html lang="en-EN">
-    <head>
-        <Header title={goodTitle} description={description} />
+<Base lang={"en-EN"} title={goodTitle} description={description}>
+    <Fragment slot="head-slot">
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
             integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
             crossorigin="anonymous"
         />
-    </head>
-
-    <body>
+    </Fragment>
+    <Fragment slot="body-slot">
         <App>
             <slot />
         </App>
@@ -57,5 +55,5 @@ const goodTitle = `${title ? `${title} - ` : ""} n4n5.dev`;
             };
             colorHeader();
         </script>
-    </body>
-</html>
+    </Fragment>
+</Base>

@@ -1,0 +1,53 @@
+---
+import data from "./languages.json";
+
+const images = await Astro.glob("./icons/*").then((files) => {
+    return files.map((file) => file.default);
+});
+const langs = data.map((e) => {
+    const correctLink = images.find(
+        (link) => link.src.split("/").pop().split(".").shift() === e.ico.split(".").shift()
+    );
+    return { ...e, ico: correctLink.src };
+});
+---
+
+<h2>Languages</h2>
+<div class="center">
+    {
+        langs.map((oneLang) => (
+            <div class="lang">
+                <a href={oneLang.link} target="_blank" data-tooltip={oneLang.name}>
+                    <img class="iconLang" alt={oneLang.name} src={oneLang.ico} />
+                </a>
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    h2 {
+        font-family: system-ui;
+    }
+    .lang {
+        display: inline-block;
+    }
+    .center {
+        text-align: center;
+    }
+    .iconLang {
+        height: 64px;
+        width: 64px;
+        vertical-align: middle;
+    }
+    @media screen and (min-width: 0px) and (max-width: 512px) {
+        .iconLang {
+            margin-top: 10px;
+        }
+        .iconLang {
+            height: 48px;
+            width: 48px;
+            vertical-align: middle;
+        }
+    }
+</style>
