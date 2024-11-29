@@ -7,11 +7,12 @@ import "../styles/tooltip.css";
 
 interface Props {
     title: string;
+    addTitle: boolean;
     description?: string;
 }
 
-const { title, description } = Astro.props;
-const goodTitle = `${title ? `${title} - ` : ""} n4n5.dev`;
+const { title, description, addTitle = false } = Astro.props;
+const goodTitle = addTitle ? `${title} - n4n5.dev` : title;
 ---
 
 <Base lang={"en-EN"} title={goodTitle} description={description}>

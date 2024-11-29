@@ -28,7 +28,7 @@ const RealContent = draft ? (import.meta.env.DEV ? Content : Draft) : Content;
 const description = `${frontmatter.description} - article on n4n5.dev`;
 ---
 
-<BaseLayout title={frontmatter.title} description={description}>
+<BaseLayout title={frontmatter.title} addTitle description={description}>
     <ArticleView data={frontmatter}>
         <RealContent />
     </ArticleView>
