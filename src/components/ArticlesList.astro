@@ -2,6 +2,7 @@
 import { slugify } from "../components/utils";
 
 import type { ArticlesProps } from "../components/utils";
+import Time from "./Time.astro";
 
 interface Props {
     articles: ArticlesProps;
@@ -44,11 +45,6 @@ if (import.meta.env.DEV) {
             const { date, description, title, draft, hidden } = element.frontmatter;
             const slug = slugify(element.url);
             const realDate = new Date(date || new Date());
-            const fmt = realDate.toLocaleDateString("fr-FR", {
-                year: "numeric",
-                month: "numeric",
-                day: "numeric",
-            });
             return (
                 <a href={`/articles/${slug}`}>
                     <div class="oneArticle" class:list={[{ coloredArticle: draft }]}>
@@ -57,7 +53,7 @@ if (import.meta.env.DEV) {
                                 <span>{title}</span>
                             </p>
                             <p class="timestamp">
-                                <time datetime={realDate.toISOString()}>{fmt}</time>
+                                <Time date={realDate} />
                             </p>
                         </div>
                         <div class="flexed">

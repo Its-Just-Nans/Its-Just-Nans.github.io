@@ -1,10 +1,10 @@
 ---
 import "../styles/markdown.css";
+import Time from "./Time.astro";
 
 const { data, type = "article" } = Astro.props;
 const { title, date, draft, hidden, description, ico = "" } = data;
 const realDate = date ? new Date(date) : new Date();
-const fmt = realDate.toLocaleDateString("fr-FR");
 ---
 
 <article>
@@ -16,9 +16,9 @@ const fmt = realDate.toLocaleDateString("fr-FR");
             {hidden && <span class="hidden-span">(hidden)</span>}
             {draft && <span class="draft-span">(draft)</span>}
         </h2>
-        <time class="rainbow_text_animated" datetime={realDate.toISOString()}>{fmt}</time>
+        <Time date={realDate} className="rainbow_text_animated" />
     </div>
-    {!draft && <div class="headArticleDesc">{description}</div>}
+    <div class="headArticleDesc">{description}</div>
     <div class="hr"></div>
     <div class="markdown-body">
         <slot />
