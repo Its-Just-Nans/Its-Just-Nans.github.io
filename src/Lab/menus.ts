@@ -76,7 +76,7 @@ export const menus = [
         },
         {
             ico: "📦",
-            link: "/lab/packages",
+            link: "../packages",
             title: "Packages",
             subtitle: null,
         },

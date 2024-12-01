@@ -8,15 +8,17 @@ import Base from "../layouts/Base.astro";
 <Base title="About">
     <section>
         <div class="center">
-            <h2>About</h2>
-            <Pseudonyms />
+            <h1>About n4n5</h1>
         </div>
+        <h2>Pseudonyms</h2>
+        <Pseudonyms />
         <LanguagesList />
-        <br />
+        <h2>Packages</h2>
+        <a class="link" href="/packages" target="_blank">https://n4n5.dev/packages</a>
+        <h2>
+            GitHub stats <a href="/lab/stats/" target="_blank" class="more-stats">(more)</a>
+        </h2>
         <div class="center" style="margin-top:20px">
-            <h3>
-                GitHub stats <a href="https://n4n5.dev/lab/stats/" target="_blank" class="more-stats">(more)</a>
-            </h3>
             <div class="inline">
                 <img
                     class="svgGithubStat"
@@ -47,6 +49,9 @@ import Base from "../layouts/Base.astro";
 </Base>
 
 <style>
+    .link {
+        color: blue;
+    }
     section {
         margin: 0 auto;
         max-width: 50%;

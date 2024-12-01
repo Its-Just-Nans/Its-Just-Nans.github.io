@@ -33,6 +33,7 @@
         "@threlte/extras": "^8.11.4",
         "astro": "^4.16.16",
         "astro-index": "^1.0.3",
+        "astro-simple-carousel": "^1.0.7",
         "plugin-astro-content": "^1.0.2",
         "typescript": "^5.7.2"
     },
