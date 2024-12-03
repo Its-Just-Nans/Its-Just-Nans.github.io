@@ -74,17 +74,19 @@ const rawStylesCSS = Object.entries(langs)
         <summary>Filters</summary>
         <label class:list={["lang-select", `all-lang`]} for={`all-lang`}>All</label>
         {
-            Object.entries(langs).map(([lang, color]) => {
-                return (
-                    <label
-                        class:list={["lang-select", `lang-${cleanLang(lang.toLocaleLowerCase())}`]}
-                        style={`color: ${color}`}
-                        for={`lang-${cleanLang(lang.toLocaleLowerCase())}`}
-                    >
-                        {lang}
-                    </label>
-                );
-            })
+            Object.entries(langs)
+                .toSorted()
+                .map(([lang, color]) => {
+                    return (
+                        <label
+                            class:list={["lang-select", `lang-${cleanLang(lang.toLocaleLowerCase())}`]}
+                            style={`color: ${color}`}
+                            for={`lang-${cleanLang(lang.toLocaleLowerCase())}`}
+                        >
+                            {lang}
+                        </label>
+                    );
+                })
         }
         <label class:list={["lang-select", `no-lang`]} for={`no-lang`}>Others</label>
     </details>
