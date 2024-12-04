@@ -8,7 +8,7 @@ import Base from "../layouts/Base.astro";
 <Base title="About">
     <section>
         <div class="center">
-            <h1>About n4n5</h1>
+            <h1>About <a href="/" class="link">n4n5</a></h1>
         </div>
         <h2>Pseudonyms</h2>
         <Pseudonyms />
@@ -16,7 +16,11 @@ import Base from "../layouts/Base.astro";
         <h2>Packages</h2>
         <a class="link" href="/packages" target="_blank">https://n4n5.dev/packages</a>
         <h2>
-            GitHub stats <a href="/lab/stats/" target="_blank" class="more-stats">(more)</a>
+            <a href="https://github.com/Its-Just-Nans" target="_blank" class="link">GitHub</a> stats <a
+                href="/lab/stats/"
+                target="_blank"
+                class="link more-stats">(more)</a
+            >
         </h2>
         <div class="center" style="margin-top:20px">
             <div class="inline">
@@ -52,13 +56,15 @@ import Base from "../layouts/Base.astro";
     .link {
         color: blue;
     }
+    .link:hover {
+        text-decoration: underline;
+    }
     section {
         margin: 0 auto;
         max-width: 50%;
         font-family: system-ui;
     }
     .more-stats {
-        color: blue;
         font-size: 0.7em;
     }
     .lang-txt {
@@ -81,6 +87,12 @@ import Base from "../layouts/Base.astro";
     @media screen and (min-width: 0px) and (max-width: 512px) {
         .svgGithubStat {
             width: 90%;
+        }
+        section {
+            max-width: 80%;
+        }
+        .inline {
+            display: flex;
         }
     }
     .svgGithubStat {
