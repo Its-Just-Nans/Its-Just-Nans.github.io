@@ -26,7 +26,8 @@ const size = "16px";
                             {el.list.map((onePackage) => {
                                 const link = el.url.replaceAll(":package", onePackage);
                                 const stats = el.stats && el.stats.replaceAll(":package", onePackage);
-                                const urlRepo = `https://github.com/${user}/${onePackage}`;
+                                // @ts-ignore
+                                const urlRepo = el.repos[onePackage] ?? `https://github.com/${user}/${onePackage}`;
                                 return (
                                     <tr>
                                         <td class="github border-right">
