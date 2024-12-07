@@ -9,13 +9,15 @@ interface Props {
     title: string;
     addTitle: boolean;
     description?: string;
+    keywords: string[];
+    defaultKeywords?: string[];
 }
 
-const { title, description, addTitle = false } = Astro.props;
+const { title, description, addTitle = false, keywords, defaultKeywords } = Astro.props;
 const goodTitle = addTitle ? `${title} - n4n5.dev` : title;
 ---
 
-<Base lang={"en-EN"} title={goodTitle} description={description}>
+<Base lang={"en-EN"} title={goodTitle} description={description} keywords={keywords} defaultKeywords={defaultKeywords}>
     <Fragment slot="head-slot">
         <link
             rel="stylesheet"

@@ -5,20 +5,30 @@ const baseDesc = "The page of Its-Just-Nans aka n4n5. Here you can view my proje
 interface Props {
     title: string;
     description?: string;
+    keywords: string[];
+    defaultKeywords?: string[];
 }
 
-const { title = "n4n5.dev", description = baseDesc } = Astro.props;
+const {
+    title = "n4n5.dev",
+    description = baseDesc,
+    keywords = [],
+    defaultKeywords = ["n4n5", "dev", "n4n5.dev"],
+} = Astro.props;
 const img = "/cover.png";
 const domain = "n4n5.dev";
 const url = `https://${domain}`;
 const key = "8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4";
 const canonical = `https://${domain}${Astro.url.pathname}`;
+
+const allKeywords = [...defaultKeywords, ...keywords];
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="keywords" content={allKeywords.join(", ")} />
 
 <!-- favicon -->
 <link rel="icon" href="/favicon.ico" />
@@ -31,6 +41,7 @@ const canonical = `https://${domain}${Astro.url.pathname}`;
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="sitemap" href="/sitemap.xml" />
 <link rel="canonical" href={canonical} />
+
 <meta property="og:url" content={url} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
