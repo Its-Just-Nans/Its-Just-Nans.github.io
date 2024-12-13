@@ -1,6 +1,6 @@
 import L from "leaflet";
-import iconGreen from "../../../data/maps/marker-icon-green.png";
-import iconBlue from "../../../data/maps/marker-icon-blue.png";
+import iconGreen from "./marker-icon-green.png";
+import iconBlue from "./marker-icon-blue.png";
 
 const lat = 48.852969;
 const lon = 2.349903;
