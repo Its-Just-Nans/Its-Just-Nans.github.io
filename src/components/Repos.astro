@@ -1,19 +1,11 @@
 ---
 //@ts-ignore
-import { output } from "../../data/projects/index";
+import output from "../../Its-Just-Nans/data/projects/projects.json";
 import SVGrepo from "../components/SVGRepo.astro";
 import ProjectHelper from "./ProjectHelper.astro";
+import type { SingleProject } from "./types";
 
-type ProjectOutput = {
-    type: "repo";
-    name: "Its-Just-Nans";
-    html_url: "https://github.com/Its-Just-Nans/Its-Just-Nans";
-    description: "My description repository";
-    stargazers_count: 0;
-    homepage: "https://n4n5.dev/.well-known/";
-    lang: "";
-    lang_color: "";
-}[];
+type ProjectOutput = SingleProject[];
 
 type Langs = Record<string, string>;
 
@@ -24,7 +16,8 @@ const cleanLang = (l: string) => {
     return l.replaceAll(" ", "-").replaceAll("+", "p").replaceAll(".", "");
 };
 
-const langs = typedOutput.reduce((acc, { lang, lang_color }) => {
+const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
+    const { name: lang, color: lang_color } = primaryLanguage ? primaryLanguage : { name: "", color: "" };
     if (!lang) return acc;
     return { [cleanLang(lang)]: lang_color, ...acc };
 }, {} as Langs);
@@ -95,14 +88,17 @@ const rawStylesCSS = Object.entries(langs)
             <div
                 class:list={[
                     "projectWrap",
-                    { [`lang-${cleanLang(oneData.lang.toLocaleLowerCase())}`]: oneData.lang !== "" },
-                    { "no-lang": oneData.lang === "" },
+                    {
+                        [`lang-${cleanLang((oneData.primaryLanguage?.name ?? "").toLocaleLowerCase())}`]:
+                            oneData.primaryLanguage?.name !== "",
+                    },
+                    { "no-lang": oneData.primaryLanguage?.name === "" },
                 ]}
             >
                 <div class="svgRepo">
                     <SVGrepo svgData={oneData} />
                 </div>
-                <ProjectHelper oneData={oneData} index={index} />
+                <ProjectHelper oneData={oneData} />
             </div>
         ))
     }

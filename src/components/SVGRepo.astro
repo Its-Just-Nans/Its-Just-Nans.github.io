@@ -1,7 +1,13 @@
 ---
-const { svgData } = Astro.props;
+import type { SingleProject } from "./types";
 import { splitStringByLength } from "./utils";
-const isRepo = svgData.type == "repo";
+
+interface Props {
+    svgData: SingleProject;
+}
+
+const { svgData } = Astro.props;
+const isRepo = svgData.url.startsWith("https://github.com");
 const maxLen = isRepo ? 56 : 34;
 svgData.description = svgData.description || "";
 svgData.description = svgData.description.slice(0, 115);
@@ -52,17 +58,23 @@ const chunks = splitStringByLength(svgData.description, maxLen);
                 })}
 
                 <g transform="translate(30, 45)">
-                    {svgData.lang && (
+                    {svgData.primaryLanguage && (
                         <g transform="translate(0, 0)">
                             <g data-testid="primary-lang">
-                                <circle data-testid="lang-color" cx="0" cy="-5" r="6" fill={svgData.lang_color} />
+                                <circle
+                                    data-testid="lang-color"
+                                    cx="0"
+                                    cy="-5"
+                                    r="6"
+                                    fill={svgData.primaryLanguage.color}
+                                />
                                 <text data-testid="lang-name" class="gray" x="15">
-                                    {svgData.lang}
+                                    {svgData.primaryLanguage.name}
                                 </text>
                             </g>
                         </g>
                     )}
-                    {svgData.stargazers_count > 0 && (
+                    {svgData.stargazerCount > 0 && (
                         <g transform="translate(80, 0)">
                             <g transform="translate(0, 0)">
                                 <svg class="icon" y="-12" viewBox="0 0 16 16" version="1.1" width="16" height="16">
@@ -74,7 +86,7 @@ const chunks = splitStringByLength(svgData.description, maxLen);
                             </g>
                             <g transform="translate(20, 0)">
                                 <text data-testid="stargazers" class="gray">
-                                    {svgData.stargazers_count}
+                                    {svgData.stargazerCount}
                                 </text>
                             </g>
                         </g>

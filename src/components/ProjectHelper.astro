@@ -1,6 +1,13 @@
 ---
-const { oneData } = Astro.props;
+import type { SingleProject } from "./types";
 import { splitStringByLength } from "./utils";
+
+interface Props {
+    oneData: SingleProject;
+}
+
+const { oneData } = Astro.props;
+const isRepo = oneData.url.startsWith("https://github.com");
 ---
 
 <div class="projectsDiv projectHelp">
@@ -8,7 +15,7 @@ import { splitStringByLength } from "./utils";
         <rect x="0.5" y="0.5" rx="4.5" height="99%" stroke="#e4e2e2" width="399" fill="#fffefe" stroke-opacity="1"
         ></rect>
         {
-            oneData.type == "repo" ? (
+            isRepo ? (
                 <g data-testid="card-title" transform="translate(25, 35)">
                     <g transform="translate(0, 0)">
                         <svg class="icon" x="0" y="-13" viewBox="0 0 16 16" version="1.1" width="16" height="16">
@@ -49,7 +56,7 @@ import { splitStringByLength } from "./utils";
                 </g>
             )
         }
-        <a href={oneData.html_url} target="_blank" class="cursorPointer">
+        <a href={oneData.url} target="_blank" class="cursorPointer">
             <g transform="translate(25, 75)">
                 <g transform="translate(0, 0)">
                     <svg class="icon" x="0" y="-13" viewBox="0 0 38 38" version="1.1" width="16" height="16">
@@ -66,14 +73,14 @@ import { splitStringByLength } from "./utils";
                 </g>
                 <g transform="translate(25, 0)">
                     <text class="hoverSvg" x="0" y="0">
-                        {oneData.type === "gist" ? "View the Gist on GitHub" : "View the repository on GitHub"}
+                        {!isRepo ? "View the Gist on GitHub" : "View the repository on GitHub"}
                     </text>
                 </g>
             </g>
         </a>
         {
-            oneData.homepage && (
-                <a href={oneData.homepage} target="_blank" class="cursorPointer">
+            oneData.homepageUrl && (
+                <a href={oneData.homepageUrl} target="_blank" class="cursorPointer">
                     <g transform="translate(25, 100)">
                         <g transform="translate(0, 0)">
                             <svg class="icon" x="0" y="-13" viewBox="0 0 24 24" version="1.1" width="16" height="16">
