@@ -2,7 +2,6 @@
     "name": "its-just-nans.github.io",
     "version": "1.0.0",
     "description": "Website of n4n5",
-    "main": "bundle.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Its-Just-Nans/Its-Just-Nans.github.io.git"
@@ -20,8 +19,7 @@
         "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "check": "astro check",
-        "make": "cd data && make"
+        "check": "astro check"
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",

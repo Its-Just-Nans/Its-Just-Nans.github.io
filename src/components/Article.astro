@@ -1,6 +1,5 @@
 ---
 import "../styles/markdown.css";
-import "../styles/history.css";
 import { slugify } from "./utils";
 
 const { item, index } = Astro.props;
@@ -164,6 +163,46 @@ const slug = slugify(file);
         --long: 50%;
     }
 
+    .historyDetail code {
+        background-color: var(--globalColor);
+        padding: 2px 3px;
+        border-radius: 2px;
+    }
+
+    .historyDetail a {
+        font-weight: bold;
+        color: blue;
+    }
+    .historyDetail img {
+        display: block;
+        margin: auto;
+    }
+
+    .historyDetail {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .historyDetail::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    .historyDetail::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .historyDetail::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    .historyDetail::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    @media screen and (max-width: 512px) {
+        .historyDetail img {
+            width: 100%;
+        }
+    }
+
     .historyLine .secondDiv > div {
         padding: 25px;
     }
@@ -210,7 +249,9 @@ const slug = slugify(file);
     .secondDiv {
         flex: 5;
     }
-
+    .iconShowMore {
+        float: right;
+    }
     .historyLine:hover {
         box-shadow: 0px 0px 0px 5px blue;
         border: 1px dashed var(--border-color);
@@ -221,6 +262,15 @@ const slug = slugify(file);
         border: 1px solid var(--border-color); /* default border */
     }
 
+    * {
+        --border-color: black;
+    }
+
+    .iconSmall {
+        height: 32px;
+        width: 32px;
+        vertical-align: middle;
+    }
     .historyLine .iconSmall {
         margin: auto;
     }
