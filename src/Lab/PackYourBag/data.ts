@@ -8,7 +8,7 @@ export const data = [
     "Towel",
     "Glove",
     "Toiletry bag (toothbrush, comb)",
-    "Product",
+    "Beauty product",
     "Swimsuit",
     "Bath towel",
     "Money/wallet",
