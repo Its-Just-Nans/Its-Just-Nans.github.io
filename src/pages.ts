@@ -17,10 +17,10 @@ const nav = [
             return defaultRoute;
         },
     },
-    {
-        name: "Lab",
-        route: "/lab/",
-    },
+    // {
+    //     name: "Lab",
+    //     route: "/lab/",
+    // },
     {
         name: "Links",
         route: "/links/",
