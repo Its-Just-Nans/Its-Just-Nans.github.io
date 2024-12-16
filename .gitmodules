@@ -1,6 +1,0 @@
-[submodule "data"]
-	path = data
-	url = git@github.com:Its-Just-Nans/data.git
-[submodule "Its-Just-Nans"]
-	path = Its-Just-Nans
-	url = git@github.com:Its-Just-Nans/Its-Just-Nans.git
