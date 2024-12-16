@@ -99,7 +99,12 @@ export const getAllArticles = (articlesGlob: ArticlesProps = []) => {
             new Date(b.frontmatter?.date || new Date()).getTime() -
             new Date(a.frontmatter?.date || new Date()).getTime()
     );
-    const articlesDrafts = sortedArticles.filter(({ frontmatter: { draft } }) => draft);
+    const articlesDrafts = sortedArticles.filter(({ frontmatter: { title, draft } }) => {
+        if (draft) {
+            console.log("Draft article:", title);
+        }
+        return draft;
+    });
     const articles = sortedArticles.filter(({ frontmatter: { draft } }) => !draft);
     return { articles, articlesDrafts };
 };
