@@ -6,7 +6,7 @@ import { getAllArticles, slugify } from "../../components/utils";
 import "../../styles/markdown.css";
 
 export async function getStaticPaths() {
-    const posts = await Astro.glob("/data/articles/**/*.mdx");
+    const posts = await Astro.glob("/website-articles/**/*.mdx");
     const { articles, articlesDrafts } = getAllArticles(posts);
     const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles; // TODO remove if
     const params = correctArticles.map((onePost) => {

@@ -6,7 +6,7 @@ import { ContentLoaderRuntime } from "plugin-astro-content";
 import { getAllArticles, slugify } from "../../components/utils";
 
 export async function GET(context: APIContext) {
-    const mdxArticles: string[] = await ContentLoaderRuntime("data/articles/**/*.mdx");
+    const mdxArticles: string[] = await ContentLoaderRuntime("website-articles/**/*.mdx");
     const articlesDecoded = await Promise.all(
         mdxArticles.map(async (oneMdx) => {
             return readFile(oneMdx, "utf-8").then((fileContent) => {

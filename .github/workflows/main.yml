@@ -32,7 +32,6 @@ jobs:
               uses: actions/checkout@v4
               with:
                   submodules: "true"
-                  ssh-key: ${{ secrets.SSH_KEY_REPO_DATA }}
             - name: Setup Pages
               uses: actions/configure-pages@v5
             - name: Use Node.js
