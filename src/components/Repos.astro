@@ -92,7 +92,7 @@ const rawStylesCSS = Object.entries(langs)
                         [`lang-${cleanLang((oneData.primaryLanguage?.name ?? "").toLocaleLowerCase())}`]:
                             oneData.primaryLanguage?.name !== "",
                     },
-                    { "no-lang": oneData.primaryLanguage?.name === "" },
+                    { "no-lang": !oneData.primaryLanguage },
                 ]}
             >
                 <div class="svgRepo">
