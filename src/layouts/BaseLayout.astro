@@ -40,8 +40,8 @@ const goodTitle = addTitle ? `${title} - n4n5.dev` : title;
                     const oldTime = storageOldTime ? parseInt(storageOldTime) : Infinity;
                     const oldColor = window.localStorage.getItem("color") || color;
                     // 5 minutes
-                    const timout = 5 * 60 * 1000;
-                    const isInTime = oldTime && currentTime - oldTime < timout;
+                    const timeout = 5 * 60 * 1000;
+                    const isInTime = oldTime && currentTime - oldTime < timeout;
                     if (color && isInTime) {
                         color = oldColor;
                     }

@@ -1,0 +1,6 @@
+[files]
+extend-exclude = [
+    "src/styles/markdown.css",
+    "Its-Just-Nans/data/projects/projects.json",
+    "Its-Just-Nans/data/pull_requests/pulls.json",
+]
