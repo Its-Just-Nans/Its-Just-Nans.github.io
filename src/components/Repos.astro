@@ -8,6 +8,7 @@ import type { SingleProject } from "./types";
 type ProjectOutput = SingleProject[];
 
 type Langs = Record<string, string>;
+const DEFAULT_COLOR = "#000000";
 
 //@ts-ignore
 const typedOutput = output as ProjectOutput;
@@ -19,7 +20,7 @@ const cleanLang = (l: string) => {
 const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
     const { name: lang, color: lang_color } = primaryLanguage ? primaryLanguage : { name: "", color: "" };
     if (!lang) return acc;
-    return { [cleanLang(lang)]: lang_color, ...acc };
+    return { [cleanLang(lang)]: lang_color ?? DEFAULT_COLOR, ...acc };
 }, {} as Langs);
 
 const rawStylesCSS = Object.entries(langs)
