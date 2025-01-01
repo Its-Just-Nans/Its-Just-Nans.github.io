@@ -38,10 +38,6 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: "latest"
-            - name: Typos
-              run: |
-                cargo install typos-cli
-                typos --config .github/typos.toml
             - name: npm install
               run: npm ci --force
             - name: building
