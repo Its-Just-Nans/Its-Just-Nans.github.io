@@ -3,10 +3,16 @@
 import output from "../../Its-Just-Nans/data/projects/projects.json";
 import packages from "../../Its-Just-Nans/data/packages.json";
 import SvgBadge from "../components/SvgBadge/SvgBadge.astro";
-import type { SingleProject } from "./types";
+import type { SingleProject, PackageList } from "./types";
 
-const allPackagesName = packages.map((onePlateform) => onePlateform.list).flat();
-allPackagesName.push("csv-to-custom-json-python");
+const allPackagesName = (packages as unknown as PackageList)
+    .map((onePlateform) =>
+        onePlateform.list.map((onePackage) => {
+            const packageLink = onePlateform.repos?.[onePackage];
+            return packageLink?.split("/").pop() ?? onePackage;
+        })
+    )
+    .flat();
 
 type ProjectOutput = SingleProject[];
 

@@ -9,3 +9,13 @@ export type SingleProject = {
         color: string;
     };
 };
+
+export type PackageList = {
+    name: string;
+    profile: string;
+    url: string;
+    stats: string;
+    list: string[];
+    shields: string[];
+    repos?: Record<string, string>;
+}[];
