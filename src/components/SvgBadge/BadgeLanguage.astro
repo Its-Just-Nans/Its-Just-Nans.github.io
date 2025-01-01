@@ -1,0 +1,40 @@
+---
+interface Props {
+    primaryLanguage?: {
+        color: string | null;
+        name: string;
+    };
+}
+
+const { primaryLanguage } = Astro.props;
+const language = primaryLanguage ?? { color: null, name: "" };
+const { color, name } = language;
+const correctColor = color ?? "#000000";
+---
+
+<g data-testid="main-card-body" transform="translate(0, 55)">
+    <g transform="translate(30, 45)">
+        {
+            primaryLanguage && (
+                <g transform="translate(0, 0)">
+                    <g data-testid="primary-lang">
+                        <circle data-testid="lang-color" cx="0" cy="-5" r="6" fill={correctColor} />
+                        <text data-testid="lang-name" class="gray" x="15">
+                            {name}
+                        </text>
+                    </g>
+                </g>
+            )
+        }
+    </g>
+</g>
+
+<style>
+    .gray {
+        font:
+            400 12px "Segoe UI",
+            Ubuntu,
+            Sans-Serif;
+        fill: #333;
+    }
+</style>
