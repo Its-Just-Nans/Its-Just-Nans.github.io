@@ -51,7 +51,14 @@ const chunks = splitStringByLength(svgData.description, maxLen);
                     )}
                 </>
             ) : (
-                <SvgBadgeGistHeader chunks={chunks} />
+                <>
+                    <SvgBadgeGistHeader chunks={chunks} />
+                    {isHovered && (
+                        <>
+                            <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
+                        </>
+                    )}
+                </>
             )
         }
     </svg>

@@ -15,7 +15,7 @@ const { chunks } = Astro.props;
             ></path>
         </svg>
     </g>
-    <g transform="translate(25, 0)">
+    <g transform="translate(25, 0)" class="fill">
         <text x="0" y="0"> Gist - </text>
         {
             chunks.map((oneChunk, i) => {
@@ -28,3 +28,9 @@ const { chunks } = Astro.props;
         }
     </g>
 </g>
+
+<style>
+    .fill {
+        fill: black;
+    }
+</style>
