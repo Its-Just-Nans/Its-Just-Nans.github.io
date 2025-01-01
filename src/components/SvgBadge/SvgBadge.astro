@@ -11,16 +11,17 @@ import Stargazers from "./Stargazers.astro";
 interface Props {
     svgData: SingleProject;
     isPackage: boolean;
+    isRepo: boolean;
+    isSchool: boolean;
+    isPoc: boolean;
     isHovered?: boolean;
 }
 
-const { svgData, isPackage, isHovered = false } = Astro.props;
-const isRepo = svgData.url.startsWith("https://github.com");
+const { svgData, isPackage, isHovered = false, isPoc, isRepo, isSchool } = Astro.props;
+const { name, stargazerCount, url, homepageUrl, primaryLanguage, description } = svgData;
+const desc = description ?? "";
 const maxLen = isRepo ? 56 : 34;
-const { name, stargazerCount, url, homepageUrl, primaryLanguage } = svgData;
-svgData.description = svgData.description || "";
-svgData.description = svgData.description.slice(0, 115);
-const chunks = splitStringByLength(svgData.description, maxLen);
+const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
 ---
 
 <div
@@ -37,7 +38,7 @@ const chunks = splitStringByLength(svgData.description, maxLen);
         {
             isRepo ? (
                 <>
-                    <SvgBadgeRepoHeader name={name} isPackage={isPackage} />
+                    <SvgBadgeRepoHeader name={name} isPackage={isPackage} isSchool={isSchool} isPoc={isPoc} />
                     {isHovered ? (
                         <>
                             <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
@@ -72,12 +73,12 @@ const chunks = splitStringByLength(svgData.description, maxLen);
         fill: var(--globalColor);
     }
 
-    .svg-github {
+    .svg-github svg {
         width: 400px;
         height: 120px;
     }
     @media only screen and (max-width: 600px) {
-        .svg-github {
+        .svg-github svg {
             width: 100%;
             height: 100%;
         }
