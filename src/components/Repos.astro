@@ -20,8 +20,12 @@ type Langs = Record<string, string>;
 const DEFAULT_COLOR = "#000000";
 const schoolChecker = ["DUT R&T", "TP"];
 
+const filterProjects = ({ name }: SingleProject) => {
+    return !["gitlab-proof"].includes(name);
+};
+
 //@ts-ignore
-const typedOutput = output as ProjectOutput;
+const typedOutput = output.filter(filterProjects) as ProjectOutput;
 
 const cleanLang = (l: string) => {
     return l.replaceAll(" ", "-").replaceAll("+", "p").replaceAll(".", "");
