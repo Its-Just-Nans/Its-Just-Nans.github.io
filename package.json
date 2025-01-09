@@ -21,29 +21,22 @@
         "astro": "astro",
         "check": "astro check"
     },
-    "dependencies": {
-        "@astrojs/check": "^0.9.4",
-        "@astrojs/mdx": "^3.1.9",
-        "@astrojs/rss": "^4.0.9",
-        "@astrojs/sitemap": "^3.2.1",
-        "@astrojs/svelte": "^5.6.0",
-        "@threlte/core": "^7.3.1",
-        "@threlte/extras": "^8.11.4",
-        "astro": "^4.16.16",
-        "astro-index": "^1.0.3",
-        "astro-simple-carousel": "^1.0.7",
-        "plugin-astro-content": "^1.0.2",
-        "typescript": "^5.7.2"
-    },
     "devDependencies": {
-        "@types/leaflet": "^1.9.14",
-        "@types/three": "^0.166.0",
-        "astro-barchart": "^1.0.4",
-        "leaflet": "^1.9.4",
-        "rehype-external-links": "^3.0.0",
-        "rehype-katex": "^7.0.0",
-        "remark-math": "^6.0.0",
-        "remark-toc": "^9.0.0",
-        "three": "^0.166.0"
+        "@astrojs/check": "0.9.4",
+        "@astrojs/mdx": "4.0.4",
+        "@astrojs/rss": "4.0.11",
+        "@astrojs/sitemap": "3.2.1",
+        "@astrojs/svelte": "7.0.3",
+        "astro": "5.1.4",
+        "astro-barchart": "1.0.7",
+        "astro-index": "1.0.4",
+        "astro-simple-carousel": "1.0.9",
+        "gray-matter": "^4.0.3",
+        "plugin-astro-content": "1.0.6",
+        "rehype-external-links": "3.0.0",
+        "rehype-katex": "7.0.1",
+        "remark-math": "6.0.0",
+        "remark-toc": "9.0.0",
+        "typescript": "5.7.3"
     }
 }

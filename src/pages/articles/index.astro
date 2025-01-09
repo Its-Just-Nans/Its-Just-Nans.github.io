@@ -2,8 +2,11 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlesList from "../../components/ArticlesList.astro";
 import { getAllArticles } from "../../components/utils";
+import type { MDXInstance } from "astro";
 
-const posts = await Astro.glob("/website-articles/**/*.mdx");
+const posts = Object.values(
+    import.meta.glob("/website-articles/**/*.mdx", { eager: true })
+) as unknown[] as MDXInstance<Record<string, any>>[];
 const { articles, articlesDrafts } = getAllArticles(posts);
 
 const correctArticles = import.meta.env.DEV ? articlesDrafts.concat(articles) : articles;

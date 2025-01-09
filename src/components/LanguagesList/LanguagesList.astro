@@ -1,15 +1,12 @@
 ---
-import { Image } from "astro:assets";
 import data from "./languages.json";
+import type { GlobImage } from "../types";
 
-const images = await Astro.glob("./icons/*").then((files) => {
-    return files.map((file) => file.default);
-});
+const imagesImported = Object.values(import.meta.glob("./icons/*", { eager: true })) as unknown[] as GlobImage[];
+const images = imagesImported.map((file) => file.default);
 const langs = data.map((e) => {
-    const correctLink = images.find(
-        (link) => link.src.split("/").pop().split(".").shift() === e.ico.split(".").shift()
-    );
-    return { ...e, ico: correctLink };
+    const correctLink = images.find(({ src }) => src.split("/").pop()!.split(".").shift() === e.ico.split(".").shift());
+    return { ...e, ico: correctLink!.src };
 });
 ---
 
@@ -19,7 +16,7 @@ const langs = data.map((e) => {
         langs.map((oneLang) => (
             <div class="lang">
                 <a href={oneLang.link} target="_blank" data-tooltip={oneLang.name}>
-                    <Image class="iconLang" alt={oneLang.name} src={oneLang.ico} />
+                    <img class="iconLang" alt={oneLang.name} src={oneLang.ico} />
                 </a>
             </div>
         ))

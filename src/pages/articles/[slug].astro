@@ -4,9 +4,12 @@ import Draft from "../../components/Draft.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllArticles, slugify } from "../../components/utils";
 import "../../styles/markdown.css";
+import type { MDXInstance } from "astro";
 
 export async function getStaticPaths() {
-    const posts = await Astro.glob("/website-articles/**/*.mdx");
+    const posts = Object.values(
+        import.meta.glob("/website-articles/**/*.mdx", { eager: true })
+    ) as unknown[] as MDXInstance<Record<string, any>>[];
     const { articles, articlesDrafts } = getAllArticles(posts);
     const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles; // TODO remove if
     const params = correctArticles.map((onePost) => {
