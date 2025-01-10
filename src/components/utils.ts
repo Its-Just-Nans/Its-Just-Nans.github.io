@@ -100,7 +100,7 @@ export const getAllArticles = (articlesGlob: ArticlesProps = []) => {
             new Date(a.frontmatter?.date || new Date()).getTime()
     );
     const articlesDrafts = sortedArticles.filter(({ frontmatter: { title, draft } }) => {
-        if (draft) {
+        if (import.meta.env.DEV && draft) {
             console.log("Draft article:", title);
         }
         return draft;
