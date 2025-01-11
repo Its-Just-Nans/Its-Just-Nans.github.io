@@ -9,8 +9,8 @@ interface Props {
 
 const { filename, size = 64, className } = Astro.props;
 const icoName = filename.split(".")[0];
-const icoPath = `/Its-Just-Nans/data/links/icons/${filename}`;
-const allIcons = import.meta.glob<{ default: ImageMetadata }>("/Its-Just-Nans/data/links/icons/*", {
+const icoPath = `./icons/${filename}`;
+const allIcons = import.meta.glob<{ default: ImageMetadata }>("./icons/*", {
     eager: true,
 });
 if (!allIcons[icoPath]) {

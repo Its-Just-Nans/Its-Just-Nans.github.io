@@ -4,7 +4,6 @@ import Draft from "../../components/Draft.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllArticles, slugify } from "../../components/utils";
 import "../../styles/markdown.css";
-import type { MDXInstance } from "astro";
 
 export async function getStaticPaths() {
     const { articles, articlesDrafts } = getAllArticles();

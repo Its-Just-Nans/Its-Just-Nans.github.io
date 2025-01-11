@@ -1,12 +1,11 @@
 ---
 import { slugify } from "../components/utils";
-
-import type { ArticlesProps } from "../components/utils";
+import type { ArticleType } from "../components/utils";
 import Time from "./Time.astro";
 
 interface Props {
-    articles: ArticlesProps;
-    drafts?: ArticlesProps;
+    articles: ArticleType[];
+    drafts?: ArticleType[];
     isAll?: boolean;
 }
 
