@@ -31,9 +31,7 @@ const links = [
                 links.map((oneLink) => (
                     <li>
                         <a class="onelink" href={oneLink.url} target="_blank" title={oneLink.url}>
-                            <p class="links-url" style="color: blue">
-                                {oneLink.title}
-                            </p>
+                            <p class="links-url">{oneLink.title}</p>
                         </a>
                     </li>
                 ))
@@ -48,8 +46,14 @@ const links = [
 <style>
     .onelink {
         display: block;
+        color: blue;
     }
-
+    .onelink:hover {
+        text-decoration: underline;
+    }
+    li {
+        width: max-content;
+    }
     .links-url {
         font-weight: bold;
     }
