@@ -1,17 +1,6 @@
 ---
-//@ts-ignore
-import data from "../../Its-Just-Nans/data/links/links.json";
-const a = Object.values(import.meta.glob("/Its-Just-Nans/data/links/icons/*", { eager: true })) as unknown[] as Record<
-    string,
-    any
->[];
-const images = a.map((file) => file.default);
-const links = data.map((e) => {
-    const correctLink = images.find(
-        (link) => link.src.split("/").pop().split(".").shift() === e.ico.split(".").shift()
-    );
-    return { ...e, ico: correctLink };
-});
+import links from "../../Its-Just-Nans/data/links/links.json";
+import LinksIco from "./LinksIco.astro";
 ---
 
 <article>
@@ -25,7 +14,7 @@ const links = data.map((e) => {
                             <tr>
                                 <td>
                                     <a href={oneLink.link} target="_blank" title={oneLink.name}>
-                                        <img src={oneLink.ico.src} class="iconSmall" alt={`icon ${oneLink.name}`} />
+                                        <LinksIco filename={oneLink.ico} size={32} />
                                     </a>
                                 </td>
                                 <td class="wordBreak hoverBlue">

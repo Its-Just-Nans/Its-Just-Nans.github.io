@@ -2,16 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlesList from "../../components/ArticlesList.astro";
 import { getAllArticles } from "../../components/utils";
-import type { MDXInstance } from "astro";
 
-export async function getData() {
-    const allPosts = Object.values(
-        import.meta.glob("/website-articles/**/*.mdx", { eager: true })
-    ) as unknown[] as MDXInstance<Record<string, any>>[];
-    return getAllArticles(allPosts);
-}
-
-const { articles, articlesDrafts } = await getData();
+const { articles, articlesDrafts } = await getAllArticles();
 ---
 
 <BaseLayout title="All articles" addTitle description="Read all articles by n4n5" keywords={[]}>

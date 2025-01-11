@@ -19,9 +19,3 @@ export type PackageList = {
     shields: string[];
     repos?: Record<string, string>;
 }[];
-
-export type GlobImage = {
-    default: {
-        src: string;
-    };
-};

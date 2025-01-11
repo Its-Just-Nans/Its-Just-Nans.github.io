@@ -1,22 +1,15 @@
 ---
 import data from "./languages.json";
-import type { GlobImage } from "../types";
-
-const imagesImported = Object.values(import.meta.glob("./icons/*", { eager: true })) as unknown[] as GlobImage[];
-const images = imagesImported.map((file) => file.default);
-const langs = data.map((e) => {
-    const correctLink = images.find(({ src }) => src.split("/").pop()!.split(".").shift() === e.ico.split(".").shift());
-    return { ...e, ico: correctLink!.src };
-});
+import LangIco from "./LangIco.astro";
 ---
 
 <h2>Languages</h2>
 <div class="center">
     {
-        langs.map((oneLang) => (
+        data.map((oneLang) => (
             <div class="lang">
                 <a href={oneLang.link} target="_blank" data-tooltip={oneLang.name}>
-                    <img class="iconLang" alt={oneLang.name} src={oneLang.ico} />
+                    <LangIco filename={oneLang.ico} className="iconLang" />
                 </a>
             </div>
         ))

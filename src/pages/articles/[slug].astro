@@ -7,10 +7,7 @@ import "../../styles/markdown.css";
 import type { MDXInstance } from "astro";
 
 export async function getStaticPaths() {
-    const posts = Object.values(
-        import.meta.glob("/website-articles/**/*.mdx", { eager: true })
-    ) as unknown[] as MDXInstance<Record<string, any>>[];
-    const { articles, articlesDrafts } = getAllArticles(posts);
+    const { articles, articlesDrafts } = getAllArticles();
     const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles; // TODO remove if
     const params = correctArticles.map((onePost) => {
         const slug = slugify(onePost.url);

@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    filename: string;
+    size?: number;
+    className?: string;
+}
+
+const { filename, size = 64, className } = Astro.props;
+const icoName = filename.split(".")[0];
+const icoPath = `./icons/${filename}`;
+const allIcons = import.meta.glob<{ default: ImageMetadata }>("./icons/*", {
+    eager: true,
+});
+if (!allIcons[icoPath]) {
+    throw new Error(`No icon found for ${icoPath} in ${JSON.stringify(allIcons)}`);
+}
+const correctIcon = allIcons[icoPath].default;
+---
+
+<Image src={correctIcon} alt={`${icoName} icon`} width={size} height={size} class={className} />

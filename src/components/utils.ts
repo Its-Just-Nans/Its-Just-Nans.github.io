@@ -91,9 +91,10 @@ export const getAllHistory = async ({ icons: images = [], txts = [] }: GetHistor
     return { history, historyDrafts };
 };
 
-export type ArticlesProps = MDXInstance<Record<string, any>>[];
+export type ArticleType = MDXInstance<Record<string, any>>;
 
-export const getAllArticles = (articlesGlob: ArticlesProps = []) => {
+export const getAllArticles = () => {
+    const articlesGlob = Object.values(import.meta.glob<ArticleType>("/website-articles/**/*.mdx", { eager: true }));
     const sortedArticles = articlesGlob.toSorted(
         (a, b) =>
             new Date(b.frontmatter?.date || new Date()).getTime() -
