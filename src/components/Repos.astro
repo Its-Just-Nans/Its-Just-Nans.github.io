@@ -4,6 +4,7 @@ import output from "../../Its-Just-Nans/data/projects/projects.json";
 import packages from "../../Its-Just-Nans/data/packages.json";
 import SvgBadge from "../components/SvgBadge/SvgBadge.astro";
 import type { SingleProject, PackageList } from "./types";
+import { repoFiltered, allBookmarked } from "./repoData";
 
 const allPackagesName = (packages as unknown as PackageList)
     .map((onePlateform) =>
@@ -21,7 +22,7 @@ const DEFAULT_COLOR = "#000000";
 const schoolChecker = ["DUT R&T", "TP"];
 
 const filterProjects = ({ name }: SingleProject) => {
-    return !["gitlab-proof"].includes(name);
+    return !repoFiltered.includes(name);
 };
 
 //@ts-ignore
@@ -103,10 +104,16 @@ const rawStylesCSS = Object.entries(langs)
             const { description, url, name, primaryLanguage } = oneData;
             const desc = description ?? "";
             const isPackage = allPackagesName.includes(name);
+            const isBookmark = allBookmarked.includes(name);
             const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
             const isPoc = desc.startsWith("PoC");
             const isRepo = url.startsWith("https://github.com");
             const langName = (primaryLanguage?.name ?? "").toLocaleLowerCase();
+            if (import.meta.env.DEV) {
+                if (isRepo && ![isPackage, isSchool, isPoc, isBookmark].some((x) => x)) {
+                    console.log(`'${name}' nothing`);
+                }
+            }
             return (
                 <div
                     class:list={[
@@ -124,11 +131,13 @@ const rawStylesCSS = Object.entries(langs)
                             isPoc={isPoc}
                             isSchool={isSchool}
                             isRepo={isRepo}
+                            isBookmark={isBookmark}
                         />
                     </div>
                     <div class="svgRepoHovered">
                         <SvgBadge
                             svgData={oneData}
+                            isBookmark={isBookmark}
                             isPackage={isPackage}
                             isPoc={isPoc}
                             isSchool={isSchool}

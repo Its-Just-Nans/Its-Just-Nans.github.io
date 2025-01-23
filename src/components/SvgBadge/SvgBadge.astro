@@ -14,10 +14,11 @@ interface Props {
     isRepo: boolean;
     isSchool: boolean;
     isPoc: boolean;
+    isBookmark: boolean;
     isHovered?: boolean;
 }
 
-const { svgData, isPackage, isHovered = false, isPoc, isRepo, isSchool } = Astro.props;
+const { svgData, isPackage, isHovered = false, isPoc, isRepo, isSchool, isBookmark } = Astro.props;
 const { name, stargazerCount, url, homepageUrl, primaryLanguage, description } = svgData;
 const desc = description ?? "";
 const maxLen = isRepo ? 56 : 34;
@@ -38,7 +39,13 @@ const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
         {
             isRepo ? (
                 <>
-                    <SvgBadgeRepoHeader name={name} isPackage={isPackage} isSchool={isSchool} isPoc={isPoc} />
+                    <SvgBadgeRepoHeader
+                        name={name}
+                        isPackage={isPackage}
+                        isSchool={isSchool}
+                        isPoc={isPoc}
+                        isBookmark={isBookmark}
+                    />
                     {isHovered ? (
                         <>
                             <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
