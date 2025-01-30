@@ -15,27 +15,27 @@ interface Props {
     isSchool: boolean;
     isPoc: boolean;
     isBookmark: boolean;
-    isHovered?: boolean;
 }
 
-const { svgData, isPackage, isHovered = false, isPoc, isRepo, isSchool, isBookmark } = Astro.props;
+const { svgData, isPackage, isPoc, isRepo, isSchool, isBookmark } = Astro.props;
 const { name, stargazerCount, url, homepageUrl, primaryLanguage, description } = svgData;
 const desc = description ?? "";
 const maxLen = isRepo ? 56 : 34;
 const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
 ---
 
-<div
-    class:list={[
-        "svg-github",
-        {
-            "svg-github-hovered": isHovered,
-        },
-    ]}
->
+<div class:list={["svg-github"]}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none">
-        <rect x="0.5" y="0.5" rx="4.5" height="99%" stroke="#e4e2e2" width="399" fill="#fffefe" stroke-opacity="1"
-        ></rect>
+        <rect
+            class="hovered-rect"
+            x="0.5"
+            y="0.5"
+            rx="4.5"
+            height="99%"
+            stroke="#e4e2e2"
+            width="399"
+            fill="#fffefe"
+            stroke-opacity="1"></rect>
         {
             isRepo ? (
                 <>
@@ -46,26 +46,21 @@ const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
                         isPoc={isPoc}
                         isBookmark={isBookmark}
                     />
-                    {isHovered ? (
-                        <>
-                            <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
-                        </>
-                    ) : (
-                        <>
-                            <RepoDescription chunks={chunks} />
-                            <BadgeLanguage primaryLanguage={primaryLanguage} />
-                            {stargazerCount && <Stargazers stargazerCount={stargazerCount} />}
-                        </>
-                    )}
+                    <g class="hovered">
+                        <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
+                    </g>
+                    <g class="not-hovered">
+                        <RepoDescription chunks={chunks} />
+                        <BadgeLanguage primaryLanguage={primaryLanguage} />
+                        {stargazerCount && <Stargazers stargazerCount={stargazerCount} />}
+                    </g>
                 </>
             ) : (
                 <>
                     <SvgBadgeGistHeader chunks={chunks} />
-                    {isHovered && (
-                        <>
-                            <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
-                        </>
-                    )}
+                    <g class="hovered">
+                        <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
+                    </g>
                 </>
             )
         }
@@ -73,11 +68,23 @@ const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
 </div>
 
 <style>
-    svg {
+    :global(.svgRepo:hover) .hovered-rect {
+        fill: var(--globalColor);
+    }
+    :global(.svgRepo:hover) .hovered {
         display: block;
     }
-    .svg-github-hovered rect {
-        fill: var(--globalColor);
+    :global(.svgRepo:hover) .not-hovered {
+        display: none;
+    }
+    .hovered {
+        display: none;
+    }
+    .not-hovered {
+        display: block;
+    }
+    svg {
+        display: block;
     }
 
     .svg-github svg {

@@ -134,17 +134,6 @@ const rawStylesCSS = Object.entries(langs)
                             isBookmark={isBookmark}
                         />
                     </div>
-                    <div class="svgRepoHovered">
-                        <SvgBadge
-                            svgData={oneData}
-                            isBookmark={isBookmark}
-                            isPackage={isPackage}
-                            isPoc={isPoc}
-                            isSchool={isSchool}
-                            isRepo={isRepo}
-                            isHovered
-                        />
-                    </div>
                 </div>
             );
         })
@@ -186,12 +175,6 @@ const rawStylesCSS = Object.entries(langs)
         color: blue;
     }
     .svgRepoHovered {
-        display: none;
-    }
-    .projectWrap:hover > :global(.svgRepoHovered) {
-        display: block;
-    }
-    .projectWrap:hover > :global(.svgRepo) {
         display: none;
     }
     .projectWrap {
