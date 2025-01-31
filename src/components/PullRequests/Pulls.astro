@@ -1,0 +1,80 @@
+---
+import OpenInNewTab from "../OpenInNewTab.astro";
+import type { PullRequest, RepoNode } from "./types";
+
+const CLEANER = ["https://github.com/Its-Just-Nans", "https://github.com/Bel-Art"];
+
+type RepoType = Record<string, RepoNode[]>;
+
+interface Props {
+    pulls: PullRequest[];
+}
+
+const { pulls } = Astro.props;
+
+const reposObj = pulls.reduce((acc, { node }) => {
+    const { baseRepository, state } = node;
+    const { url } = baseRepository;
+    if (state !== "MERGED") {
+        return acc;
+    }
+    if (CLEANER.some((oneUrl) => url.startsWith(oneUrl))) {
+        return acc;
+    }
+    if (!acc[url]) {
+        acc[url] = [];
+    }
+    acc[url].push(node);
+    return acc;
+}, {} as RepoType);
+---
+
+{
+    Object.entries(reposObj).map(([url, pullsList]) => {
+        return (
+            <div>
+                <details>
+                    <summary class="hovered-summary">
+                        <span>{url}</span>
+                        <a class="link" href={`${url}/pulls?q=author%3AIts-Just-Nans`} target="_blank">
+                            <OpenInNewTab width="12px" height="12px" />
+                        </a>
+                        <span class="number">({pullsList.length})</span>
+                    </summary>
+
+                    <div>
+                        {pullsList.map(({ title, url, createdAt }) => (
+                            <p class="pull">
+                                <a class="hovered" href={url} target="_blank">
+                                    {createdAt.slice(0, 10)} - {title}
+                                </a>
+                            </p>
+                        ))}
+                    </div>
+                </details>
+            </div>
+        );
+    })
+}
+
+<style>
+    .hovered-summary:hover .link :global(svg) {
+        fill: blue;
+    }
+    .hovered-summary:hover .number {
+        color: blue;
+    }
+    .hovered:hover {
+        text-decoration: underline;
+    }
+    .link {
+        vertical-align: middle;
+    }
+    summary {
+        cursor: pointer;
+    }
+    .pull {
+        margin: 1px 10px;
+        color: blue;
+    }
+</style>

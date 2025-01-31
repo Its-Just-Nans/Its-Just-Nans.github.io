@@ -1,0 +1,37 @@
+---
+//@ts-ignore
+import pulls from "../../../Its-Just-Nans/data/pull_requests/pulls.json";
+//@ts-ignore
+import NotGithub from "../../../Its-Just-Nans/data/pull_requests/not_github.json";
+import Pulls from "./Pulls.astro";
+import type { PullRequest } from "./types";
+
+//@ts-ignore
+const allPulls = (pulls as PullRequest[]).concat(NotGithub as PullRequest[]);
+
+// const allTotal = pulls.length;
+const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").length; // note:this is the filtered count
+// const repoTotal = Object.values(repos).flat(1).length;
+---
+
+<div class="pulls">
+    <div class="stats">
+        <h2>PRs</h2>
+        <p>
+            Total: {totalMergedCount}
+        </p>
+    </div>
+    <Pulls pulls={pulls as PullRequest[]} />
+    <br />
+    <Pulls pulls={NotGithub as PullRequest[]} />
+</div>
+
+<style>
+    .pulls {
+        text-align: left;
+        overflow-wrap: break-word;
+    }
+    .stats {
+        text-align: center;
+    }
+</style>
