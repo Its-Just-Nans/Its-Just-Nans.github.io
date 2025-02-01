@@ -6,7 +6,8 @@ const size = "16px";
 type ObjectType = { [k: string]: string };
 
 const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
-    return repos[onePackage] ?? `https://github.com/${user}/${onePackage}`;
+    const url = repos[onePackage] ?? `https://github.com/${user}/${onePackage}`;
+    return { url, path: url.replace("https://github.com/", "") };
 };
 ---
 
@@ -25,6 +26,13 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                             </a>
                         </>
                     )}
+                    {el.profile_urls &&
+                        el.profile_urls.map((profileUrl) => (
+                            <>
+                                <span> - </span>
+                                <img src={profileUrl} />
+                            </>
+                        ))}
                 </h2>
                 <div class="packages-list">
                     <table>
@@ -32,7 +40,7 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                             {el.list.map((onePackage) => {
                                 const link = el.url.replaceAll(":package", onePackage);
                                 const stats = el.stats && el.stats.replaceAll(":package", onePackage);
-                                const urlRepo = getCustomUrl(onePackage, (el.repos ?? {}) as ObjectType);
+                                const { url: urlRepo, path } = getCustomUrl(onePackage, (el.repos ?? {}) as ObjectType);
                                 return (
                                     <tr>
                                         <td class="github border-right">
@@ -82,6 +90,14 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                                                 ))}
                                             </>
                                         )}
+                                        <td class="border-right">
+                                            <a target="_blank" class="opennable" href={urlRepo}>
+                                                <img
+                                                    class="github-url"
+                                                    src={`https://img.shields.io/github/stars/${path}`}
+                                                />
+                                            </a>
+                                        </td>
                                     </tr>
                                 );
                             })}
@@ -94,6 +110,9 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
 </div>
 
 <style>
+    .github-url {
+        vertical-align: sub;
+    }
     table {
         border: 1px solid grey;
         color: black;
