@@ -1,0 +1,112 @@
+---
+import ClipboardIcon from "./ClipboardIcon.astro";
+import ServerIcon from "./ServerIcon.astro";
+
+interface Props {
+    command: string;
+    output: string;
+    open?: boolean;
+    server?: boolean;
+}
+
+const { command, output, open = false, server = false } = Astro.props;
+---
+
+<div class="command-line">
+    <details open={open}>
+        <summary>
+            <div class="summary">
+                <div class="command">
+                    {command}
+                </div>
+                <div class="icons">
+                    <div class="copy-button">
+                        <ClipboardIcon />
+                    </div>
+                    <script is:inline define:vars={{ command }}>
+                        document.currentScript.parentNode
+                            .querySelector(".copy-button")
+                            .addEventListener("click", (e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const element = e.currentTarget;
+                                const content = element.innerHTML;
+                                element.textContent = "copied!";
+                                setTimeout(() => {
+                                    element.innerHTML = content;
+                                }, 500);
+                                navigator.clipboard.writeText(command);
+                            });
+                    </script>
+                    {
+                        server && (
+                            <div>
+                                <ServerIcon />
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+        </summary>
+        <div class="command-line-output">
+            {output || <slot />}
+        </div>
+    </details>
+</div>
+
+<style>
+    .icons {
+        flex: 0.5;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        flex-direction: row;
+    }
+    details {
+        margin-bottom: 0px;
+    }
+    details[open] .command {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .copy-button :global(svg) {
+        vertical-align: sub;
+    }
+    .command-line {
+        margin-bottom: 20px;
+        /* border-top: 1px solid #24292e; */
+        /* border-bottom: 1px solid #24292e; */
+    }
+    .command-line-output {
+        color: white;
+        border-bottom: 1px solid #24292e;
+        border-left: 1px solid #24292e;
+        border-right: 1px solid #24292e;
+    }
+    .command-line-output > :global(*) {
+        margin: 16px;
+        padding: 16px;
+    }
+    .command-line-output > :global(pre) {
+        margin: 0;
+    }
+    .command {
+        background-color: #24292e;
+        color: #e1e4e8;
+        overflow-x: auto;
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        --border-radius: 6px;
+        border-radius: var(--border-radius);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .summary {
+        display: inline-flex;
+        width: 90%;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
