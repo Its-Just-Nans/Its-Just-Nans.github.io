@@ -82,12 +82,14 @@ const { command, output, open = false, server = false } = Astro.props;
         border-left: 1px solid #24292e;
         border-right: 1px solid #24292e;
     }
+    .command-line-output > :global(pre) {
+        padding: 16px;
+    }
     .command-line-output > :global(*) {
         padding: 16px 50px;
         margin: 0px;
     }
     .command-line-output > :global(*:last-child) {
-        padding: 16px 50px;
         margin-bottom: 10px;
     }
     .command-line-output > :global(pre) {
