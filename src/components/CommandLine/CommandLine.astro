@@ -78,17 +78,20 @@ const { command, output, open = false, server = false } = Astro.props;
         /* border-bottom: 1px solid #24292e; */
     }
     .command-line-output {
-        color: white;
         border-bottom: 1px solid #24292e;
         border-left: 1px solid #24292e;
         border-right: 1px solid #24292e;
     }
     .command-line-output > :global(*) {
-        margin: 16px;
-        padding: 16px;
+        padding: 16px 50px;
+        margin: 0px;
+    }
+    .command-line-output > :global(*:last-child) {
+        padding: 16px 50px;
+        margin-bottom: 10px;
     }
     .command-line-output > :global(pre) {
-        margin: 0;
+        margin: 0 !important;
     }
     .command {
         background-color: #24292e;
