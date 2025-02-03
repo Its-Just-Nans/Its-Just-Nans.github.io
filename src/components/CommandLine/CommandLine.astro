@@ -29,11 +29,11 @@ const { command, output, open = false, server = false } = Astro.props;
                             .addEventListener("click", (e) => {
                                 e.preventDefault();
                                 e.stopPropagation();
-                                const element = e.currentTarget;
-                                const content = element.innerHTML;
-                                element.textContent = "copied!";
+                                const element = e.currentTarget.getElementsByTagName("svg")[0];
+                                const oldFill = element.style.fill;
+                                element.style.fill = "green";
                                 setTimeout(() => {
-                                    element.innerHTML = content;
+                                    element.style.fill = oldFill;
                                 }, 500);
                                 navigator.clipboard.writeText(command);
                             });
