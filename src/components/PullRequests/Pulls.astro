@@ -32,7 +32,7 @@ const reposObj = pulls.reduce((acc, { node }) => {
 {
     Object.entries(reposObj).map(([url, pullsList]) => {
         return (
-            <div>
+            <div class="single-pr">
                 <details>
                     <summary class="hovered-summary">
                         <span>{url}</span>
@@ -58,6 +58,9 @@ const reposObj = pulls.reduce((acc, { node }) => {
 }
 
 <style>
+    .single-pr {
+        width: fit-content;
+    }
     .hovered-summary:hover .link :global(svg) {
         fill: blue;
     }
