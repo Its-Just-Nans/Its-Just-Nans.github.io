@@ -1,4 +1,28 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 Contact: mailto:me@n4n5.dev
 Encryption: https://n4n5.dev/.well-known/public_n4n5.txt
 Preferred-Languages: en, fr
 Canonical: https://n4n5.dev/.well-known/security.txt
+
+# this is signed with
+# gpg --output security.txt.sig --armor --detach-sig security.txt
+# cat security.txt.sig >> security.txt
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEc7kd8cRep4OPD0JZeUFOrcbUtFcFAmevK1AACgkQeUFOrcbU
+tFeWKw//YQlCy7LxWerwYOpAt5MD6qWb43Eljhb0F9/xLV8hrWJJoaU+H3TLbea7
+zoHI5U4cbQZmpRt63N5cTx84ZtM1ng3dORFfYVGCzcbYm6iuz1rKlyQ1NOGd+sNV
+w6Nx3A+PGhSq+w5FHEvdz1MnkzPAGCbZhEYvV0TEvb0FbDlkjK4fCuSsx9TnAW51
+kb5QHrq7MNWZ0/P+uOCXnK0OIok2Ku4qwNNXd7pzLifa+2lkBbS1AfyqdQNwJA9C
+KmWZkFYZrEYYqj4PO/K8c4KSkL3IwAdrImLqyLk0lkBuxV3/80uuRsuLHIhVzLU9
+hv9/ZIq91kclGy4JigEBzf5v0bPRSAccvpL8n4pm7BLfSXeC4cBQlAWZQowf3u+Z
+RyT55WRqdn88uqeaZaYIWkyYrZ5BTBXpqO6u629SbU+vt6hPfoXquUvqAuve+phf
+FNCgzwfaKncHRV1JY38Z7rYDhILoKS6tp9yLEMSSEXGS0iq8fex/+eoxk/b/izUz
+etxbLXyMrF25RqHjMYpthMmAGWWG8mzC4WqMlOYTApNOajcKpihb8yVE7u5wwvz0
+ms5iz8Z0/s4OC4c82ZVGZJkHRiKwLsBJCJnxewbcE6UaC7VcOKu3qdN9laJg6Nvw
+xerPM9Cu4RF/dMGD/Efi45e1VZdEWVFQDJ5GkNcfaUGjoHjtJCA=
+=aj1l
+-----END PGP SIGNATURE-----
