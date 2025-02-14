@@ -1,0 +1,19 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+# RFC 9116
+# https://securitytxt.org/
+
+# Please contact me if this field is not correct anymore
+Expires: 2026-02-02T11:00:00.000Z
+
+Contact: mailto:me@n4n5.dev
+Encryption: https://n4n5.dev/.well-known/public_n4n5.txt
+Preferred-Languages: en, fr
+Canonical: https://n4n5.dev/.well-known/security.txt
+
+# this is signed with
+# cat security_unsigned.txt > security.txt
+# gpg --output security.txt.sig --armor --detach-sig security.txt
+# cat security.txt.sig >> security.txt
+# rm security.txt.sig

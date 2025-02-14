@@ -1,28 +1,35 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
+# RFC 9116
+# https://securitytxt.org/
+
+# Please contact me if this field is not correct anymore
+Expires: 2026-02-02T11:00:00.000Z
+
 Contact: mailto:me@n4n5.dev
 Encryption: https://n4n5.dev/.well-known/public_n4n5.txt
 Preferred-Languages: en, fr
 Canonical: https://n4n5.dev/.well-known/security.txt
 
 # this is signed with
+# cat security_unsigned.txt > security.txt
 # gpg --output security.txt.sig --armor --detach-sig security.txt
 # cat security.txt.sig >> security.txt
-
+# rm security.txt.sig
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEc7kd8cRep4OPD0JZeUFOrcbUtFcFAmevK1AACgkQeUFOrcbU
-tFeWKw//YQlCy7LxWerwYOpAt5MD6qWb43Eljhb0F9/xLV8hrWJJoaU+H3TLbea7
-zoHI5U4cbQZmpRt63N5cTx84ZtM1ng3dORFfYVGCzcbYm6iuz1rKlyQ1NOGd+sNV
-w6Nx3A+PGhSq+w5FHEvdz1MnkzPAGCbZhEYvV0TEvb0FbDlkjK4fCuSsx9TnAW51
-kb5QHrq7MNWZ0/P+uOCXnK0OIok2Ku4qwNNXd7pzLifa+2lkBbS1AfyqdQNwJA9C
-KmWZkFYZrEYYqj4PO/K8c4KSkL3IwAdrImLqyLk0lkBuxV3/80uuRsuLHIhVzLU9
-hv9/ZIq91kclGy4JigEBzf5v0bPRSAccvpL8n4pm7BLfSXeC4cBQlAWZQowf3u+Z
-RyT55WRqdn88uqeaZaYIWkyYrZ5BTBXpqO6u629SbU+vt6hPfoXquUvqAuve+phf
-FNCgzwfaKncHRV1JY38Z7rYDhILoKS6tp9yLEMSSEXGS0iq8fex/+eoxk/b/izUz
-etxbLXyMrF25RqHjMYpthMmAGWWG8mzC4WqMlOYTApNOajcKpihb8yVE7u5wwvz0
-ms5iz8Z0/s4OC4c82ZVGZJkHRiKwLsBJCJnxewbcE6UaC7VcOKu3qdN9laJg6Nvw
-xerPM9Cu4RF/dMGD/Efi45e1VZdEWVFQDJ5GkNcfaUGjoHjtJCA=
-=aj1l
+iQIzBAABCgAdFiEEc7kd8cRep4OPD0JZeUFOrcbUtFcFAmevLPcACgkQeUFOrcbU
+tFfQvg/+ObRwmRTgOxcl2VZAOMhnz9p5Y3lJOE4RV69XxLNwuAB7xpK49qeRbFf3
+ZN8L79LVRAppxFCemk5/uXC3TpGEFVc52u+sO/1Gg0cALd8AzdSwA3yZrrsuRIIB
+y/4BECUNRl+SLIDq5QGy3JrGpUg18PHUextZo7p9E7m6FE3jwIcNzwlcLM6GjDKk
+DfPcBp6ZV9SiqVjWtQ74kpti42Ru8alDxRyl0hhLUdmDbP+tRwFqfqiRlP0fJjSC
+QSog0pL/SmuwcZAefus3pI5nH+Ry9kS4xr/ScAKTdmD2Lhj5gthqTfLEOCfert77
+UwBgp3IPSdPUltsWgI1hZdKa0t2zR0bSA0zG2hWX4mRC/MKcogneVfcKt2+OUqde
+O6PG+0lFy9IMOMiSs4/RwTmVWSiSoohlr86GiJWAloexb7IZ3eTclZKG1e6FkBY7
+j1Lj7DL2U3Yx3e0CHKNRkI0+FfIHIO7M7hmW+abEkKXeS08h3XcOOD2qN4qgyPtG
+ug/PShgEjr8uj0vSDpDn8OtIVM3pxn9LDGrlo7gN3xhSxg3K7PESZDVpmfvfxWCu
+Zp0Pw5aUSvtHyLhlHHU65TErxpFUGo1DAsFmJwNwJsdCXHJVugekyyT+mj0qylRj
+7RZxEyXGqRLoskHzDML0ll2/zF0IyI8qtIibwu14ZstkkQ2JKsY=
+=3jtC
 -----END PGP SIGNATURE-----
