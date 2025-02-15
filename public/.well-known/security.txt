@@ -1,5 +1,5 @@
 -----BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA256
+Hash: SHA512
 
 # RFC 9116
 # https://securitytxt.org/
@@ -13,23 +13,26 @@ Preferred-Languages: en, fr
 Canonical: https://n4n5.dev/.well-known/security.txt
 
 # this is signed with
-# cat security_unsigned.txt > security.txt
-# gpg --output security.txt.sig --armor --detach-sig security.txt
-# cat security.txt.sig >> security.txt
-# rm security.txt.sig
+# gpg --output security.txt --clear-sign security_unsigned.txt
+
+# verify with
+# curl -O https://n4n5.dev/.well-known/public_n4n5.txt
+# curl -O https://n4n5.dev/.well-known/security.txt
+# gpg --import public_n4n5.txt
+# gpg --verify security.txt
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEc7kd8cRep4OPD0JZeUFOrcbUtFcFAmevLPcACgkQeUFOrcbU
-tFfQvg/+ObRwmRTgOxcl2VZAOMhnz9p5Y3lJOE4RV69XxLNwuAB7xpK49qeRbFf3
-ZN8L79LVRAppxFCemk5/uXC3TpGEFVc52u+sO/1Gg0cALd8AzdSwA3yZrrsuRIIB
-y/4BECUNRl+SLIDq5QGy3JrGpUg18PHUextZo7p9E7m6FE3jwIcNzwlcLM6GjDKk
-DfPcBp6ZV9SiqVjWtQ74kpti42Ru8alDxRyl0hhLUdmDbP+tRwFqfqiRlP0fJjSC
-QSog0pL/SmuwcZAefus3pI5nH+Ry9kS4xr/ScAKTdmD2Lhj5gthqTfLEOCfert77
-UwBgp3IPSdPUltsWgI1hZdKa0t2zR0bSA0zG2hWX4mRC/MKcogneVfcKt2+OUqde
-O6PG+0lFy9IMOMiSs4/RwTmVWSiSoohlr86GiJWAloexb7IZ3eTclZKG1e6FkBY7
-j1Lj7DL2U3Yx3e0CHKNRkI0+FfIHIO7M7hmW+abEkKXeS08h3XcOOD2qN4qgyPtG
-ug/PShgEjr8uj0vSDpDn8OtIVM3pxn9LDGrlo7gN3xhSxg3K7PESZDVpmfvfxWCu
-Zp0Pw5aUSvtHyLhlHHU65TErxpFUGo1DAsFmJwNwJsdCXHJVugekyyT+mj0qylRj
-7RZxEyXGqRLoskHzDML0ll2/zF0IyI8qtIibwu14ZstkkQ2JKsY=
-=3jtC
+iQIzBAEBCgAdFiEEc7kd8cRep4OPD0JZeUFOrcbUtFcFAmew+bEACgkQeUFOrcbU
+tFepog/9GR64e4YVFx7wJuW6l/QnWtLg4PTXUc3y9por9k2QRAy/Lf20YUCTaoTK
+xVlITcVS8sZOIehFs3XguxvjXCiD0L+N8ir6oMJiPqxHdAiQ7ieBZbDNBS2tToFV
+VvyMPUufTRS/Y/vKBVQDUN+pCQb0Xrzdx+HIxRwZUEn3WKptOnpMq2xtEYStwXk6
+vW1NxoKZ99URgVMe1SpkPWsvWr+99Itj6bTSOkHnoYtWjNUeqSjyT4VZ1iSViiQ8
+nR6nX17u3P5ZIBXvhm3f+vvNTdgcVfGaKKMNhwyuYPGluLKp6z2HBpel8BpDMQbj
+SZdc14RpZv6jH8nsyBDrc6A2Ojag058DrKjRRIcPakUy51k6UiZnAtOuWiN5M2l2
+BC7pHBQ3FXqZeb1LeSpzyLNqTJtB9Pl33Z7hLRLuywi6pjwAAaRLFG9hDHAjzLk6
+N/WjndbVn94/f/rEdi5BUW5rp5gCXvBwkAnZBWiG8O1Smz6r3zRP9ACoUGcDfblN
+xeOMhdZJYoU88ZhJ0Jm6Ms/IyhJInvU55Ljdgpw9ZkxeOo0ZBUEBFJYuC1wq9xuw
+jmsZZVIqmAcOjcwk4d+Y+UK8cK2P4kBMTFpp87lGPLitliOl5WDsCVZH6Ui6vMjz
+Hif7E/99iKxS+DUqUnKnPkC4tQXNM2h2A4enn0uWeRRzBxd4HQU=
+=wIBk
 -----END PGP SIGNATURE-----
