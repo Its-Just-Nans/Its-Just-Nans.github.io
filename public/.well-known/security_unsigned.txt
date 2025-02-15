@@ -10,7 +10,7 @@ Preferred-Languages: en, fr
 Canonical: https://n4n5.dev/.well-known/security.txt
 
 # this is signed with
-# gpg --output security.txt --clear-sign security_unsigned.txt
+# rm security.txt && gpg --output security.txt --clear-sign security_unsigned.txt
 
 # verify with
 # curl -O https://n4n5.dev/.well-known/public_n4n5.txt
