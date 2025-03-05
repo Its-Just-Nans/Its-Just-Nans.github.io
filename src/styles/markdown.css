@@ -1028,8 +1028,15 @@
     filter: invert(50%);
 }
 
-.markdown-body .katex .katex-html {
+.markdown-body .katex .katex-mathml {
     display: none;
+}
+
+.markdown-body .supercenter {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 768px) {
