@@ -1,4 +1,5 @@
 import type { MDXInstance } from "astro";
+import { parse } from "path";
 
 export const splitStringByLength = (inputString = "", chunkLength = 10) => {
     inputString = inputString || "";
@@ -26,13 +27,8 @@ export const slugify = (inputString = "") => {
     if (!inputString) {
         throw new Error("inputString is required");
     }
-    const lastPart = inputString.includes("/") ? inputString.split("/") : [inputString];
-    const filenameExt = lastPart.pop();
-    if (!filenameExt) {
-        throw new Error("filename is required");
-    }
-    const filename = filenameExt.split(".").shift();
-    return filename?.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
+    const { name: inputName } = parse(inputString);
+    return inputName.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
 };
 
 export const sortByDate = (a: MDXInstance<Record<string, any>>, b: MDXInstance<Record<string, any>>) => {
@@ -91,7 +87,20 @@ export const getAllHistory = async ({ icons: images = [], txts = [] }: GetHistor
     return { history, historyDrafts };
 };
 
-export type ArticleType = MDXInstance<Record<string, any>>;
+export type FrontMatter = {
+    title: string;
+    description: string;
+    hidden?: boolean;
+    date: string;
+    draft?: boolean;
+    date1?: string;
+    date2?: string;
+    ico: string;
+    slug: string;
+    keywords: string[];
+};
+
+export type ArticleType = MDXInstance<FrontMatter>;
 
 export const getAllArticles = () => {
     const articlesGlob = Object.values(import.meta.glob<ArticleType>("/website-articles/**/*.mdx", { eager: true }));

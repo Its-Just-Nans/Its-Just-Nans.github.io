@@ -1,17 +1,21 @@
 ---
 import "../styles/markdown.css";
 import Time from "./Time.astro";
+import type { FrontMatter } from "./utils";
 
-const { data, type = "article" } = Astro.props;
-const { title, date, draft, hidden, description, ico = "" } = data;
+interface Props {
+    data: FrontMatter;
+    slug: string;
+}
+
+const { data, slug } = Astro.props;
+const { title, date, draft, hidden, description } = data;
 const realDate = date ? new Date(date) : new Date();
 ---
 
 <article>
     <div class:list={["headArticle", { animated: hidden }]}>
-        {type === "history" && ico && <img class="iconSmall" src={ico} alt={title} />}
         <h2 class="rainbow_text_animated">
-            {type === "history" && <span>History detail: </span>}
             {title}
             {hidden && <span class="hidden-span">(hidden)</span>}
             {draft && <span class="draft-span">(draft)</span>}
@@ -19,7 +23,13 @@ const realDate = date ? new Date(date) : new Date();
         <Time date={realDate} className="rainbow_text_animated" />
     </div>
     <div class="headArticleDesc">{description}</div>
-    <div class="hr"></div>
+    <div class="hr">
+        <a
+            href={`https://github.com/Its-Just-Nans/website-articles/tree/main/${slug}`}
+            target="_blank"
+            class="edit-link">Edit on github</a
+        >
+    </div>
     <div class="markdown-body">
         <slot />
     </div>
@@ -69,11 +79,26 @@ const realDate = date ? new Date(date) : new Date();
             background-position: 100% 0;
         }
     }
+    .edit-link {
+        display: block;
+        text-align: center;
+        padding: 2px;
+    }
     .hr {
         --border: 2px;
         border: var(--border) solid var(--globalColor);
         border-radius: 20px;
         margin-bottom: 20px;
+        background-color: var(--globalColor);
+    }
+    .hr * {
+        display: none;
+    }
+    .hr:hover {
+        --border: 4px;
+    }
+    .hr:hover * {
+        display: block;
     }
     .headArticle {
         --padding1: 10px;

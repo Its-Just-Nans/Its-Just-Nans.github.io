@@ -11,15 +11,14 @@ export async function getStaticPaths() {
     const params = correctArticles.map((onePost) => {
         const slug = slugify(onePost.url);
         return {
-            params: { slug: slug },
-            props: { post: onePost },
+            params: { slug },
+            props: { post: onePost, slug },
         };
     });
 
     return params;
 }
-
-const { post } = Astro.props;
+const { post, slug } = Astro.props;
 const { Content, frontmatter } = post;
 const { draft = false } = frontmatter;
 
@@ -28,7 +27,7 @@ const description = `${frontmatter.description} - article on n4n5.dev`;
 ---
 
 <BaseLayout title={frontmatter.title} addTitle description={description} keywords={frontmatter.keywords}>
-    <ArticleView data={frontmatter}>
+    <ArticleView data={frontmatter} slug={slug}>
         <RealContent />
     </ArticleView>
 </BaseLayout>
