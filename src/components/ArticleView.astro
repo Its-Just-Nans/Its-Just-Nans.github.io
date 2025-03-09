@@ -1,41 +1,119 @@
 ---
+import type { MarkdownHeading } from "astro";
 import "../styles/markdown.css";
 import Time from "./Time.astro";
 import type { FrontMatter } from "./utils";
 
 interface Props {
-    data: FrontMatter;
+    frontmatter: FrontMatter;
     slug: string;
+    headings: MarkdownHeading[];
 }
 
-const { data, slug } = Astro.props;
-const { title, date, draft, hidden, description } = data;
+const { frontmatter, slug, headings } = Astro.props;
+const { title, date, draft, hidden, description, toc } = frontmatter;
 const realDate = date ? new Date(date) : new Date();
 ---
 
-<article>
-    <div class:list={["headArticle", { animated: hidden }]}>
-        <h2 class="rainbow_text_animated">
-            {title}
-            {hidden && <span class="hidden-span">(hidden)</span>}
-            {draft && <span class="draft-span">(draft)</span>}
-        </h2>
-        <Time date={realDate} className="rainbow_text_animated" />
+<section>
+    <div class="section-wrap">
+        <div class:list={["headArticle", { animated: hidden }]}>
+            <h2 class="rainbow_text_animated">
+                {title}
+                {hidden && <span class="hidden-span">(hidden)</span>}
+                {draft && <span class="draft-span">(draft)</span>}
+            </h2>
+            <Time date={realDate} className="rainbow_text_animated" />
+        </div>
+        <div class="headArticleDesc">{description}</div>
+        <div class="hr">
+            <a
+                href={`https://github.com/Its-Just-Nans/website-articles/tree/main/${slug}`}
+                target="_blank"
+                class="edit-link">Edit on github</a
+            >
+        </div>
+        <div class:list={["content", { ["content-toc"]: toc }]}>
+            <div class="markdown-body">
+                <slot />
+            </div>
+            {
+                toc && (
+                    <div class="toc">
+                        <h2>Table of contents</h2>
+                        <ul>
+                            {headings.map((heading) => (
+                                <li class:list={["heading", { ["headings-depth-" + heading.depth]: true }]}>
+                                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )
+            }
+        </div>
     </div>
-    <div class="headArticleDesc">{description}</div>
-    <div class="hr">
-        <a
-            href={`https://github.com/Its-Just-Nans/website-articles/tree/main/${slug}`}
-            target="_blank"
-            class="edit-link">Edit on github</a
-        >
-    </div>
-    <div class="markdown-body">
-        <slot />
-    </div>
-</article>
+</section>
 
 <style>
+    .heading {
+        --spaceing: 10px;
+        list-style-type: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .heading:hover {
+        font-weight: bold;
+    }
+    .headings-depth-1 {
+        margin-left: calc(var(--spaceing) * 1);
+    }
+    .headings-depth-2 {
+        margin-left: calc(var(--spaceing) * 2);
+    }
+    .headings-depth-3 {
+        margin-left: calc(var(--spaceing) * 3);
+    }
+    .headings-depth-4 {
+        margin-left: calc(var(--spaceing) * 4);
+    }
+    .headings-depth-5 {
+        margin-left: calc(var(--spaceing) * 5);
+    }
+    .headings-depth-6 {
+        margin-left: calc(var(--spaceing) * 6);
+    }
+    section {
+        position: fixed;
+        bottom: 0px;
+        width: 100vw;
+        height: calc(100svh - var(--header));
+        overflow-y: scroll;
+        right: 0px;
+        box-sizing: border-box;
+        min-height: calc(100svh - var(--header));
+    }
+    .section-wrap {
+        padding-top: 10px;
+        padding-left: 10vw;
+        padding-right: 10vw;
+        padding-bottom: 100px;
+    }
+    .content {
+        position: relative;
+    }
+    .content-toc {
+        display: grid;
+        grid-template-columns: 80% 20%;
+    }
+    .toc {
+        position: sticky;
+        top: 0px;
+        align-self: start;
+        padding-left: 5px;
+        text-overflow: ellipsis;
+    }
     .headArticleDesc {
         text-align: center;
         --padding1: 10px;
@@ -112,6 +190,44 @@ const realDate = date ? new Date(date) : new Date();
     @media only screen and (max-width: 600px) {
         .headArticle {
             --padding2: 0px;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        .content-toc {
+            display: block;
+        }
+        .toc {
+            display: none;
+        }
+    }
+    @media only screen and (min-width: 1024px) {
+        .section-wrap {
+            padding-left: 15vw;
+            padding-right: 15vw;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        .section-wrap {
+            padding-top: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+    @media screen and (min-width: 512px) {
+        section::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        section::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     }
 </style>

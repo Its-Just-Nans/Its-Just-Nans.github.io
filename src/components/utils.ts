@@ -98,6 +98,7 @@ export type FrontMatter = {
     ico: string;
     slug: string;
     keywords: string[];
+    toc?: boolean;
 };
 
 export type ArticleType = MDXInstance<FrontMatter>;
