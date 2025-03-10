@@ -23,5 +23,3 @@ jobs:
                   submodules: "true"
             - name: typos-action
               uses: crate-ci/typos@v1.29.0
-              with:
-                  config: ./.github/typos.toml
