@@ -111,7 +111,7 @@ const rawStylesCSS = Object.entries(langs)
             const langName = (primaryLanguage?.name ?? "").toLocaleLowerCase();
             if (import.meta.env.DEV) {
                 if (isRepo && ![isPackage, isSchool, isPoc, isBookmark].some((x) => x)) {
-                    console.log(`'${name}' nothing`);
+                    console.log(`'${name}' is not tagged`);
                 }
             }
             return (

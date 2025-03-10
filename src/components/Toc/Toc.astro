@@ -20,12 +20,10 @@ const { headings } = Astro.props;
         }
     </ul>
     <script is:inline>
-        console.log("Toc component loaded");
         window.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     const id = entry.target.getAttribute("id");
-                    console.log(id);
                     if (entry.intersectionRatio > 0) {
                         document.querySelector(`.toc a[href="#${id}"]`).parentElement.classList.add("active");
                     } else {
