@@ -1,0 +1,92 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+    headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="toc">
+    <h2>Table of contents</h2>
+    <ul>
+        {
+            headings.map((heading) => (
+                <li class:list={["heading", { ["headings-depth-" + heading.depth]: true }]}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+            ))
+        }
+    </ul>
+    <script is:inline>
+        console.log("Toc component loaded");
+        window.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const id = entry.target.getAttribute("id");
+                    console.log(id);
+                    if (entry.intersectionRatio > 0) {
+                        document.querySelector(`.toc a[href="#${id}"]`).parentElement.classList.add("active");
+                    } else {
+                        document.querySelector(`.toc a[href="#${id}"]`).parentElement.classList.remove("active");
+                    }
+                });
+            });
+
+            // Track all sections that have an `id` applied
+            const titles = document.querySelectorAll(
+                "section h1[id], section h2[id], section h3[id], section h4[id], section h5[id], section h6[id]"
+            );
+            titles.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</div>
+
+<style>
+    .heading.active {
+        font-weight: bold;
+    }
+    .heading {
+        --spaceing: 10px;
+        list-style-type: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .heading:hover {
+        font-weight: bold;
+    }
+    .headings-depth-1 {
+        margin-left: calc(var(--spaceing) * 1);
+    }
+    .headings-depth-2 {
+        margin-left: calc(var(--spaceing) * 2);
+    }
+    .headings-depth-3 {
+        margin-left: calc(var(--spaceing) * 3);
+    }
+    .headings-depth-4 {
+        margin-left: calc(var(--spaceing) * 4);
+    }
+    .headings-depth-5 {
+        margin-left: calc(var(--spaceing) * 5);
+    }
+    .headings-depth-6 {
+        margin-left: calc(var(--spaceing) * 6);
+    }
+    .toc {
+        position: sticky;
+        top: 0px;
+        align-self: start;
+        padding-left: 5px;
+        text-overflow: ellipsis;
+    }
+    @media only screen and (max-width: 900px) {
+        .toc {
+            display: none;
+        }
+    }
+</style>

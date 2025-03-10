@@ -3,6 +3,7 @@ import type { MarkdownHeading } from "astro";
 import "../styles/markdown.css";
 import Time from "./Time.astro";
 import type { FrontMatter } from "./utils";
+import Toc from "./Toc/Toc.astro";
 
 interface Props {
     frontmatter: FrontMatter;
@@ -37,53 +38,12 @@ const realDate = date ? new Date(date) : new Date();
             <div class="markdown-body">
                 <slot />
             </div>
-            {
-                toc && (
-                    <div class="toc">
-                        <h2>Table of contents</h2>
-                        <ul>
-                            {headings.map((heading) => (
-                                <li class:list={["heading", { ["headings-depth-" + heading.depth]: true }]}>
-                                    <a href={`#${heading.slug}`}>{heading.text}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )
-            }
+            {toc && <Toc headings={headings} />}
         </div>
     </div>
 </section>
 
 <style>
-    .heading {
-        --spaceing: 10px;
-        list-style-type: none;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .heading:hover {
-        font-weight: bold;
-    }
-    .headings-depth-1 {
-        margin-left: calc(var(--spaceing) * 1);
-    }
-    .headings-depth-2 {
-        margin-left: calc(var(--spaceing) * 2);
-    }
-    .headings-depth-3 {
-        margin-left: calc(var(--spaceing) * 3);
-    }
-    .headings-depth-4 {
-        margin-left: calc(var(--spaceing) * 4);
-    }
-    .headings-depth-5 {
-        margin-left: calc(var(--spaceing) * 5);
-    }
-    .headings-depth-6 {
-        margin-left: calc(var(--spaceing) * 6);
-    }
     section {
         position: fixed;
         bottom: 0px;
@@ -106,13 +66,6 @@ const realDate = date ? new Date(date) : new Date();
     .content-toc {
         display: grid;
         grid-template-columns: 80% 20%;
-    }
-    .toc {
-        position: sticky;
-        top: 0px;
-        align-self: start;
-        padding-left: 5px;
-        text-overflow: ellipsis;
     }
     .headArticleDesc {
         text-align: center;
@@ -195,9 +148,6 @@ const realDate = date ? new Date(date) : new Date();
     @media only screen and (max-width: 900px) {
         .content-toc {
             display: block;
-        }
-        .toc {
-            display: none;
         }
     }
     @media only screen and (min-width: 1024px) {
