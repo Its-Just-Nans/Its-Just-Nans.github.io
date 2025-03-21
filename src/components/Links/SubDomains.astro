@@ -1,0 +1,104 @@
+---
+import subdomains from "../../../Its-Just-Nans/data/subdomains.json";
+---
+
+<details class="subdomains" open>
+    <summary>Subdomains</summary>
+    <br />
+    <div class="overflowTable">
+        <table>
+            <tbody>
+                {
+                    Object.entries(subdomains).map(([subdomain, desc]) => {
+                        const url = `https://${subdomain}`;
+                        return (
+                            <tr>
+                                <td>
+                                    <a href={url} target="_blank" title={desc}>
+                                        <img
+                                            src={`${url}/favicon.ico`}
+                                            alt={subdomain}
+                                            width="32"
+                                            height="32"
+                                            onerror="this.src='https://n4n5.dev/favicon.ico';"
+                                        />
+                                    </a>
+                                </td>
+                                <td class="wordBreak alignLeft">
+                                    <a href={url} target="_blank" title={url}>
+                                        {desc}
+                                    </a>
+                                </td>
+                                <td class="wordBreak hoverBlue alignRight">
+                                    <a href={url} target="_blank" title={url}>
+                                        {subdomain}
+                                    </a>
+                                </td>
+                                <td class="copyFn" data-link={url}>
+                                    <span title="Click to copy">
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            focusable="false"
+                                            class="copyIcon"
+                                        >
+                                            <g>
+                                                <path d="M10 19h8V8h-8v11zM8 7.992C8 6.892 8.902 6 10.009 6h7.982C19.101 6 20 6.893 20 7.992v11.016c0 1.1-.902 1.992-2.009 1.992H10.01A2.001 2.001 0 0 1 8 19.008V7.992z" />
+                                                <path d="M5 16V4.992C5 3.892 5.902 3 7.009 3H15v13H5zm2 0h8V5H7v11z" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </td>
+                            </tr>
+                        );
+                    })
+                }
+            </tbody>
+        </table>
+    </div>
+</details>
+
+<style>
+    .alignLeft {
+        text-align: left;
+    }
+    .alignRight {
+        text-align: right;
+    }
+    .subdomains summary {
+        text-align: center;
+        cursor: pointer;
+    }
+    table {
+        border: 1px solid grey;
+        color: black;
+        border-collapse: collapse;
+        margin: auto;
+        text-align: center;
+    }
+    td {
+        padding: 5px 10px;
+    }
+    tr {
+        border: 1px solid grey;
+    }
+    tbody > tr {
+        cursor: pointer;
+    }
+    .overflowTable {
+        overflow-y: auto;
+    }
+    .hoverBlue:hover {
+        color: blue;
+    }
+    .wordBreak {
+        word-break: break-word;
+    }
+    .copyIcon {
+        fill: black;
+    }
+    .copyIcon:hover {
+        fill: #228b22;
+    }
+</style>
