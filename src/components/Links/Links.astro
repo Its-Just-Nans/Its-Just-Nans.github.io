@@ -1,5 +1,6 @@
 ---
 import links from "../../../Its-Just-Nans/data/links/links.json";
+import SubDomains from "./SubDomains.astro";
 import LinksIco from "./LinksIco.astro";
 ---
 
@@ -13,9 +14,11 @@ import LinksIco from "./LinksIco.astro";
                         links.map((oneLink) => (
                             <tr>
                                 <td>
-                                    <a href={oneLink.link} target="_blank" title={oneLink.name}>
-                                        <LinksIco filename={oneLink.ico} size={32} />
-                                    </a>
+                                    {oneLink.ico && (
+                                        <a href={oneLink.link} target="_blank" title={oneLink.name}>
+                                            <LinksIco filename={oneLink.ico} size={32} />
+                                        </a>
+                                    )}
                                 </td>
                                 <td class="wordBreak hoverBlue">
                                     <a href={oneLink.link} target="_blank" title={oneLink.link}>
@@ -44,6 +47,10 @@ import LinksIco from "./LinksIco.astro";
                 </tbody>
             </table>
         </div>
+        <br />
+        <SubDomains />
+
+        <p>You can also use my email</p>
         <script is:inline>
             [...document.getElementsByClassName("copyFn")].forEach((e) => {
                 e.onclick = () => {
