@@ -12,7 +12,9 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
 ---
 
 <div class="packages">
-    <h1>Packages of <a href="/about/">{user}</a></h1>
+    <h1>
+        Packages of <a href="/about/">{user}</a><a href="./data.json" target="_blank" class="json-link">(json link)</a>
+    </h1>
     {
         packages.map((el) => (
             <>
@@ -110,6 +112,12 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
 </div>
 
 <style>
+    .json-link {
+        font-size: 12px;
+        color: blue;
+        text-decoration: none;
+        margin-left: 5px;
+    }
     .github-url {
         vertical-align: sub;
     }

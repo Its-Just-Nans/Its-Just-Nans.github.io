@@ -23,7 +23,7 @@ export const allBookmarked = [
     "rt",
     "rio",
     "golb",
-    "lettre-hebdomadaire.github.io",
+    "yakb",
 
     // websites with data
     "sportiva",
@@ -33,6 +33,7 @@ export const allBookmarked = [
     /// others
     "dotfiles",
     "can-be-useful",
+    "lettre-hebdomadaire.github.io",
 ];
 
 export const repoFiltered = ["gitlab-proof", "website-articles", "Its-Just-Nans", "golb-articles"];
