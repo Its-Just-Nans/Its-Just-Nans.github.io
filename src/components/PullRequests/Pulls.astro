@@ -34,7 +34,7 @@ const reposObj = pulls.reduce((acc, { node }) => {
         return (
             <div class="single-pr">
                 <details>
-                    <summary class="hovered-summary">
+                    <summary role="button" class="hovered-summary">
                         <span>{url}</span>
                         <a class="link" href={`${url}/pulls?q=author%3AIts-Just-Nans`} target="_blank">
                             <OpenInNewTab width="12px" height="12px" />

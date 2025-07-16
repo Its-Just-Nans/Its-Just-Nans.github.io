@@ -52,7 +52,7 @@ const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
                     <g class="not-hovered">
                         <RepoDescription chunks={chunks} />
                         <BadgeLanguage primaryLanguage={primaryLanguage} />
-                        {stargazerCount && <Stargazers stargazerCount={stargazerCount} />}
+                        {stargazerCount != 0 && <Stargazers stargazerCount={stargazerCount} />}
                     </g>
                 </>
             ) : (

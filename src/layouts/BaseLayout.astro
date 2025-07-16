@@ -14,7 +14,7 @@ const { title, description, addTitle = false, keywords, defaultKeywords } = Astr
 const goodTitle = addTitle ? `${title} - n4n5.dev` : title;
 ---
 
-<Base lang={"en-EN"} title={goodTitle} description={description} keywords={keywords} defaultKeywords={defaultKeywords}>
+<Base title={goodTitle} description={description} keywords={keywords} defaultKeywords={defaultKeywords}>
     <Fragment slot="head-slot">
         <link
             rel="stylesheet"
