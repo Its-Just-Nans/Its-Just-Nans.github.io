@@ -119,3 +119,20 @@ export const getAllArticles = () => {
     const articles = sortedArticles.filter(({ frontmatter: { draft } }) => !draft);
     return { articles, articlesDrafts };
 };
+
+export const getItemsRSS = () => {
+    const { articles } = getAllArticles();
+    const nonHidden = articles.filter(({ frontmatter: { hidden } }) => !hidden);
+
+    return nonHidden.map(({ frontmatter, url }) => {
+        const { title, description = "", date } = frontmatter;
+        const pubDate = date ? new Date(date) : new Date();
+        const link = `/articles/${slugify(url)}`;
+        return {
+            title,
+            pubDate,
+            description,
+            link,
+        };
+    });
+};
