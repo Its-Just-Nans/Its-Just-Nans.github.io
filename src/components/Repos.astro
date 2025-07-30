@@ -4,7 +4,7 @@ import output from "../../Its-Just-Nans/data/projects/projects.json";
 import packages from "../../Its-Just-Nans/data/packages.json";
 import SvgBadge from "../components/SvgBadge/SvgBadge.astro";
 import type { SingleProject, PackageList } from "./types";
-import { repoFiltered, allBookmarked } from "./repoData";
+import { repoFilter, allBookmarked } from "./repoData";
 
 const allPackagesName = (packages as unknown as PackageList)
     .map((onePlateform) =>
@@ -21,8 +21,9 @@ type Langs = Record<string, string>;
 const DEFAULT_COLOR = "#000000";
 const schoolChecker = ["DUT R&T", "TP"];
 
-const filterProjects = ({ name }: SingleProject) => {
-    return !repoFiltered.includes(name);
+const filterProjects = ({ description }: SingleProject) => {
+    if (!description) return false;
+    return !description.startsWith(repoFilter);
 };
 
 //@ts-ignore

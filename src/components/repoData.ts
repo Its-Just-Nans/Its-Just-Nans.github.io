@@ -6,6 +6,7 @@ export const allBookmarked = [
     "dojo-snake",
     "photo-copy",
     "php-list-api",
+    "motp",
 
     // utility website
     "lab",
@@ -36,4 +37,4 @@ export const allBookmarked = [
     "lettre-hebdomadaire.github.io",
 ];
 
-export const repoFiltered = ["gitlab-proof", "website-articles", "Its-Just-Nans", "golb-articles"];
+export const repoFilter = "🌐";
