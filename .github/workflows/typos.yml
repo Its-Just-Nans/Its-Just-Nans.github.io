@@ -20,6 +20,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
               with:
-                  submodules: "true"
+                submodules: 'true'
+                persist-credentials: false
             - name: typos-action
               uses: crate-ci/typos@v1.29.0
