@@ -1,7 +1,8 @@
 ---
 // import { ViewTransitions } from "astro:transitions";
+import { pseudo, website } from "../pages";
 
-const baseDesc = "The page of Its-Just-Nans aka n4n5. Here you can view my projects and get information about me !";
+const baseDesc = `The page of ${pseudo}. Here you can view my projects and get information about me !`;
 interface Props {
     title: string;
     description?: string;
@@ -10,13 +11,13 @@ interface Props {
 }
 
 const {
-    title = "n4n5.dev",
+    title = website,
     description = baseDesc,
     keywords = [],
-    defaultKeywords = ["n4n5", "dev", "n4n5.dev"],
+    defaultKeywords = [pseudo, "dev", website],
 } = Astro.props;
 const img = "/cover.png";
-const domain = "n4n5.dev";
+const domain = website;
 const url = `https://${domain}`;
 const key = "8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4";
 const canonical = `https://${domain}${Astro.url.pathname}`;

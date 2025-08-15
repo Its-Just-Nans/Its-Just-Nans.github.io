@@ -1,13 +1,14 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import LinksCompo from "@components/Links/Links.astro";
+import { pseudo } from "src/pages";
 ---
 
 <BaseLayout
     title="Links"
     addTitle
-    description="Related links to n4n5"
-    keywords={["n4n5 links", "links", "social media"]}
+    description=`Related links to ${pseudo}`
+    keywords={[`${pseudo} links`, "links", "social media"]}
 >
     <LinksCompo />
 </BaseLayout>

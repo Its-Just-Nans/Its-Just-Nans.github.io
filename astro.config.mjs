@@ -6,10 +6,11 @@ import rehypeExternalLinks from "rehype-external-links";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
 import svelte from "@astrojs/svelte";
+import { websiteUrl } from "./src/pages";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://n4n5.dev",
+    site: websiteUrl,
     integrations: [
         svelte(),
         mdx({

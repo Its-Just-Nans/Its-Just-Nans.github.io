@@ -3,18 +3,19 @@ import Base from "@layouts/Base.astro";
 import LanguagesList from "@components/LanguagesList/LanguagesList.astro";
 import MadeWith from "@components/MadeWith/MadeWith.astro";
 import Pseudonyms from "@components/Pseudonyms.astro";
+import { pseudo, websiteUrl } from "src/pages";
 ---
 
 <Base title="About" keywords={["about"]}>
     <section>
         <div class="center">
-            <h1>About <a href="/" class="link">n4n5</a></h1>
+            <h1>About <a href="/" class="link">{pseudo}</a></h1>
         </div>
         <h2>Pseudonyms</h2>
         <Pseudonyms />
         <LanguagesList />
         <h2>Packages</h2>
-        <a class="link" href="/packages/">https://n4n5.dev/packages/</a>
+        <a class="link" href="/packages/">{`${websiteUrl}/packages/`}</a>
         <h2>
             <a href="https://github.com/Its-Just-Nans" target="_blank" class="link">GitHub</a> stats <a
                 href="/lab/stats/"

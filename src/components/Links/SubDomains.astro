@@ -1,4 +1,5 @@
 ---
+import { websiteUrl } from "src/pages";
 import subdomains from "../../../Its-Just-Nans/data/subdomains.json";
 ---
 
@@ -20,7 +21,7 @@ import subdomains from "../../../Its-Just-Nans/data/subdomains.json";
                                             alt={subdomain}
                                             width="32"
                                             height="32"
-                                            onerror="this.src='https://n4n5.dev/favicon.ico';"
+                                            onerror={`this.src='${websiteUrl}/favicon.ico';`}
                                         />
                                     </a>
                                 </td>

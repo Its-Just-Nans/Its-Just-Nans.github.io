@@ -4,6 +4,7 @@ import Draft from "../../components/Draft.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllArticles, slugify } from "../../components/utils";
 import "../../styles/markdown.css";
+import { website } from "src/pages";
 
 export async function getStaticPaths() {
     const { articles, articlesDrafts } = getAllArticles();
@@ -25,7 +26,7 @@ const headings = post.getHeadings();
 const { draft = false } = frontmatter;
 
 const RealContent = draft ? (import.meta.env.DEV ? Content : Draft) : Content;
-const description = `${frontmatter.description} - article on n4n5.dev`;
+const description = `${frontmatter.description} - article on ${website}`;
 ---
 
 <BaseLayout title={frontmatter.title} addTitle description={description} keywords={frontmatter.keywords}>

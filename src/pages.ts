@@ -28,3 +28,7 @@ const nav = [
 ];
 
 export default nav;
+
+export const pseudo = "n4n5";
+export const website = `${pseudo}.dev`;
+export const websiteUrl = `https://${website}`;

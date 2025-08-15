@@ -2,10 +2,16 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlesList from "../../components/ArticlesList.astro";
 import { getAllArticles } from "../../components/utils";
+import { pseudo } from "src/pages";
 
 const { articles, articlesDrafts } = getAllArticles();
 ---
 
-<BaseLayout title="All articles" addTitle description="Read all articles by n4n5" keywords={[]}>
+<BaseLayout
+    title="All articles"
+    addTitle
+    description=`Read all articles by ${pseudo}`
+    keywords={["all articles", `${pseudo} articles`, "reading"]}
+>
     <ArticlesList articles={articles} drafts={articlesDrafts} isAll />
 </BaseLayout>

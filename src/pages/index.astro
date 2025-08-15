@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import IndexComponent from "../components/Index.astro";
+import { website } from "src/pages";
 ---
 
-<BaseLayout title="n4n5.dev" addTitle={false} keywords={[]}>
+<BaseLayout title={website} addTitle={false} keywords={[]}>
     <IndexComponent />
 </BaseLayout>

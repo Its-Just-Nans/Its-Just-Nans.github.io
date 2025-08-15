@@ -1,18 +1,20 @@
 ---
 import imgN4N5 from "../imgs/n4n5.png";
 import NavLinks from "./NavLinks.astro";
+
+import { pseudo } from "../pages";
 ---
 
 <header>
     <div class="title" transition:persist>
         <div class="titleContainer">
             <a href="/">
-                <h1 class="frontTitle cursorPointer">Its-Just-Nans</h1>
+                <h1 class="frontTitle cursorPointer">{pseudo}</h1>
             </a>
         </div>
-        <div class="imgContainer" data-tooltip="Its-Just-Nans / n4n5">
+        <div class="imgContainer" data-tooltip={pseudo}>
             <a href="/about/">
-                <img alt="logo-n4n5" class="cursorPointer" src={imgN4N5.src} />
+                <img alt={`logo-${pseudo}`} class="cursorPointer" src={imgN4N5.src} />
             </a>
         </div>
     </div>
