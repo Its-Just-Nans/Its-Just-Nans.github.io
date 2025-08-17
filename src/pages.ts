@@ -1,6 +1,6 @@
 const nav = [
     {
-        name: "About",
+        name: "Home",
         route: "/",
     },
     {
