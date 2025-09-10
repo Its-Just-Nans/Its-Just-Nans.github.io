@@ -1,21 +1,12 @@
 ---
 import "../styles/markdown.css";
-import { slugify } from "./utils";
+import { slugify, getArticleDate } from "./utils";
 
 const { item, index } = Astro.props;
 const { Content, frontmatter, ico = "", file } = item;
-const {
-    date1 = "",
-    date2 = "",
-    date_start = "",
-    date_end = "",
-    title = null,
-    isWork = false,
-    isSchool = false,
-    isProject = false,
-} = frontmatter;
-const dateStart = date1 || date_start;
-const dateEnd = date2 || date_end;
+const { date2 = "", title = null, isWork = false, isSchool = false, isProject = false } = frontmatter;
+const dateStart = getArticleDate(frontmatter);
+const dateEnd = date2;
 if (!isWork && !isSchool && !isProject) {
     // console.error("isWork, isSchool, isProject is false", title);
 }
@@ -34,7 +25,7 @@ const slug = slugify(file);
                 {dateEnd && <span class="date-end">{dateEnd.split("T")[0] || ""}</span>}
                 {dateEnd && <br />}
                 <span class:list={[{ "date-start": dateEnd }, { specialLineHeight: !dateEnd }]}>
-                    {dateStart.split("T")[0] || "?"}
+                    {dateStart.toISOString().split("T")[0] || "?"}
                 </span>
             </p>
             <div class="titleContainer">

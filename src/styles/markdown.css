@@ -102,6 +102,7 @@
 .markdown-body img {
     border-style: none;
     max-width: 100%;
+    height: auto;
     box-sizing: content-box;
     background-color: #ffffff;
 }

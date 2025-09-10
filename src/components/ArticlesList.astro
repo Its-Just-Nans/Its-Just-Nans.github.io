@@ -1,5 +1,5 @@
 ---
-import { slugify } from "../components/utils";
+import { getArticleDate, slugify } from "../components/utils";
 import type { ArticleType } from "../components/utils";
 import Time from "./Time.astro";
 
@@ -50,27 +50,35 @@ if (import.meta.env.DEV) {
 
     {
         allArticles.map((element) => {
-            const { date, description, title, draft, hidden } = element.frontmatter;
+            const { description, title, draft, hidden, tags } = element.frontmatter;
+            const date = getArticleDate(element.frontmatter);
+            const isSmall = Array.isArray(tags);
             const slug = slugify(element.url);
             const realDate = new Date(date || new Date());
             return (
                 <a href={`/articles/${slug}`}>
                     <div class="oneArticle" class:list={[{ coloredArticle: draft }]}>
                         <div class:list={["flexed", { "hidden-class": hidden }]}>
-                            <p class="articleTitle">
-                                <span>{title}</span>
-                            </p>
+                            <div class="articleTitleDiv">
+                                <span class="articleTitle">{title}</span>
+                                {!isSmall &&
+                                (
+                                    <span> - </span>
+                                    <span class="articleDesc">{description}</span>
+                                )}
+                            </div>
                             <p class="timestamp">
                                 <Time date={realDate} />
                             </p>
                         </div>
-                        <div class="flexed">
-                            <p class="articleDesc">{description}</p>
-                            <p class:list={["flexed", { "hidden-class": hidden }]}>
-                                {hidden && <span class="hidden-span">(hidden)</span>}
-                                {draft && <span class="draft-span">(draft)</span>}
-                            </p>
-                        </div>
+                        {(hidden || draft) && (
+                            <div class="flexed">
+                                <p class:list={["flexed", { "hidden-class": hidden }]}>
+                                    {hidden && <span class="hidden-span">(hidden)</span>}
+                                    {draft && <span class="draft-span">(draft)</span>}
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </a>
             );
@@ -123,22 +131,27 @@ if (import.meta.env.DEV) {
     .flexed .timestamp {
         text-align: end;
     }
-    .articleDesc {
-        display: block;
-    }
     .articleTitle {
         font-weight: bold;
         display: inline;
     }
+    .articleTitleDiv {
+        display: inline-block;
+    }
     .oneArticle {
         --padding1: 10px;
         --padding2: 20px;
-        display: block;
         margin-bottom: 20px;
+    }
+    .oneArticle {
+        display: block;
         padding: var(--padding1) var(--padding2);
-        --border: 2px;
         border: var(--border) solid var(--globalColor);
+        --border: 2px;
         border-radius: 5px;
+    }
+    .oneArticle p {
+        margin: 5px;
     }
     .coloredArticle {
         background-color: color-mix(in srgb, var(--globalColor), white 50%);

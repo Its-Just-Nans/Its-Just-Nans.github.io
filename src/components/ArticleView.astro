@@ -2,7 +2,7 @@
 import type { MarkdownHeading } from "astro";
 import "../styles/markdown.css";
 import Time from "./Time.astro";
-import type { FrontMatter } from "./utils";
+import { getArticleDate, type FrontMatter } from "./utils";
 import Toc from "./Toc/Toc.astro";
 
 interface Props {
@@ -12,7 +12,8 @@ interface Props {
 }
 
 const { frontmatter, slug, headings } = Astro.props;
-const { title, date, draft, hidden, description, toc } = frontmatter;
+const { title, draft, hidden, description, toc } = frontmatter;
+const date = getArticleDate(frontmatter);
 const realDate = date ? new Date(date) : new Date();
 ---
 
