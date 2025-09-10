@@ -4,3 +4,6 @@ extend-exclude = [
     "Its-Just-Nans/data/projects/projects.json",
     "Its-Just-Nans/data/pull_requests/pulls.json",
 ]
+
+[default.extend-words]
+typ = "typ"
