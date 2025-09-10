@@ -1,0 +1,20 @@
+---
+const { article = "", button = "reset" } = Astro.props;
+
+if (!article) {
+    throw new Error("<ResetState /> doesn't have article props");
+}
+
+const customId = `button-${article}-${Math.random().toString(36).substring(7)}`;
+---
+
+<div style="text-align: center;">
+    <button id={customId}>{button}</button>
+</div>
+
+<script is:inline define:vars={{ article, customId }}>
+    document.getElementById(customId).addEventListener("click", () => {
+        localStorage.removeItem(`${article}-state`);
+        window.location.reload();
+    });
+</script>

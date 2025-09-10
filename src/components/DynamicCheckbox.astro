@@ -1,0 +1,40 @@
+---
+const { article = "" } = Astro.props;
+
+const customId = `checkbox-${article}-${Math.random().toString(36).substring(7)}`;
+---
+
+<input type="checkbox" id={customId} />
+
+<script is:inline define:vars={{ article, customId }}>
+    let jsoned_state = localStorage.getItem(`${article}-state`);
+    if (!jsoned_state) {
+        state = {};
+        localStorage.setItem(`${article}-state`, JSON.stringify(state));
+    } else {
+        state = JSON.parse(jsoned_state);
+    }
+    const data = document.getElementsByTagName("input");
+    if (!state["checkboxes"]) {
+        state["checkboxes"] = {};
+        localStorage.setItem(`${article}-state`, JSON.stringify(state));
+    }
+    const currentElement = document.getElementById(customId);
+    currentElement.addEventListener("click", () => {
+        state["checkboxes"][
+            Array.from(data)
+                .findIndex((el) => el === currentElement)
+                .toString()
+        ] = currentElement.checked;
+        localStorage.setItem(`${article}-state`, JSON.stringify(state));
+    });
+    const currentCheckboxIndex = Array.from(data).findIndex(
+        (el) => el.id.startsWith(`checkbox-${article}`) && el === currentElement
+    );
+    if (typeof state["checkboxes"][currentCheckboxIndex.toString()] !== "undefined") {
+        currentElement.checked = state["checkboxes"][currentCheckboxIndex.toString()];
+    } else {
+        state["checkboxes"][currentCheckboxIndex.toString()] = false;
+        localStorage.setItem(`${article}-state`, JSON.stringify(state));
+    }
+</script>
