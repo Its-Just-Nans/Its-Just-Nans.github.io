@@ -20,11 +20,16 @@ const realDate = date ? new Date(date) : new Date();
 <section>
     <div class="section-wrap">
         <div class:list={["headArticle", { animated: hidden }]}>
-            <h2 class="rainbow_text_animated">
-                {title}
-                {hidden && <span class="hidden-span">(hidden)</span>}
-                {draft && <span class="draft-span">(draft)</span>}
-            </h2>
+            <div>
+                <a class="backLink" href="..">
+                    <span>&lt;-</span>
+                </a>
+                <h2 class="titleArticle rainbow_text_animated">
+                    {title}
+                    {hidden && <span class="hidden-span">(hidden)</span>}
+                    {draft && <span class="draft-span">(draft)</span>}
+                </h2>
+            </div>
             <Time date={realDate} className="rainbow_text_animated" />
         </div>
         <div class="headArticleDesc">{description}</div>
@@ -45,6 +50,16 @@ const realDate = date ? new Date(date) : new Date();
 </section>
 
 <style>
+    .backLink {
+        display: inline-block;
+        padding: 6px;
+        background-color: var(--globalColor);
+        border-radius: 25%;
+        margin-right: 20px;
+    }
+    .titleArticle {
+        display: inline-block;
+    }
     section {
         position: fixed;
         bottom: 0px;
