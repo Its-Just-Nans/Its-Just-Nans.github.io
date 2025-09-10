@@ -20,16 +20,16 @@ export async function getStaticPaths() {
     return params;
 }
 const { post, slug } = Astro.props;
-const { frontmatter } = post;
-const { Content } = post;
+const { Content, frontmatter } = post;
+const { draft = false, description } = frontmatter;
 const headings = post.getHeadings();
-const { draft = false } = frontmatter;
 
 const RealContent = draft ? (import.meta.env.DEV ? Content : Draft) : Content;
-const description = `${frontmatter.description} - article on ${website}`;
+const desc = description || frontmatter.title;
+const headDesc = `${desc} - article on ${website}`;
 ---
 
-<BaseLayout title={frontmatter.title} addTitle description={description} keywords={frontmatter.keywords}>
+<BaseLayout title={frontmatter.title} addTitle description={headDesc} keywords={frontmatter.keywords}>
     <ArticleView frontmatter={frontmatter} slug={slug} headings={headings}>
         <RealContent />
     </ArticleView>
