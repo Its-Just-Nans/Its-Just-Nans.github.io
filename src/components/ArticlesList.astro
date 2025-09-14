@@ -32,13 +32,13 @@ if (import.meta.env.DEV) {
                                 <br />
                             </>
                         )}
-                        <a href="/articles/rss.xml" target="_blank" class="more-link link-rss">
+                        <a href="/articles/rss.xml" target="_blank" class="more-link">
                             <span>RSS Feed to wait</span>
                         </a>
-                        <a href="https://thoughts.n4n5.dev" target="_blank" class="more-link link-thoughts">
-                            <span>thoughts</span>
+                        <a href="https://golb.n4n5.dev" target="_blank" class="more-link">
+                            <span>golb</span>
                         </a>
-                        <a href="https://yakb.n4n5.dev" target="_blank" class="more-link link-yakb">
+                        <a href="https://yakb.n4n5.dev" target="_blank" class="more-link">
                             <span>yakb</span>
                         </a>
                     </div>
@@ -89,6 +89,10 @@ if (import.meta.env.DEV) {
 <style>
     .more-link:hover {
         text-decoration: underline;
+    }
+    .more-link {
+        display: block;
+        color: blue;
     }
     .draft {
         display: flex;
@@ -162,17 +166,5 @@ if (import.meta.env.DEV) {
         --paddingHover2: calc(var(--padding2) - var(--border));
         padding: var(--paddingHover1) var(--paddingHover2);
         border: var(--border2) solid var(--globalColor);
-    }
-    .link-rss {
-        display: block;
-        color: blue;
-    }
-    .link-thoughts {
-        display: block;
-        color: blue;
-    }
-    .link-yakb {
-        display: block;
-        color: blue;
     }
 </style>
