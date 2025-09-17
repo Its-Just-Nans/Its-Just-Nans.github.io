@@ -8,9 +8,10 @@ type RepoType = Record<string, RepoNode[]>;
 
 interface Props {
     pulls: PullRequest[];
+    github?: boolean;
 }
 
-const { pulls } = Astro.props;
+const { pulls, github = false } = Astro.props;
 
 const reposObj = pulls.reduce((acc, { node }) => {
     const { baseRepository, state } = node;
@@ -31,12 +32,13 @@ const reposObj = pulls.reduce((acc, { node }) => {
 
 {
     Object.entries(reposObj).map(([url, pullsList]) => {
+        const pullUrls = github ? `${url}/pulls?q=author%3AIts-Just-Nans` : url;
         return (
             <div class="single-pr">
                 <details>
                     <summary role="button" class="hovered-summary">
                         <span>{url}</span>
-                        <a class="link" href={`${url}/pulls?q=author%3AIts-Just-Nans`} target="_blank">
+                        <a class="link" href={pullUrls} target="_blank">
                             <OpenInNewTab width="12px" height="12px" />
                         </a>
                         <span class="number">({pullsList.length})</span>

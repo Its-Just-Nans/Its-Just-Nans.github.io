@@ -21,7 +21,7 @@ const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").
     </div>
     <Pulls pulls={pulls as PullRequest[]} />
     <br />
-    <Pulls pulls={NotGithub as PullRequest[]} />
+    <Pulls pulls={NotGithub as PullRequest[]} github={false} />
 </div>
 
 <style>
