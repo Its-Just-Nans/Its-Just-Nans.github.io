@@ -1,8 +1,9 @@
 ---
 import imgN4N5 from "../imgs/n4n5.png";
-import NavLinks from "./NavLinks.astro";
-
+import nav from "../pages.js";
 import { pseudo } from "../pages";
+
+const url = Astro.url;
 ---
 
 <header>
@@ -18,21 +19,37 @@ import { pseudo } from "../pages";
             </a>
         </div>
     </div>
-    <div class="headerMenuSpacing">
+    <div class="headerMenuSpacing"></div>
+    <div class="navLinks">
         <span class="smallMenu">
             <label for="checkboxMenu" class="smallMenuTitle">Menu</label>
             <input type="checkbox" id="checkboxMenu" />
             <span class="underSmallMenu">
-                <NavLinks />
+                {
+                    nav.map(({ route, name, func }) => {
+                        const link = func ? func(url, route) : route;
+                        return (
+                            <a href={link}>
+                                <h2 class="menuLinks">{name}</h2>
+                            </a>
+                        );
+                    })
+                }
             </span>
         </span>
-    </div>
-    <div class="navLinks">
-        <NavLinks />
     </div>
 </header>
 
 <style>
+    .menuLinks:hover {
+        text-decoration: underline;
+    }
+    .menuLinks {
+        font-size: 1.2em;
+        font-weight: 200;
+        cursor: pointer;
+        display: inline-block;
+    }
     .cursorPointer {
         cursor: pointer;
     }
@@ -84,12 +101,7 @@ import { pseudo } from "../pages";
     .headerMenuSpacing {
         flex: 0.25;
     }
-    .smallMenu {
-        display: none;
-    }
-    .underSmallMenu {
-        display: none;
-    }
+
     #checkboxMenu {
         display: none;
     }
@@ -109,29 +121,55 @@ import { pseudo } from "../pages";
     .navLinks::-webkit-scrollbar-thumb {
         background: #888;
     }
-    :global(.navLinks a:first-child h2) {
-        margin-left: 10px;
-    }
-
     label {
         font-size: 1.2em;
         font-weight: 200;
         cursor: pointer;
     }
 
-    :global(.navLinks .menuLinks) {
+    .navLinks .menuLinks {
         margin-right: 10px;
     }
     .smallMenuTitle {
-        display: block;
-        margin: 0px;
-        padding-top: 20px;
+        display: none;
     }
-    .smallMenuTitle:hover {
-        text-decoration: underline;
-        text-decoration-style: dotted;
+    .smallMenu {
+        flex: 1;
+    }
+    .underSmallMenu {
+        display: flex;
+    }
+    .navLinks a:first-child .menuLinks {
+        margin-right: 10px;
+        margin-left: 10px;
     }
     @media screen and (max-width: 1024px) {
+        .navLinks a .menuLinks {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .headerMenuSpacing {
+            display: none;
+        }
+        .navLinks {
+            flex: 0.3;
+        }
+        .underSmallMenu {
+            display: none;
+        }
+        .smallMenuTitle {
+            display: block;
+            margin: 0px;
+            padding-top: 10px;
+            height: 100%;
+        }
+        .smallMenuTitle:hover {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        .menuLinks {
+            display: block;
+        }
         .title {
             border-right: none;
         }
@@ -139,9 +177,6 @@ import { pseudo } from "../pages";
             flex: 0.7;
         }
 
-        .headerMenuSpacing {
-            flex: 0.3;
-        }
         .frontTitle {
             font-size: 1.5em;
         }
@@ -149,18 +184,15 @@ import { pseudo } from "../pages";
             height: 50%;
             margin-top: 10px;
         }
-        .navLinks {
-            display: none;
-        }
-        .smallMenu {
+        #checkboxMenu:checked ~ .underSmallMenu {
             display: block;
-            min-height: 100%;
+            position: fixed;
+            top: calc(var(--header) - 1px);
             background-color: var(--globalColor);
             border-bottom: 1px solid black;
             border-left: 1px solid black;
-        }
-        #checkboxMenu:checked ~ .underSmallMenu {
-            display: block;
+            width: calc(30% - 7px);
+            right: 0px;
         }
     }
 </style>
