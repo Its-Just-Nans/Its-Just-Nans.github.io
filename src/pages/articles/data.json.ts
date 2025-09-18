@@ -1,4 +1,4 @@
-import { getItemsRSS } from "../../components/utils";
+import { getItemsRSS } from "@components/utils";
 
 const articles = getItemsRSS();
 

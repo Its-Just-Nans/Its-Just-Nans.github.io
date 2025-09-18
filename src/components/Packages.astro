@@ -1,6 +1,6 @@
 ---
 import { pseudo } from "src/pages";
-import packages from "../../Its-Just-Nans/data/packages.json";
+import packages from "@data/packages.json";
 const user = "Its-Just-Nans";
 const size = "16px";
 
@@ -14,7 +14,8 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
 
 <div class="packages">
     <h1>
-        Packages of <a href="/about/">{pseudo}</a><a href="./data.json" target="_blank" class="json-link">(json link)</a>
+        Packages of <a href="/about/">{pseudo}</a><a href="./data.json" target="_blank" class="json-link">(json link)</a
+        >
     </h1>
     {
         packages.map((el) => (

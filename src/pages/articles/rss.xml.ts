@@ -1,6 +1,6 @@
 import type { APIContext } from "astro";
 import rss from "@astrojs/rss";
-import { getItemsRSS } from "../../components/utils";
+import { getItemsRSS } from "@components/utils";
 import { pseudo, websiteUrl } from "src/pages";
 
 const articles = getItemsRSS();
