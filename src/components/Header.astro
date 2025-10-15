@@ -2,6 +2,7 @@
 import imgN4N5 from "../imgs/n4n5.png";
 import nav from "../pages.js";
 import { pseudo } from "../pages";
+import { Image } from "astro:assets";
 
 const url = Astro.url;
 ---
@@ -15,7 +16,7 @@ const url = Astro.url;
         </div>
         <div class="imgContainer" data-tooltip={pseudo}>
             <a href="/about/">
-                <img alt={`logo-${pseudo}`} class="cursorPointer" src={imgN4N5.src} />
+                <Image src={imgN4N5} alt="{`logo-${pseudo}`}" class="cursorPointer" width={100} height={100} />
             </a>
         </div>
     </div>
