@@ -42,6 +42,7 @@ export type FrontMatter = {
     keywords: string[];
     tags: string[];
     toc?: boolean;
+    needKatex?: boolean;
 };
 
 export type ArticleType = MDXInstance<FrontMatter>;

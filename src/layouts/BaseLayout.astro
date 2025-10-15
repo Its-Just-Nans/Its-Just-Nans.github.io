@@ -9,20 +9,25 @@ interface Props {
     description?: string;
     keywords: string[];
     defaultKeywords?: string[];
+    needKatex?: boolean;
 }
 
-const { title, description, addTitle = false, keywords, defaultKeywords } = Astro.props;
+const { title, description, addTitle = false, needKatex = false, keywords, defaultKeywords } = Astro.props;
 const goodTitle = addTitle ? `${title} - ${website}` : title;
 ---
 
 <Base title={goodTitle} description={description} keywords={keywords} defaultKeywords={defaultKeywords}>
     <Fragment slot="head-slot">
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
-            integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
-            crossorigin="anonymous"
-        />
+        {
+            needKatex && (
+                <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+                    integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+                    crossorigin="anonymous"
+                />
+            )
+        }
     </Fragment>
     <Fragment slot="body-slot">
         <App>
