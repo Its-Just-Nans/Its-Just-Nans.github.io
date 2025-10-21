@@ -7,6 +7,3 @@ extend-exclude = [
     "website-articles/pact/pact.mdx",
     "website-articles/tocs/tocs.mdx",
 ]
-
-[default.extend-words]
-typ = "typ"
