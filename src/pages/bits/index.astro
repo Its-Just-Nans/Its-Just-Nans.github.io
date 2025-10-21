@@ -1,0 +1,66 @@
+---
+import Base from "@layouts/Base.astro";
+import { Content } from "@data/bits/README.md";
+---
+
+<Base
+    title={"Bits"}
+    description={"Bits - collection of useful links"}
+    keywords={["bits", "links", "links", "collection", "ressources"]}
+>
+    <Fragment slot="head-slot"> </Fragment>
+    <Fragment slot="body-slot">
+        <div class="article-body">
+            <Content />
+        </div>
+    </Fragment>
+</Base>
+
+<style is:global>
+    .article-body a {
+        background-color: transparent;
+        color: #0969da;
+        text-decoration: none;
+    }
+    .article-body li {
+        line-height: 1.35;
+    }
+    .article-body h2 {
+        font-weight: 600;
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+    }
+
+    .article-body h1,
+    .article-body h2,
+    .article-body h3,
+    .article-body h4,
+    .article-body h5,
+    .article-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+    .article-body {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+    }
+    html {
+        font-family: system-ui, sans-serif;
+        background-color: snow;
+    }
+    body::-webkit-scrollbar {
+        width: 10px;
+        height: 5px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    body::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+</style>
