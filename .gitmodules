@@ -1,6 +1,3 @@
-[submodule "website-articles"]
-	path = website-articles
-	url = git@github.com:Its-Just-Nans/website-articles.git
 [submodule "Its-Just-Nans"]
 	path = Its-Just-Nans
 	url = git@github.com:Its-Just-Nans/Its-Just-Nans.git

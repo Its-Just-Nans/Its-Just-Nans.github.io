@@ -48,7 +48,9 @@ export type FrontMatter = {
 export type ArticleType = MDXInstance<FrontMatter>;
 
 export const getAllArticles = () => {
-    const articlesGlob = Object.values(import.meta.glob<ArticleType>("/website-articles/**/*.mdx", { eager: true }));
+    const articlesGlob = Object.values(
+        import.meta.glob<ArticleType>("/Its-Just-Nans/website-articles/**/*.mdx", { eager: true })
+    );
     const sortedArticles = articlesGlob.toSorted(
         (a, b) => getArticleDate(b.frontmatter).getTime() - getArticleDate(a.frontmatter).getTime()
     );
