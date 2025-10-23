@@ -3,7 +3,7 @@ extend-exclude = [
     "src/styles/markdown.css",
     "Its-Just-Nans/data/projects/projects.json",
     "Its-Just-Nans/data/pull_requests/pulls.json",
-    "website-articles/gta-chinatown-wars/gta-chinatown-wars.mdx",
-    "website-articles/pact/pact.mdx",
-    "website-articles/tocs/tocs.mdx",
+    "Its-Just-Nans/website-articles/gta-chinatown-wars/gta-chinatown-wars.mdx",
+    "Its-Just-Nans/website-articles/pact/pact.mdx",
+    "Its-Just-Nans/website-articles/tocs/tocs.mdx",
 ]
