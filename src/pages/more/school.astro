@@ -1,23 +1,5 @@
 ---
-import SimpleArticle from "@components/SimpleArticle.astro";
-import SimpleArticleLine from "@components/SimpleArticleLine.astro";
-import { getOthersArticles } from "@components/utils";
-
-const { articles } = getOthersArticles();
-const data = articles.filter(({ frontmatter: { tags } }) => tags.includes("school"));
+import SimpleArticleList from "@components/SimpleArticleList.astro";
 ---
 
-<SimpleArticle title={"School"} description={"School"} keywords={["school"]}>
-    <h1>Schools</h1>
-    <ul>
-        {data.map((p) => <SimpleArticleLine post={p} absSlug />)}
-    </ul>
-</SimpleArticle>
-
-<style>
-    @media screen and (max-width: 800px) {
-        ul {
-            padding-inline-start: 15px;
-        }
-    }
-</style>
+<SimpleArticleList title="School" tag="school" />
