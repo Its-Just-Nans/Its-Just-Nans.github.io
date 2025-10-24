@@ -6,9 +6,10 @@ import { getOthersArticles } from "@components/utils";
 interface Props {
     tag: string;
     title: string;
+    startSlug: string;
 }
 
-const { tag, title } = Astro.props;
+const { tag, title, startSlug } = Astro.props;
 
 const { articles } = getOthersArticles();
 const data = articles.filter(({ frontmatter: { tags } }) => tags.includes(tag));
@@ -17,7 +18,7 @@ const data = articles.filter(({ frontmatter: { tags } }) => tags.includes(tag));
 <SimpleArticle title={title} description={title} keywords={[tag]}>
     <h1>{title}s</h1>
     <ul>
-        {data.map((p) => <SimpleArticleLine post={p} startSlug={`/more/${tag}`} />)}
+        {data.map((p) => <SimpleArticleLine post={p} startSlug={startSlug} />)}
     </ul>
 </SimpleArticle>
 
