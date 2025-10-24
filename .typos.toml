@@ -5,6 +5,12 @@ Espace = "Mosquitto"
 # google verification key in <Header />
 8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4 = "8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4"
 
+# golb-articles - software.md
+snd_hda_intel = "snd_hda_intel"
+DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING = "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING"
+"ba" = "ba"
+
+
 [files]
 extend-exclude = [
     "src/styles/markdown.css",
