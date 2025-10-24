@@ -1,87 +1,12 @@
 ---
-import Base from "@layouts/Base.astro";
 import { Content } from "@data/bits/README.md";
+import SimpleArticle from "@components/SimpleArticle.astro";
 ---
 
-<Base
+<SimpleArticle
     title={"Bits"}
     description={"Bits - collection of useful links"}
     keywords={["bits", "links", "links", "collection", "resources"]}
 >
-    <Fragment slot="head-slot"> </Fragment>
-    <Fragment slot="body-slot">
-        <div class="article-body">
-            <Content />
-        </div>
-    </Fragment>
-</Base>
-
-<style is:global>
-    .article-body a {
-        background-color: transparent;
-        color: #0969da;
-        text-decoration: none;
-    }
-    .article-body li {
-        margin-top: 0.25em;
-    }
-    .article-body blockquote {
-        margin: 0;
-        padding: 0 1em;
-        color: #57606a;
-        border-left: 0.25em solid #d0d7de;
-    }
-    .article-body h2 {
-        font-weight: 600;
-        padding-bottom: 0.3em;
-        font-size: 1.5em;
-        border-bottom: 1px solid hsla(210, 18%, 87%, 1);
-    }
-    .article-body h1 {
-        padding-bottom: 0.3em;
-        border-bottom: 1px solid grey;
-    }
-
-    .article-body h1,
-    .article-body h2,
-    .article-body h3,
-    .article-body h4,
-    .article-body h5,
-    .article-body h6 {
-        margin-top: 24px;
-        margin-bottom: 16px;
-        font-weight: 600;
-    }
-    .article-body {
-        margin: 0 auto;
-        line-height: 1.5;
-        max-width: 800px;
-        padding: 20px;
-        overflow-wrap: break-word;
-        text-decoration-color: rgb(9, 105, 218);
-        font-family:
-            BlinkMacSystemFont,
-            Segoe UI,
-            Noto Sans,
-            Helvetica,
-            Arial,
-            sans-serif,
-            "Apple Color Emoji",
-            "Segoe UI Emoji";
-    }
-    html {
-        font-family: system-ui, sans-serif;
-        background-color: snow;
-    }
-    body::-webkit-scrollbar {
-        width: 10px;
-        height: 5px;
-    }
-
-    body::-webkit-scrollbar-thumb {
-        background: #888;
-    }
-    body::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-</style>
+    <Content />
+</SimpleArticle>

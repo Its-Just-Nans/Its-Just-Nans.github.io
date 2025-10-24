@@ -19,3 +19,5 @@ export type PackageList = {
     shields: string[];
     repos?: Record<string, string>;
 }[];
+
+export type PointsType = { name: string; coords: [number, number]; type: "place" }[];

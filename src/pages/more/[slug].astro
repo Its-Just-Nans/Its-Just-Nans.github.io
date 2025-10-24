@@ -1,0 +1,63 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { getOthersArticles, getEntrySlug } from "@components/utils";
+import Time from "@components/Time.astro";
+import SimpleArticle from "@components/SimpleArticle.astro";
+
+export const getStaticPaths = (async () => {
+    const { articles } = getOthersArticles();
+    return articles.map((post) => {
+        const slug = getEntrySlug(post);
+        return {
+            params: { slug },
+            props: { post },
+        };
+    });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+const { date, title } = frontmatter;
+const realDate = new Date(date);
+---
+
+<SimpleArticle title={title} description={`article about ${title.toLowerCase()}`} keywords={[]}>
+    <div class="under-title">
+        <a class="back-link" href="../"> 🔙 </a>
+        <span>
+            <span><Time date={realDate} /></span>
+        </span>
+    </div>
+    <hr />
+    <div class="markdown-body">
+        <h1>{title}</h1>
+        <Content />
+    </div>
+</SimpleArticle>
+
+<style>
+    .updated {
+        cursor: help;
+    }
+    .updated-date {
+        display: none;
+    }
+    .updated:hover .updated-date {
+        display: inline;
+    }
+    .under-title {
+        display: flex;
+        justify-content: space-between;
+    }
+    .back-link {
+        color: inherit;
+        text-decoration: none;
+    }
+    .article-body {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+    }
+</style>

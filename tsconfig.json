@@ -6,7 +6,9 @@
         "paths": {
             "@components/*": ["src/components/*"],
             "@layouts/*": ["src/layouts/*"],
-            "@data/*": ["Its-Just-Nans/data/*"]
+            "@data/*": ["Its-Just-Nans/data/*"],
+            "@others-articles/*": ["Its-Just-Nans/others-articles/*"],
+            "@scripts/*": ["src/scripts/*"]
         }
     }
 }

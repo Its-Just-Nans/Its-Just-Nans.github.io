@@ -1,5 +1,5 @@
 import type { MDXInstance } from "astro";
-import { parse } from "path";
+import { parse } from "node:path";
 
 export const splitStringByLength = (inputString = "", chunkLength = 10) => {
     inputString = inputString || "";
@@ -43,6 +43,7 @@ export type FrontMatter = {
     tags: string[];
     toc?: boolean;
     needKatex?: boolean;
+    customSlug?: string;
 };
 
 export type ArticleType = MDXInstance<FrontMatter>;
@@ -83,4 +84,31 @@ export const getItemsRSS = () => {
 
 export const getArticleDate = (frontmatter: FrontMatter) => {
     return new Date(frontmatter.date || new Date().toISOString());
+};
+
+export const getOthersArticles = () => {
+    const articlesGlob = Object.values(
+        import.meta.glob<ArticleType>("/Its-Just-Nans/others-articles/**/*.mdx", { eager: true })
+    );
+    const sortedArticles = articlesGlob.toSorted(
+        (a, b) => getArticleDate(b.frontmatter).getTime() - getArticleDate(a.frontmatter).getTime()
+    );
+    const articlesDrafts = sortedArticles.filter(({ frontmatter: { title, draft } }) => {
+        if (import.meta.env.DEV && draft) {
+            console.log("Draft article:", title);
+        }
+        return draft;
+    });
+    const articles = sortedArticles.filter(({ frontmatter: { draft } }) => !draft);
+    return { articles, articlesDrafts };
+};
+
+export const getEntrySlug = (post: ArticleType) => {
+    if (post.frontmatter.customSlug) {
+        return post.frontmatter.customSlug;
+    }
+    const fileUrl = post.file;
+    const idxSlash = fileUrl.lastIndexOf("/");
+    const idxDot = fileUrl.lastIndexOf(".");
+    return fileUrl.substring(idxSlash + 1, idxDot);
 };

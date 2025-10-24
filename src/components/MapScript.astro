@@ -1,0 +1,22 @@
+---
+import { downloadScript } from "@scripts/utils";
+
+await downloadScript({
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css": "leaflet.css",
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js": "leaflet.js",
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png": "images/marker-icon.png",
+    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png": "images/marker-shadow.png",
+});
+---
+
+<link
+    rel="stylesheet"
+    href="/downloaded/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+/>
+<script
+    is:inline
+    src="/downloaded/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>

@@ -1,0 +1,77 @@
+---
+import Time from "./Time.astro";
+import type { ArticleType } from "./utils";
+import { getEntrySlug } from "./utils";
+
+interface Props {
+    post: ArticleType;
+    absSlug?: boolean;
+}
+
+const { post, absSlug = false } = Astro.props;
+const { frontmatter } = post;
+const { title, date, draft, tags } = frontmatter;
+const slug = getEntrySlug(post);
+const trailingSlashSlug = slug.endsWith("/") ? slug : `${slug}/`;
+const href = absSlug ? `/more/${trailingSlashSlug}` : `${trailingSlashSlug}`;
+const tagsClass = tags.map((tag) => `tag-${tag}`);
+const realDate = new Date(date);
+
+const removeAccents = (str: string) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+---
+
+<li class="line-effect" class:list={tagsClass}>
+    <a href={href} class="article-link">
+        <div class="link-wrap">
+            {draft && <span class="draft">draft</span>}
+            <span class="date">
+                <Time date={realDate} />
+            </span>
+            <span class="link-dash">-</span>
+            <span class="link-title">{removeAccents(title)}</span>
+        </div>
+    </a>
+</li>
+
+<style>
+    .draft {
+        color: red;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .line-effect::before {
+        content: " ";
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        inset: 0 0 0 0;
+        background: Gainsboro;
+        z-index: -1;
+        transition: transform 0.3s ease;
+    }
+    .line-effect:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    .line-effect {
+        width: auto;
+        position: relative;
+    }
+    .date {
+        /* monospaced font */
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.8em;
+    }
+    .article-link {
+        color: black;
+        -webkit-tap-highlight-color: transparent;
+        flex: 1;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: lowercase;
+    }
+</style>

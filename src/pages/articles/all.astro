@@ -2,7 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ArticlesList from "@components/ArticlesList.astro";
 import { getAllArticles } from "@components/utils";
-import { pseudo } from "src/pages";
+import { pseudo } from "@scripts/pages";
 
 const { articles, articlesDrafts } = getAllArticles();
 ---

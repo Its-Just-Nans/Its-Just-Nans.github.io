@@ -4,7 +4,7 @@ import Draft from "@components/Draft.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getAllArticles, slugify } from "@components/utils";
 import "../../styles/markdown.css";
-import { website } from "src/pages";
+import { website } from "@scripts/pages";
 
 export async function getStaticPaths() {
     const { articles, articlesDrafts } = getAllArticles();

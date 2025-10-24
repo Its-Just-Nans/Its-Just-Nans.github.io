@@ -3,8 +3,8 @@
 import output from "@data/projects/projects.json";
 import packages from "@data/packages.json";
 import SvgBadge from "@components/SvgBadge/SvgBadge.astro";
-import type { SingleProject, PackageList } from "./types";
-import { repoFilter, allBookmarked } from "./repoData";
+import type { SingleProject, PackageList } from "../scripts/types";
+import { repoFilter, allBookmarked } from "../scripts/repoData";
 
 const allPackagesName = (packages as unknown as PackageList)
     .map((onePlateform) =>

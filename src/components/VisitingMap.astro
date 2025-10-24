@@ -1,0 +1,98 @@
+---
+import MapScript from "./MapScript.astro";
+
+const { data } = Astro.props;
+
+const customId = Math.random().toString(36).substring(7);
+---
+
+<MapScript />
+
+<div class="button">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+</div>
+<div id={customId} style={{ height: "400px" }}></div>
+<div id="title"></div>
+
+<style>
+    .button {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+    }
+    .button button {
+        width: 100%;
+        height: 50px;
+    }
+    #title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 10px;
+        text-align: center;
+    }
+</style>
+
+<slot />
+
+<script is:inline define:vars={{ data, customId }}>
+    let currentIdx = 0;
+    var map = L.map(customId);
+
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    const showDataOf = (idx) => {
+        map.eachLayer((layer) => {
+            if (layer instanceof L.Polyline) {
+                layer.remove();
+            }
+            if (layer instanceof L.Marker) {
+                layer.remove();
+            }
+        });
+        const markers = data[idx].places;
+        const dateData = data[idx].date;
+        [...document.getElementsByClassName("day")].forEach((el) => {
+            el.style.display = "none";
+        });
+        const currElemeent = document.getElementById(dateData);
+        if (currElemeent) {
+            currElemeent.style.display = "block";
+        }
+        let date = new Date(dateData);
+        let year = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
+        let month = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
+        let day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
+        document.getElementById("title").innerText = `${days[date.getDay()]} ${day} ${month} ${year}`;
+        const links = markers.map((oneMarker) => {
+            L.marker(oneMarker.coords).addTo(map).bindPopup(oneMarker.name).openPopup();
+            return oneMarker.coords;
+        });
+        L.polyline(links, { color: "blue" }).addTo(map);
+        map.fitBounds(links);
+    };
+
+    showDataOf(currentIdx);
+
+    document.getElementById("prev").addEventListener("click", () => {
+        if (currentIdx > 0) {
+            currentIdx--;
+        } else {
+            return;
+        }
+        showDataOf(currentIdx);
+    });
+
+    document.getElementById("next").addEventListener("click", () => {
+        if (currentIdx < data.length - 1) {
+            currentIdx++;
+        } else {
+            return;
+        }
+        showDataOf(currentIdx);
+    });
+</script>

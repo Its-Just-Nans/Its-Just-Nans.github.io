@@ -1,0 +1,52 @@
+---
+import type { PointsType } from "../scripts/types";
+import MapScript from "./MapScript.astro";
+
+interface Props {
+    points: PointsType;
+    height?: number;
+    zoom?: number;
+    view: [number, number];
+    mapId?: string;
+}
+
+const franceView = [46.446, 2.903];
+
+const { points, height, zoom = 4, view = franceView, mapId = "map" } = Astro.props;
+---
+
+<MapScript />
+<div id={mapId}></div>
+
+<script is:inline define:vars={{ points, height, zoom, view, mapId }}>
+    let mapIdRef = mapId;
+    if (height) {
+        document.getElementById(mapIdRef).style.height = `${height}px`;
+    }
+    var map = L.map(mapIdRef);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    points.forEach((oneMarker) => {
+        L.marker(oneMarker.coords).addTo(map).bindPopup(oneMarker.name);
+    });
+
+    map.setView(view, zoom);
+
+    map.addEventListener("contextmenu", function (event) {
+        navigator.clipboard.writeText(
+            JSON.stringify(
+                {
+                    type: "place",
+                    coords: event.latlng,
+                    name: "",
+                },
+                null,
+                2
+            )
+        );
+
+        return false;
+    });
+</script>

@@ -1,0 +1,44 @@
+---
+import MapPoints from "@components/MapPoints.astro";
+import type { PointsType } from "../scripts/types";
+type jsonGlob = {
+    default: PointsType[];
+};
+
+const json = Object.values(
+    import.meta.glob("/Its-Just-Nans/others-articles/assets/**/*.json", { eager: true })
+) as unknown[] as jsonGlob[];
+
+const points: PointsType = [];
+
+const addToPoints = (data: any) => {
+    if (typeof data === "object") {
+        if (data.type === "place") {
+            points.push(data);
+        } else {
+            for (const key in data) {
+                addToPoints(data[key]);
+            }
+        }
+    }
+};
+
+for (const oneFile of json) {
+    // explore json data
+    const data = oneFile.default;
+    if (Array.isArray(data)) {
+        data.forEach((d) => addToPoints(d));
+    } else {
+        addToPoints(data);
+    }
+}
+---
+
+<MapPoints points={points} view={[45, 4]} />
+
+<style is:global>
+    #map {
+        height: 100vh;
+        width: 100vw;
+    }
+</style>
