@@ -5,15 +5,15 @@ import { getEntrySlug } from "./utils";
 
 interface Props {
     post: ArticleType;
-    absSlug?: boolean;
+    startSlug?: string;
 }
 
-const { post, absSlug = false } = Astro.props;
+const { post, startSlug = null } = Astro.props;
 const { frontmatter } = post;
 const { title, date, draft, tags } = frontmatter;
 const slug = getEntrySlug(post);
 const trailingSlashSlug = slug.endsWith("/") ? slug : `${slug}/`;
-const href = absSlug ? `/more/${trailingSlashSlug}` : `${trailingSlashSlug}`;
+const href = startSlug ? `${startSlug}/${trailingSlashSlug}` : `${trailingSlashSlug}`;
 const tagsClass = tags.map((tag) => `tag-${tag}`);
 const realDate = new Date(date);
 

@@ -17,7 +17,7 @@ const data = articles.filter(({ frontmatter: { tags } }) => tags.includes(tag));
 <SimpleArticle title={title} description={title} keywords={[tag]}>
     <h1>{title}s</h1>
     <ul>
-        {data.map((p) => <SimpleArticleLine post={p} absSlug />)}
+        {data.map((p) => <SimpleArticleLine post={p} startSlug={`/more/${tag}`} />)}
     </ul>
 </SimpleArticle>
 
