@@ -1,0 +1,47 @@
+---
+import Base from "@layouts/Base.astro";
+
+const HARD = "Hard egg";
+const SOFT = "Soft-boiled egg";
+
+const presets: Record<string, number> = {
+    [SOFT]: 3 * 60,
+    [HARD]: 10 * 60,
+};
+
+const formatTime = (t: number): string => {
+    const m = Math.floor(t / 60)
+        .toString()
+        .padStart(2, "0");
+    const s = (t % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+};
+---
+
+<Base
+    title={"Eggs"}
+    description={"Eggs"}
+    keywords={["egg", "eggs"]}
+>
+    <Fragment slot="head-slot"></Fragment>
+    <Fragment slot="body-slot">
+        <div class="app">
+            <div>
+                {
+                    Object.entries(presets).map(([key, seconds]) => (
+                        <div>
+                            {key} – {formatTime(seconds)}
+                        </div>
+                        <br />
+                    ))
+                }
+            </div>
+        </div>
+    </Fragment>
+</Base>
+
+<style>
+    .app {
+        margin: 10px;
+    }
+</style>
