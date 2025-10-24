@@ -1,3 +1,10 @@
+[default.extend-identifiers]
+raisons = "raisons"
+Mosquitto = "Mosquitto"
+Espace = "Mosquitto"
+# google verification key in <Header />
+8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4 = "8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4"
+
 [files]
 extend-exclude = [
     "src/styles/markdown.css",
@@ -6,4 +13,6 @@ extend-exclude = [
     "Its-Just-Nans/website-articles/gta-chinatown-wars/gta-chinatown-wars.mdx",
     "Its-Just-Nans/website-articles/pact/pact.mdx",
     "Its-Just-Nans/website-articles/tocs/tocs.mdx",
+    "Its-Just-Nans/others-articles/certifications/certifications.mdx",
+    "Its-Just-Nans/others-articles/assets/*",
 ]
