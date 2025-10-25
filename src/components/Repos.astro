@@ -4,7 +4,7 @@ import output from "@data/projects/projects.json";
 import packages from "@data/packages.json";
 import SvgBadge from "@components/SvgBadge/SvgBadge.astro";
 import type { SingleProject, PackageList } from "../scripts/types";
-import { repoFilter, allBookmarked } from "../scripts/repoData";
+import { allBookmarked } from "../scripts/repoData";
 
 const allPackagesName = (packages as unknown as PackageList)
     .map((onePlateform) =>
@@ -15,19 +15,48 @@ const allPackagesName = (packages as unknown as PackageList)
     )
     .flat();
 
-type ProjectOutput = SingleProject[];
-
-type Langs = Record<string, string>;
+type Selectors = Record<string, string>;
 const DEFAULT_COLOR = "#000000";
+const packageTag = "packages";
 const schoolChecker = ["DUT R&T", "TP"];
+const repoFilter = "🌐";
 
-const filterProjects = ({ description }: SingleProject) => {
-    if (!description) return false;
-    return !description.startsWith(repoFilter);
+const filterProjects = ({ name, description }: SingleProject) => {
+    if (!description) {
+        console.log(`Project '${name}' doesn't have description !!`);
+        return false;
+    }
+    const startWithGlobe = description.startsWith(repoFilter);
+    if (startWithGlobe) {
+        console.log(`Project is starting with ${repoFilter}: '${name}'`);
+    }
+    return !startWithGlobe;
 };
 
 //@ts-ignore
-const typedOutput = output.filter(filterProjects) as ProjectOutput;
+const typedOutput = output.filter(filterProjects).map((proj: SingleProject) => {
+    const desc = proj.description ?? "";
+    const isRepo = proj.url.startsWith("https://github.com");
+    const isPackage = allPackagesName.includes(proj.name);
+    const isBookmarked = desc.startsWith("🛠️");
+    const isForceBookmark = allBookmarked.includes(proj.name);
+    const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
+    const isPoc = desc.startsWith("PoC");
+    const isGist = !isRepo;
+    const isUntagged = ![isPackage, isSchool, isPoc, isBookmarked, isGist].some((x) => x);
+    return {
+        ...proj,
+        description: desc,
+        isPackage,
+        isBookmarked,
+        isForceBookmark,
+        isSchool,
+        isPoc,
+        isRepo,
+        isGist,
+        isUntagged,
+    };
+});
 
 const cleanLang = (l: string) => {
     return l.replaceAll(" ", "-").replaceAll("+", "p").replaceAll(".", "");
@@ -36,17 +65,27 @@ const cleanLang = (l: string) => {
 const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
     const { name: lang, color: lang_color } = primaryLanguage ? primaryLanguage : { name: "", color: "" };
     if (!lang) return acc;
-    return { [cleanLang(lang)]: lang_color ?? DEFAULT_COLOR, ...acc };
-}, {} as Langs);
+    return { ...acc, [cleanLang(lang)]: lang_color ?? DEFAULT_COLOR };
+}, {} as Selectors);
 
-const rawStylesCSS = Object.entries(langs)
-    .map(([lang, color]) => {
-        const l = cleanLang(lang.toLocaleLowerCase());
+const projectTypes = ["poc", packageTag, "school", "bookmark"];
+if (typedOutput.some(({ isUntagged }) => isUntagged)) {
+    projectTypes.push("untagged");
+}
+
+const selectors: Selectors = {
+    ...langs,
+    ...projectTypes.reduce((acc, curr) => ({ ...acc, [curr]: DEFAULT_COLOR }), {}),
+};
+
+const rawStylesCSS = Object.entries(selectors)
+    .map(([selectorName, color]) => {
+        const l = cleanLang(selectorName.toLocaleLowerCase());
         return `
-        #lang-${l}:checked ~ .lang-${l} {
+        #selector-${l}:checked ~ .selector-${l} {
             display: inline-block;
         }
-        #lang-${l}:checked ~ details label.lang-${l} {
+        #selector-${l}:checked ~ details label.selector-${l} {
             border: 2px solid ${color};
         }`;
     })
@@ -58,10 +97,10 @@ const rawStylesCSS = Object.entries(langs)
         .projectWrap {
             display: none;
         }
-        #all-lang:checked ~ .projectWrap {
+        #all-selector:checked ~ .projectWrap {
             display: inline-block;
         }
-        #all-lang:checked ~ details label.all-lang {
+        #all-selector:checked ~ details label.all-selector {
             border: 2px solid black;
         }
         #no-lang:checked ~ .no-lang {
@@ -71,47 +110,51 @@ const rawStylesCSS = Object.entries(langs)
             border: 2px solid black;
         }
     </style>
-    <input id={`all-lang`} class="filters" name="lang-selector" type="radio" value={"all"} checked />
+    <input id={`all-selector`} class="filters" name="selector-selector" type="radio" value={"all"} checked />
     {
-        Object.entries(langs).map(([lang, _color]) => {
-            const l = lang.toLocaleLowerCase();
-            return <input class="filters" id={`lang-${l}`} name="lang-selector" type="radio" value={l} />;
+        Object.entries(selectors).map(([selectorName, _color]) => {
+            const l = selectorName.toLocaleLowerCase();
+            return <input class="filters" id={`selector-${l}`} name="selector-selector" type="radio" value={l} />;
         })
     }
-    <input id={`no-lang`} class="filters" name="lang-selector" type="radio" value={"no"} />
+    <input id={`no-lang`} class="filters" name="selector-selector" type="radio" value={"no"} />
     <style set:html={rawStylesCSS}></style>
     <details>
         <summary title={`Filters on (${typedOutput.length}) repositories`}>Filters</summary>
-        <label class:list={["lang-select", `all-lang`]} for={`all-lang`}>All</label>
+        <label class:list={["selector-select", `all-selector`]} for={`all-selector`}>All</label>
         {
-            Object.entries(langs)
+            Object.entries(selectors)
                 .toSorted()
-                .map(([lang, color]) => {
+                .map(([selectorName, color]) => {
                     return (
                         <label
-                            class:list={["lang-select", `lang-${cleanLang(lang.toLocaleLowerCase())}`]}
+                            class:list={["selector-select", `selector-${cleanLang(selectorName.toLocaleLowerCase())}`]}
                             style={`color: ${color}`}
-                            for={`lang-${cleanLang(lang.toLocaleLowerCase())}`}
+                            for={`selector-${cleanLang(selectorName.toLocaleLowerCase())}`}
                         >
-                            {lang}
+                            {selectorName}
                         </label>
                     );
                 })
         }
-        <label class:list={["lang-select", `no-lang`]} for={`no-lang`}>Others</label>
+        <label class:list={["selector-select", `no-lang`]} for={`no-lang`}>Others-langs</label>
     </details>
     {
         typedOutput.map((oneData) => {
-            const { description, url, name, primaryLanguage } = oneData;
-            const desc = description ?? "";
-            const isPackage = allPackagesName.includes(name);
-            const isBookmark = allBookmarked.includes(name);
-            const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
-            const isPoc = desc.startsWith("PoC");
-            const isRepo = url.startsWith("https://github.com");
+            const {
+                isPackage,
+                isSchool,
+                isPoc,
+                isUntagged,
+                isBookmarked,
+                isRepo,
+                isForceBookmark,
+                name,
+                primaryLanguage,
+            } = oneData;
             const langName = (primaryLanguage?.name ?? "").toLocaleLowerCase();
             if (import.meta.env.DEV) {
-                if (isRepo && ![isPackage, isSchool, isPoc, isBookmark].some((x) => x)) {
+                if (isRepo && isUntagged) {
                     console.log(`'${name}' is not tagged`);
                 }
             }
@@ -120,9 +163,14 @@ const rawStylesCSS = Object.entries(langs)
                     class:list={[
                         "projectWrap",
                         {
-                            [`lang-${cleanLang(langName)}`]: langName !== "",
+                            [`selector-${cleanLang(langName)}`]: langName !== "",
+                            ["selector-poc"]: isPoc,
+                            ["selector-school"]: isSchool,
+                            [`selector-${packageTag}`]: isPackage,
+                            ["selector-bookmark"]: isBookmarked,
+                            ["selector-untagged"]: isUntagged,
+                            "no-lang": !primaryLanguage,
                         },
-                        { "no-lang": !primaryLanguage },
                     ]}
                 >
                     <div class="svgRepo">
@@ -132,7 +180,7 @@ const rawStylesCSS = Object.entries(langs)
                             isPoc={isPoc}
                             isSchool={isSchool}
                             isRepo={isRepo}
-                            isBookmark={isBookmark}
+                            isBookmark={isBookmarked || isForceBookmark}
                         />
                     </div>
                 </div>
@@ -145,7 +193,7 @@ const rawStylesCSS = Object.entries(langs)
     details {
         cursor: pointer;
     }
-    .lang-select {
+    .selector-select {
         margin: 5px;
         cursor: pointer;
         font-weight: bold;
