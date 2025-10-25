@@ -56,7 +56,7 @@ if (import.meta.env.DEV) {
             const slug = slugify(element.url);
             const realDate = new Date(date || new Date());
             return (
-                <a href={`/articles/${slug}/`}>
+                <a href={`/articles/${slug}/`} id={slug}>
                     <div class="oneArticle" class:list={[{ coloredArticle: draft }]}>
                         <div class:list={["flexed", { "hidden-class": hidden }]}>
                             <div class="articleTitleDiv">
