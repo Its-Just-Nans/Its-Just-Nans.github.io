@@ -4,7 +4,6 @@ import output from "@data/projects/projects.json";
 import packages from "@data/packages.json";
 import SvgBadge from "@components/SvgBadge/SvgBadge.astro";
 import type { SingleProject, PackageList } from "../scripts/types";
-import { allBookmarked } from "../scripts/repoData";
 
 const allPackagesName = (packages as unknown as PackageList)
     .map((onePlateform) =>
@@ -39,7 +38,6 @@ const typedOutput = output.filter(filterProjects).map((proj: SingleProject) => {
     const isRepo = proj.url.startsWith("https://github.com");
     const isPackage = allPackagesName.includes(proj.name);
     const isBookmarked = desc.startsWith("🛠️");
-    const isForceBookmark = allBookmarked.includes(proj.name);
     const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
     const isPoc = desc.startsWith("PoC");
     const isGist = !isRepo;
@@ -49,7 +47,6 @@ const typedOutput = output.filter(filterProjects).map((proj: SingleProject) => {
         description: desc,
         isPackage,
         isBookmarked,
-        isForceBookmark,
         isSchool,
         isPoc,
         isRepo,
@@ -148,7 +145,6 @@ const rawStylesCSS = Object.entries(selectors)
                 isUntagged,
                 isBookmarked,
                 isRepo,
-                isForceBookmark,
                 name,
                 primaryLanguage,
             } = oneData;
@@ -180,7 +176,7 @@ const rawStylesCSS = Object.entries(selectors)
                             isPoc={isPoc}
                             isSchool={isSchool}
                             isRepo={isRepo}
-                            isBookmark={isBookmarked || isForceBookmark}
+                            isBookmark={isBookmarked}
                         />
                     </div>
                 </div>
