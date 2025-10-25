@@ -1,5 +1,5 @@
 ---
-import { pseudo, website } from "../scripts/pages";
+import { pseudo, website, websiteUrl } from "../scripts/pages";
 
 const baseDesc = `The page of ${pseudo}. Here you can view my projects and get information about me !`;
 interface Props {
@@ -15,9 +15,8 @@ const {
     keywords = [],
     defaultKeywords = [pseudo, "dev", website],
 } = Astro.props;
-const img = "/cover.png";
+const img = `${websiteUrl}/cover.png`;
 const domain = website;
-const url = `https://${domain}`;
 const key = "8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4";
 const canonical = `https://${domain}${Astro.url.pathname}`;
 
@@ -42,7 +41,7 @@ const allKeywords = [...keywords, ...defaultKeywords];
 <link rel="sitemap" href="/sitemap.xml" />
 <link rel="canonical" href={canonical} />
 
-<meta property="og:url" content={url} />
+<meta property="og:url" content={websiteUrl} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -50,7 +49,7 @@ const allKeywords = [...keywords, ...defaultKeywords];
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:domain" content={domain} />
-<meta property="twitter:url" content={url} />
+<meta property="twitter:url" content={websiteUrl} />
 
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />

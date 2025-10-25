@@ -32,3 +32,6 @@ export default nav;
 export const pseudo = "n4n5";
 export const website = `${pseudo}.dev`;
 export const websiteUrl = `https://${website}`;
+
+// external links
+export const githubStats = "https://n4n5.dev/can-be-useful/svelte-github-stats/";
