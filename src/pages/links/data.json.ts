@@ -1,4 +1,4 @@
-import links from "@data/links/links.json";
+import links from "@data/links.json";
 import subdomains from "@data/subdomains.json";
 
 const linksData = {

@@ -1,8 +1,13 @@
 ---
-import links from "@data/links/links.json";
+import links from "@data/links.json";
 import SubDomains from "./SubDomains.astro";
 import LinksIco from "./LinksIco.astro";
 import { pseudo } from "@scripts/pages";
+
+const allLinks = Object.entries(links).map(([key, value]) => ({
+    ...value,
+    name: key,
+}));
 ---
 
 <article>
@@ -12,7 +17,7 @@ import { pseudo } from "@scripts/pages";
             <table>
                 <tbody>
                     {
-                        links.map((oneLink) => (
+                        allLinks.map((oneLink) => (
                             <tr>
                                 <td>
                                     {oneLink.ico && (
