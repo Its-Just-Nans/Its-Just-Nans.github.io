@@ -17,10 +17,6 @@ const nav = [
             return defaultRoute;
         },
     },
-    // {
-    //     name: "Lab",
-    //     route: "/lab/",
-    // },
     {
         name: "Links",
         route: "/links/",
@@ -35,3 +31,5 @@ export const websiteUrl = `https://${website}`;
 
 // external links
 export const githubStats = "https://n4n5.dev/can-be-useful/svelte-github-stats/";
+
+export const packageLink = "https://packages.n4n5.dev/";

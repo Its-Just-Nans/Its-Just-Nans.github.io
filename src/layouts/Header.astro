@@ -16,9 +16,8 @@ const {
     defaultKeywords = [pseudo, "dev", website],
 } = Astro.props;
 const img = `${websiteUrl}/cover.png`;
-const domain = website;
 const key = "8qVBtr6GGGesE5nlacfO8rAmqBL9giPwr4FIouqVYO4";
-const canonical = `https://${domain}${Astro.url.pathname}`;
+const canonical = Astro.url;
 
 const allKeywords = [...keywords, ...defaultKeywords];
 ---
@@ -48,7 +47,7 @@ const allKeywords = [...keywords, ...defaultKeywords];
 <meta property="og:image" content={img} />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:domain" content={domain} />
+<meta property="twitter:domain" content={website} />
 <meta property="twitter:url" content={websiteUrl} />
 
 <meta name="twitter:title" content={title} />
