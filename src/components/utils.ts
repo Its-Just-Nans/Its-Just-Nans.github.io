@@ -109,15 +109,15 @@ export const getEntrySlug = (post: ArticleType) => {
     const idxDot = fileUrl.lastIndexOf(".");
     const slug = fileUrl.substring(idxSlash + 1, idxDot);
 
-    if (post.frontmatter.customSlug) {
-        if (post.frontmatter.customSlug === slug) {
-            // console.log(`customSlug useless for ${post.file}`);
-            return slug
-        }
-        console.log(`customSlug effective for ${post.file}`)
-        return post.frontmatter.customSlug;
+    if (!post.frontmatter.customSlug) {
+        return slug;
     }
-    return slug;
+    if (post.frontmatter.customSlug === slug) {
+        // console.log(`customSlug useless for ${post.file}`);
+        return slug;
+    }
+    console.log(`customSlug effective for ${post.file}`);
+    return post.frontmatter.customSlug;
 };
 
 export const getStaticPathsWithFilter = (func: (a: ArticleType) => boolean) => {
