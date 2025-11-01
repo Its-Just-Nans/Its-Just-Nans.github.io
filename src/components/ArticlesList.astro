@@ -61,7 +61,7 @@ if (import.meta.env.DEV) {
                         <div class:list={["flexed", { "hidden-class": hidden }]}>
                             <div class="articleTitleDiv">
                                 <span class="articleTitle">{title}</span>
-                                {!isSmall &&
+                                {!isSmall && description &&
                                 (
                                     <span> - </span>
                                     <span class="articleDesc">{description}</span>
