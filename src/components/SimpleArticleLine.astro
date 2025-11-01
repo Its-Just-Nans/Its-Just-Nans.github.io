@@ -15,7 +15,7 @@ const slug = getEntrySlug(post);
 const trailingSlashSlug = slug.endsWith("/") ? slug : `${slug}/`;
 const href = startSlug ? `${startSlug}/${trailingSlashSlug}` : `${trailingSlashSlug}`;
 const tagsClass = tags.map((tag) => `tag-${tag}`);
-const realDate = new Date(date);
+const realDate = date === "" ? new Date() : new Date(date);
 
 const removeAccents = (str: string) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 ---
@@ -70,7 +70,7 @@ const removeAccents = (str: string) => str.normalize("NFD").replace(/[\u0300-\u0
         color: black;
         -webkit-tap-highlight-color: transparent;
         flex: 1;
-        text-decoration: none;
+        text-decoration: none !important;
         display: inline-block;
         text-transform: lowercase;
     }

@@ -4,21 +4,27 @@ import SimpleArticleLine from "@components/SimpleArticleLine.astro";
 import { getOthersArticles } from "@components/utils";
 
 interface Props {
-    tag: string;
+    tag?: string;
+    excludeTags?: Array<string>;
     title: string;
     startSlug: string;
 }
 
-const { tag, title, startSlug } = Astro.props;
+const { tag = null, excludeTags = [], title, startSlug } = Astro.props;
 
 const { articles } = getOthersArticles();
-const data = articles.filter(({ frontmatter: { tags } }) => tags.includes(tag));
+const data = tag === null ? articles : articles.filter(({ frontmatter: { tags } }) => tags.includes(tag));
+const dataExcluded =
+    excludeTags.length === 0
+        ? data
+        : data.filter(({ frontmatter: { tags } }) => !tags.some((oneTag) => excludeTags.includes(oneTag)));
+const keywords = tag === null ? [] : [tag];
 ---
 
-<SimpleArticle title={title} description={title} keywords={[tag]}>
+<SimpleArticle title={title} description={title} keywords={keywords}>
     <h1>{title}</h1>
     <ul>
-        {data.map((p) => <SimpleArticleLine post={p} startSlug={startSlug} />)}
+        {dataExcluded.map((p) => <SimpleArticleLine post={p} startSlug={startSlug} />)}
     </ul>
 </SimpleArticle>
 
