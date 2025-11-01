@@ -1,6 +1,7 @@
 ---
 import SimpleArticle from "@components/SimpleArticle.astro";
 import SimpleArticleLine from "@components/SimpleArticleLine.astro";
+import TitleLinks from "@components/TitleLinks/TitleLinks.astro";
 import { getOthersArticles } from "@components/utils";
 
 const excludeTags = ["job", "school"];
@@ -11,7 +12,11 @@ const dataFiltered = articles.filter(
 ---
 
 <SimpleArticle title={"more"} description={""} keywords={[]}>
-    <h1>Apparently, nothing.</h1>
+    <div class="flexed">
+        <h1>more</h1>
+        <TitleLinks />
+    </div>
+    <hr />
     <p>You're maybe looking for a <a href="https://map.n4n5.dev/">map</a>?</p>
     <p>Or maybe more <a href="https://links.n4n5.dev/">links</a>?</p>
     <br />
@@ -20,3 +25,15 @@ const dataFiltered = articles.filter(
         {dataFiltered.map((p) => <SimpleArticleLine post={p} startSlug={"/more"} />)}
     </ul>
 </SimpleArticle>
+
+<style>
+    h1 {
+        border: none;
+        margin: 0;
+    }
+    .flexed {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+</style>
