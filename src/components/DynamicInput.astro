@@ -1,0 +1,82 @@
+---
+export interface ValueEntry {
+    text: string;
+    value: string;
+}
+
+export interface Props {
+    values: Record<string, ValueEntry>;
+}
+
+const { values } = Astro.props;
+---
+
+<div>
+    <p>Enter the values for the following fields:</p>
+</div>
+
+{
+    Object.keys(values).map((key) => (
+        <div class="input-container">
+            <label for={key}>{values[key].text}</label>
+            <input type="text" id={key} name={key} value={values[key].value} data-key={key} />
+        </div>
+    ))
+}
+
+<br />
+
+<div class="dynamic-code-slot">
+    <slot />
+</div>
+
+<script is:inline>
+    // This script runs in the browser
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputs = document.querySelectorAll(".input-container input");
+        const codeEl = document.querySelector(".dynamic-code-slot .astro-code");
+        if (!codeEl) return;
+
+        let defaultCode = codeEl.innerHTML;
+
+        const updateCode = () => {
+            let copy = defaultCode;
+            inputs.forEach((input) => {
+                const key = input.dataset.key;
+                const value = input.value;
+                copy = copy.replaceAll(key, value);
+            });
+            codeEl.innerHTML = copy;
+        };
+
+        // Update code on any input event
+        inputs.forEach((input) => {
+            input.addEventListener("input", updateCode);
+        });
+
+        // Initialize once
+        updateCode();
+    });
+</script>
+
+<style>
+    .input-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .input-container label {
+        flex: 0.5;
+        text-align: right;
+        margin-right: 0.5rem;
+    }
+
+    .input-container input {
+        flex: 0.5;
+    }
+
+    .dynamic-code-slot {
+        margin-top: 1rem;
+    }
+</style>

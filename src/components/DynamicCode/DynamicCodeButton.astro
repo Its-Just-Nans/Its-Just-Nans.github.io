@@ -1,0 +1,38 @@
+---
+const generateRandomId = (length = 6) => {
+    return Math.random()
+        .toString(36)
+        .substring(2, length + 2);
+};
+
+const id = `dynamic-code-button-${generateRandomId()}`;
+---
+
+<div id={id}>
+    <input type="checkbox" />
+    <slot name="button" />
+
+    <div class="slot-on" style="display: none;">
+        <slot name="on" />
+    </div>
+
+    <div class="slot-off">
+        <slot name="off" />
+    </div>
+</div>
+<br />
+
+<script is:inline define:vars={{ id }}>
+    const buttonDiv = document.getElementById(id);
+    let state = false;
+    buttonDiv.addEventListener("click", () => {
+        state = !state;
+        window.dispatchEvent(new CustomEvent("UpdateDynamicCode", { detail: state }));
+        const input = buttonDiv.querySelector("input");
+        input.checked = state;
+        const showed = "block";
+        const hide = "none";
+        buttonDiv.querySelector(".slot-on").style.display = state ? showed : hide;
+        buttonDiv.querySelector(".slot-off").style.display = state ? hide : showed;
+    });
+</script>

@@ -5,7 +5,6 @@ import rehypeKatex from "rehype-katex";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
-import svelte from "@astrojs/svelte";
 import { websiteUrl } from "./src/scripts/pages";
 import { downloadScript } from "./src/scripts/utils";
 
@@ -20,7 +19,6 @@ await downloadScript({
 export default defineConfig({
     site: websiteUrl,
     integrations: [
-        svelte(),
         mdx({
             remarkPlugins: [remarkMath, remarkToc],
             rehypePlugins: [rehypeKatex, [rehypeExternalLinks, { target: "_blank" }]],

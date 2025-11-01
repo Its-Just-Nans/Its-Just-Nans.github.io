@@ -27,7 +27,6 @@
         "@astrojs/mdx": "^4.3.9",
         "@astrojs/rss": "^4.0.13",
         "@astrojs/sitemap": "^3.6.0",
-        "@astrojs/svelte": "^7.2.1",
         "astro": "^5.15.3",
         "astro-barchart": "1.0.7",
         "astro-index": "1.0.8",
@@ -36,6 +35,6 @@
         "rehype-katex": "7.0.1",
         "remark-math": "6.0.0",
         "remark-toc": "9.0.0",
-        "typescript": "5.7.3"
+        "typescript": "5.9.3"
     }
 }

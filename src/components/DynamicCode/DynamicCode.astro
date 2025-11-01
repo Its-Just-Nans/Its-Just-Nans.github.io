@@ -1,0 +1,31 @@
+---
+const generateRandomId = (length = 6) => {
+    return Math.random()
+        .toString(36)
+        .substring(2, length + 2);
+};
+
+const id = `dynamic-code-${generateRandomId()}`;
+---
+
+<div id={id}>
+    <div class="slot-on" style="display: none;">
+        <slot name="on" />
+    </div>
+
+    <div class="slot-off">
+        <slot name="off" />
+    </div>
+</div>
+
+<script is:inline define:vars={{ id }}>
+    const code = document.getElementById(id);
+
+    window.addEventListener("UpdateDynamicCode", (e) => {
+        const currentState = e.detail;
+        const showed = "block";
+        const hide = "none";
+        code.querySelector(".slot-on").style.display = currentState ? showed : hide;
+        code.querySelector(".slot-off").style.display = currentState ? hide : showed;
+    });
+</script>
