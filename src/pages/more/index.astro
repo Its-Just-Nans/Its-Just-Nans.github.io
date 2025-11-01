@@ -1,9 +1,22 @@
 ---
 import SimpleArticle from "@components/SimpleArticle.astro";
+import SimpleArticleLine from "@components/SimpleArticleLine.astro";
+import { getOthersArticles } from "@components/utils";
+
+const excludeTags = ["job", "school"];
+const { articles } = getOthersArticles();
+const dataFiltered = articles.filter(
+    ({ frontmatter: { tags, hidden } }) => !tags.some((oneTag) => excludeTags.includes(oneTag) || hidden)
+);
 ---
 
-<SimpleArticle title={""} description={""} keywords={[]}>
+<SimpleArticle title={"more"} description={""} keywords={[]}>
     <h1>Apparently, nothing.</h1>
     <p>You're maybe looking for a <a href="https://map.n4n5.dev/">map</a>?</p>
     <p>Or maybe more <a href="https://links.n4n5.dev/">links</a>?</p>
+    <br />
+    <p>Or, you can read some articles</p>
+    <ul>
+        {dataFiltered.map((p) => <SimpleArticleLine post={p} startSlug={"/more"} />)}
+    </ul>
 </SimpleArticle>

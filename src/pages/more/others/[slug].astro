@@ -1,9 +1,11 @@
 ---
 import type { InferGetStaticPropsType } from "astro";
 import SimpleArticleSlug from "@components/SimpleArticleSlug.astro";
-import { getStaticPathsByTagExcluded } from "@components/utils";
+import { getStaticPathsWithFilter } from "@components/utils";
 
-export const getStaticPaths = getStaticPathsByTagExcluded(["school", "job"]);
+export const getStaticPaths = getStaticPathsWithFilter(
+    ({ frontmatter: { tags } }) => !tags.some((oneTag) => ["school", "job"].includes(oneTag))
+);
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 

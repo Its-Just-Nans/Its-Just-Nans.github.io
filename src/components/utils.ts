@@ -113,26 +113,10 @@ export const getEntrySlug = (post: ArticleType) => {
     return fileUrl.substring(idxSlash + 1, idxDot);
 };
 
-export const getStaticPathsByTag = (tag: string) => {
+export const getStaticPathsWithFilter = (func: (a: ArticleType) => boolean) => {
     return (async () => {
         const { articles } = getOthersArticles();
-        const data = articles.filter(({ frontmatter: { tags } }) => tags.includes(tag));
-        return data.map((post) => {
-            const slug = getEntrySlug(post);
-            return {
-                params: { slug },
-                props: { post },
-            };
-        });
-    }) satisfies GetStaticPaths;
-};
-
-export const getStaticPathsByTagExcluded = (excludeTags: Array<string>) => {
-    return (async () => {
-        const { articles } = getOthersArticles();
-        const data = articles.filter(
-            ({ frontmatter: { tags } }) => !tags.some((oneTag) => excludeTags.includes(oneTag))
-        );
+        const data = articles.filter(func);
         return data.map((post) => {
             const slug = getEntrySlug(post);
             return {
