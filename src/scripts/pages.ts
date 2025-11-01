@@ -33,3 +33,5 @@ export const websiteUrl = `https://${website}`;
 export const githubStats = "https://n4n5.dev/can-be-useful/svelte-github-stats/";
 
 export const packageLink = "https://packages.n4n5.dev/";
+
+export const CLEANER = ["https://github.com/Its-Just-Nans", "https://github.com/Bel-Art"];

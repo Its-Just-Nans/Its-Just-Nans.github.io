@@ -5,8 +5,8 @@ const baseDesc = `The page of ${pseudo}. Here you can view my projects and get i
 interface Props {
     title: string;
     description?: string;
-    keywords: string[];
-    defaultKeywords?: string[];
+    keywords: Array<string>;
+    defaultKeywords?: Array<string>;
 }
 
 const {

@@ -2,12 +2,12 @@
 import MapPoints from "@components/MapPoints.astro";
 import type { PointsType } from "../scripts/types";
 type jsonGlob = {
-    default: PointsType[];
+    default: Array<PointsType>;
 };
 
 const json = Object.values(
     import.meta.glob("/Its-Just-Nans/others-articles/assets/**/*.json", { eager: true })
-) as unknown[] as jsonGlob[];
+) as Array<unknown> as Array<jsonGlob>;
 
 const points: PointsType = [];
 

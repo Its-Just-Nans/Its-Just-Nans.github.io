@@ -8,7 +8,7 @@ import Toc from "./Toc/Toc.astro";
 interface Props {
     frontmatter: FrontMatter;
     slug: string;
-    headings: MarkdownHeading[];
+    headings: Array<MarkdownHeading>;
 }
 
 const { frontmatter, slug, headings } = Astro.props;

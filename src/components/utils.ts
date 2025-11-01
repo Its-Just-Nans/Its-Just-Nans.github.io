@@ -39,8 +39,8 @@ export type FrontMatter = {
     draft?: boolean;
     ico: string;
     slug: string;
-    keywords: string[];
-    tags: string[];
+    keywords: Array<string>;
+    tags: Array<string>;
     toc?: boolean;
     needKatex?: boolean;
     customSlug?: string;

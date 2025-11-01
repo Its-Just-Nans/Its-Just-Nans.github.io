@@ -1,13 +1,12 @@
 ---
+import { CLEANER } from "@scripts/pages";
 import OpenInNewTab from "../OpenInNewTab.astro";
 import type { PullRequest, RepoNode } from "./types";
 
-const CLEANER = ["https://github.com/Its-Just-Nans", "https://github.com/Bel-Art"];
-
-type RepoType = Record<string, RepoNode[]>;
+type RepoType = Record<string, Array<RepoNode>>;
 
 interface Props {
-    pulls: PullRequest[];
+    pulls: Array<PullRequest>;
     isGithub?: boolean;
 }
 

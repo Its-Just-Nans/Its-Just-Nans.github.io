@@ -4,8 +4,8 @@ import type { ArticleType } from "@components/utils";
 import Time from "./Time.astro";
 
 interface Props {
-    articles: ArticleType[];
-    drafts?: ArticleType[];
+    articles: Array<ArticleType>;
+    drafts?: Array<ArticleType>;
     isAll?: boolean;
 }
 

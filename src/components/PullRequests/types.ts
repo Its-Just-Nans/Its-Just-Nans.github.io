@@ -17,11 +17,9 @@ export interface RepoNode {
             login: string;
         };
         languages: {
-            nodes?:
-                | {
-                      name: string;
-                  }[]
-                | null;
+            nodes?: Array<{
+                name: string;
+            }> | null;
         };
     };
 }

@@ -10,14 +10,18 @@ export type SingleProject = {
     };
 };
 
-export type PackageList = {
+type OnePackage = {
     name: string;
     profile: string;
     url: string;
     stats: string;
-    list: string[];
-    shields: string[];
+    list: Array<string>;
+    shields: Array<string>;
+    profile_urls?: Array<string>;
     repos?: Record<string, string>;
-}[];
+    urls?: Record<string, string>;
+};
 
-export type PointsType = { name: string; coords: [number, number]; type: "place" }[];
+export type PackageList = Array<OnePackage>;
+
+export type PointsType = Array<{ name: string; coords: [number, number]; type: "place" }>;

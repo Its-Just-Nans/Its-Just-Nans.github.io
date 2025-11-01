@@ -1,11 +1,14 @@
 ---
-import pulls from "@data/pull_requests/pulls.json";
-import NotGithub from "@data/pull_requests/not_github.json";
 import Pulls from "./Pulls.astro";
 import type { PullRequest } from "./types";
+import pullsUntyped from "@data/pull_requests/pulls.json";
+import pullsNotGithubUntyped from "@data/pull_requests/not_github.json";
+
+const pulls = pullsUntyped as Array<PullRequest>;
+const pullsNotGithub = pullsNotGithubUntyped as Array<PullRequest>;
 
 //@ts-ignore
-const allPulls = (pulls as PullRequest[]).concat(NotGithub as PullRequest[]);
+const allPulls = pulls.concat(pullsNotGithub);
 
 // const allTotal = pulls.length;
 const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").length; // note:this is the filtered count
@@ -19,9 +22,9 @@ const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").
             Total: {totalMergedCount}
         </p>
     </div>
-    <Pulls pulls={pulls as PullRequest[]} isGithub />
+    <Pulls pulls={pulls} isGithub />
     <br />
-    <Pulls pulls={NotGithub as PullRequest[]} />
+    <Pulls pulls={pullsNotGithub} />
 </div>
 
 <style>

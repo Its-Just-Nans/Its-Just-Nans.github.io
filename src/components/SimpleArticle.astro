@@ -4,7 +4,7 @@ import Base from "@layouts/Base.astro";
 interface Props {
     title: string;
     description: string;
-    keywords: string[];
+    keywords: Array<string>;
 }
 
 const { title, description, keywords } = Astro.props;

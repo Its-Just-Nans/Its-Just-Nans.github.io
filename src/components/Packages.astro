@@ -1,6 +1,9 @@
 ---
 import { pseudo } from "@scripts/pages";
-import packages from "@data/packages.json";
+import packagesUntyped from "@data/packages.json";
+import type { PackageList } from "@scripts/types";
+
+const packages = packagesUntyped as unknown as PackageList;
 const user = "Its-Just-Nans";
 const size = "16px";
 
@@ -42,7 +45,8 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                     <table>
                         <tbody>
                             {el.list.map((onePackage) => {
-                                const link = el.url.replaceAll(":package", onePackage);
+                                const urlOverride = el.urls ? el.urls[onePackage] : "Not found";
+                                const link = el.url ? el.url.replaceAll(":package", onePackage) : urlOverride;
                                 const stats = el.stats && el.stats.replaceAll(":package", onePackage);
                                 const { url: urlRepo, path } = getCustomUrl(onePackage, (el.repos ?? {}) as ObjectType);
                                 return (

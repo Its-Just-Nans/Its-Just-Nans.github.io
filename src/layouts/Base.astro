@@ -7,8 +7,8 @@ interface Props {
     title: string;
     description?: string;
     lang?: string;
-    keywords: string[];
-    defaultKeywords?: string[];
+    keywords: Array<string>;
+    defaultKeywords?: Array<string>;
 }
 
 const { title, description, lang = "en-EN", keywords, defaultKeywords } = Astro.props;
