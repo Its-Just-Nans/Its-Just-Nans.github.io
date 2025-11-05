@@ -28,7 +28,7 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                     {el.profile && (
                         <>
                             <span> - </span>
-                            <a target="_blank" class="opennable" href={el.profile}>
+                            <a target="_blank" class="profile opennable" href={el.profile}>
                                 {el.profile}
                             </a>
                         </>
@@ -118,6 +118,9 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
 </div>
 
 <style>
+    .profile {
+        word-wrap: break-word;
+    }
     .json-link {
         font-size: 12px;
         color: blue;
