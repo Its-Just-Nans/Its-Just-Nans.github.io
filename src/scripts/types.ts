@@ -10,7 +10,7 @@ export type SingleProject = {
     };
 };
 
-type OnePackage = {
+export type SinglePackage = {
     name: string;
     profile: string;
     url: string;
@@ -21,7 +21,5 @@ type OnePackage = {
     repos?: Record<string, string>;
     urls?: Record<string, string>;
 };
-
-export type PackageList = Array<OnePackage>;
 
 export type PointsType = Array<{ name: string; coords: [number, number]; type: "place" }>;

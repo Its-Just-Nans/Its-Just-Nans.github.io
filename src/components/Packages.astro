@@ -1,9 +1,9 @@
 ---
 import { pseudo } from "@scripts/pages";
 import packagesUntyped from "@data/packages.json";
-import type { PackageList } from "@scripts/types";
+import type { SinglePackage } from "@scripts/types";
 
-const packages = packagesUntyped as unknown as PackageList;
+const packages = packagesUntyped as unknown as Array<SinglePackage>;
 const user = "Its-Just-Nans";
 const size = "16px";
 

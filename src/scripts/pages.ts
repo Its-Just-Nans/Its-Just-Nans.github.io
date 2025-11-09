@@ -10,7 +10,7 @@ const nav = [
     {
         name: "Articles",
         route: "/articles/",
-        func: (currentPath: URL, defaultRoute: string) => {
+        customLinkFn: (currentPath: URL, defaultRoute: string) => {
             if (currentPath.pathname === defaultRoute) {
                 return "/articles/all/";
             }
@@ -35,3 +35,6 @@ export const githubStats = "https://n4n5.dev/can-be-useful/svelte-github-stats/"
 export const packageLink = "https://packages.n4n5.dev/";
 
 export const CLEANER = ["https://github.com/Its-Just-Nans", "https://github.com/Bel-Art"];
+
+export const schoolChecker = ["DUT R&T", "TP"];
+export const repoFilter = "🌐";
