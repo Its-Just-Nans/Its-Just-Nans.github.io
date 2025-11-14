@@ -37,7 +37,8 @@ const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject)
     const desc = proj.description ?? "";
     const isRepo = proj.url.startsWith("https://github.com");
     const isPackage = allPackagesName.includes(proj.name);
-    const isBookmarked = desc.startsWith("🛠️");
+    const isBookmarked = desc.startsWith("📍");
+    const isIrl = desc.startsWith("🛠️");
     const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
     const isPoc = desc.startsWith("PoC");
     const isGist = !isRepo;
@@ -47,6 +48,7 @@ const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject)
         description: desc,
         isPackage,
         isBookmarked,
+        isIrl,
         isSchool,
         isPoc,
         isRepo,
@@ -65,7 +67,7 @@ const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
     return { ...acc, [cleanLang(lang)]: lang_color ?? DEFAULT_COLOR };
 }, {} as Selectors);
 
-const projectTypes = ["Others-langs", "PoC", packageTag, "School", "Bookmark"];
+const projectTypes = ["Others-langs", "PoC", packageTag, "School", "IRL", "Bookmark"];
 if (typedOutput.some(({ isUntagged }) => isUntagged)) {
     projectTypes.push("untagged");
 }
@@ -118,24 +120,27 @@ const rawStylesCSS = Object.entries(selectors)
     <style set:html={rawStylesCSS}></style>
     <details>
         <summary title={`Filters on (${typedOutput.length}) repositories`}>Filters</summary>
-        <label class:list={["selector-select", `all-selector`]} for={`all-selector`}>All</label>
-        {
-            Object.entries(selectors).map(([selectorName, color]) => {
-                return (
-                    <label
-                        class:list={["selector-select", `selector-${cleanLang(selectorName.toLocaleLowerCase())}`]}
-                        style={`color: ${color}`}
-                        for={`selector-${cleanLang(selectorName.toLocaleLowerCase())}`}
-                    >
-                        {selectorName}
-                    </label>
-                );
-            })
-        }
+        <div class="details-wrap">
+            <label class:list={["selector-select", `all-selector`]} for={`all-selector`}>All</label>
+            {
+                Object.entries(selectors).map(([selectorName, color]) => {
+                    return (
+                        <label
+                            class:list={["selector-select", `selector-${cleanLang(selectorName.toLocaleLowerCase())}`]}
+                            style={`color: ${color}`}
+                            for={`selector-${cleanLang(selectorName.toLocaleLowerCase())}`}
+                        >
+                            {selectorName}
+                        </label>
+                    );
+                })
+            }
+        </div>
     </details>
     {
         typedOutput.map((oneData) => {
-            const { isPackage, isSchool, isPoc, isUntagged, isBookmarked, isRepo, name, primaryLanguage } = oneData;
+            const { isPackage, isSchool, isPoc, isUntagged, isBookmarked, isIrl, isRepo, name, primaryLanguage } =
+                oneData;
             const langName = (primaryLanguage?.name ?? "").toLocaleLowerCase();
             if (import.meta.env.DEV) {
                 if (isRepo && isUntagged) {
@@ -152,6 +157,7 @@ const rawStylesCSS = Object.entries(selectors)
                             ["selector-school"]: isSchool,
                             [`selector-${packageTag.toLocaleLowerCase()}`]: isPackage,
                             ["selector-bookmark"]: isBookmarked,
+                            ["selector-irl"]: isIrl,
                             ["selector-untagged"]: isUntagged,
                             "selector-others-langs": !primaryLanguage,
                         },
@@ -176,6 +182,10 @@ const rawStylesCSS = Object.entries(selectors)
 <style>
     details {
         cursor: pointer;
+    }
+    .details-wrap {
+        width: 80%;
+        display: inline-block;
     }
     .selector-select {
         margin: 5px;
