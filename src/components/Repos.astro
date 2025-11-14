@@ -42,7 +42,7 @@ const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject)
     const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
     const isPoc = desc.startsWith("PoC");
     const isGist = !isRepo;
-    const isUntagged = ![isPackage, isSchool, isPoc, isBookmarked, isGist].some((x) => x);
+    const isUntagged = ![isPackage, isSchool, isPoc, isBookmarked, isGist, isIrl].some((x) => x);
     return {
         ...proj,
         description: desc,
