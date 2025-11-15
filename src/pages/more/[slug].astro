@@ -11,9 +11,8 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props;
 const { Content, frontmatter } = post;
-const { date, title } = frontmatter;
 ---
 
-<SimpleArticleSlug title={title} date={date}>
+<SimpleArticleSlug frontmatter={frontmatter}>
     <Content />
 </SimpleArticleSlug>

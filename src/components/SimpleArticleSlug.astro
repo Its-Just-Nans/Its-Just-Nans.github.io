@@ -1,14 +1,16 @@
 ---
 import Time from "@components/Time.astro";
+import "../styles/markdown.css";
 import SimpleArticle from "@components/SimpleArticle.astro";
+import { getArticleDate, type FrontMatter } from "./utils";
 
 interface Props {
-    title: string;
-    date: string;
+    frontmatter: FrontMatter;
 }
 
-const { title, date } = Astro.props;
-const realDate = date === "" ? new Date() : new Date(date);
+const { frontmatter } = Astro.props;
+const { title } = frontmatter;
+const realDate = getArticleDate(frontmatter);
 ---
 
 <SimpleArticle title={title} description={`article about ${title.toLowerCase()}`} keywords={[]}>
