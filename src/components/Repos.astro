@@ -20,6 +20,7 @@ const allPackagesName = allPackages
 type Selectors = Record<string, string>;
 const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
+const defaultSelector = "All";
 
 const filterProjects = ({ name, description }: SingleProject) => {
     if (!description) {
@@ -80,6 +81,7 @@ const orderedLangs = Object.keys(langs)
     }, {} as Selectors);
 
 const selectors: Selectors = {
+    [defaultSelector]: "black",
     ...orderedLangs,
     ...projectTypes.reduce((acc, curr) => ({ ...acc, [curr]: DEFAULT_COLOR }), {}),
 };
@@ -93,42 +95,41 @@ const rawStylesCSS = Object.entries(selectors)
         }
         #selector-${l}:checked ~ details label.selector-${l} {
             border: 2px solid ${color};
+            margin: 3px;
         }`;
     })
     .join("\n");
 ---
 
 <div>
-    <style>
-        .projectWrap {
-            display: none;
-        }
-        #all-selector:checked ~ .projectWrap {
-            display: inline-block;
-        }
-        #all-selector:checked ~ details label.all-selector {
-            border: 2px solid black;
-        }
-    </style>
-    <input id={`all-selector`} class="filters" name="selector-selector" type="radio" value={"all"} checked />
     {
         Object.entries(selectors).map(([selectorName, _color]) => {
+            const checked = selectorName == defaultSelector;
             const l = selectorName.toLocaleLowerCase();
-            return <input class="filters" id={`selector-${l}`} name="selector-selector" type="radio" value={l} />;
+            return (
+                <input
+                    class="filters"
+                    id={`selector-${l}`}
+                    name="selector-selector"
+                    type="radio"
+                    value={l}
+                    checked={checked}
+                />
+            );
         })
     }
     <style set:html={rawStylesCSS}></style>
     <details>
-        <summary title={`Filters on (${typedOutput.length}) repositories`}>Filters</summary>
+        <summary title={`Filters on (${typedOutput.length}) projects`}>Filters</summary>
         <div class="details-wrap">
-            <label class:list={["selector-select", `all-selector`]} for={`all-selector`}>All</label>
             {
                 Object.entries(selectors).map(([selectorName, color]) => {
+                    const selectName = cleanLang(selectorName.toLocaleLowerCase());
                     return (
                         <label
-                            class:list={["selector-select", `selector-${cleanLang(selectorName.toLocaleLowerCase())}`]}
+                            class:list={["selector-select", `selector-${selectName}`]}
                             style={`color: ${color}`}
-                            for={`selector-${cleanLang(selectorName.toLocaleLowerCase())}`}
+                            for={`selector-${selectName}`}
                         >
                             {selectorName}
                         </label>
@@ -154,6 +155,7 @@ const rawStylesCSS = Object.entries(selectors)
                         {
                             [`selector-${cleanLang(langName)}`]: langName !== "",
                             ["selector-poc"]: isPoc,
+                            ["selector-all"]: true,
                             ["selector-school"]: isSchool,
                             [`selector-${packageTag.toLocaleLowerCase()}`]: isPackage,
                             ["selector-bookmark"]: isBookmarked,
@@ -221,7 +223,7 @@ const rawStylesCSS = Object.entries(selectors)
         display: none;
     }
     .projectWrap {
-        display: inline-block;
+        display: none;
         margin: 10px 10px 0px 10px;
         text-align: center;
         vertical-align: bottom;

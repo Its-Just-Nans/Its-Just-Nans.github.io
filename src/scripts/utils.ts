@@ -20,3 +20,10 @@ export const downloadScript = async (files: { [ke: string]: string }) => {
         }
     });
 };
+
+const getRandomColor = function () {
+    const letters = "9ABCDEF";
+    return `#${Array.from({ length: 6 }, () => letters[Math.floor(Math.random() * letters.length)]).join("")}`;
+};
+
+export const globalColor = getRandomColor();
