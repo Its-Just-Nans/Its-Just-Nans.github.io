@@ -27,7 +27,7 @@
         "@astrojs/mdx": "^4.3.10",
         "@astrojs/rss": "^4.0.13",
         "@astrojs/sitemap": "^3.6.0",
-        "astro": "^5.15.4",
+        "astro": "^5.15.8",
         "astro-barchart": "1.0.7",
         "astro-index": "1.0.9",
         "astro-simple-carousel": "1.0.9",
