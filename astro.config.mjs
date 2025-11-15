@@ -14,6 +14,7 @@ await downloadScript({
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png": "images/marker-icon.png",
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png": "images/marker-shadow.png",
     "https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css": "katex.min.css",
+    "https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/fonts/KaTeX_Main-Regular.woff": "fonts/KaTeX_Main-Regular.woff",
 });
 
 // https://astro.build/config
