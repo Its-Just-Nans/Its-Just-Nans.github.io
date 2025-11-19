@@ -29,7 +29,7 @@
         "@astrojs/sitemap": "^3.6.0",
         "astro": "^5.15.9",
         "astro-barchart": "1.0.7",
-        "astro-index": "1.0.9",
+        "astro-index": "1.0.10",
         "astro-simple-carousel": "1.0.9",
         "rehype-external-links": "3.0.0",
         "remark-math": "6.0.0",
