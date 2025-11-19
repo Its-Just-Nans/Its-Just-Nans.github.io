@@ -26,7 +26,6 @@ const headings = post.getHeadings();
 
 const RealContent = draft ? (import.meta.env.DEV ? Content : Draft) : Content;
 const desc = description || frontmatter.title;
-const needKatex = frontmatter.needKatex;
 const headDesc = `${desc} - article on ${website}`;
 ---
 
@@ -35,7 +34,6 @@ const headDesc = `${desc} - article on ${website}`;
     addTitle
     description={headDesc}
     keywords={frontmatter.keywords}
-    needKatex={needKatex}
 >
     <ArticleView frontmatter={frontmatter} slug={slug} headings={headings}>
         <RealContent />

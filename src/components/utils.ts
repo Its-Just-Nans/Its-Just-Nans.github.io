@@ -42,7 +42,6 @@ export type FrontMatter = {
     keywords: Array<string>;
     tags: Array<string>;
     toc?: boolean;
-    needKatex?: boolean;
     customSlug?: string;
 };
 

@@ -1029,10 +1029,6 @@
     filter: invert(50%);
 }
 
-.markdown-body .katex .katex-mathml {
-    display: none;
-}
-
 .markdown-body .supercenter {
     display: flex;
     justify-content: center;

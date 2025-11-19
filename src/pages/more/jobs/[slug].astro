@@ -9,7 +9,6 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props;
 const { Content, frontmatter } = post;
-const { title } = frontmatter;
 ---
 
 <SimpleArticleSlug frontmatter={frontmatter}>

@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import rehypeKatex from "rehype-katex";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
@@ -13,8 +12,6 @@ await downloadScript({
     "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js": "leaflet.js",
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png": "images/marker-icon.png",
     "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png": "images/marker-shadow.png",
-    "https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css": "katex.min.css",
-    "https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/fonts/KaTeX_Main-Regular.woff": "fonts/KaTeX_Main-Regular.woff",
 });
 
 // https://astro.build/config
@@ -23,10 +20,10 @@ export default defineConfig({
     integrations: [
         mdx({
             remarkPlugins: [remarkMath, remarkToc],
-            rehypePlugins: [rehypeKatex, [rehypeExternalLinks, { target: "_blank" }]],
+            rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
             shikiConfig: {
                 theme: "github-dark",
-                // // Enable word wrap to prevent horizontal scrolling
+                // Enable word wrap to prevent horizontal scrolling
                 // wrap: true,
             },
         }),
