@@ -25,7 +25,7 @@ const url = Astro.url;
         <span class="smallMenu">
             <label for="checkboxMenu" class="smallMenuTitle">Menu</label>
             <input type="checkbox" id="checkboxMenu" />
-            <span class="underSmallMenu">
+            <div class="underSmallMenu">
                 {
                     nav.map(({ route, name, customLinkFn }) => {
                         const link = customLinkFn ? customLinkFn(url, route) : route;
@@ -36,7 +36,7 @@ const url = Astro.url;
                         );
                     })
                 }
-            </span>
+            </div>
         </span>
     </div>
 </header>
