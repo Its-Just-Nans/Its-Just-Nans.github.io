@@ -30,9 +30,9 @@ const url = Astro.url;
                     nav.map(({ route, name, customLinkFn }) => {
                         const link = customLinkFn ? customLinkFn(url, route) : route;
                         return (
-                            <a href={link}>
-                                <h2 class="menuLinks">{name}</h2>
-                            </a>
+                            <h2 class="menuLinks">
+                                <a href={link}>{name}</a>
+                            </h2>
                         );
                     })
                 }
@@ -141,12 +141,12 @@ const url = Astro.url;
     .underSmallMenu {
         display: flex;
     }
-    .navLinks a:first-child .menuLinks {
+    .navLinks .menuLinks:first-child {
         margin-right: 10px;
         margin-left: 10px;
     }
     @media screen and (max-width: 1024px) {
-        .navLinks a .menuLinks {
+        .navLinks .menuLinks {
             margin-right: 10px;
             margin-left: 10px;
         }
