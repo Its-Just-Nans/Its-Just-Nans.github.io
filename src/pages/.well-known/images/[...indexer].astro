@@ -1,0 +1,34 @@
+---
+import { join, relative } from "path";
+import AstroIndex, { walkDirs } from "astro-index";
+const folder = ".well-known/images";
+
+const toRender = join(process.cwd(), "public", folder);
+
+export async function getStaticPaths() {
+    const folder = ".well-known/images";
+    const toRender = join(process.cwd(), "public", folder);
+    const dirs = walkDirs(toRender);
+
+    const paths = dirs.map((full) => {
+        const p = relative(toRender, full);
+        const pFilter = p === "" ? undefined : p;
+        return {
+            params: { indexer: pFilter },
+        };
+    });
+    return paths;
+}
+const { indexer } = Astro.params;
+const pathIndex = indexer ?? "/";
+const pathExpose = join(toRender, pathIndex);
+---
+
+<AstroIndex
+    recursiveBase={toRender}
+    path={pathExpose}
+    title={folder}
+    preview
+    previewUrl={`/${folder}/`}
+    pixelated={true}
+/>

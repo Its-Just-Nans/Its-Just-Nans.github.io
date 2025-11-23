@@ -1,9 +1,0 @@
----
-import path from "path";
-import AstroIndex from "astro-index";
-const folder = ".well-known/images";
-
-const toRender = path.join(process.cwd(), "public", folder);
----
-
-<AstroIndex path={toRender} title={folder} preview previewUrl={`/${folder}/`} pixelated={true} />
