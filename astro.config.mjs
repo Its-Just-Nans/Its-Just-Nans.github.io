@@ -2,8 +2,6 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import rehypeExternalLinks from "rehype-external-links";
-import remarkMath from "remark-math";
-import remarkToc from "remark-toc";
 import { websiteUrl } from "./src/scripts/pages";
 
 // https://astro.build/config
@@ -11,7 +9,7 @@ export default defineConfig({
     site: websiteUrl,
     integrations: [
         mdx({
-            remarkPlugins: [remarkMath, remarkToc],
+            remarkPlugins: [],
             rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
             shikiConfig: {
                 theme: "github-dark",

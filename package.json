@@ -34,8 +34,6 @@
         "astro-simple-carousel": "1.0.9",
         "leaflet": "^1.9.4",
         "rehype-external-links": "3.0.0",
-        "remark-math": "6.0.0",
-        "remark-toc": "9.0.0",
         "typescript": "5.9.3"
     }
 }
