@@ -1,6 +1,6 @@
 ---
 import type { PointsType } from "../scripts/types";
-import MapScript from "./MapScript.astro";
+import "leaflet/dist/leaflet.css";
 
 interface Props {
     points: PointsType;
@@ -15,10 +15,15 @@ const franceView = [46.446, 2.903];
 const { points, height, zoom = 4, view = franceView, mapId = "map" } = Astro.props;
 ---
 
-<MapScript />
 <div id={mapId}></div>
 
 <script is:inline define:vars={{ points, height, zoom, view, mapId }}>
+    Object.assign(window, { points, height, zoom, view, mapId });
+</script>
+
+<script>
+    // @ts-nocheck
+    import L from "leaflet";
     let mapIdRef = mapId;
     if (height) {
         document.getElementById(mapIdRef).style.height = `${height}px`;

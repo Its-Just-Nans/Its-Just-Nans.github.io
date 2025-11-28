@@ -23,14 +23,16 @@
         "upgrade": "npx @astrojs/upgrade"
     },
     "devDependencies": {
-        "@astrojs/check": "^0.9.5",
+        "@astrojs/check": "^0.9.6",
         "@astrojs/mdx": "^4.3.12",
         "@astrojs/rss": "^4.0.14",
         "@astrojs/sitemap": "^3.6.0",
-        "astro": "^5.16.0",
+        "@types/leaflet": "^1.9.21",
+        "astro": "^5.16.2",
         "astro-barchart": "1.0.7",
         "astro-index": "1.1.1",
         "astro-simple-carousel": "1.0.9",
+        "leaflet": "^1.9.4",
         "rehype-external-links": "3.0.0",
         "remark-math": "6.0.0",
         "remark-toc": "9.0.0",

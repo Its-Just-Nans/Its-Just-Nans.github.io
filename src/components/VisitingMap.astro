@@ -1,12 +1,8 @@
 ---
-import MapScript from "./MapScript.astro";
-
 const { data } = Astro.props;
 
 const customId = Math.random().toString(36).substring(7);
 ---
-
-<MapScript />
 
 <div class="button">
     <button id="prev">Previous</button>
@@ -36,6 +32,12 @@ const customId = Math.random().toString(36).substring(7);
 <slot />
 
 <script is:inline define:vars={{ data, customId }}>
+    Object.assign(window, { data, customId });
+</script>
+
+<script>
+    // @ts-nocheck
+    import L from "leaflet";
     let currentIdx = 0;
     var map = L.map(customId);
 

@@ -5,14 +5,6 @@ import rehypeExternalLinks from "rehype-external-links";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
 import { websiteUrl } from "./src/scripts/pages";
-import { downloadScript } from "./src/scripts/utils";
-
-await downloadScript({
-    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css": "leaflet.css",
-    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js": "leaflet.js",
-    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png": "images/marker-icon.png",
-    "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png": "images/marker-shadow.png",
-});
 
 // https://astro.build/config
 export default defineConfig({
