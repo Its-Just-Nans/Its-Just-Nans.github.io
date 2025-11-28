@@ -10,7 +10,7 @@ interface Props {
 
 const { post, startSlug = null } = Astro.props;
 const { frontmatter } = post;
-const { title, draft, tags } = frontmatter;
+const { title, draft, tags = [] } = frontmatter;
 const slug = getEntrySlug(post);
 const trailingSlashSlug = slug.endsWith("/") ? slug : `${slug}/`;
 const href = startSlug ? `${startSlug}/${trailingSlashSlug}` : `${trailingSlashSlug}`;

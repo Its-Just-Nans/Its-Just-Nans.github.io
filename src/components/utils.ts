@@ -40,7 +40,7 @@ export type FrontMatter = {
     ico: string;
     slug: string;
     keywords: Array<string>;
-    tags: Array<string>;
+    tags?: Array<string>;
     toc?: boolean;
     customSlug?: string;
 };

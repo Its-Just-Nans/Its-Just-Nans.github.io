@@ -3,7 +3,7 @@ import type { InferGetStaticPropsType } from "astro";
 import SimpleArticleSlug from "@components/SimpleArticleSlug.astro";
 import { getStaticPathsWithFilter } from "@components/utils";
 
-export const getStaticPaths = getStaticPathsWithFilter(({ frontmatter: { tags } }) => tags.includes("school"));
+export const getStaticPaths = getStaticPathsWithFilter(({ frontmatter: { tags = [] } }) => tags.includes("school"));
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 

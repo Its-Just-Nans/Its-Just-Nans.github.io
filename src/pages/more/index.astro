@@ -7,7 +7,7 @@ import { getOthersArticles } from "@components/utils";
 const excludeTags = ["job", "school"];
 const { articles } = getOthersArticles();
 const dataFiltered = articles.filter(
-    ({ frontmatter: { tags, hidden } }) => !tags.some((oneTag) => excludeTags.includes(oneTag) || hidden)
+    ({ frontmatter: { tags = [], hidden = false } }) => !tags.some((oneTag) => excludeTags.includes(oneTag) || hidden)
 );
 ---
 
