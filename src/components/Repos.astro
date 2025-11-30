@@ -68,7 +68,7 @@ const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
     return { ...acc, [cleanLang(lang)]: lang_color ?? DEFAULT_COLOR };
 }, {} as Selectors);
 
-const projectTypes = ["Others-langs", "PoC", packageTag, "School", "IRL", "Bookmark"];
+const projectTypes = ["others-langs", "PoC", packageTag, "School", "IRL", "Bookmark"];
 if (typedOutput.some(({ isUntagged }) => isUntagged)) {
     projectTypes.push("untagged");
 }
