@@ -4,7 +4,7 @@ import SimpleArticleSlug from "@components/SimpleArticleSlug.astro";
 import { getStaticPathsWithFilter } from "@components/utils";
 
 export const getStaticPaths = getStaticPathsWithFilter(
-    ({ frontmatter: { tags = [] } }) => !tags.some((oneTag) => ["school", "job"].includes(oneTag))
+    ({ frontmatter: { tags = [] } }) => !tags.some((oneTag) => ["school", "job", "thought"].includes(oneTag))
 );
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
