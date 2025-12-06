@@ -35,6 +35,11 @@
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
+        <url>
+        <loc>https://wombat.n4n5.dev/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
     <url>
         <loc>https://whatisthis.n4n5.dev/</loc>
         <changefreq>weekly</changefreq>
