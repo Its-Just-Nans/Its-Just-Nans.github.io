@@ -16,10 +16,10 @@ extend-exclude = [
     "src/styles/markdown.css",
     "Its-Just-Nans/data/projects/projects.json",
     "Its-Just-Nans/data/pull_requests/pulls.json",
-    "Its-Just-Nans/website-articles/gta-chinatown-wars/gta-chinatown-wars.mdx",
     "Its-Just-Nans/website-articles/pact/pact.mdx",
     "Its-Just-Nans/website-articles/tocs/tocs.mdx",
     "Its-Just-Nans/others-articles/certifications/*",
     "Its-Just-Nans/others-articles/assets/*",
     "Its-Just-Nans/others-articles/cool-quotes/*",
+    "Its-Just-Nans/others-articles/gta-chinatown-wars/gta-chinatown-wars.mdx",
 ]
