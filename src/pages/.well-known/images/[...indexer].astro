@@ -3,15 +3,15 @@ import { join, relative } from "path";
 import AstroIndex, { walkDirs } from "astro-index";
 const folder = ".well-known/images";
 
-const toRender = join(process.cwd(), "public", folder);
+const baseToRender = join(process.cwd(), "public", folder);
 
 export async function getStaticPaths() {
     const folder = ".well-known/images";
-    const toRender = join(process.cwd(), "public", folder);
-    const dirs = walkDirs(toRender);
+    const baseToRender = join(process.cwd(), "public", folder);
+    const dirs = walkDirs(baseToRender);
 
     const paths = dirs.map((full) => {
-        const p = relative(toRender, full);
+        const p = relative(baseToRender, full);
         const pFilter = p === "" ? undefined : p;
         return {
             params: { indexer: pFilter },
@@ -21,14 +21,16 @@ export async function getStaticPaths() {
 }
 const { indexer } = Astro.params;
 const pathIndex = indexer ?? "/";
-const pathExpose = join(toRender, pathIndex);
+const pathExpose = join(baseToRender, pathIndex);
+const titlePath = pathExpose.replace(baseToRender, "").substring(1);
 ---
 
 <AstroIndex
-    recursiveBase={toRender}
+    recursiveBase={baseToRender}
     path={pathExpose}
     title={folder}
     preview
     previewUrl={`/${folder}/`}
+    title={`${folder}/${titlePath}`}
     pixelated={true}
 />
