@@ -2,6 +2,7 @@
 import type { PointsType } from "../scripts/types";
 import "leaflet/dist/leaflet.css";
 import img from "leaflet/dist/images/marker-icon.png?url";
+import img2x from "leaflet/dist/images/marker-icon-2x.png?url";
 import imgShadow from "leaflet/dist/images/marker-shadow.png?url";
 
 interface Props {
@@ -19,14 +20,15 @@ const { points, height, zoom = 4, view = franceView, mapId = "map" } = Astro.pro
 
 <div id={mapId}></div>
 
-<script is:inline define:vars={{ points, height, zoom, view, mapId, img, imgShadow }}>
-    Object.assign(window, { points, height, zoom, view, mapId, img, imgShadow });
+<script is:inline define:vars={{ points, height, zoom, view, mapId, img, img2x, imgShadow }}>
+    Object.assign(window, { points, height, zoom, view, mapId, img, img2x, imgShadow });
 </script>
 
 <script>
     // @ts-nocheck
     import L from "leaflet";
     L.Icon.Default.prototype.options.iconUrl = img;
+    L.Icon.Default.prototype.options.iconRetinaUrl = img2x;
     L.Icon.Default.prototype.options.shadowUrl = imgShadow;
 
     let mapIdRef = mapId;
