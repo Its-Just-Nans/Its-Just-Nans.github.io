@@ -31,7 +31,6 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
     import QRCode from "qrcode";
     // @ts-ignore
     const { showError, redirectSeconds, redirectUrl } = window;
-    const repo = "https://github.com/Its-Just-Nans/qr";
     const main = () => {
         const qrcode = document.getElementById("qrcode");
         const msg = document.getElementById("msg");
@@ -48,7 +47,7 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
                 window.location.href = redirectUrl;
             }, redirectSeconds * 1000);
             if (showError) {
-                msg.innerHTML = `Bad URL (cannot found 'http')<br/>You should add 'n4n5.dev/qr/' before the url<br/><a href='${repo}' target="_blank">${repo}</a>`;
+                msg.innerHTML = `Bad URL (cannot found 'http')<br/>You should add 'n4n5.dev/qr/' before the url<br/>`;
             }
             return;
         }
