@@ -1,0 +1,94 @@
+---
+interface Props {
+    showError: boolean;
+    redirectSeconds: number;
+    redirectUrl: string;
+}
+const { showError, redirectSeconds, redirectUrl } = Astro.props;
+---
+
+<div class="wrap">
+    <canvas id="qrcode"></canvas>
+    <p id="msg"></p>
+</div>
+<div id="error">
+    <div class="text">
+        <h1>Page not found</h1>
+        <p>Redirecting to <a href="/">home page</a> in {redirectSeconds} seconds...</p>
+    </div>
+    <div class="progress-bar">
+        <div class="progress-bar-inside"></div>
+    </div>
+</div>
+
+<script define:vars={{ showError, redirectSeconds, redirectUrl }}>
+    window.showError = showError;
+    window.redirectSeconds = redirectSeconds;
+    window.redirectUrl = redirectUrl;
+</script>
+<script>
+    // @ts-ignore
+    import QRCode from "qrcode";
+    // @ts-ignore
+    const { showError, redirectSeconds, redirectUrl } = window;
+    const repo = "https://github.com/Its-Just-Nans/qr";
+    const main = () => {
+        const qrcode = document.getElementById("qrcode");
+        const msg = document.getElementById("msg");
+        const error = document.getElementById("error");
+        if (!msg || !qrcode || !error) {
+            console.error("msg or qrcode or error not found");
+            return;
+        }
+        const urlIdx = window.location.href.indexOf("http", 4);
+        if (urlIdx == -1) {
+            // @ts-ignore
+            error.style.display = "block";
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, redirectSeconds * 1000);
+            if (showError) {
+                msg.innerHTML = `Bad URL (cannot found 'http')<br/>You should add 'n4n5.dev/qr/' before the url<br/><a href='${repo}' target="_blank">${repo}</a>`;
+            }
+            return;
+        }
+        const url = window.location.href.slice(urlIdx);
+        console.log("Url: ", url);
+        QRCode.toCanvas(qrcode, url, function (error: string) {
+            if (error) console.error(error);
+            console.log("success!");
+            msg.innerHTML = `<a href='${url}' target="_blank">${url}</a>`;
+        });
+    };
+    main();
+</script>
+
+<style define:vars={{ ["progress-bar"]: `${redirectSeconds}s` }}>
+    .text {
+        text-align: center;
+    }
+    #error {
+        display: none;
+    }
+    .progress-bar {
+        background-color: slategray;
+        height: 20px;
+        margin: auto;
+        width: 50%;
+    }
+
+    .progress-bar-inside {
+        animation: progress var(--progress-bar) linear;
+        height: inherit;
+        background-color: lime;
+    }
+
+    @keyframes progress {
+        0% {
+            width: 0%;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+</style>

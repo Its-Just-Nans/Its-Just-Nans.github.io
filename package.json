@@ -28,11 +28,12 @@
         "@astrojs/rss": "^4.0.14",
         "@astrojs/sitemap": "^3.6.0",
         "@types/leaflet": "^1.9.21",
-        "astro": "^5.16.5",
+        "astro": "^5.16.6",
         "astro-barchart": "1.0.7",
         "astro-index": "1.1.2",
         "astro-simple-carousel": "1.0.9",
         "leaflet": "^1.9.4",
+        "qrcode": "^1.5.4",
         "rehype-external-links": "3.0.0",
         "typescript": "5.9.3"
     }

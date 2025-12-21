@@ -1,0 +1,21 @@
+---
+import Base from "@layouts/Base.astro";
+import Glitch from "@components/Glitch.astro";
+import QRcode from "@components/QRcode.astro";
+
+const redirectSeconds = 30;
+---
+
+<Base title="404 - Page not found" keywords={[]}>
+    <Glitch />
+    <div class="qr">
+        <QRcode showError={false} redirectUrl="/" redirectSeconds={redirectSeconds} />
+    </div>
+</Base>
+
+<style>
+    .qr {
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
