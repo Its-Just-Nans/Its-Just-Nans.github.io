@@ -104,10 +104,10 @@
     background-color: #ffffff;
 }
 .markdown-body .leaflet-marker-icon {
-    background-color: none;
+    background-color: transparent;
 }
 .markdown-body .leaflet-marker-shadow {
-    background-color: none;
+    background-color: transparent;
 }
 .markdown-body code,
 .markdown-body kbd,
