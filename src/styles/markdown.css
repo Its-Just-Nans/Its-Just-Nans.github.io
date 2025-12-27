@@ -106,7 +106,9 @@
 .markdown-body .leaflet-marker-icon {
     background-color: none;
 }
-
+.markdown-body .leaflet-marker-shadow {
+    background-color: none;
+}
 .markdown-body code,
 .markdown-body kbd,
 .markdown-body pre,
