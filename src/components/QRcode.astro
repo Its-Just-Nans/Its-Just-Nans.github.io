@@ -21,7 +21,7 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
     </div>
 </div>
 
-<script define:vars={{ showError, redirectSeconds, redirectUrl }}>
+<script is:inline define:vars={{ showError, redirectSeconds, redirectUrl }}>
     window.showError = showError;
     window.redirectSeconds = redirectSeconds;
     window.redirectUrl = redirectUrl;
