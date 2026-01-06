@@ -7,9 +7,8 @@ import "../../styles/markdown.css";
 import { website } from "@scripts/pages";
 
 export async function getStaticPaths() {
-    const { articles, articlesDrafts } = getAllArticles();
-    const correctArticles = import.meta.env.DEV ? articles.concat(articlesDrafts) : articles; // TODO remove if
-    const params = correctArticles.map((onePost) => {
+    const { articles } = getAllArticles();
+    const params = articles.map((onePost) => {
         const slug = slugify(onePost.url);
         return {
             params: { slug },
@@ -29,12 +28,7 @@ const desc = description || frontmatter.title;
 const headDesc = `${desc} - article on ${website}`;
 ---
 
-<BaseLayout
-    title={frontmatter.title}
-    addTitle
-    description={headDesc}
-    keywords={frontmatter.keywords}
->
+<BaseLayout title={frontmatter.title} addTitle description={headDesc} keywords={frontmatter.keywords}>
     <ArticleView frontmatter={frontmatter} slug={slug} headings={headings}>
         <RealContent />
     </ArticleView>

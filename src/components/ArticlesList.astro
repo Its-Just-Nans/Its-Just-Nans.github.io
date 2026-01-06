@@ -6,53 +6,19 @@ import Time from "./Time.astro";
 interface Props {
     articles: Array<ArticleType>;
     drafts?: Array<ArticleType>;
-    isAll?: boolean;
 }
 
-const { articles = [], drafts = [], isAll = false } = Astro.props;
+const { articles = [], drafts = [] } = Astro.props;
 
 const allArticles = articles;
 const nbDraft = drafts.length;
-if (import.meta.env.DEV) {
-    Array.prototype.unshift.apply(allArticles, drafts);
-}
 ---
 
 <article>
     {
-        isAll && (
-            <>
-                <div class="draft">
-                    <div>
-                        {nbDraft > 0 && (
-                            <>
-                                <span>
-                                    {nbDraft} draft{nbDraft > 1 && "s"}
-                                </span>
-                                <br />
-                            </>
-                        )}
-                        <a href="/articles/rss.xml" target="_blank" class="more-link">
-                            <span>RSS Feed to wait</span>
-                        </a>
-                        <a href="https://golb.n4n5.dev" target="_blank" class="more-link">
-                            <span>golb</span>
-                        </a>
-                        <a href="https://yakb.n4n5.dev" target="_blank" class="more-link">
-                            <span>yakb</span>
-                        </a>
-                    </div>
-                </div>
-                <br />
-            </>
-        )
-    }
-
-    {
         allArticles.map((element) => {
             const { description, title, draft, hidden, tags } = element.frontmatter;
             const date = getArticleDate(element.frontmatter);
-            const isSmall = Array.isArray(tags);
             const slug = slugify(element.url);
             const realDate = new Date(date || new Date());
             return (
@@ -61,7 +27,7 @@ if (import.meta.env.DEV) {
                         <div class:list={["flexed", { "hidden-class": hidden }]}>
                             <div class="articleTitleDiv">
                                 <span class="articleTitle">{title}</span>
-                                {!isSmall && description &&
+                                {description &&
                                 (
                                     <span> - </span>
                                     <span class="articleDesc">{description}</span>
@@ -84,6 +50,21 @@ if (import.meta.env.DEV) {
             );
         })
     }
+    <div class="draft">
+        <div>
+            {nbDraft > 0 && (
+                <>
+                    <span>
+                        {nbDraft} draft{nbDraft > 1 && "s"}
+                    </span>
+                    <br />
+                </>
+            )}
+            <a href="/articles/rss.xml" target="_blank" class="more-link">
+                <span>RSS Feed to wait</span>
+            </a>
+        </div>
+    </div>
 </article>
 
 <style>

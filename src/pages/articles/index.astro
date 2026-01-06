@@ -4,9 +4,7 @@ import ArticlesList from "@components/ArticlesList.astro";
 import { getAllArticles } from "@components/utils";
 import { pseudo } from "@scripts/pages";
 
-const { articles, articlesDrafts } = getAllArticles();
-const correctArticles = import.meta.env.DEV ? articlesDrafts.concat(articles) : articles;
-const nonHidden = correctArticles.filter(({ frontmatter: { hidden } }) => !hidden);
+const { articles } = getAllArticles();
 ---
 
 <BaseLayout
@@ -15,5 +13,5 @@ const nonHidden = correctArticles.filter(({ frontmatter: { hidden } }) => !hidde
     description=`All articles by ${pseudo}`
     keywords={["articles", `${pseudo} articles`, "reading"]}
 >
-    <ArticlesList articles={nonHidden} />
+    <ArticlesList articles={articles} />
 </BaseLayout>

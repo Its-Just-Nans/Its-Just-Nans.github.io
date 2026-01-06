@@ -54,14 +54,17 @@ export const getAllArticles = () => {
     const sortedArticles = articlesGlob.toSorted(
         (a, b) => getArticleDate(b.frontmatter).getTime() - getArticleDate(a.frontmatter).getTime()
     );
-    const articlesDrafts = sortedArticles.filter(({ frontmatter: { title, draft } }) => {
-        if (import.meta.env.DEV && draft) {
-            console.log("Draft article:", title);
-        }
-        return draft;
-    });
+    // const articlesDrafts = sortedArticles.filter(({ frontmatter: { title, draft } }) => {
+    //     if (import.meta.env.DEV && draft) {
+    //         console.log("Draft article:", title);
+    //     }
+    //     return draft;
+    // });
     const articles = sortedArticles.filter(({ frontmatter: { draft } }) => !draft);
-    return { articles, articlesDrafts };
+    return {
+        articles,
+        //articlesDrafts
+    };
 };
 
 export const getItemsRSS = () => {

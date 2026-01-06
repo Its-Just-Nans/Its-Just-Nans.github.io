@@ -9,6 +9,8 @@ const { articles } = getOthersArticles();
 const dataFiltered = articles.filter(
     ({ frontmatter: { tags = [], hidden = false } }) => !tags.some((oneTag) => excludeTags.includes(oneTag) || hidden)
 );
+const moreArticles = dataFiltered.filter(({ frontmatter: { tags = [] } }) => !tags.includes("archived"));
+const archivedArticles = dataFiltered.filter(({ frontmatter: { tags = [] } }) => tags.includes("archived"));
 ---
 
 <SimpleArticle title={"more"} description={""} keywords={[]}>
@@ -22,7 +24,12 @@ const dataFiltered = articles.filter(
     <br />
     <p>Or, you can read some articles</p>
     <ul>
-        {dataFiltered.map((p) => <SimpleArticleLine post={p} startSlug={"/more"} />)}
+        {moreArticles.map((p) => <SimpleArticleLine post={p} startSlug={"/more"} />)}
+    </ul>
+    <br />
+    <h4>Archived</h4>
+    <ul>
+        {archivedArticles.map((p) => <SimpleArticleLine post={p} startSlug={"/more"} />)}
     </ul>
 </SimpleArticle>
 
