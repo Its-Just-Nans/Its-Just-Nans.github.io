@@ -27,11 +27,10 @@ const url = Astro.url;
             <input type="checkbox" id="checkboxMenu" />
             <div class="underSmallMenu">
                 {
-                    nav.map(({ route, name, customLinkFn }) => {
-                        const link = customLinkFn ? customLinkFn(url, route) : route;
+                    nav.map(({ route, name }) => {
                         return (
                             <h2 class="menuLinks">
-                                <a href={link}>{name}</a>
+                                <a href={route}>{name}</a>
                             </h2>
                         );
                     })
