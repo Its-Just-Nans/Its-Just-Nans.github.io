@@ -22,8 +22,8 @@ export const downloadScript = async (files: { [ke: string]: string }) => {
 };
 
 const getRandomColor = function () {
-    const letters = "9ABCDEF";
-    return `#${Array.from({ length: 6 }, () => letters[Math.floor(Math.random() * letters.length)]).join("")}`;
+    const h = Math.floor(Math.random() * 360);
+    return `hsl(${h}, 70%, 50%)`;
 };
 
 export const globalColor = getRandomColor();
