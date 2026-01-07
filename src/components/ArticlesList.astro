@@ -17,7 +17,7 @@ const nbDraft = drafts.length;
 <article>
     {
         allArticles.map((element) => {
-            const { description, title, draft, hidden, tags } = element.frontmatter;
+            const { description, title, draft, hidden } = element.frontmatter;
             const date = getArticleDate(element.frontmatter);
             const slug = slugify(element.url);
             const realDate = new Date(date || new Date());
