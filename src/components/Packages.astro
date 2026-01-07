@@ -45,10 +45,10 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                     <table>
                         <tbody>
                             {el.list.map((onePackage) => {
-                                const urlOverride = el.urls ? el.urls[onePackage] : null;
+                                const { url: urlRepo, path } = getCustomUrl(onePackage, (el.repos ?? {}) as ObjectType);
+                                const urlOverride = el.urls ? el.urls[onePackage] : urlRepo;
                                 const link = el.url ? el.url.replaceAll(":package", onePackage) : urlOverride;
                                 const stats = el.stats && el.stats.replaceAll(":package", onePackage);
-                                const { url: urlRepo, path } = getCustomUrl(onePackage, (el.repos ?? {}) as ObjectType);
                                 return (
                                     <tr>
                                         <td class="github border-right">
