@@ -45,7 +45,7 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                     <table>
                         <tbody>
                             {el.list.map((onePackage) => {
-                                const urlOverride = el.urls ? el.urls[onePackage] : "Not found";
+                                const urlOverride = el.urls ? el.urls[onePackage] : null;
                                 const link = el.url ? el.url.replaceAll(":package", onePackage) : urlOverride;
                                 const stats = el.stats && el.stats.replaceAll(":package", onePackage);
                                 const { url: urlRepo, path } = getCustomUrl(onePackage, (el.repos ?? {}) as ObjectType);
@@ -70,11 +70,13 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                                                 </svg>
                                             </a>
                                         </td>
-                                        <td class="border-right">
-                                            <a target="_blank" class="opennable" href={link}>
-                                                {link}
-                                            </a>
-                                        </td>
+                                        {link && (
+                                            <td class="border-right">
+                                                <a target="_blank" class="opennable" href={link}>
+                                                    {link}
+                                                </a>
+                                            </td>
+                                        )}
                                         {stats && (
                                             <td class="border-right">
                                                 <a target="_blank" class="opennable" href={stats}>
