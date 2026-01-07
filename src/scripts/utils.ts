@@ -23,7 +23,7 @@ export const downloadScript = async (files: { [ke: string]: string }) => {
 
 const getRandomColor = function () {
     const h = Math.floor(Math.random() * 360);
-    return `hsl(${h}, 60%, 50%)`;
+    return `hsl(${h}, 30%, 70%)`;
 };
 
 export const globalColor = getRandomColor();
