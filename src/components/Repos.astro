@@ -17,7 +17,7 @@ const allPackagesName = allPackages
     )
     .flat();
 
-type Selectors = Record<string, string>;
+const THRESHOLD = 5;
 const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
 const defaultSelector = "All";
@@ -62,13 +62,24 @@ const cleanLang = (l: string) => {
     return l.replaceAll(" ", "-").replaceAll("+", "p").replaceAll(".", "");
 };
 
+type Selectors = Record<string, [string, number]>;
+
 const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
-    const { name: lang, color: lang_color } = primaryLanguage ? primaryLanguage : { name: "", color: "" };
-    if (!lang) return acc;
-    return { ...acc, [cleanLang(lang)]: lang_color ?? DEFAULT_COLOR };
+    const { name: langName, color: lang_color } = primaryLanguage ? primaryLanguage : {};
+    if (!langName) return acc;
+    const lang = cleanLang(langName);
+    const [_color, currentCount = 0] = acc[lang] ?? [];
+    const value: [string, number] = [lang_color ?? DEFAULT_COLOR, currentCount + 1];
+    return { ...acc, [lang]: value };
 }, {} as Selectors);
 
-const projectTypes = ["others-langs", "PoC", packageTag, "School", "IRL"];
+const projectTypes = [
+    "others-langs",
+    "PoC",
+    packageTag,
+    "School",
+    // "IRL"
+];
 if (typedOutput.some(({ isUntagged }) => isUntagged)) {
     projectTypes.push("untagged");
 }
@@ -80,9 +91,12 @@ const orderedLangs = Object.keys(langs)
         return obj;
     }, {} as Selectors);
 
-const selectors: Selectors = {
+const selectors: Record<string, string> = {
     [defaultSelector]: "black",
-    ...orderedLangs,
+    ...Object.entries(orderedLangs).reduce(
+        (acc, [currKey, currVal]) => (currVal[1] > THRESHOLD ? { ...acc, [currKey]: currVal[0] } : acc),
+        {}
+    ),
     ...projectTypes.reduce((acc, curr) => ({ ...acc, [curr]: DEFAULT_COLOR }), {}),
 };
 
@@ -142,7 +156,9 @@ const rawStylesCSS = Object.entries(selectors)
         typedOutput.map((oneData) => {
             const { isPackage, isSchool, isPoc, isUntagged, isBookmarked, isIrl, isRepo, name, primaryLanguage } =
                 oneData;
-            const langName = (primaryLanguage?.name ?? "").toLocaleLowerCase();
+            const langName = primaryLanguage?.name ?? "";
+            const lang = cleanLang(langName);
+            const isOther = selectors[lang] ? false : true;
             if (import.meta.env.DEV) {
                 if (isRepo && isUntagged) {
                     console.log(`'${name}' is not tagged`);
@@ -153,7 +169,7 @@ const rawStylesCSS = Object.entries(selectors)
                     class:list={[
                         "projectWrap",
                         {
-                            [`selector-${cleanLang(langName)}`]: langName !== "",
+                            [`selector-${lang.toLocaleLowerCase()}`]: langName !== "",
                             ["selector-poc"]: isPoc,
                             ["selector-all"]: true,
                             ["selector-school"]: isSchool,
@@ -161,7 +177,7 @@ const rawStylesCSS = Object.entries(selectors)
                             ["selector-bookmark"]: isBookmarked,
                             ["selector-irl"]: isIrl,
                             ["selector-untagged"]: isUntagged,
-                            "selector-others-langs": !primaryLanguage,
+                            "selector-others-langs": isOther,
                         },
                     ]}
                 >

@@ -1,5 +1,8 @@
 ---
 const { data } = Astro.props;
+import img from "leaflet/dist/images/marker-icon.png?url";
+import img2x from "leaflet/dist/images/marker-icon-2x.png?url";
+import imgShadow from "leaflet/dist/images/marker-shadow.png?url";
 
 const customId = Math.random().toString(36).substring(7);
 ---
@@ -31,13 +34,16 @@ const customId = Math.random().toString(36).substring(7);
 
 <slot />
 
-<script is:inline define:vars={{ data, customId }}>
-    Object.assign(window, { data, customId });
+<script is:inline define:vars={{ data, customId, img, img2x, imgShadow }}>
+    Object.assign(window, { data, customId, img, img2x, imgShadow });
 </script>
 
 <script>
     // @ts-nocheck
     import L from "leaflet";
+    L.Icon.Default.prototype.options.iconUrl = img;
+    L.Icon.Default.prototype.options.iconRetinaUrl = img2x;
+    L.Icon.Default.prototype.options.shadowUrl = imgShadow;
     let currentIdx = 0;
     var map = L.map(customId);
 
