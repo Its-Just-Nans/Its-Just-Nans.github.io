@@ -43,7 +43,13 @@ const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject)
     const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
     const isPoc = desc.startsWith("PoC");
     const isGist = !isRepo;
-    const isUntagged = ![isPackage, isSchool, isPoc, isGist, isIrl].some((x) => x);
+    const isUntagged = ![
+        isPackage,
+        isSchool,
+        //isPoc,
+        isGist,
+        isIrl,
+    ].some((x) => x);
     return {
         ...proj,
         description: desc,
@@ -75,7 +81,7 @@ const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
 
 const projectTypes = [
     "others-langs",
-    "PoC",
+    // "PoC",
     packageTag,
     // "School",
     // "IRL"
