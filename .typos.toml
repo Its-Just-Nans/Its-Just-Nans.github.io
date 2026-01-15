@@ -21,5 +21,5 @@ extend-exclude = [
     "Its-Just-Nans/others-articles/cool-quotes/*",
     "Its-Just-Nans/others-articles/gta-chinatown-wars/gta-chinatown-wars.mdx",
     "Its-Just-Nans/others-articles/tocs/tocs.mdx",
-    "Its-Just-Nans/others-articles/pact/pact.mdx",
+    "Its-Just-Nans/others-articles/telecom-paris/telecom-paris.mdx",
 ]
