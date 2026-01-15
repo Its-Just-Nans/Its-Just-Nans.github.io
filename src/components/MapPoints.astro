@@ -11,54 +11,57 @@ interface Props {
     zoom?: number;
     view: [number, number];
     mapId?: string;
+    customStyle?: string;
 }
 
 const franceView = [46.446, 2.903];
 
-const { points, height, zoom = 4, view = franceView, mapId = "map" } = Astro.props;
+const { points, height, zoom = 4, view = franceView, mapId = "map", customStyle = "" } = Astro.props;
 ---
 
-<div id={mapId}></div>
-
-<script is:inline define:vars={{ points, height, zoom, view, mapId, img, img2x, imgShadow }}>
-    Object.assign(window, { points, height, zoom, view, mapId, img, img2x, imgShadow });
-</script>
+<div id={mapId} style={customStyle} class="map-points"></div>
 
 <script>
     // @ts-nocheck
     import L from "leaflet";
-    L.Icon.Default.prototype.options.iconUrl = img;
-    L.Icon.Default.prototype.options.iconRetinaUrl = img2x;
-    L.Icon.Default.prototype.options.shadowUrl = imgShadow;
+    window.L = L;
+    window.document.dispatchEvent(new Event("leaflet-loaded"));
+</script>
 
-    let mapIdRef = mapId;
-    if (height) {
-        document.getElementById(mapIdRef).style.height = `${height}px`;
-    }
-    var map = L.map(mapIdRef);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
+<script is:inline define:vars={{ points, height, zoom, view, mapId, img, img2x, imgShadow }}>
+    document.addEventListener("leaflet-loaded", () => {
+        L.Icon.Default.prototype.options.iconUrl = img;
+        L.Icon.Default.prototype.options.iconRetinaUrl = img2x;
+        L.Icon.Default.prototype.options.shadowUrl = imgShadow;
 
-    points.forEach((oneMarker) => {
-        L.marker(oneMarker.coords).addTo(map).bindPopup(oneMarker.name);
-    });
+        if (height) {
+            document.getElementById(mapId).style.height = `${height}px`;
+        }
+        var map = L.map(mapId);
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
 
-    map.setView(view, zoom);
+        points.forEach((oneMarker) => {
+            L.marker(oneMarker.coords).addTo(map).bindPopup(oneMarker.name);
+        });
 
-    map.addEventListener("contextmenu", function (event) {
-        navigator.clipboard.writeText(
-            JSON.stringify(
-                {
-                    type: "place",
-                    coords: event.latlng,
-                    name: "",
-                },
-                null,
-                2
-            )
-        );
+        map.setView(view, zoom);
 
-        return false;
+        map.addEventListener("contextmenu", function (event) {
+            navigator.clipboard.writeText(
+                JSON.stringify(
+                    {
+                        type: "place",
+                        coords: event.latlng,
+                        name: "",
+                    },
+                    null,
+                    2
+                )
+            );
+
+            return false;
+        });
     });
 </script>
