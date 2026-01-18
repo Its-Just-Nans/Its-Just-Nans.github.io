@@ -1,7 +1,8 @@
 export type SingleProject = {
     name: string;
     url: string;
-    description: string;
+    description: string | null;
+    archivedAt: string | null;
     stargazerCount: number;
     homepageUrl: string;
     primaryLanguage?: {

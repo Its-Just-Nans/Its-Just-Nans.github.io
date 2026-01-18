@@ -13,7 +13,7 @@ const allPackagesName = allPackages
         onePlateform.list.map((onePackage) => {
             const packageLink = onePlateform.repos?.[onePackage];
             return packageLink?.split("/").pop() ?? onePackage;
-        })
+        }),
     )
     .flat();
 
@@ -22,7 +22,7 @@ const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
 const defaultSelector = "All";
 
-const filterProjects = ({ name, description }: SingleProject) => {
+const filterProjects = ({ name, description, archivedAt }: SingleProject) => {
     if (!description) {
         console.log(`Project '${name}' doesn't have description !!`);
         return false;
@@ -30,6 +30,10 @@ const filterProjects = ({ name, description }: SingleProject) => {
     const startWithFilter = description.startsWith(repoFilter);
     if (startWithFilter) {
         console.log(`Project is starting with ${repoFilter}: '${name}'`);
+    }
+    if (archivedAt) {
+        console.log(`Project is archived: '${name}'`);
+        return false;
     }
     return !startWithFilter;
 };
@@ -101,7 +105,7 @@ const selectors: Record<string, string> = {
     [defaultSelector]: "black",
     ...Object.entries(orderedLangs).reduce(
         (acc, [currKey, currVal]) => (currVal[1] > THRESHOLD ? { ...acc, [currKey]: currVal[0] } : acc),
-        {}
+        {},
     ),
     ...projectTypes.reduce((acc, curr) => ({ ...acc, [curr]: DEFAULT_COLOR }), {}),
 };
