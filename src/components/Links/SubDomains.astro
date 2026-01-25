@@ -36,7 +36,7 @@ import subdomains from "@data/subdomains.json";
                                     </a>
                                 </td>
                                 <td class="copyFn" data-link={url}>
-                                    <span title="Click to copy">
+                                    <div class="copyIconContainer" title="Click to copy">
                                         <svg
                                             width="24"
                                             height="24"
@@ -49,7 +49,7 @@ import subdomains from "@data/subdomains.json";
                                                 <path d="M5 16V4.992C5 3.892 5.902 3 7.009 3H15v13H5zm2 0h8V5H7v11z" />
                                             </g>
                                         </svg>
-                                    </span>
+                                    </div>
                                 </td>
                             </tr>
                         );
@@ -84,7 +84,8 @@ import subdomains from "@data/subdomains.json";
     tr {
         border: 1px solid grey;
     }
-    tbody > tr {
+    tbody td a,
+    tbody td .copyIconContainer {
         cursor: pointer;
     }
     .overflowTable {
