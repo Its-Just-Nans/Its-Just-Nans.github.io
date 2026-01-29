@@ -94,9 +94,7 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                                                                     .replaceAll(":user", user)
                                                                     .replaceAll(":package", onePackage)}`}
                                                             />
-                                                        </a>
-                                                        <span>&nbsp;</span>
-                                                    </td>
+                                                        </a>                                                   </td>
                                                 ))}
                                             </>
                                         )}
@@ -179,5 +177,8 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
     }
     .hidden {
         display: none;
+    }
+    .open able {
+        display: inline-block;
     }
 </style>
