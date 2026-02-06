@@ -25,10 +25,10 @@
     "devDependencies": {
         "@astrojs/check": "^0.9.6",
         "@astrojs/mdx": "^4.3.13",
-        "@astrojs/rss": "^4.0.14",
-        "@astrojs/sitemap": "^3.6.0",
+        "@astrojs/rss": "^4.0.15",
+        "@astrojs/sitemap": "^3.7.0",
         "@types/leaflet": "^1.9.21",
-        "astro": "^5.16.6",
+        "astro": "^5.17.1",
         "astro-barchart": "1.0.7",
         "astro-index": "1.1.2",
         "astro-simple-carousel": "1.0.9",
