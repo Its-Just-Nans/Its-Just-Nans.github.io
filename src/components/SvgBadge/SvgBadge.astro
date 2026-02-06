@@ -1,5 +1,5 @@
 ---
-import type { SingleProject } from "../../scripts/types";
+import type { IsSomething, SingleProject } from "../../scripts/types";
 import { splitStringByLength } from "../utils";
 import BadgeLanguage from "./BadgeLanguage.astro";
 import BadgeLinks from "./BadgeLinks.astro";
@@ -9,16 +9,13 @@ import SvgBadgeRepoHeader from "./RepoHeader.astro";
 import Stargazers from "./Stargazers.astro";
 
 interface Props {
-    svgData: SingleProject;
-    isPackage: boolean;
-    isRepo: boolean;
-    isSchool: boolean;
-    isPoc: boolean;
-    isBookmark: boolean;
+    repoData: SingleProject;
+    isSomething: IsSomething;
 }
 
-const { svgData, isPackage, isPoc, isRepo, isSchool, isBookmark } = Astro.props;
-const { name, stargazerCount, url, homepageUrl, primaryLanguage, description } = svgData;
+const { repoData, isSomething } = Astro.props;
+const { isRepo } = isSomething;
+const { stargazerCount, url, homepageUrl, primaryLanguage, description } = repoData;
 const desc = description ?? "";
 const maxLen = isRepo ? 56 : 34;
 const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
@@ -39,14 +36,7 @@ const chunks = splitStringByLength(desc.slice(0, 115), maxLen);
         {
             isRepo ? (
                 <>
-                    <SvgBadgeRepoHeader
-                        name={name}
-                        isPackage={isPackage}
-                        isSchool={isSchool}
-                        isPoc={isPoc}
-                        isBookmark={isBookmark}
-                        homepageUrl={homepageUrl}
-                    />
+                    <SvgBadgeRepoHeader repoData={repoData} isSomething={isSomething} />
                     <g class="hovered">
                         <BadgeLinks isRepo={isRepo} url={url} homepageUrl={homepageUrl} />
                     </g>

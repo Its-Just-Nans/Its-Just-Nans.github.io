@@ -31,10 +31,10 @@ const filterProjects = ({ name, description, archivedAt }: SingleProject) => {
     if (startWithFilter) {
         console.log(`Project is starting with ${repoFilter}: '${name}'`);
     }
-    if (archivedAt) {
-        console.log(`Project is archived: '${name}'`);
-        return false;
-    }
+    // if (archivedAt) {
+    //     console.log(`Project is archived: '${name}'`);
+    //     return false;
+    // }
     return !startWithFilter;
 };
 
@@ -74,12 +74,13 @@ const cleanLang = (l: string) => {
 
 type Selectors = Record<string, [string, number]>;
 
-const langs = typedOutput.reduce((acc, { primaryLanguage }) => {
+const langs = typedOutput.reduce((acc, { primaryLanguage, archivedAt }) => {
     const { name: langName, color: lang_color } = primaryLanguage ? primaryLanguage : {};
     if (!langName) return acc;
     const lang = cleanLang(langName);
     const [_color, currentCount = 0] = acc[lang] ?? [];
-    const value: [string, number] = [lang_color ?? DEFAULT_COLOR, currentCount + 1];
+    const newCount = archivedAt ? currentCount : currentCount + 1;
+    const value: [string, number] = [lang_color ?? DEFAULT_COLOR, newCount];
     return { ...acc, [lang]: value };
 }, {} as Selectors);
 
@@ -89,6 +90,7 @@ const projectTypes = [
     packageTag,
     // "School",
     // "IRL"
+    "archived",
 ];
 if (typedOutput.some(({ isUntagged }) => isUntagged)) {
     projectTypes.push("untagged");
@@ -110,10 +112,11 @@ const selectors: Record<string, string> = {
     ...projectTypes.reduce((acc, curr) => ({ ...acc, [curr]: DEFAULT_COLOR }), {}),
 };
 
-const rawStylesCSS = Object.entries(selectors)
-    .map(([selectorName, color]) => {
-        const l = cleanLang(selectorName.toLocaleLowerCase());
-        return `
+const rawStylesCSS =
+    Object.entries(selectors)
+        .map(([selectorName, color]) => {
+            const l = cleanLang(selectorName.toLocaleLowerCase());
+            return `
         #selector-${l}:checked ~ .selector-${l} {
             display: inline-block;
         }
@@ -121,8 +124,18 @@ const rawStylesCSS = Object.entries(selectors)
             border: 2px solid ${color};
             margin: 3px;
         }`;
-    })
-    .join("\n");
+        })
+        .join("\n") +
+    Object.entries(selectors)
+        .filter(([s, _]) => s !== "archived")
+        .map(([selectorName, color]) => {
+            const l = cleanLang(selectorName.toLocaleLowerCase());
+            return `
+        #selector-${l}:checked ~ .selector-archived {
+            display: none;
+        }`;
+        })
+        .join("\n");
 ---
 
 <div>
@@ -174,6 +187,13 @@ const rawStylesCSS = Object.entries(selectors)
                     console.log(`'${name}' is not tagged`);
                 }
             }
+            const isSomething = {
+                isPackage,
+                isPoc,
+                isSchool,
+                isRepo,
+                isBookmarked,
+            };
             return (
                 <div
                     class:list={[
@@ -187,19 +207,13 @@ const rawStylesCSS = Object.entries(selectors)
                             ["selector-bookmark"]: isBookmarked,
                             ["selector-irl"]: isIrl,
                             ["selector-untagged"]: isUntagged,
+                            ["selector-archived"]: oneData.archivedAt,
                             "selector-others-langs": isOther,
                         },
                     ]}
                 >
                     <div class="svgRepo">
-                        <SvgBadge
-                            svgData={oneData}
-                            isPackage={isPackage}
-                            isPoc={isPoc}
-                            isSchool={isSchool}
-                            isRepo={isRepo}
-                            isBookmark={isBookmarked}
-                        />
+                        <SvgBadge repoData={oneData} isSomething={isSomething} />
                     </div>
                 </div>
             );

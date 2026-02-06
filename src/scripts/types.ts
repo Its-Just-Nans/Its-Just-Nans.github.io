@@ -11,6 +11,14 @@ export type SingleProject = {
     };
 };
 
+export type IsSomething = {
+    isPackage: boolean;
+    isPoc: boolean;
+    isSchool: boolean;
+    isRepo: boolean;
+    isBookmarked: boolean;
+};
+
 export type SinglePackage = {
     name: string;
     profile: string;

@@ -1,15 +1,16 @@
 ---
+import type { IsSomething, SingleProject } from "@scripts/types";
+
 interface Props {
-    name: string;
-    isPackage: boolean;
-    isSchool: boolean;
-    isPoc: boolean;
-    isBookmark: boolean;
-    homepageUrl?: string;
+    repoData: SingleProject;
+    isSomething: IsSomething;
 }
 
-const { name, isPackage, isSchool, isPoc, isBookmark, homepageUrl = null } = Astro.props;
-const colorIco = "#586069";
+const { repoData, isSomething } = Astro.props;
+const { isPackage, isSchool, isPoc, isBookmarked } = isSomething;
+const { name, homepageUrl } = repoData;
+const colorIco = repoData.archivedAt ? "#8b7500" : "#586069";
+const colorRepoName = repoData.archivedAt ? "#8b7500" : "#2f80ed";
 ---
 
 <g data-testid="card-title" transform="translate(25, 35)">
@@ -22,7 +23,7 @@ const colorIco = "#586069";
         </svg>
     </g>
     <g transform="translate(25, 0)">
-        <text x="0" y="0" class="header" data-testid="header">
+        <text x="0" y="0" class="header" fill={colorRepoName} data-testid="header">
             {name}
         </text>
     </g>
@@ -58,7 +59,7 @@ const colorIco = "#586069";
         )
     }
     {
-        isBookmark && (
+        isBookmarked && (
             <g class="hovered" transform="translate(350, 20)" stroke={colorIco} stroke-width="1.5">
                 <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
             </g>
@@ -99,7 +100,6 @@ const colorIco = "#586069";
             600 18px "Segoe UI",
             Ubuntu,
             Sans-Serif;
-        fill: #2f80ed;
     }
     @supports (-moz-appearance: auto) {
         /* Selector detects Firefox */
