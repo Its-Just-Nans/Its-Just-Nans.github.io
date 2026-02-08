@@ -4,6 +4,8 @@ import LanguagesList from "@components/LanguagesList/LanguagesList.astro";
 import MadeWith from "@components/MadeWith/MadeWith.astro";
 import Pseudonyms from "@components/Pseudonyms.astro";
 import { githubStats, packageLink, pseudo } from "@scripts/pages";
+import ico81x31 from "@Its-Just-Nans/88x31_n4n5.png";
+import { Image } from "astro:assets";
 ---
 
 <Base title="About" keywords={[`about ${pseudo}`]}>
@@ -50,10 +52,23 @@ import { githubStats, packageLink, pseudo } from "@scripts/pages";
             </div>
         </div>
         <MadeWith />
+        <br />
+        <a href="https://n4n5.dev" class="ico88">
+            <Image src={ico81x31} alt="81x31 ico" />
+        </a>
     </section>
 </Base>
 
 <style>
+    .ico88 {
+        text-align: center;
+        display: block;
+    }
+    .ico88 > img {
+        display: block;
+        border: 1px solid black;
+        margin: auto;
+    }
     .link {
         color: blue;
     }
