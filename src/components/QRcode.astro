@@ -31,6 +31,18 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
     import QRCode from "qrcode";
     // @ts-ignore
     const { showError, redirectSeconds, redirectUrl } = window;
+    const parseUrl = (url) => {
+        try {
+            if (url.startsWith("http")) {
+                const parsed = new URL(url);
+                return parsed.href;
+            }
+            const parsed = new URL("https://" + url);
+            return parsed.href;
+        } catch (e) {
+            return "";
+        }
+    };
     const main = () => {
         const qrcode = document.getElementById("qrcode");
         const msg = document.getElementById("msg");
@@ -39,13 +51,9 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
             console.error("msg or qrcode or error not found");
             return;
         }
-        const glitch = document.getElementsByClassName("hero-container");
-        if (glitch && glitch[0]) {
-            glitch[0].remove();
-        }
-        document.title = "QR Code";
-        const urlIdx = window.location.href.indexOf("http", 4);
-        if (urlIdx == -1) {
+        const pathname = window.location.pathname.substring(1);
+        const url = parseUrl(pathname);
+        if (url == "") {
             // @ts-ignore
             error.style.display = "block";
             setTimeout(() => {
@@ -56,7 +64,11 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
             }
             return;
         }
-        const url = window.location.href.slice(urlIdx);
+        const glitch = document.getElementsByClassName("hero-container");
+        if (glitch && glitch[0]) {
+            glitch[0].remove();
+        }
+        document.title = "QR Code";
         console.log("Url: ", url);
         QRCode.toCanvas(qrcode, url, function (error: string) {
             if (error) console.error(error);
