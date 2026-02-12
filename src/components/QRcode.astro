@@ -39,6 +39,9 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
                 return parsed.href;
             }
             const parsed = new URL("https://" + url);
+            if (!/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(parsed.hostname)) {
+                return "";
+            }
             return parsed.href;
         } catch (e) {
             return "";
