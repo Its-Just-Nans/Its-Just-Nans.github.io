@@ -52,8 +52,9 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
             console.error("msg or qrcode or error not found");
             return;
         }
-        const pathname = window.location.pathname.substring(1);
-        const url = parseUrl(pathname);
+        const urlDomain = window.location.protocol + "//" + window.location.host + "/";
+        const newUrl = window.location.href.replace(urlDomain, "");
+        const url = parseUrl(newUrl);
         if (url == "") {
             // @ts-ignore
             error.style.display = "block";
