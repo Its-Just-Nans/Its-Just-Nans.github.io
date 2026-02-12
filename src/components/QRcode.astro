@@ -66,6 +66,11 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
             }, redirectSeconds * 1000);
             if (showError) {
                 msg.innerHTML = `Bad URL (cannot found 'http')<br/>You should add 'n4n5.dev/qr/' before the url<br/>`;
+            } else {
+                const wrap = document.getElementsByClassName("wrap");
+                if (wrap && wrap[0]) {
+                    wrap[0].remove();
+                }
             }
             return;
         }
