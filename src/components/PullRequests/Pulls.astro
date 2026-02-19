@@ -41,7 +41,12 @@ const reposObj = pulls.reduce((acc, { node }) => {
                             <OpenInNewTab width="12px" height="12px" />
                         </a>
                         <span>&nbsp;</span>
-                        <span class="number" class:list={[{ colored: pullsList.length > 5 }]}>
+                        <span
+                            class="number"
+                            class:list={[
+                                { "colored-five": pullsList.length >= 5, "colored-one": pullsList.length > 1 },
+                            ]}
+                        >
                             ({pullsList.length})
                         </span>
                     </summary>
@@ -62,7 +67,12 @@ const reposObj = pulls.reduce((acc, { node }) => {
 }
 
 <style>
-    :global(#colored:checked ~ .pulls-list) .colored {
+    :global(#colored-five:checked ~ .pulls-list) .colored-five {
+        color: black;
+        font-weight: bolder;
+        text-decoration: underline;
+    }
+    :global(#colored-one:checked ~ .pulls-list) .colored-one {
         color: black;
         font-weight: bolder;
         text-decoration: underline;

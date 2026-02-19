@@ -15,9 +15,10 @@ const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").
 ---
 
 <div class="pulls">
-    <input type="checkbox" id="colored" name="colored" class="pr-colored" />
+    <input type="checkbox" id="colored-five" name="colored-five" class="pr-colored" />
+    <input type="checkbox" id="colored-one" name="colored-one" class="pr-colored" />
     <div class="stats">
-        <h2><label for="colored">PRs</label></h2>
+        <h2><label for="colored-five">PR</label><label for="colored-one">s</label></h2>
         <p>
             Total: {totalMergedCount}
         </p>
@@ -30,7 +31,7 @@ const totalMergedCount = allPulls.filter(({ node }) => node.state === "MERGED").
 </div>
 
 <style>
-    #colored {
+    .pr-colored {
         display: none;
     }
     .pulls {
