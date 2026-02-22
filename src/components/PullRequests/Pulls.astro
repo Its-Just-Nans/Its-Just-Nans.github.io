@@ -44,7 +44,7 @@ const reposObj = pulls.reduce((acc, { node }) => {
                         <span
                             class="number"
                             class:list={[
-                                { "colored-five": pullsList.length >= 5, "colored-one": pullsList.length > 1 },
+                                { "colored-five": pullsList.length >= 5, "colored-one": pullsList.length > 1 && pullsList.length < 5 },
                             ]}
                         >
                             ({pullsList.length})
