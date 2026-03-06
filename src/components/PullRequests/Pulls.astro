@@ -22,16 +22,29 @@ const reposObj = pulls.reduce((acc, { node }) => {
         return acc;
     }
     if (!acc[url]) {
-        acc[url] = [];
+        acc[url] = {
+            repo: baseRepository,
+	    pullsList: [],
+        };
     }
-    acc[url].push(node);
+    acc[url].pullsList.push(node);
     return acc;
 }, {} as RepoType);
+
+const getPullUrl = (baseRepo) => {
+    if (isGithub) {
+        return `${baseRepo.url}/pulls?q=author%3AIts-Just-Nans`; 
+    }
+    if (baseRepo.pullUrl) {
+        return baseRepo.pullUrl;
+    }
+    return baseRepo.url;
+};
 ---
 
 {
-    Object.entries(reposObj).map(([url, pullsList]) => {
-        const pullUrls = isGithub ? `${url}/pulls?q=author%3AIts-Just-Nans` : url;
+    Object.entries(reposObj).map(([url, { repo, pullsList }]) => {
+        const pullUrls = getPullUrl(repo);
         return (
             <div class="single-pr">
                 <details>
