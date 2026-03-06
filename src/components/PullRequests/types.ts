@@ -2,6 +2,21 @@ export interface PullRequest {
     node: RepoNode;
 }
 
+export interface BaseRepository {
+    url: string;
+    pullUrl?: string;
+    name: string;
+    description: string;
+    owner: {
+        login: string;
+    };
+    languages: {
+        nodes?: Array<{
+            name: string;
+        }> | null;
+    };
+};
+
 export interface RepoNode {
     id: string;
     number: number;
@@ -9,17 +24,5 @@ export interface RepoNode {
     url: string;
     state: string;
     createdAt: string;
-    baseRepository: {
-        url: string;
-        name: string;
-        description: string;
-        owner: {
-            login: string;
-        };
-        languages: {
-            nodes?: Array<{
-                name: string;
-            }> | null;
-        };
-    };
+    baseRepository: BaseRepository 
 }

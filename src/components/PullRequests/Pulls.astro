@@ -1,9 +1,12 @@
 ---
 import { CLEANER } from "@scripts/pages";
 import OpenInNewTab from "../OpenInNewTab.astro";
-import type { PullRequest, RepoNode } from "./types";
+import type { BaseRepository, PullRequest, RepoNode } from "./types";
 
-type RepoType = Record<string, Array<RepoNode>>;
+type RepoType = Record<string, {
+    repo: BaseRepository,
+    pullsList: Array<RepoNode>
+}>;
 
 interface Props {
     pulls: Array<PullRequest>;
@@ -31,7 +34,7 @@ const reposObj = pulls.reduce((acc, { node }) => {
     return acc;
 }, {} as RepoType);
 
-const getPullUrl = (baseRepo) => {
+const getPullUrl = (baseRepo: BaseRepository) => {
     if (isGithub) {
         return `${baseRepo.url}/pulls?q=author%3AIts-Just-Nans`; 
     }
