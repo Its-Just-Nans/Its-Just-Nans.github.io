@@ -83,7 +83,7 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
         QRCode.toCanvas(qrcode, url, function (error: string) {
             if (error) console.error(error);
             console.log("success!");
-            msg.innerHTML = `<a href='${url}' target="_blank" style="color:blue">${url}</a>`;
+            msg.innerHTML = `<a href='${url}' target="_blank" style="color:blue;line-break:anywhere;">${url}</a>`;
         });
     };
     main();
