@@ -22,7 +22,7 @@ const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
 const defaultSelector = "All";
 
-const filterProjects = ({ name, description, archivedAt }: SingleProject) => {
+const filterProjects = ({ name, description, archivedAt: _ }: SingleProject) => {
     if (!description) {
         console.log(`Project '${name}' doesn't have description !!`);
         return false;
@@ -128,7 +128,7 @@ const rawStylesCSS =
         .join("\n") +
     Object.entries(selectors)
         .filter(([s, _]) => s !== "archived")
-        .map(([selectorName, color]) => {
+        .map(([selectorName, _color]) => {
             const l = cleanLang(selectorName.toLocaleLowerCase());
             return `
         #selector-${l}:checked ~ .selector-archived {
