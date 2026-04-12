@@ -101,7 +101,6 @@
     max-width: 100%;
     height: auto;
     box-sizing: content-box;
-    background-color: #ffffff;
 }
 .markdown-body .leaflet-marker-icon {
     background-color: transparent;
