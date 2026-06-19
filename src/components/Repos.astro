@@ -17,6 +17,10 @@ const allPackagesName = allPackages
     )
     .flat();
 
+const allLogos: Record<string, string> = allPackages.reduce((acc, onePlateform) => {
+        return {...acc, ...(onePlateform.logos ?? {})};
+}, {});
+
 const THRESHOLD = 5;
 const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
@@ -57,6 +61,7 @@ const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject)
     return {
         ...proj,
         description: desc,
+        logo: allLogos[proj.name] ?? null,
         isPackage,
         isBookmarked,
         isIrl,
