@@ -46,6 +46,7 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                         <tbody>
                             {el.list.map((onePackage) => {
                                 const { url: urlRepo, path } = getCustomUrl(onePackage, (el.repos ?? {}) as ObjectType);
+                                const logo = el.logos ? el.logos[onePackage] ?? null : null;
                                 const urlOverride = el.urls ? el.urls[onePackage] : urlRepo;
                                 const link = el.url ? el.url.replaceAll(":package", onePackage) : urlOverride;
                                 const stats = el.stats && el.stats.replaceAll(":package", onePackage);
@@ -106,6 +107,11 @@ const getCustomUrl = (onePackage: string, repos: ObjectType = {}) => {
                                                 />
                                             </a>
                                         </td>
+                                        {logo && (
+                                            <td class="border-right">
+                                                <img src={logo} height="50px" />
+                                            </td>
+                                        )}
                                     </tr>
                                 );
                             })}

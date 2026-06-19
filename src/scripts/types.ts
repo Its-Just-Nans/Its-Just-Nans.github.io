@@ -28,6 +28,7 @@ export type SinglePackage = {
     shields: Array<string>;
     profile_urls?: Array<string>;
     repos?: Record<string, string>;
+    logos?: Record<string, string>;
     urls?: Record<string, string>;
 };
 
