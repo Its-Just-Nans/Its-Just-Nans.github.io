@@ -3,7 +3,7 @@ import output from "@data/projects/projects.json";
 import packages from "@data/packages.json";
 import SvgBadge from "@components/SvgBadge/SvgBadge.astro";
 import type { SingleProject, SinglePackage } from "../scripts/types";
-import { repoFilter, schoolChecker } from "@scripts/pages";
+import { filterRepo, schoolChecker } from "@scripts/pages";
 
 const allProjects = output as Array<SingleProject>;
 const allPackages = packages as unknown as Array<SinglePackage>;
@@ -26,20 +26,12 @@ const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
 const defaultSelector = "All";
 
-const filterProjects = ({ name, description, archivedAt: _ }: SingleProject) => {
+const filterProjects = ({ name, description, archivedAt }: SingleProject) => {
     if (!description) {
         console.log(`Project '${name}' doesn't have description !!`);
         return false;
     }
-    const startWithFilter = description.startsWith(repoFilter);
-    if (startWithFilter) {
-        console.log(`Project is starting with ${repoFilter}: '${name}'`);
-    }
-    // if (archivedAt) {
-    //     console.log(`Project is archived: '${name}'`);
-    //     return false;
-    // }
-    return !startWithFilter;
+    return filterRepo(name, description, archivedAt);
 };
 
 const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject) => {
