@@ -36,12 +36,19 @@ export const CLEANER = [
 
 export const schoolChecker = ["DUT R&T", "TP"];
 
-const hiddenRepos = ["whatisthis", "sms2call"];
+const hiddenRepos = [
+  "whatisthis",
+  "sms2call",
+  "svelte-number-displayer",
+  "svg-packages-stats",
+  "plugin-astro-content",
+  "go-calendar",
+];
 
 export const filterRepo = (
   name: string,
   description: string,
-  _archivedAt: string | null,
+  archivedAt: string | null,
 ) => {
   if (description.startsWith("🌐")) {
     console.log(`Project is starting with 🌐: '${name}'`);
@@ -50,9 +57,9 @@ export const filterRepo = (
   if (hiddenRepos.includes(name)) {
     return false;
   }
-  // if (archivedAt) {
-  //     console.log(`Project is archived: '${name}'`);
-  //     return false;
-  // }
+  if (archivedAt) {
+    console.log(`Project is archived: '${name}'`);
+    return false;
+  }
   return true;
 };
