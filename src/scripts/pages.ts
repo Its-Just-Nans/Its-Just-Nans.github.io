@@ -51,23 +51,30 @@ const hiddenRepos = [
     "bladvak",
     "csv-to-custom-json-python",
     "static-sitemap",
+    "cors-proxy",
 ];
 
-export const filterRepo = (
-    name: string,
-    description: string,
-    archivedAt: string | null,
-) => {
-    if (description.startsWith("🌐")) {
+export const filterProjects = (repo: {
+    name: string;
+    description: string;
+    archivedAt: string | null;
+}) => {
+    const name = repo.name;
+    if (!repo.description) {
+        console.log(`Project '${name}' doesn't have description !!`);
+        return false;
+    }
+    if (repo.description.startsWith("🌐")) {
         console.log(`Project is starting with 🌐: '${name}'`);
         return false;
     }
-    if (hiddenRepos.includes(name)) {
-        return false;
-    }
-    if (archivedAt) {
+    if (repo.archivedAt) {
         console.log(`Project is archived: '${name}'`);
-        return false;
+        // return false;
+    }
+    if (hiddenRepos.includes(name)) {
+        console.log(`Project is now-archived: '${name}'`);
+        repo.archivedAt = "now"; // little hack
     }
     return true;
 };

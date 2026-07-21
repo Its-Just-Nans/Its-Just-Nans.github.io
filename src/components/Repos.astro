@@ -3,7 +3,7 @@ import output from "@data/projects/projects.json";
 import packages from "@data/packages.json";
 import SvgBadge from "@components/SvgBadge/SvgBadge.astro";
 import type { SingleProject, SinglePackage } from "../scripts/types";
-import { filterRepo, schoolChecker } from "@scripts/pages";
+import { filterProjects, schoolChecker } from "@scripts/pages";
 
 const allProjects = output as Array<SingleProject>;
 const allPackages = packages as unknown as Array<SinglePackage>;
@@ -25,14 +25,6 @@ const THRESHOLD = 5;
 const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
 const defaultSelector = "All";
-
-const filterProjects = ({ name, description, archivedAt }: SingleProject) => {
-    if (!description) {
-        console.log(`Project '${name}' doesn't have description !!`);
-        return false;
-    }
-    return filterRepo(name, description, archivedAt);
-};
 
 const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject) => {
     const desc = proj.description ?? "";
@@ -122,17 +114,10 @@ const rawStylesCSS =
             margin: 3px;
         }`;
         })
-        .join("\n") +
-    Object.entries(selectors)
-        .filter(([s, _]) => s !== "archived")
-        .map(([selectorName, _color]) => {
-            const l = cleanLang(selectorName.toLocaleLowerCase());
-            return `
-        #selector-${l}:checked ~ .selector-archived {
-            display: none;
-        }`;
-        })
-        .join("\n");
+.join("\n") +
+        `#selector-all:checked ~ .selector-archived {
+    display: none;
+}`;
 ---
 
 <div>
