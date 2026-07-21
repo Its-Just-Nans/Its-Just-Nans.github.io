@@ -56,7 +56,7 @@ const hiddenRepos = [
 
 export const filterProjects = (repo: {
     name: string;
-    description: string;
+    description: string | null;
     archivedAt: string | null;
 }) => {
     const name = repo.name;
