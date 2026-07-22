@@ -9,8 +9,8 @@ interface Props {
 const { repoData, isSomething } = Astro.props;
 const { isPackage, isSchool, isPoc, isBookmarked } = isSomething;
 const { name, homepageUrl } = repoData;
-const colorIco = repoData.archivedAt ? "#8b7500" : "#586069";
-const colorRepoName = repoData.archivedAt ? "#8b7500" : "#2f80ed";
+const colorIco = repoData.archivedAt ? repoData.archivedAt == "now" ? "#59636e" : "#8b7500" : "#586069";
+const colorRepoName = repoData.archivedAt ? repoData.archivedAt == "now" ? "#59636e" :"#8b7500" : "#2f80ed";
 ---
 
 <g data-testid="card-title" transform="translate(25, 35)">

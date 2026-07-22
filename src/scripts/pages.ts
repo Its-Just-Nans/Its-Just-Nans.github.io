@@ -52,6 +52,8 @@ const hiddenRepos = [
     "csv-to-custom-json-python",
     "static-sitemap",
     "cors-proxy",
+    "porygon",
+    "deploy-that",
 ];
 
 export const filterProjects = (repo: {
