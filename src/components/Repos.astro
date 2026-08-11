@@ -12,7 +12,8 @@ const allPackagesName = allPackages
     .map((onePlateform) =>
         onePlateform.list.map((onePackage) => {
             const packageLink = onePlateform.repos?.[onePackage];
-            return packageLink?.split("/").pop() ?? onePackage;
+            const repoName = packageLink?.split("/").pop() ?? onePackage;
+            return repoName == "can-be-useful" ? onePackage : repoName;
         }),
     )
     .flat();
