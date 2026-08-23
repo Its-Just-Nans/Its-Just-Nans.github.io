@@ -41,14 +41,12 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
                 return parsed.href;
             }
             const parsed = new URL("https://" + url);
-            if (!/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(parsed.hostname)) {
-                return "";
+            if (/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(parsed.hostname)) {
+                return parsed.href;
             }
-            return parsed.href;
+            return window.location.hash.replace("#", "");
         } catch (e) {
             return "";
-        } finally {
-            return window.location.hash.replace("#", "");
         }
     };
     const main = () => {
