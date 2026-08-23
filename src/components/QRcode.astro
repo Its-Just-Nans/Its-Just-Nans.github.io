@@ -48,7 +48,7 @@ const { showError, redirectSeconds, redirectUrl } = Astro.props;
         } catch (e) {
             return "";
         } finally {
-            return window.location.hash;
+            return window.location.hash.replace("#", "");
         }
     };
     const main = () => {
