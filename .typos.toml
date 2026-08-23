@@ -14,8 +14,8 @@ DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING = "DANGEROUS_
 [files]
 extend-exclude = [
     "src/styles/markdown.css",
-    "Its-Just-Nans/data/projects/projects.json",
-    "Its-Just-Nans/data/pull_requests/pulls.json",
+    "Its-Just-Nans/data/github_projects.json",
+    "Its-Just-Nans/data/github_pulls_requests.json",
     "Its-Just-Nans/others-articles/certifications/*",
     "Its-Just-Nans/others-articles/assets/*",
     "Its-Just-Nans/others-articles/cool-quotes/*",
