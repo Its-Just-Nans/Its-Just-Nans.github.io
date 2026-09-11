@@ -13,11 +13,11 @@ import subdomains from "@data/subdomains.json";
         <h2>Quick links</h2>
         <ul>
             {
-                Object.entries(subdomains).map(([url, desc]) => {
-                    const title = url.slice(0, url.indexOf("."))
+                subdomains.filter(({hideIndex = false}) => !hideIndex).map(({domain, desc}) => {
+                    const title = domain.slice(0, domain.indexOf("."))
                     return (
                         <li>
-                            <a class="onelink" href={`https://${url}`} target="_blank" title={url}>
+                            <a class="onelink" href={`https://${domain}`} target="_blank" title={domain}>
                                 <p>
                                     <span class="links-url">{title}</span>
                                     {desc && (
