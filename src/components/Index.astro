@@ -17,7 +17,7 @@ import subdomains from "@data/subdomains.json";
                     const title = url.slice(0, url.indexOf("."))
                     return (
                         <li>
-                            <a class="onelink" href={url} target="_blank" title={url}>
+                            <a class="onelink" href={`https://${url}`} target="_blank" title={url}>
                                 <p>
                                     <span class="links-url">{title}</span>
                                     {desc && (
