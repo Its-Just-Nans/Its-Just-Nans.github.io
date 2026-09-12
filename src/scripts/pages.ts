@@ -48,6 +48,7 @@ const hiddenRepos = [
     "astro-index",
     "astro-barchart",
     "astro-simple-carousel",
+    "baobab",
     "bladvak",
     "csv-to-custom-json-python",
     "static-sitemap",
