@@ -43,6 +43,7 @@ const hiddenRepos = [
     "svg-packages-stats",
     "plugin-astro-content",
     "go-calendar",
+    "docx-asn1",
     // "spust",
     // "sudoku-solver",
     "astro-index",
