@@ -1,7 +1,6 @@
 ---
 import SimpleArticle from "@components/SimpleArticle.astro";
 import SimpleArticleLine from "@components/SimpleArticleLine.astro";
-import TitleLinks from "@components/TitleLinks/TitleLinks.astro";
 import { getOthersArticles } from "@components/utils";
 
 const excludeTags = ["job", "school"];
@@ -16,10 +15,8 @@ const archivedArticles = dataFiltered.filter(({ frontmatter: { tags = [] } }) =>
 <SimpleArticle title={"more"} description={""} keywords={[]}>
     <div class="flexed">
         <h1>more</h1>
-        <TitleLinks />
     </div>
     <hr />
-    <p>You're maybe looking for a <a href="https://map.n4n5.dev/">map</a>?</p>
     <p>Or maybe more <a href="https://links.n4n5.dev/">links</a>?</p>
     <br />
     <p>Or, you can read some articles</p>
