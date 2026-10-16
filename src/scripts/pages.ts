@@ -44,6 +44,7 @@ const hiddenRepos = [
     "plugin-astro-content",
     "go-calendar",
     "docx-asn1",
+    "galion",
     // "spust",
     // "sudoku-solver",
     "astro-index",
