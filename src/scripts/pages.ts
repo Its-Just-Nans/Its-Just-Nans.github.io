@@ -38,7 +38,6 @@ export const schoolChecker = ["DUT R&T", "TP"];
 
 const hiddenRepos = [
     "whatisthis",
-    "sms2call",
     "svelte-number-displayer",
     "svg-packages-stats",
     "plugin-astro-content",
@@ -79,6 +78,9 @@ export const filterProjects = (repo: {
         // return false;
     }
     if (hiddenRepos.includes(name)) {
+        if (repo.archivedAt) {
+            console.warn(`Project '${name}' is archived in the git - it can be removed from the manual list`);
+        }
         console.log(`Project is now-archived: '${name}'`);
         repo.archivedAt = "now"; // little hack
     }
