@@ -10,7 +10,7 @@ import subdomains from "@data/subdomains.json";
         <table>
             <tbody>
                 {
-                    subdomains.filter(({hideLinks = false }) => !hideLinks).map(({domain, desc}) => {
+                    subdomains.map(({domain, desc}) => {
                         const url = `https://${domain}`;
                         return (
                             <tr>
