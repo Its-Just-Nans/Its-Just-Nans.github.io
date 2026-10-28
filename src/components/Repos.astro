@@ -32,12 +32,10 @@ const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
 const defaultSelector = "Cool";
 
-console.log(allPackagesName)
 const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject) => {
     const desc = proj.description ?? "";
     const isRepo = proj.url.startsWith("https://github.com");
     const isPackage = allPackagesName.includes(proj.name);
-    console.log(proj.name, isPackage)
     const isBookmarked = desc.startsWith("📍");
     const isIrl = desc.startsWith("🛠️");
     const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
