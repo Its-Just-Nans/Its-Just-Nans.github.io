@@ -8,15 +8,20 @@ import { filterProjects, schoolChecker } from "@scripts/pages";
 const allProjects = output as Array<SingleProject>;
 const allPackages = packages as unknown as Array<SinglePackage>;
 
-const allPackagesName = allPackages
-    .map((onePlateform) =>
-        onePlateform.list.map((onePackage) => {
-            const packageLink = onePlateform.repos?.[onePackage];
-            const repoName = packageLink?.split("/").pop() ?? onePackage;
-            return repoName == "can-be-useful" ? onePackage : repoName;
-        }),
-    )
-    .flat();
+const repoOfManyPackages = ["can-be-useful", "n4n5-utilities"]
+
+const allPackagesName = [
+    "n4n5-utilities",
+    ...allPackages
+        .map((onePlateform) =>
+            onePlateform.list.map((onePackage) => {
+                const packageLink = onePlateform.repos?.[onePackage];
+                const repoName = packageLink?.split("/").pop() ?? onePackage;
+                return repoOfManyPackages.includes(repoName) ? onePackage : repoName;
+            }),
+        )
+        .flat()
+];
 
 const allLogos: Record<string, string> = allPackages.reduce((acc, onePlateform) => {
         return {...acc, ...(onePlateform.logos ?? {})};
@@ -25,12 +30,14 @@ const allLogos: Record<string, string> = allPackages.reduce((acc, onePlateform) 
 const THRESHOLD = 5;
 const DEFAULT_COLOR = "#000000";
 const packageTag = "Packages";
-const defaultSelector = "All";
+const defaultSelector = "Cool";
 
+console.log(allPackagesName)
 const typedOutput = allProjects.filter(filterProjects).map((proj: SingleProject) => {
     const desc = proj.description ?? "";
     const isRepo = proj.url.startsWith("https://github.com");
     const isPackage = allPackagesName.includes(proj.name);
+    console.log(proj.name, isPackage)
     const isBookmarked = desc.startsWith("📍");
     const isIrl = desc.startsWith("🛠️");
     const isSchool = schoolChecker.some((oneCheck) => desc.startsWith(oneCheck));
@@ -116,7 +123,7 @@ const rawStylesCSS =
         }`;
         })
 .join("\n") +
-        `#selector-all:checked ~ .selector-archived {
+        `#selector-${defaultSelector.toLowerCase()}:checked ~ .selector-archived {
     display: none;
 }`;
 ---
@@ -184,7 +191,7 @@ const rawStylesCSS =
                         {
                             [`selector-${lang.toLocaleLowerCase()}`]: langName !== "",
                             ["selector-poc"]: isPoc,
-                            ["selector-all"]: true,
+                            [`selector-${defaultSelector.toLowerCase()}`]: true,
                             ["selector-school"]: isSchool,
                             [`selector-${packageTag.toLocaleLowerCase()}`]: isPackage,
                             ["selector-bookmark"]: isBookmarked,
