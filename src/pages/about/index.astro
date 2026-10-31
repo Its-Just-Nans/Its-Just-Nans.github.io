@@ -1,6 +1,5 @@
 ---
 import Base from "@layouts/Base.astro";
-import LanguagesList from "@components/LanguagesList/LanguagesList.astro";
 import MadeWith from "@components/MadeWith/MadeWith.astro";
 import Pseudonyms from "@components/Pseudonyms.astro";
 import { githubStats, packageLink, pseudo } from "@scripts/pages";
@@ -15,7 +14,6 @@ import { Image } from "astro:assets";
         </div>
         <h2>Pseudonyms</h2>
         <Pseudonyms />
-        <LanguagesList />
         <h2>Packages</h2>
         <a class="link" href={packageLink}>{packageLink}</a>
         <h2>
